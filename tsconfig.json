@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // Нужно указывать тип в функциях
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    // Позволяет работать не только с ts
+    "allowJs": true,
+    // Какие impot'ы будут
+    "moduleResolution": "node",
+    // Позвволяет работать с пакетами как с обычными через import (не require)
+    "esModuleInterop": true,
+    // Позволяет использовать import'ы без  * as
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}

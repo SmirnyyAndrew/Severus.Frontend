@@ -13,7 +13,9 @@
     // Позвволяет работать с пакетами как с обычными через import (не require)
     "esModuleInterop": true,
     // Позволяет использовать import'ы без  * as
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    //Для абсолютного импорта
+    "baseUrl": "."
   },
   "ts-node": {
     "compilerOptions": {

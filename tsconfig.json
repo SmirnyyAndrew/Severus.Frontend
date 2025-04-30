@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     // Нужно указывать тип в функциях
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
     // Позволяет работать не только с ts

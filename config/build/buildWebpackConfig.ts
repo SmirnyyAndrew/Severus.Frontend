@@ -30,7 +30,7 @@ export function buildWebpackConfig(
 
     module: {
       //Конфигурариуем лоадеры для обработки данных, которые выходят за рамки js - png, css, ts и тд
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     //Указываем, что данные расширения не нужно указывать при import'e
     resolve: buildResolvers(),

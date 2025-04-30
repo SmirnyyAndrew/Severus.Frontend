@@ -5,9 +5,11 @@
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     // Позволяет работать не только с ts
     "allowJs": true,
+    //Строгая проверка регистра
+    "forceConsistentCasingInFileNames": true,
     // Какие impot'ы будут
     "moduleResolution": "node",
     // Позвволяет работать с пакетами как с обычными через import (не require)

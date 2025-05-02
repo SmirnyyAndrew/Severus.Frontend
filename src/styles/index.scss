@@ -1,0 +1,19 @@
+@import "variables/global";
+@import "themes/dark";
+@import "themes/light";
+@import "reset";
+
+.app {
+  font: var(--font-m);
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // по вертикали
+  align-items: center; // по горизонтали
+  gap: 50px;
+}

@@ -17,7 +17,11 @@
     // Позволяет использовать import'ы без  * as
     "allowSyntheticDefaultImports": true,
     //Для абсолютного импорта
-    "baseUrl": "."
+    "baseUrl": ".",
+    //Теперь все import'ы будут идти из папки src
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {

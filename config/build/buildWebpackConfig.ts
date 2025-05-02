@@ -33,7 +33,7 @@ export function buildWebpackConfig(
       rules: buildLoaders(options),
     },
     //Указываем, что данные расширения не нужно указывать при import'e
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     devtool: isDev ? "inline-source-map" : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };

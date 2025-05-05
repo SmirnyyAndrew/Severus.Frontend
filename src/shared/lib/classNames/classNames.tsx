@@ -15,7 +15,7 @@ export function classNames(
     //Скопировать коллекцию
     ...additional.filter(Boolean),
     //Что-то типо foreach
-    Object.entries(mods)
+    ...Object.entries(mods)
       .filter(([cls, value]) => Boolean(value))
       .map(([cls, value]) => cls),
   ].join(" ");

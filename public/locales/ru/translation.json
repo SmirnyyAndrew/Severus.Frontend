@@ -1,6 +1,7 @@
 {
-  "test": "It's english",
-  "translate": "Translate",
-  "nav_main_page": "Main page",
-  "nav_about_page": "About us"
+  "test": "Это русский",
+  "translate": "Перевести",
+  "nav_main_page": "Главная страница",
+  "nav_about_page": "О нас",
+  "page_not_found": "Страница не найдена"
 }

@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from "path";
+
 export default {
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
@@ -16,11 +18,24 @@ export default {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ["node_modules"],
 
+  //Для абсолютных импортов
+  modulePaths: ["<rootDir>src"],
+
   // An array of file extensions your modules use
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../../",
+
+  //Для добавления screen.InTheDocument
+  setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.js"],
+
+  //Добавить работу с scss
+  moduleNameMapper: {
+    "\\.s?css$": "identity-obj-proxy",
+    //Мок для импортов svg
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+  },
 
   //Было расскоментировано
   // The glob patterns Jest uses to detect test files

@@ -1,8 +1,12 @@
 {
   "about_page": "about_page",
+  "bug_button": "bug_button",
   "main_page": "main_page",
   "nav_about_page": "nav_about_page",
   "nav_main_page": "nav_main_page",
+  "page_error": "page_error",
   "page_not_found": "page_not_found",
-  "translate": "translate"
+  "translate": "translate",
+  "update_page": "update_page",
+  "upload_page": "upload_page"
 }

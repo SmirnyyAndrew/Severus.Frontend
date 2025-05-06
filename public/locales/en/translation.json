@@ -3,5 +3,9 @@
   "translate": "Translate",
   "nav_main_page": "Main page",
   "nav_about_page": "About us",
-  "page_not_found": "Page not found"
+  "page_not_found": "Page not found",
+  "page_error": "Something went wrong",
+  "upload_page": "Upload page",
+  "update_page": "Update the page",
+  "bug_button": "Throw error"
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button";
+import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 
 interface BugButtonProps {
   className?: string;
@@ -20,7 +21,13 @@ export const BugButton = ({ className }: BugButtonProps) => {
 
   return (
     <div>
-      <Button onClick={toggleButton}>{t("bug_button")}</Button>
+      <Button
+        buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
+        size={ButtonSize.M}
+        onClick={toggleButton}
+      >
+        {t("bug_button")}
+      </Button>
     </div>
   );
 };

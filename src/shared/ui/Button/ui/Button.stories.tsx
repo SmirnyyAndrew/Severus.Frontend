@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { Button, ButtonTheme } from "./Button";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
   title: "Shared/Button",
@@ -51,6 +51,56 @@ export const OutlineDark: Story = {
   args: {
     children: "Text",
     buttonTheme: ButtonTheme.OUTLINE,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Background: Story = {
+  args: {
+    children: "Text",
+    buttonTheme: ButtonTheme.BACKGROUND,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const BackgroundInverted: Story = {
+  args: {
+    children: "Text",
+    buttonTheme: ButtonTheme.BACKGROUND_INVERTED,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Square: Story = {
+  args: {
+    children: ">",
+    square: true,
+    size: ButtonSize.XL,
+    buttonTheme: ButtonTheme.BACKGROUND_INVERTED,
+  },
+  argTypes: {
+    size: {
+      control: { type: "radio" },
+      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
+    },
+    buttonTheme: {
+      control: { type: "radio" },
+      options: [
+        ButtonTheme.CLEAR,
+        ButtonTheme.OUTLINE,
+        ButtonTheme.BACKGROUND,
+        ButtonTheme.BACKGROUND_INVERTED,
+      ],
+    },
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const TestSize: Story = {
+  args: {
+    children: "Text",
+    buttonTheme: ButtonTheme.OUTLINE,
+    size: ButtonSize.L,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

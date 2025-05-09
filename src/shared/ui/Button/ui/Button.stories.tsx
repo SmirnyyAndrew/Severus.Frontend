@@ -12,95 +12,57 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
-  args: {
-    children: "Text",
-  },
-};
-
-export const PrimaryDark: Story = {
-  args: {
-    children: "Text",
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const Clear: Story = {
-  args: {
-    children: "Text",
-    buttonTheme: ButtonTheme.CLEAR,
-  },
-};
-
-export const ClearDark: Story = {
-  args: {
-    children: "Text",
-    buttonTheme: ButtonTheme.CLEAR,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const Outline: Story = {
-  args: {
-    children: "Text",
-    buttonTheme: ButtonTheme.OUTLINE,
-  },
-};
-
-export const OutlineDark: Story = {
-  args: {
-    children: "Text",
-    buttonTheme: ButtonTheme.OUTLINE,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const Background: Story = {
+export const Light: Story = {
   args: {
     children: "Text",
     buttonTheme: ButtonTheme.BACKGROUND,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const BackgroundInverted: Story = {
-  args: {
-    children: "Text",
-    buttonTheme: ButtonTheme.BACKGROUND_INVERTED,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const Square: Story = {
-  args: {
-    children: ">",
     square: true,
-    size: ButtonSize.XL,
-    buttonTheme: ButtonTheme.BACKGROUND_INVERTED,
+    size: ButtonSize.L,
   },
   argTypes: {
-    size: {
-      control: { type: "radio" },
-      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
-    },
     buttonTheme: {
-      control: { type: "radio" },
+      control: "radio",
       options: [
-        ButtonTheme.CLEAR,
-        ButtonTheme.OUTLINE,
         ButtonTheme.BACKGROUND,
         ButtonTheme.BACKGROUND_INVERTED,
+        ButtonTheme.CLEAR,
+        ButtonTheme.OUTLINE,
       ],
     },
+    square: {
+      control: "boolean",
+    },
+    size: {
+      control: "radio",
+      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
+    },
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const TestSize: Story = {
+export const Dark: Story = {
   args: {
     children: "Text",
-    buttonTheme: ButtonTheme.OUTLINE,
+    buttonTheme: ButtonTheme.BACKGROUND,
+    square: true,
     size: ButtonSize.L,
+  },
+  argTypes: {
+    buttonTheme: {
+      control: "radio",
+      options: [
+        ButtonTheme.BACKGROUND,
+        ButtonTheme.BACKGROUND_INVERTED,
+        ButtonTheme.CLEAR,
+        ButtonTheme.OUTLINE,
+      ],
+    },
+    square: {
+      control: "boolean",
+    },
+    size: {
+      control: "radio",
+      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
+    },
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

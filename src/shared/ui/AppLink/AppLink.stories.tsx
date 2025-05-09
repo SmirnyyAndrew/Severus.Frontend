@@ -6,23 +6,35 @@ import { AppLink, AppLinkTheme } from "./AppLink";
 const meta: Meta<typeof AppLink> = {
   title: "Shared/AppLink",
   component: AppLink,
-  args: {
-    to: "/",
-  },
+  args: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof AppLink>;
 
-export const Primary: Story = {
+export const Light: Story = {
   args: {
     linkTheme: AppLinkTheme.PRIMARY,
+    children: "Text",
+  },
+  argTypes: {
+    linkTheme: {
+      control: "radio",
+      options: [AppLinkTheme.PRIMARY, AppLinkTheme.SECONDARY],
+    },
   },
 };
 
-export const Secondary: Story = {
+export const Dark: Story = {
   args: {
-    linkTheme: AppLinkTheme.SECONDARY,
+    linkTheme: AppLinkTheme.PRIMARY,
+    children: "Text",
+  },
+  argTypes: {
+    linkTheme: {
+      control: "radio",
+      options: [AppLinkTheme.PRIMARY, AppLinkTheme.SECONDARY],
+    },
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

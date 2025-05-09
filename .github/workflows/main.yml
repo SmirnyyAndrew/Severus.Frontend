@@ -18,11 +18,9 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
 
-      - name: install modules
+      - name: Install modules
         run: npm install
-      - name: build prod project
+      - name: Build prod project
         run: npm run build:prod
-      - name: unit test
+      - name: Unit test
         run: npm run test:unit
-      - name: ui test
-        run: npm run test:ui

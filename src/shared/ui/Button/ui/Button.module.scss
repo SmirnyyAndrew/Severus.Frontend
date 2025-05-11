@@ -16,6 +16,12 @@
   background: none;
 }
 
+.outline_inverted {
+  border: var(--primary-inverted-color) solid 1px;
+  color: var(--primary-inverted-color);
+  background: none;
+}
+
 .background {
   background: var(--bg-color);
   color: var(--primary-color);

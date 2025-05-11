@@ -9,5 +9,6 @@
   "update_page": "Update the page",
   "bug_button": "Throw error",
   "translate_btn": "Translate",
-  "short_translate_btn": "En"
+  "short_translate_btn": "En",
+  "login": "Login"
 }

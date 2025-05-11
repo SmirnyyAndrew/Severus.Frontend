@@ -7,5 +7,6 @@
   "page_error": "Что-то пошло не так",
   "update_page": "Обновить страницу",
   "bug_button": "Выкинуть ошибку",
-  "short_translate_btn": "Ru"
+  "short_translate_btn": "Ru",
+  "login": "Войти"
 }

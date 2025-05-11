@@ -7,6 +7,25 @@ import { Button, ButtonSize, ButtonTheme } from "./Button";
 const meta: Meta<typeof Button> = {
   title: "Shared/Button",
   component: Button,
+  argTypes: {
+    buttonTheme: {
+      control: "radio",
+      options: [
+        ButtonTheme.BACKGROUND,
+        ButtonTheme.BACKGROUND_INVERTED,
+        ButtonTheme.CLEAR,
+        ButtonTheme.OUTLINE,
+        ButtonTheme.OUTLINE_INVERTED,
+      ],
+    },
+    square: {
+      control: "boolean",
+    },
+    size: {
+      control: "radio",
+      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
+    },
+  },
 };
 
 export default meta;
@@ -16,26 +35,8 @@ export const Light: Story = {
   args: {
     children: "Text",
     buttonTheme: ButtonTheme.BACKGROUND,
-    square: true,
+    square: false,
     size: ButtonSize.L,
-  },
-  argTypes: {
-    buttonTheme: {
-      control: "radio",
-      options: [
-        ButtonTheme.BACKGROUND,
-        ButtonTheme.BACKGROUND_INVERTED,
-        ButtonTheme.CLEAR,
-        ButtonTheme.OUTLINE,
-      ],
-    },
-    square: {
-      control: "boolean",
-    },
-    size: {
-      control: "radio",
-      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
-    },
   },
 };
 
@@ -43,26 +44,8 @@ export const Dark: Story = {
   args: {
     children: "Text",
     buttonTheme: ButtonTheme.BACKGROUND,
-    square: true,
+    square: false,
     size: ButtonSize.L,
-  },
-  argTypes: {
-    buttonTheme: {
-      control: "radio",
-      options: [
-        ButtonTheme.BACKGROUND,
-        ButtonTheme.BACKGROUND_INVERTED,
-        ButtonTheme.CLEAR,
-        ButtonTheme.OUTLINE,
-      ],
-    },
-    square: {
-      control: "boolean",
-    },
-    size: {
-      control: "radio",
-      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
-    },
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

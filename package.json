@@ -18,7 +18,8 @@
     "test:ui:openReport": "node scripts/open-html-loki-report.mjs",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html && npm run test:ui:openReport",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "server:db": "npx json-server --watch ./json-server/db.json --port 4444"
   },
   "keywords": [],
   "author": "",
@@ -79,6 +80,7 @@
     "i18next": "^21.6.11",
     "i18next-browser-languagedetector": "^6.1.3",
     "i18next-http-backend": "^1.3.2",
+    "json-server": "^1.0.0-beta.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",

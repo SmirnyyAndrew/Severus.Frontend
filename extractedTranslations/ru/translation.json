@@ -1,6 +1,8 @@
 {
   "about_page": "about_page",
   "bug_button": "bug_button",
+  "enter_password": "enter_password",
+  "enter_username": "enter_username",
   "login": "login",
   "main_page": "main_page",
   "nav_about_page": "nav_about_page",

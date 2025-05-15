@@ -10,5 +10,7 @@
   "bug_button": "Throw error",
   "translate_btn": "Translate",
   "short_translate_btn": "En",
-  "login": "Login"
+  "login": "Login",
+  "enter_password": "Enter password",
+  "enter_username": "Enter username"
 }

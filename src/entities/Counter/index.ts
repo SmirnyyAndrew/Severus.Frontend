@@ -1,4 +1,4 @@
-import { useCounter } from "./model/hook/useCounter";
+import { useCounter } from "./model/hooks/useCounter";
 import { getCounter } from "./model/selectors/getCounter/getCounter";
 import { getCounterValue } from "./model/selectors/getCounterValue/getCounterValue";
 import {

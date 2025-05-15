@@ -8,5 +8,7 @@
   "update_page": "Обновить страницу",
   "bug_button": "Выкинуть ошибку",
   "short_translate_btn": "Ru",
-  "login": "Войти"
+  "login": "Войти",
+  "enter_password": "Введите пароль",
+  "enter_username": "Введите логин"
 }

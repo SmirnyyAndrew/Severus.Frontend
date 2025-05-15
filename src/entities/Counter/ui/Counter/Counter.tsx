@@ -1,4 +1,4 @@
-import { useCounter } from "entities/Counter/model/hook/useCounter";
+import { useCounter } from "entities/Counter/model/hooks/useCounter";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import cls from "./Counter.module.scss";

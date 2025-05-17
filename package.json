@@ -19,9 +19,11 @@
     "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:openReport": "node scripts/open-html-loki-report.mjs",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html && npm run test:ui:openReport",
+    "test:ci": "husky",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "server:db": "npx json-server --watch ./json-server/db.json --port 28532"
+    "server:db": "npx json-server --watch ./json-server/db.json --port 28532",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -58,6 +60,7 @@
     "css-loader": "^6.6.0",
     "eslint-plugin-i18next": "^5.1.2",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^9.1.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "json-server": "^0.17.0",

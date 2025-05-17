@@ -12,5 +12,6 @@
   "short_translate_btn": "En",
   "login": "Login",
   "enter_password": "Enter password",
-  "enter_username": "Enter username"
+  "enter_username": "Enter username",
+  "show_password": "Show password"
 }

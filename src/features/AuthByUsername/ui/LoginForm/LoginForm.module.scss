@@ -1,7 +1,9 @@
 .LoginForm {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
+  min-width: 400px;
+  user-select: none;
 }
 
 .input {
@@ -11,4 +13,11 @@
 .loginBtn {
   margin-top: 10px;
   margin-left: auto;
+}
+
+.showPassword {
+  margin-top: 15px;
+  gap: 5px;
+  display: flex;
+  direction: rtl;
 }

@@ -10,5 +10,6 @@
   "short_translate_btn": "Ru",
   "login": "Войти",
   "enter_password": "Введите пароль",
-  "enter_username": "Введите логин"
+  "enter_username": "Введите логин",
+  "show_password": "Показать пароль"
 }

@@ -13,5 +13,7 @@
   "login": "Login",
   "enter_password": "Enter password",
   "enter_username": "Enter username",
-  "show_password": "Show password"
+  "show_password": "Show password",
+  "logout": "Log out",
+  "check_auth_data": "Check auth data"
 }

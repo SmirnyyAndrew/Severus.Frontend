@@ -11,5 +11,7 @@
   "login": "Войти",
   "enter_password": "Введите пароль",
   "enter_username": "Введите логин",
-  "show_password": "Показать пароль"
+  "show_password": "Показать пароль",
+  "logout": "Выйти",
+  "check_auth_data": "Проверьте введенные данные"
 }

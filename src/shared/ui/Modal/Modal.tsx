@@ -44,7 +44,7 @@ export const Modal = (props: ModalProps) => {
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key == "Escape") {
+      if (e.key === "Escape") {
         closeHandler();
       }
     },

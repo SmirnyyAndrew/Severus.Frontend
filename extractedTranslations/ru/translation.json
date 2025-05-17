@@ -1,9 +1,11 @@
 {
   "about_page": "about_page",
   "bug_button": "bug_button",
+  "check_auth_data": "check_auth_data",
   "enter_password": "enter_password",
   "enter_username": "enter_username",
   "login": "login",
+  "logout": "logout",
   "main_page": "main_page",
   "nav_about_page": "nav_about_page",
   "nav_main_page": "nav_main_page",

@@ -25,6 +25,9 @@ const meta: Meta<typeof Button> = {
       control: "radio",
       options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
     },
+    disabled: {
+      control: "boolean",
+    },
   },
 };
 
@@ -37,6 +40,7 @@ export const Light: Story = {
     buttonTheme: ButtonTheme.BACKGROUND,
     square: false,
     size: ButtonSize.L,
+    disabled: false,
   },
 };
 
@@ -46,6 +50,7 @@ export const Dark: Story = {
     buttonTheme: ButtonTheme.BACKGROUND,
     square: false,
     size: ButtonSize.L,
+    disabled: false,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

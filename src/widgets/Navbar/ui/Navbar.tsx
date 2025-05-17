@@ -1,3 +1,4 @@
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthByUsername";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -11,7 +12,9 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({}: NavbarProps) => {
+export const Navbar = ({ className }: NavbarProps) => {
+  const { authData, logout } = useUserAuth();
+
   const { t } = useTranslation();
   const [isShownAuthModal, setIsShownAuthModal] = useState(false);
 
@@ -19,9 +22,36 @@ export const Navbar = ({}: NavbarProps) => {
     setIsShownAuthModal(false);
   }, []);
 
-  const onToogleButton = useCallback(() => {
-    setIsShownAuthModal((prev) => !prev);
+  const onShowModal = useCallback(() => {
+    setIsShownAuthModal(true);
   }, []);
+
+  const onLogout = () => {
+    logout();
+    setIsShownAuthModal(false);
+  };
+
+  if (authData) {
+    return (
+      <div className={classNames(cls.navbar)}>
+        <div className={cls.links}>
+          <AppLink to={"/"} linkTheme={AppLinkTheme.PRIMARY}>
+            {t("nav_main_page")}
+          </AppLink>
+          <AppLink to={"/about"} linkTheme={AppLinkTheme.PRIMARY}>
+            {t("nav_about_page")}
+          </AppLink>
+        </div>
+        <Button
+          className={cls.login}
+          onClick={onLogout}
+          buttonTheme={ButtonTheme.OUTLINE_INVERTED}
+        >
+          {t("logout")}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.navbar)}>
@@ -36,12 +66,11 @@ export const Navbar = ({}: NavbarProps) => {
 
       <Button
         className={cls.login}
-        onClick={onToogleButton}
+        onClick={onShowModal}
         buttonTheme={ButtonTheme.OUTLINE_INVERTED}
       >
         {t("login")}
       </Button>
-
       <LoginModal isOpen={isShownAuthModal} onClose={onCloseModal} />
     </div>
   );

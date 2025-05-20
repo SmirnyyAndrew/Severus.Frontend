@@ -1,27 +1,28 @@
 import { useLogin } from "features/AuthByUsername/model/hooks/useLogin";
+import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { HTMLInputTypeAttribute, memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
 import { Text, TextThemes } from "shared/ui/Text/Text";
 import cls from "./LoginForm.module.scss";
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
-  const { t } = useTranslation();
-  const [isShowPassword, setIsShowPassword] = useState(true);
-  const [passwordType, setPasswordType] =
-    useState<HTMLInputTypeAttribute>("text");
+const initialReducers: ReducersList = {
+  login: loginReducer,
+};
 
-  const onToggleShowPassword = () => {
-    setPasswordType(passwordType === "text" ? "password" : "text");
-    setIsShowPassword((prev) => !prev);
-  };
+const LoginForm = memo(({ className }: LoginFormProps) => {
+  const { t } = useTranslation();
 
   const {
     username,
@@ -33,9 +34,14 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     loginByUsername,
   } = useLogin();
 
-  // const onToggleLoginButton = () => {
-  //   loginByUsername();
-  // };
+  const [isShowPassword, setIsShowPassword] = useState(true);
+  const [passwordType, setPasswordType] =
+    useState<HTMLInputTypeAttribute>("text");
+
+  const onToggleShowPassword = () => {
+    setPasswordType(passwordType === "text" ? "password" : "text");
+    setIsShowPassword((prev) => !prev);
+  };
 
   const onChangeUsername = (username: string) => {
     setUsername(username);
@@ -45,44 +51,48 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   };
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
-      {error && (
-        <Text isCenter textTheme={TextThemes.ERROR}>
-          {t("check_auth_data")}
-        </Text>
-      )}
-      <Input
-        autofocus
-        placeholder={t("enter_username")}
-        value={username}
-        onChange={onChangeUsername}
-        type="text"
-        className={cls.input}
-      />
-      <Input
-        placeholder={t("enter_password")}
-        value={password}
-        onChange={onChangePassword}
-        type={passwordType}
-        className={cls.input}
-      />
-      <label className={cls.showPassword}>
-        {t("show_password")}
-        <input
-          type="checkbox"
-          id="is_show_password"
-          checked={isShowPassword}
-          onChange={onToggleShowPassword}
+    <DynamicModuleLoader reducers={initialReducers}>
+      <div className={classNames(cls.LoginForm, {}, [className])}>
+        {error && (
+          <Text isCenter textTheme={TextThemes.ERROR}>
+            {t("check_auth_data")}
+          </Text>
+        )}
+        <Input
+          autofocus
+          placeholder={t("enter_username")}
+          value={username}
+          onChange={onChangeUsername}
+          type="text"
+          className={cls.input}
         />
-      </label>
-      <Button
-        buttonTheme={ButtonTheme.OUTLINE}
-        onClick={loginByUsername}
-        className={cls.loginBtn}
-        disabled={isLoading}
-      >
-        {t("login")}
-      </Button>
-    </div>
+        <Input
+          placeholder={t("enter_password")}
+          value={password}
+          onChange={onChangePassword}
+          type={passwordType}
+          className={cls.input}
+        />
+        <label className={cls.showPassword}>
+          {t("show_password")}
+          <input
+            type="checkbox"
+            id="is_show_password"
+            checked={isShowPassword}
+            onChange={onToggleShowPassword}
+          />
+        </label>
+        <Button
+          buttonTheme={ButtonTheme.OUTLINE}
+          onClick={loginByUsername}
+          className={cls.loginBtn}
+          disabled={isLoading}
+        >
+          {t("login")}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 });
+
+export default LoginForm;

@@ -1,22 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { LoginModal } from "features/AuthByUsername";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
+import LoginForm from "./LoginForm";
 
-const meta: Meta<typeof LoginModal> = {
-  title: "Features/AuthByUsername/LoginModal",
-  component: LoginModal,
-  args: {
-    isOpen: true,
-  },
+const meta: Meta<typeof LoginForm> = {
+  title: "Features/AuthByUsername/LoginForm",
+  component: LoginForm,
+  args: {},
+  argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof LoginModal>;
+type Story = StoryObj<typeof Text>;
 
-export const Light: Story = {};
+export const Light: Story = {
+  args: {},
+};
 
 export const Dark: Story = {
+  args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };

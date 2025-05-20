@@ -1,8 +1,14 @@
-import type { Decorator } from "@storybook/react";
-import { StoreProvider } from "app/providers/StoreProvider";
+import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
+import { StoryFn } from "@storybook/react/*";
+import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
+import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 
-export const ReduxDecorator: Decorator = (Story) => (
-  <StoreProvider>
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+  login: loginReducer,
+};
+
+export const ReduxDecorator = (Story: StoryFn) => (
+  <StoreProvider asyncReducers={defaultAsyncReducers}>
     <Story />
   </StoreProvider>
 );

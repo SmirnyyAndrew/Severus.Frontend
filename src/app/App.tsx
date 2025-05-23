@@ -3,6 +3,7 @@ import { Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "shared/config/i18n/i18n";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Loader } from "shared/ui/Loader/Loader";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { AppRouter } from "./providers/router";
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <Suspense fallback="">
+      <Suspense fallback={<Loader />}>
         <Navbar />
         <div className="content-page">
           <Sidebar />

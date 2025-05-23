@@ -1,3 +1,4 @@
+import { ThunkExtraArgs } from "app/providers/StoreProvider/config/StateSchema";
 import { useLogin } from "./model/hooks/useLogin";
 import { getLoginState } from "./model/selectors/getLoginState/getLoginState";
 import { loginActions, loginSlice } from "./model/slice/loginSlice";
@@ -13,6 +14,7 @@ export {
   LoginModal,
   LoginSchema,
   loginSlice,
+  ThunkExtraArgs,
   useLogin,
 };
 

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Text.module.scss";
 
@@ -15,7 +15,7 @@ interface TextProps {
   isCenter?: boolean;
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
   const { className, textTheme, children, isCenter } = props;
 
   return (
@@ -28,4 +28,4 @@ export const Text = (props: TextProps) => {
       {children}
     </p>
   );
-};
+});

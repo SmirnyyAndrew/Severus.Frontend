@@ -1,6 +1,7 @@
+import { profileReducer } from "entities/Profile";
 import { useLogin } from "features/AuthByUsername/model/hooks/useLogin";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
-import { HTMLInputTypeAttribute, memo, useState } from "react";
+import { HTMLInputTypeAttribute, memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
@@ -15,13 +16,15 @@ import cls from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   login: loginReducer,
+  profile: profileReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -43,12 +46,19 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     setIsShowPassword((prev) => !prev);
   };
 
-  const onChangeUsername = (username: string) => {
+  const onChangeUsername = useCallback((username: string) => {
     setUsername(username);
-  };
-  const onChangePassword = (password: string) => {
+  }, []);
+
+  const onChangePassword = useCallback((password: string) => {
     setPassword(password);
-  };
+  }, []);
+
+  const onLoginClick = useCallback(async () => {
+    const result = await loginByUsername();
+
+    if (result.meta.requestStatus === "fulfilled") onSuccess();
+  }, [password, username]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
@@ -84,7 +94,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         </label>
         <Button
           buttonTheme={ButtonTheme.OUTLINE}
-          onClick={loginByUsername}
+          onClick={onLoginClick}
           className={cls.loginBtn}
           disabled={isLoading}
         >

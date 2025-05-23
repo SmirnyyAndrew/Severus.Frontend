@@ -10,9 +10,10 @@ export {
   getLoginState,
   loginActions,
   loginByUsernameThunk,
-  LoginFormAsync,
   LoginModal,
   LoginSchema,
   loginSlice,
   useLogin,
 };
+
+export { LoginFormAsync as LoginForm };

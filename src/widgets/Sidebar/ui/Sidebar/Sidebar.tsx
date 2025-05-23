@@ -1,14 +1,11 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import AboutIcon from "shared/assets/icons/menu/about_page.svg";
-import MainIcon from "shared/assets/icons/menu/main_page.svg";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { useMemo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { SidebarItemList } from "../Module/SidebarItemList";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 import cls from "./Sidebar.module.scss";
 
 interface SidebarProps {
@@ -21,7 +18,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
     setHidden((hidden) => !hidden);
   };
 
-  const { t } = useTranslation();
+  const itemsList = useMemo(
+    () =>
+      SidebarItemList.map((item) => (
+        <SidebarItem item={item} hidden={hidden} key={item.path} />
+      )),
+    [hidden]
+  );
 
   return (
     <div
@@ -38,24 +41,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
       >
         {hidden ? ">" : "<"}
       </Button>
-      <div className={cls.items}>
-        <AppLink
-          className={cls.item}
-          to={RoutePath.main}
-          linkTheme={AppLinkTheme.PRIMARY}
-        >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t("nav_main_page")}</span>
-        </AppLink>
-        <AppLink
-          className={cls.item}
-          to={RoutePath.about}
-          linkTheme={AppLinkTheme.PRIMARY}
-        >
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t("nav_about_page")}</span>
-        </AppLink>
-      </div>
+
+      <div className={cls.items}>{itemsList}</div>
+
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={!hidden} className={cls.lang} />

@@ -13,5 +13,6 @@
   "enter_username": "Введите логин",
   "show_password": "Показать пароль",
   "logout": "Выйти",
-  "check_auth_data": "Проверьте введенные данные"
+  "check_auth_data": "Проверьте введенные данные",
+  "nav_profile_page": "Мой профиль"
 }

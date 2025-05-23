@@ -1,7 +1,8 @@
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
-import { LoginModal } from "features/AuthByUsername";
-import { useCallback, useState } from "react";
+import { LoginModal } from "features/AuthByUsername/ui/LoginModal/LoginModal";
+import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button";
@@ -12,7 +13,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { authData, logout } = useUserAuth();
 
   const { t } = useTranslation();
@@ -28,18 +29,18 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   const onLogout = () => {
     logout();
-    setIsShownAuthModal(false);
+    onCloseModal();
   };
 
   if (authData) {
     return (
       <div className={classNames(cls.navbar)}>
         <div className={cls.links}>
-          <AppLink to={"/"} linkTheme={AppLinkTheme.PRIMARY}>
+          <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
             {t("nav_main_page")}
           </AppLink>
-          <AppLink to={"/about"} linkTheme={AppLinkTheme.PRIMARY}>
-            {t("nav_about_page")}
+          <AppLink to={RoutePath.profile} linkTheme={AppLinkTheme.PRIMARY}>
+            {t("nav_profile_page")}
           </AppLink>
         </div>
         <Button
@@ -77,4 +78,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     </div>
   );
-};
+});

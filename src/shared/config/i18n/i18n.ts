@@ -11,7 +11,6 @@ i18n
     fallbackLng: "ru",
     load: "languageOnly",
     debug: __IS_DEV__,
-    ns: ["translation", "profile"],
     interpolation: {
       escapeValue: false,
     },

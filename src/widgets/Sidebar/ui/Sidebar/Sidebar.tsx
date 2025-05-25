@@ -46,7 +46,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={!hidden} className={cls.lang} />
+        <LangSwitcher short={!hidden} />
       </div>
     </div>
   );

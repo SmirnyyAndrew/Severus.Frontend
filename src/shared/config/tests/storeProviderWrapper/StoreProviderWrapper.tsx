@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
+import { StoreProvider } from "app/providers/StoreProvider";
+import { MemoryRouter } from "react-router-dom";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 interface StoreProviderWrapperProps {
@@ -13,6 +14,8 @@ export const StoreProviderWrapper = (props: StoreProviderWrapperProps) => {
   });
 
   return ({ children }: { children: React.ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
+    <MemoryRouter>
+      <StoreProvider>{children}</StoreProvider>
+    </MemoryRouter>
   );
 };

@@ -17,12 +17,12 @@ const preview: Preview = {
     },
   },
   decorators: [
-    I18nextDecorator,
     RenderDecorator,
-    StyleDecorator,
-    ThemeDecorator(Theme.LIGHT),
     RouterDecorator,
+    I18nextDecorator,
+    StyleDecorator,
     ReduxDecorator,
+    ThemeDecorator(Theme.LIGHT),
   ],
 };
 

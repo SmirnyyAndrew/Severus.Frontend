@@ -60,10 +60,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
     <div className={classNames(cls.navbar)}>
       <div className={cls.links}>
-        <AppLink to={"/"} linkTheme={AppLinkTheme.PRIMARY}>
+        <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
           {t("nav_main_page")}
         </AppLink>
-        <AppLink to={"/about"} linkTheme={AppLinkTheme.PRIMARY}>
+        <AppLink to={RoutePath.about} linkTheme={AppLinkTheme.PRIMARY}>
           {t("nav_about_page")}
         </AppLink>
       </div>

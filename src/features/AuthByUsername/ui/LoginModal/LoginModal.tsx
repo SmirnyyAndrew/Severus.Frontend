@@ -1,5 +1,7 @@
 import { LoginForm } from "features/AuthByUsername";
 import { memo, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Modal } from "shared/ui/Modal/Modal";
 
@@ -11,11 +13,16 @@ interface LoginModalProps {
 
 export const LoginModal = memo((props: LoginModalProps) => {
   const { isOpen, onClose } = props;
+  const navigate = useNavigate();
 
   return (
     <Modal onClose={onClose} isOpen={isOpen} lazy>
       <Suspense fallback={<Loader />}>
-        <LoginForm onSuccess={() => {}} />
+        <LoginForm
+          onSuccess={() => {
+            navigate(RoutePath.profile);
+          }}
+        />
       </Suspense>
     </Modal>
   );

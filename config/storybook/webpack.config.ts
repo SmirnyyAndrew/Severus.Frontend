@@ -9,7 +9,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(false),
-      __API__: JSON.stringify(""),
+      __API__: JSON.stringify("http://localhost:28532"),
     })
   );
 

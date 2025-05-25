@@ -11,7 +11,7 @@ export const useProfile = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
 
-  const getProfileDataFromDB = useCallback(async () => {
+  const getProfileDataFromDB = useCallback(() => {
     dispatch(getProfileDataThunk());
   }, [dispatch]);
 

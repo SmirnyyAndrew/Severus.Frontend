@@ -1,0 +1,15 @@
+{
+  "profile_card_name": "Имя",
+  "profile_card_username": "Имя пользователя",
+  "profile_card_country": "Страна",
+  "profile_card_gender": "Пол",
+  "profile_card_age": "Возраст",
+
+  "profile": {
+    "profile_card_name": "Имя",
+    "profile_card_username": "Имя пользователя",
+    "profile_card_country": "Страна",
+    "profile_card_gender": "Пол",
+    "profile_card_age": "Возраст"
+  }
+}

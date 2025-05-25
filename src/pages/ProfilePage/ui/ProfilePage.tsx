@@ -6,7 +6,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 const ProfilePage = memo(() => {
-  const { getProfileDataFromDB } = useProfile();
+  const { profileData, isLoading, error, getProfileDataFromDB } = useProfile();
 
   useEffect(() => {
     if (!__IS_STORYBOOK__) getProfileDataFromDB();
@@ -18,7 +18,7 @@ const ProfilePage = memo(() => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <ProfileCard />
+      <ProfileCard profile={profileData} error={error} isLoading={isLoading} />
     </DynamicModuleLoader>
   );
 });

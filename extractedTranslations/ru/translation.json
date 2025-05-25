@@ -12,15 +12,15 @@
   "nav_profile_page": "nav_profile_page",
   "page_error": "page_error",
   "page_not_found": "page_not_found",
+  "profile": {
+    "profile_card_username": "profile_card_username"
+  },
   "profile_card_age": "profile_card_age",
   "profile_card_country": "profile_card_country",
   "profile_card_gender": "profile_card_gender",
-  "profile_card_location": "profile_card_location",
   "profile_card_username": "profile_card_username",
   "short_translate_btn": "short_translate_btn",
   "show_password": "show_password",
-  "translate": "translate",
   "translate_btn": "translate_btn",
-  "update_page": "update_page",
-  "username": "username"
+  "update_page": "update_page"
 }

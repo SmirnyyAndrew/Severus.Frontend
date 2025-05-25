@@ -1,0 +1,15 @@
+{
+  "profile_card_name": "Username",
+  "profile_card_username": "Name",
+  "profile_card_country": "Country",
+  "profile_card_gender": "Gender",
+  "profile_card_age": "Age",
+
+  "profile": {
+    "profile_card_name": "Username",
+    "profile_card_username": "Name",
+    "profile_card_country": "Country",
+    "profile_card_gender": "Gender",
+    "profile_card_age": "Age"
+  }
+}

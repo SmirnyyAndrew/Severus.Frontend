@@ -24,7 +24,12 @@ describe("classNames", () => {
   });
 
   test("With unidefind and null", () => {
-    const className = classNames("param", {}, ["p1", null, undefined, "p2"]);
+    const className = classNames("param", {}, [
+      "p1",
+      undefined,
+      undefined,
+      "p2",
+    ]);
     const expected = "param p1 p2";
     expect(className).toBe(expected);
   });

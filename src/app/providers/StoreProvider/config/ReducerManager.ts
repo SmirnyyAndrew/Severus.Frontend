@@ -1,13 +1,9 @@
-import {
-  AnyAction,
-  combineReducers,
-  Reducer,
-  ReducersMapObject,
-} from "@reduxjs/toolkit";
+import { AnyAction, combineReducers, Reducer } from "@reduxjs/toolkit";
+import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
 
 export function CreateReducerManager(
-  initialReducers: ReducersMapObject<StateSchema>
+  initialReducers: ReducersList
 ): ReducerManager {
   const reducers = { ...initialReducers };
 

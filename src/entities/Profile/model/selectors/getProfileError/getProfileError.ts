@@ -4,5 +4,5 @@ import { getProfile } from "../getProfile/getProfile";
 
 export const getProfileError = createSelector(
   getProfile,
-  (schema: ProfileSchema) => schema.error
+  (schema: ProfileSchema | undefined) => schema?.error
 );

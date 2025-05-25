@@ -4,5 +4,5 @@ import { getProfile } from "../getProfile/getProfile";
 
 export const getProfileIsLoading = createSelector(
   getProfile,
-  (schema: ProfileSchema) => schema.isLoading
+  (schema: ProfileSchema | undefined) => schema?.isLoading ?? undefined
 );

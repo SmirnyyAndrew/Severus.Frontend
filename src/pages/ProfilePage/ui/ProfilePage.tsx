@@ -6,7 +6,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 const ProfilePage = memo(() => {
-  const { profileData, isLoading, error, getProfileDataFromDB } = useProfile();
+  const { getProfileDataFromDB } = useProfile();
 
   useEffect(() => {
     getProfileDataFromDB();

@@ -13,7 +13,10 @@ export const useUserAuth = () => {
 
   const setAuthData = useCallback(() => {
     dispatch(
-      userActions.setAuthData({ id: authData.id, username: authData.username })
+      userActions.setAuthData({
+        id: authData?.id,
+        username: authData?.username,
+      })
     );
   }, [dispatch]);
 

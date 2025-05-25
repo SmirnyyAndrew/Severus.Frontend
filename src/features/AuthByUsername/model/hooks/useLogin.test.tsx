@@ -5,7 +5,7 @@ import { loginReducer } from "../slice/loginSlice";
 import { useLogin } from "./useLogin";
 
 describe("useLogin", () => {
-  let wrapper: (children: ReactNode) => JSX.Element;
+  let wrapper: React.FC<{ children: ReactNode }>;
 
   beforeEach(() => {
     wrapper = StoreProviderWrapper({

@@ -6,7 +6,7 @@ import { SidebarItemType } from "../Module/SidebarItemType";
 import cls from "./SidebarItem.module.scss";
 
 interface SidebarItemProps {
-  item?: SidebarItemType;
+  item: SidebarItemType;
   hidden?: boolean;
 }
 
@@ -18,7 +18,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
   return (
     <AppLink
       className={classNames(cls.item, { [cls.hidden]: hidden })}
-      to={item.path}
+      to={item?.path ?? ""}
       linkTheme={AppLinkTheme.PRIMARY}
     >
       <item.Icon className={cls.icon} />

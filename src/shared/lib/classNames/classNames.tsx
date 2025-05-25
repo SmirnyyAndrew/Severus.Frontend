@@ -3,12 +3,12 @@
 //mods - объект, у которого ключ - название класса, а значение - boolean
 ////Пример: {hovered: true, selectable: true, red: false}
 
-type Mods = Record<string, boolean | string>;
+export type Mods = Record<string, boolean | string | undefined>;
 
 export function classNames(
   cls: string,
   mods: Mods = {},
-  additional: string[] = []
+  additional: Array<string | undefined> = []
 ): string {
   return [
     cls,

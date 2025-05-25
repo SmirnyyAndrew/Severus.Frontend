@@ -8,5 +8,5 @@ const initialLoginState: LoginSchema = {
   username: "",
   password: "",
   isLoading: false,
-  error: null,
+  error: undefined,
 };

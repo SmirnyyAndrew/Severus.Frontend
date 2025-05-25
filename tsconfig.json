@@ -18,6 +18,8 @@
     "allowSyntheticDefaultImports": true,
     //Для абсолютного импорта
     "baseUrl": ".",
+    // strict mode
+    "strict": true,
     //Теперь все import'ы будут идти из папки src
     "paths": {
       "*": ["./src/*"]

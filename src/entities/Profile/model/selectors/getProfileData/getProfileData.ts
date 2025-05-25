@@ -4,5 +4,5 @@ import { getProfile } from "../getProfile/getProfile";
 
 export const getProfileData = createSelector(
   getProfile,
-  (schema: ProfileSchema) => schema.profileData
+  (schema: ProfileSchema | undefined) => schema?.profileData
 );

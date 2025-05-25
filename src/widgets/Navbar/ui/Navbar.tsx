@@ -2,6 +2,7 @@ import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthByUsername/ui/LoginModal/LoginModal";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
@@ -16,11 +17,13 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { authData, logout } = useUserAuth();
 
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [isShownAuthModal, setIsShownAuthModal] = useState(false);
 
   const onCloseModal = useCallback(() => {
     setIsShownAuthModal(false);
+    navigate(RoutePath.main);
   }, []);
 
   const onShowModal = useCallback(() => {

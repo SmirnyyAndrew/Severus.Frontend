@@ -2,19 +2,23 @@ import { getProfileDataThunk } from "features/GetProfileData/model/thunks/getPro
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";
-import { profileActions } from "../slice/profileSlice";
+import { getProfileError } from "../selectors/getProfileError/getProfileError";
+import { getProfileIsLoading } from "../selectors/getProfileIsLoading/getProfileIsLoading";
 
 export const useProfile = () => {
   const dispatch = useDispatch();
   const profileData = useSelector(getProfileData);
-
-  const setProfileData = useCallback(() => {
-    dispatch(profileActions.setProfileData);
-  }, [dispatch]);
+  const isLoading = useSelector(getProfileIsLoading);
+  const error = useSelector(getProfileError);
 
   const getProfileDataFromDB = useCallback(async () => {
-    return await dispatch(getProfileDataThunk());
+    dispatch(getProfileDataThunk());
   }, [dispatch]);
 
-  return { profileData, setProfileData, getProfileDataFromDB };
+  return {
+    profileData,
+    isLoading,
+    error,
+    getProfileDataFromDB,
+  };
 };

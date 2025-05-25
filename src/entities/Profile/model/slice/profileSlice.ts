@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Profile, ProfileSchema } from "entities/Profile";
-import { getProfileDataThunk } from "features/GetProfileData/model/thunks/getProfileDataThunk/getProfileDataThunk";
+import { getProfileDataThunk } from "features/GetProfileData";
 
 const initialState: ProfileSchema = {
   profileData: undefined,
@@ -25,6 +25,7 @@ export const profileSlice = createSlice({
       .addCase(getProfileDataThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = undefined;
+        state.profileData = action.payload;
       })
       .addCase(getProfileDataThunk.rejected, (state, action) => {
         state.isLoading = false;

@@ -16,6 +16,9 @@ export default (env: BuildEnv) => {
   const isDev = env.mode === "development";
   const apiUrl = env.apiUrl || "http://localhost:28532";
 
+  logEnvValues(env);
+  logCurrentValues(PORT, mode, apiUrl);
+
   // Указали webpack.Configuration для intellisense
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
@@ -26,4 +29,22 @@ export default (env: BuildEnv) => {
   });
 
   return config;
+};
+
+const logEnvValues = (env: BuildEnv) => {
+  console.log("===========> env:start <=========");
+  console.log("api url: " + env.apiUrl);
+  console.log("port: " + env.port);
+  console.log("mode: " + env.mode);
+  console.log("===========> env:end <=========");
+  console.log("");
+};
+
+const logCurrentValues = (port: number, mode: string, apiUrl: string) => {
+  console.log("===========> current:start <=========");
+  console.log("api url: " + apiUrl);
+  console.log("port: " + port);
+  console.log("mode: " + mode);
+  console.log("===========> current:end <=========");
+  console.log("");
 };

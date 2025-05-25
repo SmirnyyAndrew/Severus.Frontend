@@ -1,14 +1,12 @@
 {
   "users": [{ "id": "1", "username": "admin", "password": "123" }],
-  "profile": [
-    {
-      "id": "1",
-      "username": "admin",
-      "name": "Kirill",
-      "location": "Russion",
-      "age": "25",
-      "gender": "male",
-      "avatar": "https://www.vecteezy.com/vector-art/21956651-avatar-profile-icon-social-media-user-vector-man-icon-people-sign"
-    }
-  ]
+  "profile": {
+    "id": "1",
+    "username": "admin",
+    "name": "Kirill",
+    "location": "Russion",
+    "age": "25",
+    "gender": "male",
+    "avatar": "https://www.vecteezy.com/vector-art/21956651-avatar-profile-icon-social-media-user-vector-man-icon-people-sign"
+  }
 }

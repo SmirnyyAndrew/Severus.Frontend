@@ -14,5 +14,12 @@
   "show_password": "Показать пароль",
   "logout": "Выйти",
   "check_auth_data": "Проверьте введенные данные",
-  "nav_profile_page": "Мой профиль"
+  "nav_profile_page": "Мой профиль",
+  "username": "Имя пользователя",
+
+  "profile_card_name": "Имя",
+  "profile_card_username": "Имя пользователя",
+  "profile_card_country": "Страна",
+  "profile_card_gender": "Пол",
+  "profile_card_age": "Возраст"
 }

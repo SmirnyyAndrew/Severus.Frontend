@@ -16,5 +16,11 @@
   "show_password": "Show password",
   "logout": "Log out",
   "check_auth_data": "Check auth data",
-  "nav_profile_page": "My profile"
+  "nav_profile_page": "My profile",
+
+  "profile_card_name": "Username",
+  "profile_card_username": "Name",
+  "profile_card_country": "Country",
+  "profile_card_gender": "Gender",
+  "profile_card_age": "Age"
 }

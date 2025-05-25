@@ -6,6 +6,7 @@ import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
 import { Profile } from "./model/types/Profile";
 import { ProfileSchema } from "./model/types/ProfileSchema";
+import { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 
 export {
   getProfile,
@@ -14,6 +15,7 @@ export {
   getProfileIsLoading,
   Profile,
   profileActions,
+  ProfileCard,
   profileReducer,
   ProfileSchema,
   useProfile,

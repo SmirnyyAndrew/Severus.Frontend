@@ -3,10 +3,10 @@
   "profile": {
     "id": "1",
     "username": "admin",
-    "name": "Kirill",
-    "location": "Russion",
+    "name": "Кирилл",
+    "location": "Россия",
     "age": "25",
-    "gender": "male",
-    "avatar": "https://www.vecteezy.com/vector-art/21956651-avatar-profile-icon-social-media-user-vector-man-icon-people-sign"
+    "gender": "мужской",
+    "avatar": "https://toppng.com/uploads/preview/male-user-filled-icon-man-icon-115533970576b3erfsss1.png"
   }
 }

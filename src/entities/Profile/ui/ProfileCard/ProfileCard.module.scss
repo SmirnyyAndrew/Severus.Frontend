@@ -1,0 +1,48 @@
+.ProfileCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  flex-direction: column;
+}
+
+.card {
+  background-color: var(--card-color);
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-m);
+  color: var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Стиль для аватара */
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.username {
+  color: #888;
+  font-style: italic;
+}
+
+.name,
+.location,
+.age,
+.gender {
+  font-size: var(--font-size-m);
+  margin-bottom: 1px;
+}

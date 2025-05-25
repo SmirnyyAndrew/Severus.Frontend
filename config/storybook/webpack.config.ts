@@ -10,6 +10,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(false),
       __API__: JSON.stringify("http://localhost:28532"),
+      __IS_STORYBOOK__: JSON.stringify(true),
     })
   );
 

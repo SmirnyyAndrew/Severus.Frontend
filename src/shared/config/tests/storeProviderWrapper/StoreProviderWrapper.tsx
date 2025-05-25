@@ -1,10 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { StoreProvider } from "app/providers/StoreProvider";
-import { MemoryRouter } from "react-router-dom";
-import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
+import { StateSchema } from "app/providers/StoreProvider";
+import { Provider } from "react-redux";
 
 interface StoreProviderWrapperProps {
-  reducers: ReducersList;
+  reducers: Partial<ReducersMapObject<StateSchema>>;
 }
 
 export const StoreProviderWrapper = (props: StoreProviderWrapperProps) => {
@@ -14,8 +13,6 @@ export const StoreProviderWrapper = (props: StoreProviderWrapperProps) => {
   });
 
   return ({ children }: { children: React.ReactNode }) => (
-    <MemoryRouter>
-      <StoreProvider>{children}</StoreProvider>
-    </MemoryRouter>
+    <Provider store={store}>{children}</Provider>
   );
 };

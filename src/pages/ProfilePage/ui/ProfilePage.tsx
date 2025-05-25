@@ -9,7 +9,7 @@ const ProfilePage = memo(() => {
   const { getProfileDataFromDB } = useProfile();
 
   useEffect(() => {
-    getProfileDataFromDB();
+    if (!__IS_STORYBOOK__) getProfileDataFromDB();
   }, []);
 
   const reducers: ReducersList = {

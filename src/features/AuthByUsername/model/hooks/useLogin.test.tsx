@@ -1,16 +1,18 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import { ReactNode } from "react";
 import { StoreProviderWrapper } from "shared/config/tests/storeProviderWrapper/StoreProviderWrapper";
+import { WrapperReducerType } from "shared/config/tests/storeProviderWrapper/types/WrapperReducerType";
+import { WrapperType } from "shared/config/tests/storeProviderWrapper/types/WrapperType";
 import { loginReducer } from "../slice/loginSlice";
+import { LoginSchema } from "../types/LoginSchema";
 import { useLogin } from "./useLogin";
 
 describe("useLogin", () => {
-  let wrapper: React.FC<{ children: ReactNode }>;
+  let wrapper: WrapperType;
 
   beforeEach(() => {
     wrapper = StoreProviderWrapper({
       reducers: {
-        login: loginReducer,
+        login: loginReducer as WrapperReducerType<LoginSchema>,
       },
     });
   });

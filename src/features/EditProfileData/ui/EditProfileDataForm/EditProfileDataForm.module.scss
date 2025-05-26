@@ -1,0 +1,24 @@
+.EditProfileDataForm {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  min-width: 400px;
+  max-width: 90vw;
+  user-select: none;
+}
+
+.input {
+  margin-top: 10px;
+}
+
+.loginBtn {
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.showPassword {
+  margin-top: 15px;
+  gap: 5px;
+  display: flex;
+  direction: rtl;
+}

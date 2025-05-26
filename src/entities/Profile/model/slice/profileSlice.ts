@@ -15,6 +15,37 @@ export const profileSlice = createSlice({
     setProfileData: (state, action: PayloadAction<Profile>) => {
       state.profileData = action.payload;
     },
+
+    setUsername: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, username: action.payload };
+      }
+    },
+    setName: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, name: action.payload };
+      }
+    },
+    setLocation: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, location: action.payload };
+      }
+    },
+    setAge: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, age: action.payload };
+      }
+    },
+    setGender: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, gender: action.payload };
+      }
+    },
+    setAvatar: (state, action: PayloadAction<string>) => {
+      if (state.profileData) {
+        state.profileData = { ...state.profileData, avatar: action.payload };
+      }
+    },
   },
   extraReducers: (builder) => {
     builder

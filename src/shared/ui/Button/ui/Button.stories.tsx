@@ -23,7 +23,7 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: "radio",
-      options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL],
+      options: [ButtonSize.S, ButtonSize.M, ButtonSize.L, ButtonSize.XL],
     },
     disabled: {
       control: "boolean",

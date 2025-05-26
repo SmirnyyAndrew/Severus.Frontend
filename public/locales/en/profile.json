@@ -4,12 +4,30 @@
   "profile_card_country": "Country",
   "profile_card_gender": "Gender",
   "profile_card_age": "Age",
+  "profile_data_editor_btn_to_edit": "Edit profile",
+  "profile_data_editor_error_message": "Check entered data",
+  "profile_data_editor_new_username": "Enter new username",
+  "profile_data_editor_new_password": "Enter new password",
+  "profile_data_editor_new_location": "Enter new location",
+  "profile_data_editor_new_age": "Enter new age",
+  "profile_data_editor_gender": "Enter new gender",
+  "profile_data_editor_new_name": "Enter new name",
+  "profile_data_editor_avatar_url": "Enter new avatar url",
 
   "profile": {
     "profile_card_name": "Username",
     "profile_card_username": "Name",
     "profile_card_country": "Country",
     "profile_card_gender": "Gender",
-    "profile_card_age": "Age"
+    "profile_card_age": "Age",
+    "profile_data_editor_btn_to_edit": "Edit profile",
+    "profile_data_editor_error_message": "Check entered data",
+    "profile_data_editor_new_username": "Enter new username",
+    "profile_data_editor_new_password": "Enter new password",
+    "profile_data_editor_new_location": "Enter new location",
+    "profile_data_editor_new_age": "Enter new age",
+    "profile_data_editor_gender": "Enter new gender",
+    "profile_data_editor_new_name": "Enter new name",
+    "profile_data_editor_avatar_url": "Enter new avatar url"
   }
 }

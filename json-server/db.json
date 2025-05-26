@@ -1,12 +1,18 @@
 {
-  "users": [{ "id": "1", "username": "admin", "password": "123" }],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
   "profile": {
-    "id": "1",
-    "username": "admin",
-    "name": "Кирилл",
-    "location": "Россия",
-    "age": "25",
-    "gender": "мужской",
-    "avatar": "https://toppng.com/uploads/preview/male-user-filled-icon-man-icon-115533970576b3erfsss1.png"
+    "id": "",
+    "username": "",
+    "name": "",
+    "location": "",
+    "age": "",
+    "gender": "",
+    "avatar": ""
   }
 }

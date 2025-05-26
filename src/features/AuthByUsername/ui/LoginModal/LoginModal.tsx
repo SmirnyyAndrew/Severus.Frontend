@@ -20,7 +20,11 @@ export const LoginModal = memo((props: LoginModalProps) => {
       <Suspense fallback={<Loader />}>
         <LoginForm
           onSuccess={() => {
-            navigate(RoutePath.profile);
+            if (location.pathname !== RoutePath.profile) {
+              navigate(RoutePath.profile);
+            } else {
+              onClose?.();
+            }
           }}
         />
       </Suspense>

@@ -17,7 +17,7 @@ i18n
       loadPath: "locales/{{lng}}/{{ns}}.json",
     },
 
-    ns: ["translation"],
+    ns: ["translation", "profile", "main", "about"],
     supportedLngs: ["en", "ru"],
     load: "languageOnly",
   });

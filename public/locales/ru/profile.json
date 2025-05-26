@@ -4,12 +4,13 @@
   "profile_card_country": "Страна",
   "profile_card_gender": "Пол",
   "profile_card_age": "Возраст",
-
-  "profile": {
-    "profile_card_name": "Имя",
-    "profile_card_username": "Имя пользователя",
-    "profile_card_country": "Страна",
-    "profile_card_gender": "Пол",
-    "profile_card_age": "Возраст"
-  }
+  "profile_data_editor_btn_to_edit": "Редактировать профиль",
+  "profile_data_editor_error_message": "Проверьте введенные данные",
+  "profile_data_editor_new_username": "Введите новое имя пользователя",
+  "profile_data_editor_new_password": "Введите новый пароль",
+  "profile_data_editor_new_location": "Введиньте новое местоположение",
+  "profile_data_editor_new_age": "Введите новый возраст",
+  "profile_data_editor_gender": "Введите новый пол",
+  "profile_data_editor_new_name": "Введите новое имя",
+  "profile_data_editor_avatar_url": "Введите новый url аватарка"
 }

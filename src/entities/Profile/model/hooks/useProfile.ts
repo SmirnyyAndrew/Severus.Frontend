@@ -1,9 +1,12 @@
 import { getProfileDataThunk } from "features/GetProfileData/model/thunks/getProfileDataThunk/getProfileDataThunk";
+import { putProfileDataThunk } from "features/SetProfileData";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";
 import { getProfileError } from "../selectors/getProfileError/getProfileError";
 import { getProfileIsLoading } from "../selectors/getProfileIsLoading/getProfileIsLoading";
+import { profileActions } from "../slice/profileSlice";
+import { Profile } from "../types/Profile";
 
 export const useProfile = () => {
   const dispatch = useDispatch();
@@ -15,10 +18,73 @@ export const useProfile = () => {
     dispatch(getProfileDataThunk());
   }, [dispatch]);
 
+  const setProfileData = useCallback(
+    (profile: Profile) => {
+      dispatch(profileActions.setProfileData(profile));
+    },
+    [dispatch]
+  );
+
+  const putProfileDataIntoDB = useCallback(
+    (profile: Profile) => {
+      dispatch(putProfileDataThunk(profile));
+    },
+    [dispatch]
+  );
+  const setUsername = useCallback(
+    (username: string) => {
+      dispatch(profileActions.setUsername(username));
+    },
+    [dispatch]
+  );
+
+  const setName = useCallback(
+    (name: string) => {
+      dispatch(profileActions.setName(name));
+    },
+    [dispatch]
+  );
+
+  const setLocation = useCallback(
+    (location: string) => {
+      dispatch(profileActions.setLocation(location));
+    },
+    [dispatch]
+  );
+
+  const setAge = useCallback(
+    (age: string) => {
+      dispatch(profileActions.setAge(age));
+    },
+    [dispatch]
+  );
+
+  const setGender = useCallback(
+    (gender: string) => {
+      dispatch(profileActions.setGender(gender));
+    },
+    [dispatch]
+  );
+
+  const setAvatar = useCallback(
+    (avatar: string) => {
+      dispatch(profileActions.setAvatar(avatar));
+    },
+    [dispatch]
+  );
+
   return {
     profileData,
     isLoading,
     error,
     getProfileDataFromDB,
+    putProfileDataIntoDB,
+    setProfileData,
+    setName,
+    setUsername,
+    setLocation,
+    setAge,
+    setGender,
+    setAvatar,
   };
 };

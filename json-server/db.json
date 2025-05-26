@@ -7,12 +7,12 @@
     }
   ],
   "profile": {
-    "id": "",
-    "username": "",
-    "name": "",
-    "location": "",
-    "age": "",
-    "gender": "",
-    "avatar": ""
+    "id": "1",
+    "username": "Name",
+    "name": "Андрей",
+    "location": "Россия",
+    "age": "23",
+    "gender": "муж",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI9lRck6miglY0SZF_BZ_sK829yiNskgYRUg&s"
   }
 }

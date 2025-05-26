@@ -4,4 +4,5 @@ export interface SidebarItemType {
   Icon: VFC<SVGProps<SVGSVGElement>>;
   path: string;
   translationKey: string;
+  authOnly?: boolean;
 }

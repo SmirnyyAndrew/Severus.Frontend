@@ -1,6 +1,8 @@
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useTranslation } from "react-i18next";
+import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SidebarItemType } from "../Module/SidebarItemType";
 import cls from "./SidebarItem.module.scss";
@@ -12,13 +14,15 @@ interface SidebarItemProps {
 
 export const SidebarItem = (props: SidebarItemProps) => {
   const { hidden, item } = props;
-
+  const { authData } = useUserAuth();
   const { t } = useTranslation();
+
+  if (item.authOnly && !authData) return null;
 
   return (
     <AppLink
       className={classNames(cls.item, { [cls.hidden]: hidden })}
-      to={item?.path ?? ""}
+      to={item?.path ?? RoutePath.not_found}
       linkTheme={AppLinkTheme.PRIMARY}
     >
       <item.Icon className={cls.icon} />

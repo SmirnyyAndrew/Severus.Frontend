@@ -41,7 +41,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: "http://localhost:28532",
-    __IS_STORYBOOK__: true,
+    __IS_STORYBOOK__: false,
   },
 
   // Игнорирование axios при jest тестировании

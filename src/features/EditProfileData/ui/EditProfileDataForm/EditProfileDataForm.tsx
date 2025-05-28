@@ -66,6 +66,8 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
   }, []);
 
   const onEditClick = useCallback(async () => {
+    if (__IS_STORYBOOK__) return;
+
     const profile: Profile = {
       id: profileData?.id || "",
       username: profileData?.username || "",
@@ -75,9 +77,8 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
       gender: profileData?.gender || "",
       avatar: profileData?.avatar || "",
     };
-    console.log("gender====> " + profileData?.gender);
+
     await putProfileDataIntoDB(profile);
-    console.log("profile=-->  " + profile);
     onSuccess();
   }, [profileData]);
 

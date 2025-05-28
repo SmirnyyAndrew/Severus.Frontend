@@ -16,7 +16,7 @@ const ProfilePage = memo(() => {
   const { t } = useTranslation("profile");
 
   useEffect(() => {
-    if (!__IS_STORYBOOK__) getProfileDataFromDB();
+    getProfileDataFromDB();
   }, []);
 
   const reducers: ReducersList = {

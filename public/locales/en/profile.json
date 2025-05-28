@@ -13,6 +13,14 @@
   "profile_data_editor_gender": "Enter new gender",
   "profile_data_editor_new_name": "Enter new name",
   "profile_data_editor_avatar_url": "Enter new avatar url",
+  "INCORRECT_AGE": "Incorrect age",
+  "INCORRECT_AVATAR": "Incorrect avatar",
+  "INCORRECT_GENDER": "Incorrect gender",
+  "INCORRECT_LOCATION": "Incorrect location",
+  "INCORRECT_NAME": "Incorrect name",
+  "INCORRECT_USERNAME": "Incorrect username",
+  "NO_DATA": "No data to save",
+  "SERVER_ERROR": "Server error",
 
   "profile": {
     "profile_card_name": "Username",
@@ -28,6 +36,14 @@
     "profile_data_editor_new_age": "Enter new age",
     "profile_data_editor_gender": "Enter new gender",
     "profile_data_editor_new_name": "Enter new name",
-    "profile_data_editor_avatar_url": "Enter new avatar url"
+    "profile_data_editor_avatar_url": "Enter new avatar url",
+    "INCORRECT_AGE": "Incorrect age",
+    "INCORRECT_AVATAR": "Incorrect avatar",
+    "INCORRECT_GENDER": "Incorrect gender",
+    "INCORRECT_LOCATION": "Incorrect location",
+    "INCORRECT_NAME": "Incorrect name",
+    "INCORRECT_USERNAME": "Incorrect username",
+    "NO_DATA": "No data to save",
+    "SERVER_ERROR": "Server error"
   }
 }

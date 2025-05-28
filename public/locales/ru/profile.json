@@ -12,5 +12,13 @@
   "profile_data_editor_new_age": "Введите новый возраст",
   "profile_data_editor_gender": "Введите новый пол",
   "profile_data_editor_new_name": "Введите новое имя",
-  "profile_data_editor_avatar_url": "Введите новый url аватарка"
+  "profile_data_editor_avatar_url": "Введите новый url аватарка",
+  "INCORRECT_AGE": "Некорректный возраст",
+  "INCORRECT_AVATAR": "Некорректный аватар",
+  "INCORRECT_GENDER": "Некорректный пол",
+  "INCORRECT_LOCATION": "Некорректное местоположение",
+  "INCORRECT_NAME": "Некорректное имя",
+  "INCORRECT_USERNAME": "Некорректное имя пользователя",
+  "NO_DATA": "Нет данных для сохранения",
+  "SERVER_ERROR": "Серверная ошибка"
 }

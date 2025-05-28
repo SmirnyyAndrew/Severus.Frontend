@@ -1,6 +1,6 @@
 import { ProfileCard, profileReducer, useProfile } from "entities/Profile";
 import { EditProfileDataModal } from "features/EditProfileData";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   DynamicModuleLoader,
@@ -11,7 +11,7 @@ import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { UserProfileDataEditor } from "widgets/UserProfileDataEditor";
 import cls from "./ProfilePage.module.scss";
 
-const ProfilePage = memo(() => {
+const ProfilePage = () => {
   const { profileData, isLoading, error, getProfileDataFromDB } = useProfile();
   const { t } = useTranslation("profile");
 
@@ -62,6 +62,6 @@ const ProfilePage = memo(() => {
       </div>
     </DynamicModuleLoader>
   );
-});
+};
 
 export default ProfilePage;

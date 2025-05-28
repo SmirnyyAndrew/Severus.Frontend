@@ -10,11 +10,13 @@ describe("useLogin", () => {
   let wrapper: WrapperType;
 
   beforeEach(() => {
-    wrapper = StoreProviderWrapper({
-      reducers: {
-        login: loginReducer as WrapperReducerType<LoginSchema>,
-      },
-    });
+    wrapper = ({ children }) =>
+      StoreProviderWrapper({
+        children,
+        reducers: {
+          login: loginReducer as WrapperReducerType<LoginSchema>,
+        },
+      });
   });
 
   test("setPassword", () => {

@@ -1,9 +1,9 @@
-import { getProfileDataThunk } from "features/GetProfileData/model/thunks/getProfileDataThunk/getProfileDataThunk";
+import { getProfileError, getValidationErrors } from "entities/Profile";
+import { getProfileDataThunk } from "features/GetProfileData";
 import { putProfileDataThunk } from "features/SetProfileData";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";
-import { getProfileError } from "../selectors/getProfileError/getProfileError";
 import { getProfileIsLoading } from "../selectors/getProfileIsLoading/getProfileIsLoading";
 import { profileActions } from "../slice/profileSlice";
 import { Profile } from "../types/Profile";
@@ -13,6 +13,7 @@ export const useProfile = () => {
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validationErrors = useSelector(getValidationErrors);
 
   const getProfileDataFromDB = useCallback(() => {
     dispatch(getProfileDataThunk());
@@ -77,6 +78,7 @@ export const useProfile = () => {
     profileData,
     isLoading,
     error,
+    validationErrors,
     getProfileDataFromDB,
     putProfileDataIntoDB,
     setProfileData,

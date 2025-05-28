@@ -1,5 +1,5 @@
 import { Profile, profileReducer, useProfile } from "entities/Profile";
-import { HTMLInputTypeAttribute, memo, useCallback, useState } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
@@ -21,6 +21,17 @@ const initialReducers: ReducersList = {
   profile: profileReducer,
 };
 
+const tranlsations = {
+  INCORRECT_AGE: "INCORRECT_AGE",
+  INCORRECT_AVATAR: "INCORRECT_AVATAR",
+  INCORRECT_GENDER: "INCORRECT_GENDER",
+  INCORRECT_LOCATION: "INCORRECT_LOCATION",
+  INCORRECT_NAME: "INCORRECT_NAME",
+  INCORRECT_USERNAME: "INCORRECT_USERNAME",
+  NO_DATA: "NO_DATA",
+  SERVER_ERROR: "SERVER_ERROR",
+};
+
 const EditProfileDataForm = (props: EditProfileDataFormProps) => {
   const { t } = useTranslation("profile");
   const { onSuccess, className } = props;
@@ -28,7 +39,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
   const {
     profileData,
     isLoading,
-    error,
+    validationErrors,
     putProfileDataIntoDB,
     setName,
     setUsername,
@@ -37,9 +48,6 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
     setGender,
     setAvatar,
   } = useProfile();
-
-  const [passwordType, setPasswordType] =
-    useState<HTMLInputTypeAttribute>("text");
 
   const onChangeUsername = useCallback((username: string) => {
     setUsername(username);
@@ -79,17 +87,19 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
     };
 
     await putProfileDataIntoDB(profile);
-    onSuccess();
+
+    if (validationErrors?.length === 0) onSuccess();
   }, [profileData]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={classNames(cls.EditProfileDataForm, {}, [className])}>
-        {error && (
-          <Text isCenter textTheme={TextThemes.ERROR}>
-            {t("profile_data_editor_error_message")}
-          </Text>
-        )}
+        {validationErrors?.length &&
+          validationErrors.map((err) => (
+            <Text isCenter key={err} textTheme={TextThemes.ERROR}>
+              {t(tranlsations[err])}
+            </Text>
+          ))}
 
         <Input
           autofocus

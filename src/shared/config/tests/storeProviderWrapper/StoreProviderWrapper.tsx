@@ -1,18 +1,24 @@
-import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
+import { ReactNode } from "react";
 import { Provider } from "react-redux";
+import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 interface StoreProviderWrapperProps {
-  reducers: Partial<ReducersMapObject<StateSchema>>;
+  children: ReactNode;
+  reducers: ReducersList;
+  preloadedState?: Partial<StateSchema>;
 }
 
-export const StoreProviderWrapper = (props: StoreProviderWrapperProps) => {
-  const { reducers } = props;
+export const StoreProviderWrapper = ({
+  children,
+  reducers,
+  preloadedState,
+}: StoreProviderWrapperProps) => {
   const store = configureStore({
     reducer: reducers,
+    preloadedState, // ✅ передаём state
   });
 
-  return ({ children }: { children: React.ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
-  );
+  return <Provider store={store}>{children}</Provider>;
 };

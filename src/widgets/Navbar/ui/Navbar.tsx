@@ -1,3 +1,4 @@
+import { useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthByUsername/ui/LoginModal/LoginModal";
 import { memo, useCallback, useState } from "react";
@@ -16,6 +17,7 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { authData, logout } = useUserAuth();
+  const { setProfileData } = useProfile();
 
   const navigate = useNavigate();
   const { t } = useTranslation();

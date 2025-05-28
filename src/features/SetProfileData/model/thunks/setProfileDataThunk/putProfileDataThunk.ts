@@ -25,7 +25,7 @@ export const putProfileDataThunk = createAsyncThunk<
   const profile = getProfileData(thunkApi.getState() as StateSchema);
 
   try {
-    console.log("PUT called with profile:", profile); // <-- Вот здесь!
+    console.log("PUT called with profile:", profile);
 
     const response = await extra.api.put<Profile>("/profile", {
       id: profile?.id,

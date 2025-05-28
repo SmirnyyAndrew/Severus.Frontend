@@ -1,3 +1,4 @@
+import { errorUserAvatar } from "shared/const/plugFiles";
 import { Profile } from "./Profile";
 
 export const ProfileExample: Profile = {
@@ -7,5 +8,5 @@ export const ProfileExample: Profile = {
   location: "location",
   age: "22",
   gender: "gender",
-  avatar: "avatar",
+  avatar: errorUserAvatar,
 };

@@ -23,3 +23,8 @@ export const Dark: Story = {
   args: { children: "Here's modal elems" },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const Cute: Story = {
+  args: { children: "Here's modal elems" },
+  decorators: [ThemeDecorator(Theme.CUTE)],
+};

@@ -20,3 +20,7 @@ export const Light: Story = {};
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const Cute: Story = {
+  decorators: [ThemeDecorator(Theme.CUTE)],
+};

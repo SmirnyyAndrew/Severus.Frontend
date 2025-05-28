@@ -54,3 +54,14 @@ export const Dark: Story = {
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const Cute: Story = {
+  args: {
+    children: "Text",
+    buttonTheme: ButtonTheme.BACKGROUND,
+    square: false,
+    size: ButtonSize.L,
+    disabled: false,
+  },
+  decorators: [ThemeDecorator(Theme.CUTE)],
+};

@@ -40,3 +40,11 @@ export const Dark: Story = {
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const Cute: Story = {
+  args: {
+    textTheme: TextThemes.ERROR,
+    children: "Here is error",
+  },
+  decorators: [ThemeDecorator(Theme.CUTE)],
+};

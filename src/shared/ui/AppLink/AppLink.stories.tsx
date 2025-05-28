@@ -38,3 +38,17 @@ export const Dark: Story = {
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const Cute: Story = {
+  args: {
+    linkTheme: AppLinkTheme.PRIMARY,
+    children: "Text",
+  },
+  argTypes: {
+    linkTheme: {
+      control: "radio",
+      options: [AppLinkTheme.PRIMARY, AppLinkTheme.SECONDARY],
+    },
+  },
+  decorators: [ThemeDecorator(Theme.CUTE)],
+};

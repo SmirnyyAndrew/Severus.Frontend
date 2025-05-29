@@ -10,11 +10,12 @@ i18n
   .init({
     fallbackLng: "en",
     debug: __IS_DEV__,
+    lng: localStorage.getItem("i18nextLng") || "en",
     interpolation: {
       escapeValue: false,
     },
     backend: {
-      loadPath: "locales/{{lng}}/{{ns}}.json",
+      loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
 
     ns: ["translation", "profile", "main", "about"],

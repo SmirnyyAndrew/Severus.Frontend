@@ -23,6 +23,8 @@ export function buildWebpackConfig(
       path: paths.build,
       //Очистить старые файлы
       clean: true,
+      //При аргементе в url
+      publicPath: "/",
     },
 
     //Подключаем плагины

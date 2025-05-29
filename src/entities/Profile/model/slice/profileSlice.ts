@@ -18,6 +18,10 @@ export const profileSlice = createSlice({
       state.profileData = action.payload;
     },
 
+    setProfileDataUndefined: (state) => {
+      state.profileData = undefined;
+    },
+
     setUsername: (state, action: PayloadAction<string>) => {
       if (state.profileData) {
         state.profileData = { ...state.profileData, username: action.payload };

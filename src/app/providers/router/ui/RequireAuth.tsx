@@ -1,13 +1,17 @@
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { Loader } from "shared/ui/Loader/Loader";
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
-  const { authData } = useUserAuth();
-  const location = useLocation();
+  const { inited, authData } = useUserAuth();
+
+  if (!inited) {
+    return <Loader />;
+  }
 
   if (!authData) {
-    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+    return <Navigate to={RoutePath.main} state={{ from: location }} />;
   }
 
   return children;

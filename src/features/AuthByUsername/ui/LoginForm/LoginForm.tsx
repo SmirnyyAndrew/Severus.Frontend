@@ -1,4 +1,3 @@
-import { profileReducer } from "entities/Profile";
 import { useLogin } from "features/AuthByUsername/model/hooks/useLogin";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { HTMLInputTypeAttribute, memo, useCallback, useState } from "react";
@@ -21,7 +20,6 @@ export interface LoginFormProps {
 
 const initialReducers: ReducersList = {
   login: loginReducer,
-  profile: profileReducer,
 };
 
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
@@ -61,7 +59,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   }, [password, username]);
 
   return (
-    <DynamicModuleLoader reducers={initialReducers}>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         {error && (
           <Text isCenter textTheme={TextThemes.ERROR}>

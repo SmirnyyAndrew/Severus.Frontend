@@ -17,7 +17,7 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { authData, logout } = useUserAuth();
-  const { setProfileData } = useProfile();
+  const { setProfileDataUndefined } = useProfile();
 
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -33,6 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   }, []);
 
   const onLogout = () => {
+    setProfileDataUndefined();
     logout();
     onCloseModal();
   };
@@ -46,6 +47,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           </AppLink>
           <AppLink to={RoutePath.profile} linkTheme={AppLinkTheme.PRIMARY}>
             {t("nav_profile_page")}
+          </AppLink>
+          <AppLink to={RoutePath.articles} linkTheme={AppLinkTheme.PRIMARY}>
+            {t("nav_articles_page")}
           </AppLink>
         </div>
         <Button

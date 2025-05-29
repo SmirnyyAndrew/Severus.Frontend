@@ -15,5 +15,6 @@
   "logout": "Выйти",
   "check_auth_data": "Проверьте введенные данные",
   "nav_profile_page": "Мой профиль",
-  "username": "Имя пользователя"
+  "username": "Имя пользователя",
+  "nav_articles_page": "Статьи"
 }

@@ -26,6 +26,10 @@ export const useProfile = () => {
     [dispatch]
   );
 
+  const setProfileDataUndefined = useCallback(() => {
+    dispatch(profileActions.setProfileDataUndefined());
+  }, [dispatch]);
+
   const putProfileDataIntoDB = useCallback(
     (profile: Profile) => {
       dispatch(putProfileDataThunk(profile));
@@ -82,6 +86,7 @@ export const useProfile = () => {
     getProfileDataFromDB,
     putProfileDataIntoDB,
     setProfileData,
+    setProfileDataUndefined,
     setName,
     setUsername,
     setLocation,

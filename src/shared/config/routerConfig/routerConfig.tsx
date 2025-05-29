@@ -5,7 +5,7 @@ import { ProfilePage } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
 
 // Расширяет RouterProps
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
 };
 

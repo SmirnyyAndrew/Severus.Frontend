@@ -1,4 +1,5 @@
 import { ProfileCard, profileReducer, useProfile } from "entities/Profile";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { EditProfileDataModal } from "features/EditProfileData";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,6 +14,7 @@ import cls from "./ProfilePage.module.scss";
 
 const ProfilePage = () => {
   const { profileData, isLoading, error, getProfileDataFromDB } = useProfile();
+  const { inited } = useUserAuth();
   const { t } = useTranslation("profile");
 
   useEffect(() => {
@@ -36,7 +38,6 @@ const ProfilePage = () => {
   const onSuccessProfileDataEditModal = () => {
     onCloseProfileDataEditModal();
   };
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <div className={cls.ProfilePage}>

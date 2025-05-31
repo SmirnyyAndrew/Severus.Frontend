@@ -1,3 +1,4 @@
+import { ArticleDetails } from "entities/Article";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -12,9 +13,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { id } = useParams();
   const { t } = useTranslation();
 
+  if (!id) return <h1>Статьи не существует</h1>;
+
   return (
     <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-      <h1>Вы читаете статью №{id}</h1>
+      <ArticleDetails articleId={id} />
     </div>
   );
 };

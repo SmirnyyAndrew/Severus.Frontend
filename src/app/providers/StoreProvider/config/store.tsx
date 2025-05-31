@@ -3,6 +3,7 @@ import {
   configureStore,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
+import { ArticleReducer } from "entities/Article";
 import { counterReducer } from "entities/Counter";
 import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";
@@ -23,6 +24,7 @@ export const CreateReduxStore = (
     counter: counterReducer,
     user: userReducer,
     profile: profileReducer,
+    article: ArticleReducer,
   };
 
   const reducerManager = CreateReducerManager(rootReducers);

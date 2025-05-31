@@ -1,0 +1,12 @@
+.ArticleCodeBlockComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .code {
+    background-color: var(--bg-inverted-color);
+    color: var(--primary-inverted-color);
+    padding: "10px";
+    border-radius: "5px";
+  }
+}

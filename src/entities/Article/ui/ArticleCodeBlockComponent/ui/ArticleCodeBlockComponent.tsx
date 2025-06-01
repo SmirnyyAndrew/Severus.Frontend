@@ -1,5 +1,7 @@
 import { ArticleCodeBlock } from "entities/Article/model/types/BlockManagement/ArticleBlocks/ArticleCodeBlock";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Code } from "shared/ui/Code";
+import { Text, TextSize } from "shared/ui/Text";
 import cls from "./ArticleCodeBlockComponent.module.scss";
 
 interface ArticleCodeBlockComponentProps {
@@ -14,12 +16,9 @@ export const ArticleCodeBlockComponent = (
 
   return (
     <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-      <p>ID: {article.id}</p>
-      <p>Code: </p>
-      <pre className={classNames(cls.code, {}, [className])}>
-        <code>{article.code}</code>
-      </pre>
-      <hr />
+      <Text size={TextSize.L} text={`ID: ${article.id}`} />
+      <Code code={article.code} />
+      <Text size={TextSize.XS} text={`Code`} />
     </div>
   );
 };

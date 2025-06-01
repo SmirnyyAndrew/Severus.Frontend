@@ -1,11 +1,15 @@
 import { useArticle } from "entities/Article/model/hooks/useArticle";
+import { ArticleBlock } from "entities/Article/model/types/BlockManagement/ArticleBlock";
 import { ArticleBlockType } from "entities/Article/model/types/BlockManagement/ArticleBlockType";
 import { memo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import EyeIcon from "shared/assets/icons/theme/eye.svg";
 import { errorArticleImg } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Avatar, AvatarSize } from "shared/ui/Avatar";
+import { Icon, IconSize } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
-import { Text, TextThemes } from "shared/ui/Text/Text";
+import { Text, TextSize, TextThemes } from "shared/ui/Text/ui/Text";
 import { ArticleCodeBlockComponent } from "../../ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../../ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../../ArticleTextBlockComponent/ui/ArticleTextBlockComponent";
@@ -25,6 +29,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     getArticleById(articleId);
   }, [articleId]);
 
+  const getArticleBlock = (article: ArticleBlock) => {
+    switch (article.type) {
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent article={article} />;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent article={article} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent article={article} />;
+      default:
+        break;
+    }
+  };
+
   if (isLoading)
     return (
       <div className={cls.skeletons}>
@@ -41,38 +58,52 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   if (error)
     return (
-      <Text textTheme={TextThemes.ERROR} isCenter>
-        Article doesn't exist
-      </Text>
+      <Text
+        text=" Article doesn't exist"
+        textTheme={TextThemes.ERROR}
+        isCenter
+      />
     );
 
   return (
     <div className={classNames(cls.ArticleDetails, {}, [className])}>
-      <p>Article ID: {articleData?.id}</p>
-      <p>Title: {articleData?.title}</p>
-      <p>Subtitile: {articleData?.subtitle}</p>
-      <img
-        src={articleData?.img ?? errorArticleImg}
-        alt="article"
-        className={cls.articleImage}
+      <Text
+        text={`Article ID: ${articleData?.id}`}
+        size={TextSize.XL}
+        isCenter
       />
-      <p>Views: {articleData?.views}</p>
-      <p>Created at: {articleData?.createdAt}</p>
-      <p>Tags: {articleData?.type.join(" | ")}</p>
+      <Text
+        title={articleData?.title}
+        text={articleData?.subtitle ?? ""}
+        size={TextSize.XL}
+        isCenter
+      />
+      <Avatar
+        img={errorArticleImg}
+        isRound={false}
+        alt={articleData?.title}
+        key={articleData?.id}
+        size={AvatarSize.XL}
+      />
 
-      {articleData?.blocks.map((b) => {
-        if (b.type === ArticleBlockType.CODE) {
-          return <ArticleCodeBlockComponent article={b} />;
-        }
-        if (b.type === ArticleBlockType.TEXT) {
-          return <ArticleTextBlockComponent article={b} />;
-        }
-        if (b.type === ArticleBlockType.IMAGE) {
-          return <ArticleImageBlockComponent article={b} />;
-        }
+      <Icon
+        text={`${articleData?.views}`}
+        iconSize={IconSize.L}
+        textSize={TextSize.S}
+        Svg={EyeIcon}
+      />
+      <Text
+        text={`Created at: ${articleData?.createdAt}`}
+        size={TextSize.XS}
+        isCenter
+      />
+      <Text
+        text={`Tags: ${articleData?.type.join(" | ")}`}
+        size={TextSize.XS}
+        isCenter
+      />
 
-        return <h1>Empty</h1>;
-      })}
+      {articleData?.blocks.map(getArticleBlock)}
     </div>
   );
 });

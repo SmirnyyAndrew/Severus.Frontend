@@ -1,6 +1,7 @@
 import { ArticleTextBlock } from "entities/Article/model/types/BlockManagement/ArticleBlocks/ArticleTextBlock";
 import { Fragment } from "react/jsx-runtime";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Text, TextSize } from "shared/ui/Text";
 import cls from "./ArticleTextBlockComponent.module.scss";
 
 interface ArticleTextBlockComponentProps {
@@ -15,23 +16,19 @@ export const ArticleTextBlockComponent = (
 
   return (
     <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-      <hr />
-      <p>ID: {article.id}</p>
-      <p>Titile: {article.title}</p>
+      <Text
+        text={`ID:  ${article.id}`}
+        title={article.title}
+        size={TextSize.L}
+      />
 
       <div className={classNames(cls.paragraphs, {}, [className])}>
-        <p>
-          Paragraphs:
-          <br />
-          {article.paragraphs.map((paragraphs, index) => (
-            <Fragment key={index}>
-              {paragraphs}
-              <br />
-              <br />
-            </Fragment>
-          ))}
-        </p>
-        <hr />
+        <Text text="Paragraphs:" size={TextSize.XS} isCenter />
+        {article.paragraphs.map((paragraph, index) => (
+          <Fragment key={index}>
+            <Text text={paragraph} size={TextSize.XS} isCenter={false} />
+          </Fragment>
+        ))}
       </div>
     </div>
   );

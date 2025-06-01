@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .paragraphs {
-  }
+  gap: 10px;
+}
+
+.paragraphs {
+  gap: 500px;
 }

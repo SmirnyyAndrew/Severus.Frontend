@@ -1,11 +1,17 @@
 import { Meta, StoryObj } from "@storybook/react/*";
 import { Theme } from "app/providers/ThemeProvider";
+import { ProfileExample } from "entities/Profile/model/types/ProfileExample";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { ProfileCard } from "./ProfileCard";
 
 const meta: Meta<typeof ProfileCard> = {
   title: "entities/ProfileCard",
   component: ProfileCard,
+  args: {
+    isLoading: false,
+    error: undefined,
+    profile: ProfileExample,
+  },
 };
 
 export default meta;

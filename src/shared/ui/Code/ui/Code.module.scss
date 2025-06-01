@@ -1,0 +1,24 @@
+.Code {
+  position: relative;
+
+  background-color: var(--bg-inverted-color);
+  color: var(--primary-inverted-color);
+  padding: 20px;
+  border-radius: "5px";
+  width: 100%;
+}
+
+.copyIcon {
+  stroke: var(--bg-color);
+  right: 20px;
+  position: absolute;
+
+  overflow: visible;
+
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -1,6 +1,7 @@
 import { ArticleImageBlock } from "entities/Article/model/types/BlockManagement/ArticleBlocks/ArticleImageBlock";
-import { errorArticleImg } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Image } from "shared/ui/Image";
+import { Text, TextSize } from "shared/ui/Text";
 import cls from "./ArticleImageBlockComponent.module.scss";
 
 interface ArticleImageBlockComponentProps {
@@ -17,10 +18,8 @@ export const ArticleImageBlockComponent = (
     <div
       className={classNames(cls.ArticleImageBlockComponent, {}, [className])}
     >
-      <p>ID: {article.id}</p>
-      <img src={article.src ?? errorArticleImg} className={cls.image} />
-      {article.title && <p>{article.title}</p>}
-      <hr />
+      <Text size={TextSize.L} text={`ID: ${article.id}`} />
+      <Image src={article.src} title={article.title} />
     </div>
   );
 };

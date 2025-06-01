@@ -10,7 +10,7 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
-import { Text, TextThemes } from "shared/ui/Text/Text";
+import { Text, TextThemes } from "shared/ui/Text/ui/Text";
 import cls from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
@@ -62,9 +62,11 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         {error && (
-          <Text isCenter textTheme={TextThemes.ERROR}>
-            {t("check_auth_data")}
-          </Text>
+          <Text
+            text={t("check_auth_data")}
+            isCenter
+            textTheme={TextThemes.ERROR}
+          />
         )}
         <Input
           autofocus

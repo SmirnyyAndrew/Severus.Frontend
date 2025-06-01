@@ -2,14 +2,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { Text, TextThemes } from "./Text";
+import { Text, TextSize, TextThemes } from "./Text";
 
 const meta: Meta<typeof Text> = {
   title: "Shared/Text",
   component: Text,
   args: {
     textTheme: TextThemes.ERROR,
-    children: "Text",
+    title: "This is title",
+    text: "This is text",
+    size: TextSize.L,
     isCenter: false,
   },
   argTypes: {
@@ -20,31 +22,22 @@ const meta: Meta<typeof Text> = {
     isCenter: {
       control: "boolean",
     },
+    size: {
+      control: "radio",
+      options: [TextSize.S, TextSize.L, TextSize.XL],
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-export const Light: Story = {
-  args: {
-    textTheme: TextThemes.ERROR,
-    children: "Here is error",
-  },
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-  args: {
-    textTheme: TextThemes.ERROR,
-    children: "Here is error",
-  },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Cute: Story = {
-  args: {
-    textTheme: TextThemes.ERROR,
-    children: "Here is error",
-  },
   decorators: [ThemeDecorator(Theme.CUTE)],
 };

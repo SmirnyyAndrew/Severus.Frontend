@@ -8,20 +8,31 @@
     },
     {
       "id": "2",
-      "username": "Andrew",
+      "username": "kazls22035",
       "password": "123",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s"
     }
   ],
-  "profile": {
-    "id": "1",
-    "username": "nickname",
-    "name": "Andrey",
-    "location": "Russia",
-    "age": "22",
-    "gender": "male",
-    "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "username": "admin",
+      "name": "Andrew",
+      "location": "Russia",
+      "age": "22",
+      "gender": "male",
+      "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?semt=ais_hybrid&w=740"
+    },
+    {
+      "id": "2",
+      "username": "kazls22035",
+      "name": "Kirill",
+      "location": "Germany",
+      "age": "25",
+      "gender": "male",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu91U1pA6XCQh3M65eynACLt22hooZei1M5w&s"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -30,7 +41,12 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT", "EDUCATION", "SCIENCE", "ENTERTAINMENT"],
+      "type": [
+        "IT",
+        "EDUCATION",
+        "SCIENCE",
+        "ENTERTAINMENT"
+      ],
       "blocks": [
         {
           "id": "1",

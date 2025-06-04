@@ -15,9 +15,12 @@ export const useProfile = () => {
   const error = useSelector(getProfileError);
   const validationErrors = useSelector(getValidationErrors);
 
-  const getProfileDataFromDB = useCallback(() => {
-    dispatch(getProfileDataThunk());
-  }, [dispatch]);
+  const getProfileDataFromDB = useCallback(
+    (profileId: string | undefined) => {
+      dispatch(getProfileDataThunk(profileId));
+    },
+    [dispatch]
+  );
 
   const setProfileData = useCallback(
     (profile: Profile) => {
@@ -32,7 +35,9 @@ export const useProfile = () => {
 
   const putProfileDataIntoDB = useCallback(
     (profile: Profile) => {
-      dispatch(putProfileDataThunk(profile));
+      dispatch(
+        putProfileDataThunk({ profile: profile, profileId: profile.id })
+      );
     },
     [dispatch]
   );

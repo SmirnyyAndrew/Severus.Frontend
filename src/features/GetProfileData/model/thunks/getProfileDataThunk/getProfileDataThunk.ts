@@ -4,18 +4,25 @@ import { Profile, ProfileExample } from "entities/Profile";
 
 export const getProfileDataThunk = createAsyncThunk<
   Profile,
-  void,
+  string | undefined,
   ThunkConfig<string>
->("profile/getProfileDataThunk", async (_, thunkApi) => {
+>("profile/getProfileDataThunk", async (profileId, thunkApi) => {
   if (__IS_STORYBOOK__) return ProfileExample;
 
   const { extra, rejectWithValue } = thunkApi;
 
-  try {
-    const response = await extra.api.get<Profile>("/profile");
+  if (!profileId) {
+    console.log("no profileId");
+    return rejectWithValue("error");
+  }
 
-    if (!response.data) throw new Error();
-    return response.data;
+  try {
+    const response = await extra.api.get<Profile[]>(`/profile`);
+
+    const profile = response.data.filter((d) => d.id === profileId)[0];
+
+    if (!profile) throw new Error();
+    return profile;
   } catch (e) {
     console.log(e);
     return rejectWithValue("error");

@@ -1,4 +1,6 @@
 import { Comment } from "entities/Comment/model/types/Comment";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
@@ -14,6 +16,7 @@ interface CommentCardProps {
 
 export const CommentCard = (props: CommentCardProps) => {
   const { className, comment, isLoading } = props;
+  const navigate = useNavigate();
 
   if (isLoading)
     return (
@@ -32,6 +35,16 @@ export const CommentCard = (props: CommentCardProps) => {
       </div>
     );
 
+  const onClickUserName = () => {
+    console.log("click");
+    const id = comment.user?.id;
+    if (id) {
+      navigate(`${RoutePath.profile}${id}`);
+    } else {
+      console.log("no id");
+    }
+  };
+
   return (
     <div className={classNames(cls.CommentCard, {}, [className])}>
       <div className={cls.userData}>
@@ -45,6 +58,7 @@ export const CommentCard = (props: CommentCardProps) => {
           className={cls.userNickname}
           size={TextSize.L}
           text={comment.user?.username ?? "-"}
+          onClick={onClickUserName}
         />
       </div>
 

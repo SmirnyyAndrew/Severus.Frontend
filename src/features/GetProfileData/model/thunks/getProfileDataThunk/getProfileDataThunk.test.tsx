@@ -8,9 +8,9 @@ describe("getProfileDataThunk", () => {
     const data = ProfileExample;
 
     // ProfileDataExample - что возвращает moc-get запрос
-    thunk.api.get.mockReturnValue(Promise.resolve({ data }));
+    thunk.api.get.mockReturnValue(Promise.resolve({ data: [data] }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(data.id);
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");

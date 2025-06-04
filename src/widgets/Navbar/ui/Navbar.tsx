@@ -45,7 +45,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
             {t("nav_main_page")}
           </AppLink>
-          <AppLink to={RoutePath.profile} linkTheme={AppLinkTheme.PRIMARY}>
+          <AppLink
+            to={`${RoutePath.profile}${authData?.id ?? ""}`}
+            linkTheme={AppLinkTheme.PRIMARY}
+          >
             {t("nav_profile_page")}
           </AppLink>
           <AppLink to={RoutePath.articles} linkTheme={AppLinkTheme.PRIMARY}>

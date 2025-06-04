@@ -22,6 +22,7 @@ interface TextProps {
   text: string;
   isCenter?: boolean;
   size?: TextSize;
+  onClick?: () => void;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -32,6 +33,7 @@ export const Text = memo((props: TextProps) => {
     textTheme = TextThemes.INFO,
     isCenter,
     size = TextSize.L,
+    onClick,
   } = props;
 
   const mods: Mods = {
@@ -45,6 +47,7 @@ export const Text = memo((props: TextProps) => {
         cls[textTheme],
         cls[size],
       ])}
+      onClick={onClick}
     >
       {title && <p className={classNames(cls.title)}> {title}</p>}
       <p className={classNames(cls.text)}> {text}</p>

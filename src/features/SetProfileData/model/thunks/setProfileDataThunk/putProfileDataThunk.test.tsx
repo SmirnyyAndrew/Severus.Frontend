@@ -19,7 +19,10 @@ describe("putProfileDataThunk", () => {
     const data = ProfileExample;
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk(ProfileExample);
+    const result = await thunk.callThunk({
+      profile: ProfileExample,
+      profileId: ProfileExample.id,
+    });
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");

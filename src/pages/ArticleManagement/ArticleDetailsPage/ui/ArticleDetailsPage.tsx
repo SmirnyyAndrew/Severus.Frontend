@@ -1,6 +1,7 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
-import { useEffect } from "react";
+import { AddNewCommentForm } from "features/AddNewCommentForm";
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,12 +11,12 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
-import { Text, TextSize } from "shared/ui/Text";
 import { getArticleCommentsIsLoading } from "../model/selectors/getArticleCommentsIsLoading";
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
 } from "../model/slice/articleDetailsCommentsSlice";
+import { addNewCommentForArticle } from "../model/thunks/addNewCommentForArticle/addNewCommentForArticle";
 import { getCommentsByArticleIdThunk } from "../model/thunks/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import cls from "./ArticleDetailsPage.module.scss";
 
@@ -35,9 +36,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      console.log("be4 sent");
+      dispatch(addNewCommentForArticle(text));
+      console.log("sent");
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     dispatch(getCommentsByArticleIdThunk(`${id}`));
-  }, []);
+  }, [dispatch]);
 
   if (!id) return <h1>Статьи не существует</h1>;
 
@@ -46,13 +56,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails articleId={id} />
 
-        <div className={cls.commentTitleWrapper}>
-          <Text
-            className={cls.commentTitle}
-            size={TextSize.L}
-            text={"Комментарии"}
-          />
-        </div>
+        <AddNewCommentForm onSendComment={onSendComment} />
 
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>

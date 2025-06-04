@@ -30,7 +30,7 @@ export const Text = memo((props: TextProps) => {
     text,
     title,
     textTheme = TextThemes.INFO,
-    isCenter = true,
+    isCenter,
     size = TextSize.L,
   } = props;
 

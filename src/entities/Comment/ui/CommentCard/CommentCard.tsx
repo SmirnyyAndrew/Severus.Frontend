@@ -1,0 +1,63 @@
+import { Comment } from "entities/Comment/model/types/Comment";
+import { errorUserAvatar } from "shared/const/plugFiles";
+import { classNames } from "shared/lib/classNames/classNames";
+import { Avatar, AvatarSize } from "shared/ui/Avatar";
+import { Skeleton } from "shared/ui/Skeleton";
+import { Text, TextSize } from "shared/ui/Text";
+import cls from "./CommentCard.module.scss";
+
+interface CommentCardProps {
+  className?: string;
+  comment: Comment;
+  isLoading?: boolean;
+}
+
+export const CommentCard = (props: CommentCardProps) => {
+  const { className, comment, isLoading } = props;
+
+  if (isLoading)
+    return (
+      <div
+        className={classNames(
+          cls.LoadingCommentCard,
+          { isLoadging: isLoading },
+          [className]
+        )}
+      >
+        <div className={cls.userData}>
+          <Skeleton width={30} height={30} border="50%" />
+          <Skeleton width={100} height={16} className={cls.userNickname} />
+        </div>
+        <Skeleton width={"100%"} height={50} />
+      </div>
+    );
+
+  return (
+    <div className={classNames(cls.CommentCard, {}, [className])}>
+      <div className={cls.userData}>
+        <Avatar
+          img={comment.user.avatar ?? errorUserAvatar}
+          isRound
+          size={AvatarSize.S}
+        />
+
+        <Text
+          className={cls.userNickname}
+          size={TextSize.L}
+          text={comment.user?.username ?? "-"}
+        />
+      </div>
+
+      <Text
+        className={cls.commentText}
+        size={TextSize.XS}
+        text={comment.text}
+      />
+      <Text
+        className={cls.commentDateTime}
+        size={TextSize.XS}
+        text={"10.02.2025 12:33"}
+      />
+    </div>
+  );
+};

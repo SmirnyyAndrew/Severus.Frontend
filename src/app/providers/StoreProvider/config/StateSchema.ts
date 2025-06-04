@@ -6,6 +6,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
 import { To } from "history";
+import { ArticleDetailsCommentsSchema } from "pages/ArticleManagement/ArticleDetailsPage";
 import { NavigateOptions } from "react-router";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
@@ -17,6 +18,7 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

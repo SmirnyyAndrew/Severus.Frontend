@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ArticleExample } from "entities/Article/model/types/ArticleManagement/ArticleExample";
-import { ArticleListViewType } from "entities/Article/model/types/ArticleManagement/ArticleListViewType";
+import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { ArticleList } from "./ArticleList";
 
@@ -21,7 +21,7 @@ const meta: Meta<typeof ArticleList> = {
       ArticleExample,
     ],
     isLoading: true,
-    view: ArticleListViewType.GRID,
+    view: ArticleViewType.GRID,
   },
   argTypes: {
     isLoading: {
@@ -29,7 +29,7 @@ const meta: Meta<typeof ArticleList> = {
     },
     view: {
       control: "radio",
-      options: [ArticleListViewType.GRID, ArticleListViewType.LIST],
+      options: [ArticleViewType.GRID, ArticleViewType.LIST],
     },
   },
 };

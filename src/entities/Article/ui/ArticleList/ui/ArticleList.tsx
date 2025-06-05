@@ -1,5 +1,5 @@
 import { Article } from "entities/Article";
-import { ArticleListViewType } from "entities/Article/model/types/ArticleManagement/ArticleListViewType";
+import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { useNavigate } from "react-router-dom";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
@@ -18,16 +18,11 @@ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
-  view?: ArticleListViewType;
+  view?: ArticleViewType;
 }
 
 export const ArticleList = (props: ArticleListProps) => {
-  const {
-    className,
-    articles,
-    isLoading,
-    view = ArticleListViewType.LIST,
-  } = props;
+  const { className, articles, isLoading, view = ArticleViewType.LIST } = props;
 
   const navigate = useNavigate();
   const redirectToArticleDetailsPage = (id: string) => {
@@ -78,7 +73,7 @@ export const ArticleList = (props: ArticleListProps) => {
     );
   };
 
-  if (view === ArticleListViewType.GRID) {
+  if (view === ArticleViewType.GRID) {
     if (isLoading) {
       return <>{renderGridViewTypeSkeletons(10)}</>;
     }
@@ -122,7 +117,7 @@ export const ArticleList = (props: ArticleListProps) => {
     );
   }
 
-  if (view === ArticleListViewType.LIST) {
+  if (view === ArticleViewType.LIST) {
     if (isLoading) {
       return <>{renderListViewTypeSkeletons(5)}</>;
     }

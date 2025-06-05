@@ -1,4 +1,4 @@
-export enum ArticleListViewType {
+export enum ArticleViewType {
   LIST = "LIST",
   GRID = "GRID",
 }

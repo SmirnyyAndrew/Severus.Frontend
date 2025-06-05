@@ -41,12 +41,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": [
-        "IT",
-        "EDUCATION",
-        "SCIENCE",
-        "ENTERTAINMENT"
-      ],
+      "type": ["IT", "EDUCATION", "SCIENCE", "ENTERTAINMENT"],
       "blocks": [
         {
           "id": "1",
@@ -107,6 +102,186 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2",
+      "title": "Искусственный интеллект и здоровье",
+      "subtitle": "Как ИИ помогает в медицине",
+      "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
+      "views": 980,
+      "createdAt": "12.03.2024",
+      "type": ["SCIENCE", "EDUCATION"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "ИИ в диагностике",
+          "paragraphs": [
+            "Современные алгоритмы машинного обучения позволяют точнее диагностировать болезни на ранних стадиях.",
+            "ИИ помогает интерпретировать МРТ и рентген-снимки быстрее и эффективнее врачей."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "React 19: что нового?",
+      "subtitle": "Основные изменения в React 19",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+      "views": 2341,
+      "createdAt": "01.02.2025",
+      "type": ["IT", "EDUCATION"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Автоматический мемоизация компонентов",
+          "paragraphs": [
+            "React 19 внедряет автоматическую мемоизацию компонентов, уменьшая потребность в ручной оптимизации.",
+            "Hooks стали ещё гибче, с добавлением новых API."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Квантовые компьютеры",
+      "subtitle": "Реальность или миф?",
+      "img": "https://cdn.serif.com/affinity/img/home/0824/banner-060820241344--md@2x.webp",
+      "views": 842,
+      "createdAt": "10.01.2024",
+      "type": ["SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое квантовый компьютер?",
+          "paragraphs": [
+            "Квантовые компьютеры используют кубиты вместо битов, что позволяет выполнять вычисления в параллели.",
+            "Google и IBM уже представили свои первые прототипы квантовых машин."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Будущее онлайн-образования",
+      "subtitle": "Тренды и платформы",
+      "img": "https://img.freepik.com/free-photo/vestrahorn-mountains-stokksnes-iceland_335224-667.jpg?semt=ais_hybrid&w=740",
+      "views": 1543,
+      "createdAt": "02.05.2025",
+      "type": ["EDUCATION", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Онлайн-платформы",
+          "paragraphs": [
+            "Coursera, edX и Udemy продолжают набирать популярность благодаря гибкому обучению.",
+            "Микрообучение и адаптивные технологии становятся стандартом."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Игра года: Baldur's Gate 3",
+      "subtitle": "Почему все о ней говорят?",
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+      "views": 4378,
+      "createdAt": "15.12.2024",
+      "type": ["ENTERTAINMENT", "IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "RPG нового уровня",
+          "paragraphs": [
+            "Baldur's Gate 3 предлагает игрокам уникальную свободу действий и глубокую проработку мира.",
+            "Игра построена на механиках Dungeons & Dragons 5-й редакции."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Роботы и профессии будущего",
+      "subtitle": "Какие навыки будут нужны?",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpAG2cCLSGI7wmB1x1Hp_Phxlm1KsDFY_M6Q&s",
+      "views": 2111,
+      "createdAt": "03.08.2024",
+      "type": ["EDUCATION", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Автоматизация рынка труда",
+          "paragraphs": [
+            "По оценкам McKinsey, до 50% профессий могут быть автоматизированы к 2030 году.",
+            "Самыми востребованными станут креативные и технические профессии."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Как работает блокчейн?",
+      "subtitle": "Простое объяснение сложной технологии",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfoILzKFIj5PFMDF0PwSEZqg4G4AYk_EF5w&s",
+      "views": 1320,
+      "createdAt": "28.06.2024",
+      "type": ["IT", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Основы технологии",
+          "paragraphs": [
+            "Блокчейн — это распределённый реестр, в котором хранится информация о транзакциях.",
+            "Он защищён от изменений благодаря криптографическим методам."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Кибербезопасность в 2025",
+      "subtitle": "Основные угрозы и тренды",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiPO8T78UgThs92FoJ1emknd7c4bjLQhZtg&s",
+      "views": 1995,
+      "createdAt": "10.03.2025",
+      "type": ["IT", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Новые угрозы",
+          "paragraphs": [
+            "Фишинг, ransomware и supply chain атаки — ключевые проблемы 2025 года.",
+            "Zero Trust архитектуры становятся стандартом."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Влияние TikTok на культуру",
+      "subtitle": "Почему платформа так популярна?",
+      "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
+      "views": 3204,
+      "createdAt": "01.01.2025",
+      "type": ["ENTERTAINMENT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Алгоритмы и вирусность",
+          "paragraphs": [
+            "TikTok стал культурным феноменом благодаря своему алгоритму рекомендаций.",
+            "Короткие форматы видео создают новые формы самовыражения."
+          ]
+        }
+      ]
     }
   ],
   "comments": [
@@ -145,6 +320,12 @@
       "userId": "1",
       "text": "I'm sending",
       "id": "2DqVLEw"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "1111",
+      "id": "Of83Sgv"
     }
   ]
 }

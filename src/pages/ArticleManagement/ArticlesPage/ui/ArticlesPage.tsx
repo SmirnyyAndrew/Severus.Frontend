@@ -1,9 +1,10 @@
-import { ArticleExample } from "entities/Article";
-import { ArticleListViewType } from "entities/Article/model/types/ArticleManagement/ArticleListViewType";
+import { useArticle } from "entities/Article";
+import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
-import { useState } from "react";
+import { useEffect } from "react";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
+import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
@@ -17,18 +18,25 @@ interface ArticlesPageProps {
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
 
-  const [articleViewType, setArticleViewType] = useState<ArticleListViewType>(
-    ArticleListViewType.LIST
-  );
+  const {
+    articles,
+    articleViewType,
+    getArticles,
+    initArticleType,
+    setArticleViewType,
+  } = useArticle();
 
-  const onListTypeClick = () => {
-    setArticleViewType(ArticleListViewType.LIST);
-  };
-  const onGridTypeClick = () => {
-    setArticleViewType(ArticleListViewType.GRID);
+  useEffect(() => {
+    getArticles();
+    initArticleType();
+  }, [getArticles, initArticleType]);
+
+  const onArticleTypeClick = (type: ArticleViewType) => {
+    setArticleViewType(type);
+    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, type);
   };
 
-  const getIconTypeMods = (type: ArticleListViewType): Mods => {
+  const getIconTypeMods = (type: ArticleViewType): Mods => {
     const isSelected = type === articleViewType;
     const mods: Mods = {
       [cls.isSelected]: isSelected,
@@ -37,17 +45,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return mods;
   };
 
-  //TODO: добавить thunk по получению всех статей
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
       <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
         <Button
           isWrapper
-          onClick={onListTypeClick}
+          onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
           buttonTheme={ButtonTheme.CLEAR}
           className={classNames(
             cls.ListIcon,
-            getIconTypeMods(ArticleListViewType.LIST),
+            getIconTypeMods(ArticleViewType.LIST),
             []
           )}
         >
@@ -56,12 +63,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
         <Button
           isWrapper
-          onClick={onGridTypeClick}
+          onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
           size={ButtonSize.M}
           buttonTheme={ButtonTheme.CLEAR}
           className={classNames(
             cls.GridIcon,
-            getIconTypeMods(ArticleListViewType.GRID),
+            getIconTypeMods(ArticleViewType.GRID),
             []
           )}
         >
@@ -70,13 +77,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       </div>
 
       <ArticleList
-        articles={[
-          ArticleExample,
-          ArticleExample,
-          ArticleExample,
-          ArticleExample,
-          ArticleExample,
-        ]}
+        articles={articles}
         view={articleViewType}
         isLoading={false}
       />

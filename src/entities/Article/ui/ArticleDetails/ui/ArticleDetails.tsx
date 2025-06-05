@@ -79,7 +79,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         isCenter
       />
       <Avatar
-        img={errorArticleImg}
+        img={articleData?.img || errorArticleImg}
         isRound={false}
         alt={articleData?.title}
         key={articleData?.id}

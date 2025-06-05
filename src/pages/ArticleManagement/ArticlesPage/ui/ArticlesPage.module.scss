@@ -1,2 +1,21 @@
 .ArticlesPage {
 }
+
+.ArticleTypeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: auto;
+
+  .ListIcon {
+    opacity: 0.2;
+  }
+
+  .GridIcon {
+    opacity: 0.2;
+  }
+
+  .isSelected {
+    opacity: 1;
+  }
+}

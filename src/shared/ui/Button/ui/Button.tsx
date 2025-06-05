@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   square?: boolean;
   disabled?: boolean;
+  isWrapper?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo((props) => {
@@ -31,6 +32,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
     disabled = false,
     buttonTheme = ButtonTheme.OUTLINE,
     square,
+    isWrapper = false,
     size = ButtonSize.M,
     children,
     ...otherProps
@@ -41,6 +43,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
     [cls.square]: square,
     [cls[size]]: true,
     [cls.disabled]: disabled,
+    [cls.isWrapper]: isWrapper,
   };
 
   return (

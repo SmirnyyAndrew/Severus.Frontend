@@ -4,13 +4,15 @@ import { AddNewCommentForm } from "features/AddNewCommentForm";
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
+import { Button } from "shared/ui/Button";
 import { getArticleCommentsIsLoading } from "../model/selectors/getArticleCommentsIsLoading";
 import {
   articleDetailsCommentsReducer,
@@ -45,6 +47,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     [dispatch]
   );
 
+  const navigate = useNavigate();
+  const onBackButtonClick = () => {
+    navigate(RoutePath.articles);
+  };
+
   useEffect(() => {
     dispatch(getCommentsByArticleIdThunk(`${id}`));
   }, [dispatch]);
@@ -54,6 +61,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button onClick={onBackButtonClick}>Назад</Button>
+
         <ArticleDetails articleId={id} />
 
         <AddNewCommentForm onSendComment={onSendComment} />

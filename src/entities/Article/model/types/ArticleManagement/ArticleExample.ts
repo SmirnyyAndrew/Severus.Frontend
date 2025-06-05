@@ -34,7 +34,7 @@ function greet(name: string): string {
 };
 
 export const ArticleExample: Article = {
-  id: "article-1",
+  id: "1",
   title: "Getting Started with TypeScript",
   subtitle: "Why TypeScript is the future of JavaScript",
   img: errorArticleImg,

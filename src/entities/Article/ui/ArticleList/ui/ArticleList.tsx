@@ -78,9 +78,9 @@ export const ArticleList = (props: ArticleListProps) => {
   };
 
   if (view === ArticleViewType.GRID) {
-    if (isLoading) {
-      return <>{renderGridViewTypeSkeletons(10)}</>;
-    }
+    // if (isLoading) {
+    //   return <>{renderGridViewTypeSkeletons(10)}</>;
+    // }
 
     return (
       <div className={classNames(cls.Grid, {}, [className, cls[view]])}>
@@ -117,14 +117,15 @@ export const ArticleList = (props: ArticleListProps) => {
             />
           </div>
         ))}
+        {isLoading && renderGridViewTypeSkeletons(10)}
       </div>
     );
   }
 
   if (view === ArticleViewType.LIST) {
-    if (isLoading) {
-      return <>{renderListViewTypeSkeletons(5)}</>;
-    }
+    // if (isLoading) {
+    //   return <>{renderListViewTypeSkeletons(5)}</>;
+    // }
 
     return (
       <div className={classNames(cls.List, {}, [className, cls[view]])}>
@@ -183,6 +184,7 @@ export const ArticleList = (props: ArticleListProps) => {
             </div>
           </div>
         ))}
+        {isLoading && renderListViewTypeSkeletons(5)}
       </div>
     );
   }

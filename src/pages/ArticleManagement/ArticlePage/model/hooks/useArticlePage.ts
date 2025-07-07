@@ -24,9 +24,12 @@ export const useArticlePage = () => {
 
   const articles = useSelector(getArticles);
 
-  const getArticlesWithLimit = useCallback(async () => {
-    const result = await dispatch(getArticlesListThunk({ page: 1 }));
-  }, [dispatch, page, limit]);
+  const getArticlesWithLimit = useCallback(
+    async (pageNum: number) => {
+      await dispatch(getArticlesListThunk({ page: pageNum }));
+    },
+    [dispatch]
+  );
 
   const initArticleType = useCallback(() => {
     const keyFromLocalStorage = localStorage.getItem(
@@ -42,7 +45,7 @@ export const useArticlePage = () => {
 
   const setArticleViewType = useCallback(
     (viewType: ArticleViewType) => {
-      localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, view);
+      localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
       dispatch(ArticlePageActions.setView(viewType));
     },
     [dispatch]
@@ -54,6 +57,14 @@ export const useArticlePage = () => {
     },
     [dispatch]
   );
+
+  const setPage = useCallback(
+    (pageNum: number) => {
+      dispatch(ArticlePageActions.setPage(pageNum));
+    },
+    [dispatch]
+  );
+
   return {
     page,
     limit,
@@ -65,6 +76,7 @@ export const useArticlePage = () => {
     getArticlesWithLimit,
     initArticleType,
     setArticleViewType,
+    setPage,
     setHasMore,
   };
 };

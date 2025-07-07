@@ -1,6 +1,6 @@
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
@@ -30,20 +30,47 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const {
     view,
     articles,
+    page,
     limit,
+    hasMore,
+    isLoading,
     getArticlesWithLimit,
     initArticleType,
     setArticleViewType,
+    setPage,
   } = useArticlePage();
 
+  // useEffect(() => {
+  //   if (limit === undefined) initArticleType();
+  //   else getArticlesWithLimit(page);
+  // }, [getArticlesWithLimit, initArticleType]);
+
+  // один useEffect — для инициализации
   useEffect(() => {
-    if (limit === undefined) initArticleType();
-    else getArticlesWithLimit();
-  }, [getArticlesWithLimit, initArticleType]);
+    if (limit === undefined) {
+      initArticleType();
+    }
+  }, [limit, initArticleType]);
+
+  // другой — для загрузки статьи по текущей странице
+  useEffect(() => {
+    if (limit !== undefined) {
+      getArticlesWithLimit(page);
+    }
+  }, [page, limit, getArticlesWithLimit]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
     setArticleViewType(viewType);
   };
+
+  const onLoadNextPart = useCallback(() => {
+    if (!hasMore || isLoading) return;
+
+    console.log("onLoadNextPart");
+    const newPage = page + 1;
+    getArticlesWithLimit(newPage);
+    setPage(newPage);
+  }, [page]);
 
   const getIconTypeMods = (type: ArticleViewType): Mods => {
     const isSelected = type === view;
@@ -55,8 +82,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   };
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page className={classNames(cls.ArticlesPage, {}, [className])}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <Page
+        onScrollEnd={onLoadNextPart}
+        className={classNames(cls.ArticlesPage, {}, [className])}
+      >
         <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
           <Button
             isWrapper

@@ -55,8 +55,20 @@ export const ArticlePageSlice = createSlice({
         state.error = undefined;
       })
       .addCase(getArticlesListThunk.fulfilled, (state, action) => {
+        if (state.page === 1) {
+          state.articles = action.payload; // Первая страница — просто сохранить
+        } else {
+          state.articles = [...state.articles, ...action.payload]; // Остальные — дописываем
+        }
+
         state.isLoading = false;
-        state.articles = action.payload;
+        state.error = undefined;
+
+        // Обновляем hasMore
+        if (state.limit)
+          if (action.payload.length < state.limit) {
+            state.hasMore = false;
+          }
       })
       .addCase(getArticlesListThunk.rejected, (state, action) => {
         state.isLoading = false;

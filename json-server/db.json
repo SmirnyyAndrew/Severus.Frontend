@@ -282,6 +282,87 @@
           ]
         }
       ]
+    },
+    {
+      "id": "11",
+      "title": "Как ИИ меняет образование",
+      "subtitle": "Новые технологии в учебном процессе",
+      "img": "https://images.unsplash.com/photo-1581092334648-6c2a1e35a6ca?auto=format&fit=crop&w=800&q=80",
+      "views": 4520,
+      "createdAt": "03.02.2025",
+      "type": ["TECH", "EDUCATION"]
+    },
+    {
+      "id": "12",
+      "title": "Будущее устойчивой моды",
+      "subtitle": "Экотренды в одежде",
+      "img": "https://images.unsplash.com/photo-1602810318383-e7b5d3d1ad19?auto=format&fit=crop&w=800&q=80",
+      "views": 1987,
+      "createdAt": "15.02.2025",
+      "type": ["ECOLOGY", "FASHION"]
+    },
+    {
+      "id": "13",
+      "title": "Геймификация в бизнесе",
+      "subtitle": "Почему игры работают на продуктивность?",
+      "img": "https://images.unsplash.com/photo-1616529734494-576c4f04e1b7?auto=format&fit=crop&w=800&q=80",
+      "views": 3120,
+      "createdAt": "21.03.2025",
+      "type": ["BUSINESS", "TECH"]
+    },
+    {
+      "id": "14",
+      "title": "Влияние TikTok на культуру",
+      "subtitle": "Почему платформа так популярна?",
+      "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
+      "views": 3204,
+      "createdAt": "01.01.2025",
+      "type": ["ENTERTAINMENT", "ECOLOGY"]
+    },
+    {
+      "id": "15",
+      "title": "Зарождение метавселенной",
+      "subtitle": "Что нас ждёт в виртуальной реальности?",
+      "img": "https://images.unsplash.com/photo-1614064641938-eb7f2b5e79c8?auto=format&fit=crop&w=800&q=80",
+      "views": 4873,
+      "createdAt": "10.04.2025",
+      "type": ["TECH", "ENTERTAINMENT"]
+    },
+    {
+      "id": "16",
+      "title": "Город без машин",
+      "subtitle": "Эксперименты в урбанистике",
+      "img": "https://images.unsplash.com/photo-1505842465776-3d90f6160c54?auto=format&fit=crop&w=800&q=80",
+      "views": 2711,
+      "createdAt": "22.04.2025",
+      "type": ["ECOLOGY", "URBAN"]
+    },
+    {
+      "id": "17",
+      "title": "Как подкасты захватывают мир",
+      "subtitle": "Новый формат старых идей",
+      "img": "https://images.unsplash.com/photo-1587723963360-e3f7f1b8be1e?auto=format&fit=crop&w=800&q=80",
+      "views": 3490,
+      "createdAt": "05.05.2025",
+      "type": ["MEDIA", "CULTURE"]
+    },
+    {
+      "id": "18",
+      "title": "Архитектура будущего",
+      "subtitle": "Как изменится облик городов",
+      "img": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
+      "views": 3905,
+      "createdAt": "17.05.2025",
+      "type": ["DESIGN", "TECH"]
+    },
+    {
+      "id": "19",
+      "title": "ЗОЖ или мода?",
+      "subtitle": "Психология здорового образа жизни",
+      "img": "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=800&q=80",
+      "views": 2280,
+      "createdAt": "26.05.2025",
+      "type": ["HEALTH", "CULTURE"]
     }
   ],
   "comments": [

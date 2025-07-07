@@ -1,4 +1,3 @@
-import { useArticle } from "entities/Article";
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
 import { useEffect } from "react";
@@ -9,6 +8,7 @@ import { classNames, Mods } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
+import { useArticlePage } from "../model/hooks/useArticlePage";
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
@@ -19,15 +19,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
 
   const {
-    articles,
     articleViewType,
+    articles,
     getArticles,
     initArticleType,
     setArticleViewType,
-  } = useArticle();
+  } = useArticlePage();
+
+  const {} = useArticlePage();
 
   useEffect(() => {
-    getArticles();
+    getArticles(1, 10);
     initArticleType();
   }, [getArticles, initArticleType]);
 

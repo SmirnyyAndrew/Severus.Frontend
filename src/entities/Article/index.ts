@@ -9,6 +9,7 @@ import { getArticleByIdThunk } from "./model/thunks/getArticleByIdThunk/getArtic
 import { Article } from "./model/types/ArticleManagement/Article";
 import type { ArticleDetailsSchema } from "./model/types/ArticleManagement/ArticleDetailsSchema";
 import { ArticleExample } from "./model/types/ArticleManagement/ArticleExample";
+import { ArticleViewType } from "./model/types/ArticleManagement/ArticleViewType";
 import { ArticleBlock } from "./model/types/BlockManagement/ArticleBlock";
 import { ArticleDetails } from "./ui/ArticleDetails";
 
@@ -20,6 +21,7 @@ export {
   ArticleDetailsSchema,
   ArticleReducer,
   ArticleSlice,
+  ArticleViewType,
   getArticle,
   getArticleByIdThunk,
   useArticle,

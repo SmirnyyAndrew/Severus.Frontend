@@ -7,7 +7,7 @@ export const [FTName]Thunk = createAsyncThunk<
   [FTName],
   void,
   ThunkConfig<string>
->("article/getArticleById", async () => {
+>("article/getArticleById", async (props, thunkApi) => {
   if (__IS_STORYBOOK__) return undefined;
 
   const { extra, rejectWithValue } = thunkApi;

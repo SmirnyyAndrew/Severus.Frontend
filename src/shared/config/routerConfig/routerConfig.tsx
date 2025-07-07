@@ -1,8 +1,6 @@
 import { AboutPage } from "pages/AboutPage";
-import {
-  ArticleDetailsPage,
-  ArticlesPage,
-} from "pages/ArticleManagement/ArticlesPage";
+import { ArticleDetailsPage } from "pages/ArticleManagement/ArticleDetailsPage";
+import ArticlesPage from "pages/ArticleManagement/ArticlePage/ui/ArticlesPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";

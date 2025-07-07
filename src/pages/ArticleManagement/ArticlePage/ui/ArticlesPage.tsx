@@ -40,24 +40,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     setPage,
   } = useArticlePage();
 
-  // useEffect(() => {
-  //   if (limit === undefined) initArticleType();
-  //   else getArticlesWithLimit(page);
-  // }, [getArticlesWithLimit, initArticleType]);
-
   // один useEffect — для инициализации
   useEffect(() => {
-    if (limit === undefined) {
-      initArticleType();
-    }
-  }, [limit, initArticleType]);
+    initArticleType();
+  }, [initArticleType]);
 
   // другой — для загрузки статьи по текущей странице
   useEffect(() => {
-    if (limit !== undefined) {
+    if (limit !== undefined && page === 1) {
       getArticlesWithLimit(page);
     }
-  }, [page, limit, getArticlesWithLimit]);
+  }, [page]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
     setArticleViewType(viewType);
@@ -68,8 +61,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     console.log("onLoadNextPart");
     const newPage = page + 1;
-    getArticlesWithLimit(newPage);
     setPage(newPage);
+    getArticlesWithLimit(newPage);
   }, [page]);
 
   const getIconTypeMods = (type: ArticleViewType): Mods => {
@@ -116,7 +109,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           </Button>
         </div>
 
-        <ArticleList articles={articles} view={view} isLoading={false} />
+        <ArticleList articles={articles} view={view} isLoading={isLoading} />
       </Page>
     </DynamicModuleLoader>
   );

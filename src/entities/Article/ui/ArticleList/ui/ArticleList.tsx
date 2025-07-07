@@ -61,16 +61,9 @@ export const ArticleList = (props: ArticleListProps) => {
       <div className={cls.ListSkeletonsWrapper}>
         {Array.from({ length: count }).map((_, index) => (
           <div className={cls.ListSkeletons} key={`skeleton_list_${index}`}>
-            <div className={cls.Header}>
-              <div className={cls.HeaderUsername}>
-                <Skeleton width={50} height={50} border="50%" />
-                <Skeleton width={200} height={20} />
-              </div>
-              <Skeleton width={200} height={20} />
-            </div>
-            <Skeleton width={1000} height={300} />
-            <Skeleton width={1000} height={20} />
-            <Skeleton width={1000} height={20} />
+            <Skeleton width={1500} height={300} />
+            <Skeleton width={1500} height={20} />
+            <Skeleton width={1500} height={20} />
           </div>
         ))}
       </div>
@@ -78,10 +71,6 @@ export const ArticleList = (props: ArticleListProps) => {
   };
 
   if (view === ArticleViewType.GRID) {
-    // if (isLoading) {
-    //   return <>{renderGridViewTypeSkeletons(10)}</>;
-    // }
-
     return (
       <div className={classNames(cls.Grid, {}, [className, cls[view]])}>
         {articles.map((article) => (
@@ -123,10 +112,6 @@ export const ArticleList = (props: ArticleListProps) => {
   }
 
   if (view === ArticleViewType.LIST) {
-    // if (isLoading) {
-    //   return <>{renderListViewTypeSkeletons(5)}</>;
-    // }
-
     return (
       <div className={classNames(cls.List, {}, [className, cls[view]])}>
         {articles.map((article) => (

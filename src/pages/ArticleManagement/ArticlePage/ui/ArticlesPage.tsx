@@ -11,6 +11,7 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
+import { Page } from "shared/ui/Page";
 import { ArticlePageReducer } from "..";
 import { useArticlePage } from "../model/hooks/useArticlePage";
 import cls from "./ArticlesPage.module.scss";
@@ -55,7 +56,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+      <Page className={classNames(cls.ArticlesPage, {}, [className])}>
         <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
           <Button
             isWrapper
@@ -86,7 +87,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         </div>
 
         <ArticleList articles={articles} view={view} isLoading={false} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -3,7 +3,7 @@ import { ThunkConfig } from "app/providers/StoreProvider";
 import { Article, ArticleExample } from "entities/Article";
 
 interface getArticlesListThunkProps {
-  page?: number;
+  page: number;
   limit?: number;
 }
 
@@ -15,7 +15,7 @@ export const getArticlesListThunk = createAsyncThunk<
   if (__IS_STORYBOOK__) return [ArticleExample, ArticleExample, ArticleExample];
 
   const { extra, rejectWithValue } = thunkApi;
-  const { page = 1, limit = 9 } = props;
+  const { page, limit = 9 } = props;
 
   try {
     const response = await extra.api.get<Article[]>(`/articles`, {

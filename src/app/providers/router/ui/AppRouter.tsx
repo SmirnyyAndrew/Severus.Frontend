@@ -16,9 +16,7 @@ export const AppRouter = () => {
         key={route.path}
         path={route.path}
         element={
-          <div className="page-wrapper">
-            {route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
-          </div>
+          route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
         }
       />
     );

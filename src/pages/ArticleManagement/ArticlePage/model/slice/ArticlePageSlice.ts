@@ -32,7 +32,9 @@ export const ArticlePageSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-
+    setHasMore: (state, action: PayloadAction<boolean>) => {
+      state.hasMore = action.payload;
+    },
     initState: (state) => {
       const view =
         (localStorage.getItem(

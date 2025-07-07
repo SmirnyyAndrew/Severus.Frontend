@@ -27,7 +27,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
   );
 
   return (
-    <div
+    <aside
       data-testid="sidebar"
       className={classNames(cls.Sidebar, { [cls.hidden]: hidden }, [className])}
     >
@@ -48,6 +48,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <LangSwitcher short={!hidden} />
       </div>
-    </div>
+    </aside>
   );
 };

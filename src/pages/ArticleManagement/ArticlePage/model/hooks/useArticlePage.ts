@@ -25,7 +25,7 @@ export const useArticlePage = () => {
   const articles = useSelector(getArticles);
 
   const getArticlesWithLimit = useCallback(async () => {
-    const result = await dispatch(getArticlesListThunk({ page, limit }));
+    const result = await dispatch(getArticlesListThunk({ page: 1 }));
   }, [dispatch, page, limit]);
 
   const initArticleType = useCallback(() => {
@@ -48,6 +48,12 @@ export const useArticlePage = () => {
     [dispatch]
   );
 
+  const setHasMore = useCallback(
+    (hasMore: boolean) => {
+      dispatch(ArticlePageActions.setHasMore(hasMore));
+    },
+    [dispatch]
+  );
   return {
     page,
     limit,
@@ -59,5 +65,6 @@ export const useArticlePage = () => {
     getArticlesWithLimit,
     initArticleType,
     setArticleViewType,
+    setHasMore,
   };
 };

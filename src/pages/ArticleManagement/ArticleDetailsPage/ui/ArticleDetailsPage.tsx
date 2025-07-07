@@ -13,6 +13,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { Button } from "shared/ui/Button";
+import { Page } from "shared/ui/Page";
 import { getArticleCommentsIsLoading } from "../model/selectors/getArticleCommentsIsLoading";
 import {
   articleDetailsCommentsReducer,
@@ -60,7 +61,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button onClick={onBackButtonClick}>Назад</Button>
 
         <ArticleDetails articleId={id} />
@@ -68,7 +69,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <AddNewCommentForm onSendComment={onSendComment} />
 
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

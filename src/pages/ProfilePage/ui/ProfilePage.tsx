@@ -10,6 +10,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Page } from "shared/ui/Page";
 import cls from "./ProfilePage.module.scss";
 
 const ProfilePage = () => {
@@ -42,7 +43,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={cls.ProfilePage}>
+      <Page className={cls.ProfilePage}>
         <ProfileCard
           profile={profileData}
           error={error}
@@ -64,7 +65,7 @@ const ProfilePage = () => {
             onClose={onCloseProfileDataEditModal}
           />
         )}
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -1,5 +1,5 @@
+import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleViewType } from "entities/Article";
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
 
-export const getView = (state: ArticlePageSchema) =>
-  state.view || ArticleViewType.GRID;
+export const getView = (state: StateSchema) =>
+  state.articles?.view || ArticleViewType.GRID;

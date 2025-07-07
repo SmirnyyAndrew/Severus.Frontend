@@ -1,4 +1,4 @@
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getIsLoading = (state: ArticlePageSchema) =>
-  state.isLoading || false;
+export const getIsLoading = (state: StateSchema) =>
+  state.articles?.isLoading || false;

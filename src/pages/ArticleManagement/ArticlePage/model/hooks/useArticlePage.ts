@@ -1,9 +1,10 @@
-import { Article, ArticleViewType } from "entities/Article";
-import { useCallback, useState } from "react";
+import { ArticleViewType } from "entities/Article";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { ArticlePageActions } from "../..";
+import { getArticles } from "../selectors/getArticles/getArticles";
 import { getError } from "../selectors/getError/getError";
 import { getHasMore } from "../selectors/getHasMore/getHasMore";
 import { getIsLoading } from "../selectors/getIsLoading/getIsLoading";
@@ -20,27 +21,12 @@ export const useArticlePage = () => {
   const hasMore = useSelector(getHasMore);
   const isLoading = useSelector(getIsLoading);
   const view = useSelector(getView);
-  const [articles, setArticles] = useState<Article[]>([]);
 
-  // const getArticles = useCallback(async () => {
-  //   const result = await dispatch(getArticlesListThunk({ page, limit }));
-  //   if (result.meta.requestStatus === "fulfilled")
-  //     setArticles(result.payload as Article[]);
-  //   else {
-  //     console.error("Failed to fetch articles", result);
-  //     setArticles([]);
-  //   }
-  // }, [dispatch]);
+  const articles = useSelector(getArticles);
 
-  const getArticles = useCallback(async () => {
+  const getArticlesWithLimit = useCallback(async () => {
     const result = await dispatch(getArticlesListThunk({ page, limit }));
-    if (result.meta.requestStatus === "fulfilled")
-      setArticles(result.payload as Article[]);
-    else {
-      console.error("Failed to fetch articles", result);
-      setArticles([]);
-    }
-  }, [dispatch]);
+  }, [dispatch, page, limit]);
 
   const initArticleType = useCallback(() => {
     const keyFromLocalStorage = localStorage.getItem(
@@ -70,7 +56,7 @@ export const useArticlePage = () => {
     isLoading,
     view,
     articles,
-    getArticles,
+    getArticlesWithLimit,
     initArticleType,
     setArticleViewType,
   };

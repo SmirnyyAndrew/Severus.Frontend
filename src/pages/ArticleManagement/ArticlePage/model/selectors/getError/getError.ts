@@ -1,3 +1,3 @@
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getError = (state: ArticlePageSchema) => state.error;
+export const getError = (state: StateSchema) => state.articles?.error;

@@ -1,3 +1,3 @@
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getPage = (state: ArticlePageSchema) => state.page;
+export const getPage = (state: StateSchema) => state.articles?.page;

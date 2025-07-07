@@ -3,7 +3,6 @@ import { ArticleList } from "entities/Article/ui/ArticleList";
 import { useEffect } from "react";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
-import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
@@ -27,19 +26,22 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     articles: ArticlePageReducer,
   };
 
-  const { view, articles, getArticles, initArticleType, setArticleViewType } =
-    useArticlePage();
-
-  const {} = useArticlePage();
+  const {
+    view,
+    articles,
+    limit,
+    getArticlesWithLimit,
+    initArticleType,
+    setArticleViewType,
+  } = useArticlePage();
 
   useEffect(() => {
-    initArticleType();
-    getArticles();
-  }, [getArticles, initArticleType]);
+    if (limit === undefined) initArticleType();
+    else getArticlesWithLimit();
+  }, [getArticlesWithLimit, initArticleType]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
     setArticleViewType(viewType);
-    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
   };
 
   const getIconTypeMods = (type: ArticleViewType): Mods => {

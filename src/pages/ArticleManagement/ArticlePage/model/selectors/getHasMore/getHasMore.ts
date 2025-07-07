@@ -1,3 +1,4 @@
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getHasMore = (state: ArticlePageSchema) => state.hasMore || false;
+export const getHasMore = (state: StateSchema) =>
+  state.articles?.hasMore || false;

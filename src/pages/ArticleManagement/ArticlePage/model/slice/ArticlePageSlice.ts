@@ -5,15 +5,15 @@ import {
   LIST_ELEMENTS_COUNT,
 } from "shared/const/elementsCount";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { getArticlesListThunk } from "../..";
 import { ArticlePageSchema } from "../types/ArticlePageSchema";
 
 const initialState: ArticlePageSchema = {
   isLoading: false,
   error: undefined,
-  view: ArticleViewType.GRID,
   page: 1,
-  limit: 9,
   hasMore: true,
+  articles: [],
 };
 
 export const ArticlePageSlice = createSlice({
@@ -46,7 +46,21 @@ export const ArticlePageSlice = createSlice({
           : GRID_ELEMENTS_COUNT;
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getArticlesListThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(getArticlesListThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.articles = action.payload;
+      })
+      .addCase(getArticlesListThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const ArticlePageActions = ArticlePageSlice.actions;

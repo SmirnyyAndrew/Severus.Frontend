@@ -1,3 +1,3 @@
-import { ArticlePageSchema } from "../../types/ArticlePageSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getLimit = (state: ArticlePageSchema) => state.limit || 9;
+export const getLimit = (state: StateSchema) => state.articles?.limit || 9;

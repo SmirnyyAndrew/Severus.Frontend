@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ArticleViewType } from "entities/Article";
+import {
+  GRID_ELEMENTS_COUNT,
+  LIST_ELEMENTS_COUNT,
+} from "shared/const/elementsCount";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { ArticlePageSchema } from "../types/ArticlePageSchema";
 
@@ -19,6 +23,11 @@ export const ArticlePageSlice = createSlice({
     setView: (state, action: PayloadAction<ArticleViewType>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, action.payload);
+
+      state.limit =
+        state.view === ArticleViewType.LIST
+          ? LIST_ELEMENTS_COUNT
+          : GRID_ELEMENTS_COUNT;
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
@@ -31,7 +40,10 @@ export const ArticlePageSlice = createSlice({
         ) as ArticleViewType) || ArticleViewType.GRID;
 
       state.view = view;
-      state.limit = view === ArticleViewType.LIST ? 4 : 9;
+      state.limit =
+        view === ArticleViewType.LIST
+          ? LIST_ELEMENTS_COUNT
+          : GRID_ELEMENTS_COUNT;
     },
   },
   extraReducers: (builder) => {},

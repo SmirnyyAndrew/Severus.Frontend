@@ -5,9 +5,14 @@ import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
+import { ArticlePageReducer } from "..";
 import { useArticlePage } from "../model/hooks/useArticlePage";
 import cls from "./ArticlesPage.module.scss";
 
@@ -18,28 +23,27 @@ interface ArticlesPageProps {
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
 
-  const {
-    articleViewType,
-    articles,
-    getArticles,
-    initArticleType,
-    setArticleViewType,
-  } = useArticlePage();
+  const reducers: ReducersList = {
+    articles: ArticlePageReducer,
+  };
+
+  const { view, articles, getArticles, initArticleType, setArticleViewType } =
+    useArticlePage();
 
   const {} = useArticlePage();
 
   useEffect(() => {
-    getArticles(1, 10);
     initArticleType();
+    getArticles();
   }, [getArticles, initArticleType]);
 
-  const onArticleTypeClick = (type: ArticleViewType) => {
-    setArticleViewType(type);
-    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, type);
+  const onArticleTypeClick = (viewType: ArticleViewType) => {
+    setArticleViewType(viewType);
+    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
   };
 
   const getIconTypeMods = (type: ArticleViewType): Mods => {
-    const isSelected = type === articleViewType;
+    const isSelected = type === view;
     const mods: Mods = {
       [cls.isSelected]: isSelected,
     };
@@ -48,42 +52,40 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   };
 
   return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
-        <Button
-          isWrapper
-          onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
-          buttonTheme={ButtonTheme.CLEAR}
-          className={classNames(
-            cls.ListIcon,
-            getIconTypeMods(ArticleViewType.LIST),
-            []
-          )}
-        >
-          <Icon Svg={ListIcon} iconSize={IconSize.L} />
-        </Button>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+        <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
+          <Button
+            isWrapper
+            onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
+            buttonTheme={ButtonTheme.CLEAR}
+            className={classNames(
+              cls.ListIcon,
+              getIconTypeMods(ArticleViewType.LIST),
+              []
+            )}
+          >
+            <Icon Svg={ListIcon} iconSize={IconSize.L} />
+          </Button>
 
-        <Button
-          isWrapper
-          onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
-          size={ButtonSize.M}
-          buttonTheme={ButtonTheme.CLEAR}
-          className={classNames(
-            cls.GridIcon,
-            getIconTypeMods(ArticleViewType.GRID),
-            []
-          )}
-        >
-          <Icon Svg={GridIcon} iconSize={IconSize.L} />
-        </Button>
+          <Button
+            isWrapper
+            onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
+            size={ButtonSize.M}
+            buttonTheme={ButtonTheme.CLEAR}
+            className={classNames(
+              cls.GridIcon,
+              getIconTypeMods(ArticleViewType.GRID),
+              []
+            )}
+          >
+            <Icon Svg={GridIcon} iconSize={IconSize.L} />
+          </Button>
+        </div>
+
+        <ArticleList articles={articles} view={view} isLoading={false} />
       </div>
-
-      <ArticleList
-        articles={articles}
-        view={articleViewType}
-        isLoading={false}
-      />
-    </div>
+    </DynamicModuleLoader>
   );
 };
 

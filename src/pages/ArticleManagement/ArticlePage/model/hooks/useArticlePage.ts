@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
+import { ArticlePageActions } from "../..";
 import { getError } from "../selectors/getError/getError";
 import { getHasMore } from "../selectors/getHasMore/getHasMore";
 import { getIsLoading } from "../selectors/getIsLoading/getIsLoading";
@@ -20,28 +21,46 @@ export const useArticlePage = () => {
   const isLoading = useSelector(getIsLoading);
   const view = useSelector(getView);
   const [articles, setArticles] = useState<Article[]>([]);
-  const [articleViewType, setArticleViewType] = useState<ArticleViewType>();
 
-  const getArticles = useCallback(
-    async (page: number, limit?: number) => {
-      const result = await dispatch(getArticlesListThunk({ page, limit }));
-      if (result.meta.requestStatus === "fulfilled")
-        setArticles(result.payload as Article[]);
-      else {
-        console.error("Failed to fetch articles", result);
-      }
-    },
-    [dispatch]
-  );
+  // const getArticles = useCallback(async () => {
+  //   const result = await dispatch(getArticlesListThunk({ page, limit }));
+  //   if (result.meta.requestStatus === "fulfilled")
+  //     setArticles(result.payload as Article[]);
+  //   else {
+  //     console.error("Failed to fetch articles", result);
+  //     setArticles([]);
+  //   }
+  // }, [dispatch]);
+
+  const getArticles = useCallback(async () => {
+    const result = await dispatch(getArticlesListThunk({ page, limit }));
+    if (result.meta.requestStatus === "fulfilled")
+      setArticles(result.payload as Article[]);
+    else {
+      console.error("Failed to fetch articles", result);
+      setArticles([]);
+    }
+  }, [dispatch]);
 
   const initArticleType = useCallback(() => {
     const keyFromLocalStorage = localStorage.getItem(
       ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY
     );
+    const view: ArticleViewType =
+      (keyFromLocalStorage as ArticleViewType) || ArticleViewType.GRID;
+
     if (keyFromLocalStorage) {
-      setArticleViewType(keyFromLocalStorage as ArticleViewType);
+      dispatch(ArticlePageActions.setView(view));
     }
-  }, []);
+  }, [dispatch, view]);
+
+  const setArticleViewType = useCallback(
+    (viewType: ArticleViewType) => {
+      localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, view);
+      dispatch(ArticlePageActions.setView(viewType));
+    },
+    [dispatch]
+  );
 
   return {
     page,
@@ -50,9 +69,7 @@ export const useArticlePage = () => {
     hasMore,
     isLoading,
     view,
-
     articles,
-    articleViewType,
     getArticles,
     initArticleType,
     setArticleViewType,

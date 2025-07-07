@@ -8,6 +8,7 @@ import { AddNewCommentFormSchema } from "features/AddNewCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { To } from "history";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleManagement/ArticleDetailsPage";
+import { ArticlePageSchema } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
@@ -19,6 +20,7 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleDetailsSchema;
+  articles?: ArticlePageSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
 }

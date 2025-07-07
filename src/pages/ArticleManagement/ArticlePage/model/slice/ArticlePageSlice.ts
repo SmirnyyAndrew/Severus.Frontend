@@ -6,7 +6,7 @@ import {
 } from "shared/const/elementsCount";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { getArticlesListThunk } from "../..";
-import { ArticlePageSchema } from "../types/ArticlePageSchema";
+import { ArticlePageSchema } from "../types/ArticlesPageSchema";
 
 const initialState: ArticlePageSchema = {
   isLoading: false,
@@ -14,6 +14,7 @@ const initialState: ArticlePageSchema = {
   page: 1,
   hasMore: true,
   articles: [],
+  _inited: false,
 };
 
 export const ArticlePageSlice = createSlice({
@@ -46,6 +47,8 @@ export const ArticlePageSlice = createSlice({
         view === ArticleViewType.LIST
           ? LIST_ELEMENTS_COUNT
           : GRID_ELEMENTS_COUNT;
+
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {

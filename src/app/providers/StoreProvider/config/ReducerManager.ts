@@ -1,6 +1,11 @@
 import { AnyAction, combineReducers, Reducer } from "@reduxjs/toolkit";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
+import {
+  MountedReducers,
+  ReducerManager,
+  StateSchema,
+  StateSchemaKey,
+} from "./StateSchema";
 
 export function CreateReducerManager(
   initialReducers: ReducersList
@@ -10,6 +15,7 @@ export function CreateReducerManager(
   let combinedReducer = combineReducers(reducers);
 
   let keysToRemove: StateSchemaKey[] = [];
+  const mountedReduceers: MountedReducers = {};
 
   return {
     getReducerMap: () => reducers,
@@ -32,6 +38,7 @@ export function CreateReducerManager(
       }
 
       reducers[key] = reducer;
+      mountedReduceers[key] = true;
 
       combinedReducer = combineReducers(reducers);
     },
@@ -44,8 +51,11 @@ export function CreateReducerManager(
       delete reducers[key];
 
       keysToRemove.push(key);
+      mountedReduceers[key] = false;
 
       combinedReducer = combineReducers(reducers);
     },
+
+    getMountedReducers: () => mountedReduceers,
   };
 }

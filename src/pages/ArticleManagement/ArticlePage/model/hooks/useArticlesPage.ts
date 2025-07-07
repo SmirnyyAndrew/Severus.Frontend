@@ -5,24 +5,25 @@ import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { ArticlePageActions } from "../..";
 import { getArticles } from "../selectors/getArticles/getArticles";
-import { getError } from "../selectors/getError/getError";
-import { getHasMore } from "../selectors/getHasMore/getHasMore";
-import { getIsLoading } from "../selectors/getIsLoading/getIsLoading";
-import { getLimit } from "../selectors/getLimit/getLimit";
-import { getPage } from "../selectors/getPage/getPage";
-import { getView } from "../selectors/getView/getView";
+import { getArticlesPageError } from "../selectors/getArticlesPageError/getArticlesPageError";
+import { getArticlesPageHasMore } from "../selectors/getArticlesPageHasMore/getArticlesPageHasMore";
+import { getArticlesPageInited } from "../selectors/getArticlesPageInited/getArticlesPageInited";
+import { getArticlesPageIsLoading } from "../selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
+import { getArticlesPageLimit } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
+import { getArticlesPagePage } from "../selectors/getArticlesPagePage/getArticlesPagePage";
+import { getArticlesPageView } from "../selectors/getArticlesPageView/getArticlesPageView";
 import { getArticlesListThunk } from "../thunks/getArticlesListThunk";
 
-export const useArticlePage = () => {
+export const useArticlesPage = () => {
   const dispatch = useAppDispatch();
-  const page = useSelector(getPage);
-  const limit = useSelector(getLimit);
-  const error = useSelector(getError);
-  const hasMore = useSelector(getHasMore);
-  const isLoading = useSelector(getIsLoading);
-  const view = useSelector(getView);
-
+  const page = useSelector(getArticlesPagePage);
+  const limit = useSelector(getArticlesPageLimit);
+  const error = useSelector(getArticlesPageError);
+  const hasMore = useSelector(getArticlesPageHasMore);
+  const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlesPageView);
   const articles = useSelector(getArticles);
+  const inited = useSelector(getArticlesPageInited);
 
   const getArticlesWithLimit = useCallback(
     async (pageNum: number) => {
@@ -31,7 +32,7 @@ export const useArticlePage = () => {
     [dispatch]
   );
 
-  const initArticleType = useCallback(() => {
+  const initArticlesViewType = useCallback(() => {
     const keyFromLocalStorage = localStorage.getItem(
       ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY
     );
@@ -43,7 +44,7 @@ export const useArticlePage = () => {
     }
   }, [dispatch, view]);
 
-  const setArticleViewType = useCallback(
+  const setArticlesViewType = useCallback(
     (viewType: ArticleViewType) => {
       localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
       dispatch(ArticlePageActions.setView(viewType));
@@ -73,9 +74,10 @@ export const useArticlePage = () => {
     isLoading,
     view,
     articles,
+    inited,
     getArticlesWithLimit,
-    initArticleType,
-    setArticleViewType,
+    initArticlesViewType,
+    setArticlesViewType,
     setPage,
     setHasMore,
   };

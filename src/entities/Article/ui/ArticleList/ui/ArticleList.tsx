@@ -36,7 +36,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
   const getArticleTypes = (article: Article) => {
     return (
-      <div className={classNames(cls.ArticleTypes, {}, [className])}>
+      <div className={classNames(cls.ArticleTypes, {}, [])}>
         <Text text={article.type.join(" ")} size={TextSize.S} />
       </div>
     );
@@ -72,7 +72,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
   if (view === ArticleViewType.GRID) {
     return (
-      <div className={classNames(cls.Grid, {}, [className, cls[view]])}>
+      <div className={classNames(cls.Grid, {}, [cls[view]])}>
         {articles.map((article) => (
           <div
             key={`grid_${article.id}`}
@@ -94,13 +94,7 @@ export const ArticleList = (props: ArticleListProps) => {
             </div>
 
             <Text
-              text={
-                article.title +
-                article.title +
-                article.title +
-                article.title +
-                article.title
-              }
+              text={article.title}
               size={TextSize.XS}
               className={cls.Titile}
             />
@@ -113,7 +107,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
   if (view === ArticleViewType.LIST) {
     return (
-      <div className={classNames(cls.List, {}, [className, cls[view]])}>
+      <div className={classNames(cls.List, {}, [cls[view]])}>
         {articles.map((article) => (
           <div
             key={`list_${article.id}`}
@@ -123,7 +117,7 @@ export const ArticleList = (props: ArticleListProps) => {
             <div className={cls.Header}>
               <div className={cls.UserInfoAndDateWrapper}>
                 <div className={cls.UserInfo}>
-                  <Avatar isRound size={AvatarSize.S} img={errorUserAvatar} />{" "}
+                  <Avatar isRound size={AvatarSize.S} img={errorUserAvatar} />
                   <Text
                     text={article.user?.username || "username"}
                     size={TextSize.XS}

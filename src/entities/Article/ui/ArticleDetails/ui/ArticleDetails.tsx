@@ -103,7 +103,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         isCenter
       />
 
-      {articleData?.blocks.map(getArticleBlock)}
+      {articleData?.blocks?.map(getArticleBlock)}
     </div>
   );
 });

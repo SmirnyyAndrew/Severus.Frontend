@@ -1,19 +1,19 @@
-import { useArticlePage } from "./model/hooks/useArticlePage";
+import { useArticlesPage } from "./model/hooks/useArticlesPage";
 import {
   ArticlePageActions,
   ArticlePageReducer,
   ArticlePageSlice,
 } from "./model/slice/ArticlePageSlice";
 import { getArticlesListThunk } from "./model/thunks/getArticlesListThunk";
-import { ArticlePage } from "./model/types/ArticlePage";
-import type { ArticlePageSchema } from "./model/types/ArticlePageSchema";
+import type { ArticlePageSchema } from "./model/types/ArticlesPageSchema";
+import { ArticlesPageAsync } from "./ui/ArticlesPage.async";
 
 export {
-  ArticlePage,
   ArticlePageActions,
   ArticlePageReducer,
   ArticlePageSchema,
   ArticlePageSlice,
+  ArticlesPageAsync as ArticlesPage,
   getArticlesListThunk,
-  useArticlePage,
+  useArticlesPage,
 };

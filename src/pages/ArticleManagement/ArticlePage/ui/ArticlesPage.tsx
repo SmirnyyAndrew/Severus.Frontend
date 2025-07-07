@@ -13,7 +13,7 @@ import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
 import { Page } from "shared/ui/Page";
 import { ArticlePageReducer } from "..";
-import { useArticlePage } from "../model/hooks/useArticlePage";
+import { useArticlesPage } from "../model/hooks/useArticlesPage";
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
@@ -33,17 +33,18 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     page,
     limit,
     hasMore,
+    inited,
     isLoading,
     getArticlesWithLimit,
-    initArticleType,
-    setArticleViewType,
+    initArticlesViewType,
+    setArticlesViewType,
     setPage,
-  } = useArticlePage();
+  } = useArticlesPage();
 
   // один useEffect — для инициализации
   useEffect(() => {
-    initArticleType();
-  }, [initArticleType]);
+    initArticlesViewType();
+  }, [initArticlesViewType]);
 
   // другой — для загрузки статьи по текущей странице
   useEffect(() => {
@@ -53,13 +54,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [page]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
-    setArticleViewType(viewType);
+    setArticlesViewType(viewType);
   };
 
   const onLoadNextPart = useCallback(() => {
     if (!hasMore || isLoading) return;
 
-    console.log("onLoadNextPart");
     const newPage = page + 1;
     setPage(newPage);
     getArticlesWithLimit(newPage);
@@ -75,7 +75,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   };
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <Page
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}

@@ -26,6 +26,8 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
+
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }
@@ -34,6 +36,9 @@ export interface ReducerManager {
   reduce: (state: StateSchema, action: AnyAction) => ReducersList;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+
+  //true - вмонтирован, false - демонтирован
+  getMountedReducers: () => MountedReducers;
 }
 
 export interface ThunkExtraArgs {

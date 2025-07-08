@@ -41,7 +41,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     (newSort: ArticleSortField) => {
       setSort(newSort);
       setPage(1);
-      debouncedFetchData();
+      getData();
     },
     [debouncedFetchData]
   );
@@ -50,7 +50,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     (newOrder: SortOrder) => {
       setOrder(newOrder);
       setPage(1);
-      debouncedFetchData();
+      getData();
     },
     [debouncedFetchData]
   );
@@ -69,7 +69,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       let type: ArticleType = tab.value as ArticleType;
       setType(type);
       setPage(1);
-      debouncedFetchData();
+      getData();
     },
     [debouncedFetchData, getData]
   );

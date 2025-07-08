@@ -1,0 +1,21 @@
+.ArticlesPageFilters {
+  gap: 16px;
+}
+
+.sortWrapper {
+  margin-bottom: 16px;
+}
+
+.search {
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.tabs {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap; /* ключевое */
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* отступы между табами */
+}

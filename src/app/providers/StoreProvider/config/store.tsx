@@ -9,7 +9,7 @@ import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";
 import { ScrollSaveReducer } from "features/ScrollSave";
 import { To } from "history";
-import { ArticlePageReducer } from "pages/ArticleManagement/ArticlePage";
+import { ArticlesPageReducer } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";
 import { $api } from "shared/api/api";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -27,7 +27,7 @@ export const CreateReduxStore = (
     user: userReducer,
     profile: profileReducer,
     article: ArticleReducer,
-    articles: ArticlePageReducer,
+    articles: ArticlesPageReducer,
     pageScroll: ScrollSaveReducer,
   };
 

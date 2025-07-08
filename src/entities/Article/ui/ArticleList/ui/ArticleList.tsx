@@ -65,9 +65,16 @@ export const ArticleList = (props: ArticleListProps) => {
     );
   };
 
+  if (articles.length === 0 && isLoading === false)
+    return (
+      <div className={cls.notFoundText}>
+        <Text text="Статьи не найдены" isCenter size={TextSize.L}></Text>
+      </div>
+    );
+
   if (view === ArticleViewType.GRID) {
     return (
-      <div className={classNames(cls.Grid, {}, [cls[view]])}>
+      <div className={classNames(cls.Grid, {}, [className, cls[view]])}>
         {articles.map((article) => (
           <div
             key={`grid_${article.id}`}
@@ -102,7 +109,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
   if (view === ArticleViewType.LIST) {
     return (
-      <div className={classNames(cls.List, {}, [cls[view]])}>
+      <div className={classNames(cls.List, {}, [className, cls[view]])}>
         {articles.map((article) => (
           <div
             key={`list_${article.id}`}

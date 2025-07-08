@@ -1,6 +1,8 @@
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
+import { ArticlesPageFilters } from "features/ArticleManagement/ArticleSortAndFilter";
 import { useCallback, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
@@ -8,11 +10,12 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
 import { Page } from "widgets/Page";
-import { ArticlePageReducer } from "..";
+import { ArticlesPageReducer } from "..";
 import { useArticlesPage } from "../model/hooks/useArticlesPage";
 import cls from "./ArticlesPage.module.scss";
 
@@ -22,9 +25,10 @@ interface ArticlesPageProps {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
+  const [searchParams] = useSearchParams();
 
   const reducers: ReducersList = {
-    articles: ArticlePageReducer,
+    articles: ArticlesPageReducer,
   };
 
   const {
@@ -36,20 +40,20 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     inited,
     isLoading,
     getArticlesWithLimit,
-    initArticlesViewType,
+    initArticles,
     setArticlesViewType,
     setPage,
   } = useArticlesPage();
 
   // один useEffect — для инициализации
-  useEffect(() => {
-    initArticlesViewType();
-  }, [initArticlesViewType]);
+  useInitialEffect(() => {
+    initArticles(searchParams);
+  });
 
   // другой — для загрузки статьи по текущей странице
   useEffect(() => {
     if (limit !== undefined && page === 1) {
-      getArticlesWithLimit(page);
+      getArticlesWithLimit(false);
     }
   }, [page]);
 
@@ -62,7 +66,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     const newPage = page + 1;
     setPage(newPage);
-    getArticlesWithLimit(newPage);
+    getArticlesWithLimit();
   }, [page]);
 
   const getIconTypeMods = (type: ArticleViewType): Mods => {
@@ -80,7 +84,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}
       >
-        <div className={classNames(cls.ArticleTypeHeader, {}, [className])}>
+        <div className={classNames(cls.viewType, {}, [className])}>
           <Button
             isWrapper
             onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
@@ -108,8 +112,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             <Icon Svg={GridIcon} iconSize={IconSize.L} />
           </Button>
         </div>
+        <ArticlesPageFilters />
 
-        <ArticleList articles={articles} view={view} isLoading={isLoading} />
+        <ArticleList
+          articles={articles}
+          view={view}
+          isLoading={isLoading}
+          className={cls.list}
+        />
       </Page>
     </DynamicModuleLoader>
   );

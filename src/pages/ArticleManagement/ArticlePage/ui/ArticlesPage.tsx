@@ -11,7 +11,7 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
-import { Page } from "shared/ui/Page";
+import { Page } from "widgets/Page";
 import { ArticlePageReducer } from "..";
 import { useArticlesPage } from "../model/hooks/useArticlesPage";
 import cls from "./ArticlesPage.module.scss";

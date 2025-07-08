@@ -13,7 +13,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { Button } from "shared/ui/Button";
-import { Page } from "shared/ui/Page";
+import { Page } from "widgets/Page";
 import { getArticleCommentsIsLoading } from "../model/selectors/getArticleCommentsIsLoading";
 import {
   articleDetailsCommentsReducer,

@@ -10,7 +10,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Page } from "shared/ui/Page";
+import { Page } from "widgets/Page";
 import cls from "./ProfilePage.module.scss";
 
 const ProfilePage = () => {

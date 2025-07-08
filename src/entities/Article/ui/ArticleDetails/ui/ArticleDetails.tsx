@@ -32,11 +32,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const getArticleBlock = (article: ArticleBlock) => {
     switch (article.type) {
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent article={article} />;
+        return <ArticleTextBlockComponent key={article.id} article={article} />;
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent article={article} />;
+        return <ArticleCodeBlockComponent key={article.id} article={article} />;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent article={article} />;
+        return (
+          <ArticleImageBlockComponent key={article.id} article={article} />
+        );
       default:
         break;
     }

@@ -24,13 +24,8 @@ interface ArticleListProps {
 export const ArticleList = (props: ArticleListProps) => {
   const { className, articles, isLoading, view = ArticleViewType.LIST } = props;
 
-  console.log("-------------");
-  console.log("art count " + articles.length);
-  console.log("view " + view);
-
   const navigate = useNavigate();
   const redirectToArticleDetailsPage = (id: string) => {
-    console.log("id " + id);
     navigate(RoutePath.article_details + id);
   };
 

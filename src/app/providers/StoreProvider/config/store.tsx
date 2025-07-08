@@ -7,6 +7,7 @@ import { ArticleReducer } from "entities/Article";
 import { counterReducer } from "entities/Counter";
 import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";
+import { ScrollSaveReducer } from "features/ScrollSave";
 import { To } from "history";
 import { ArticlePageReducer } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";
@@ -27,6 +28,7 @@ export const CreateReduxStore = (
     profile: profileReducer,
     article: ArticleReducer,
     articles: ArticlePageReducer,
+    pageScroll: ScrollSaveReducer,
   };
 
   const reducerManager = CreateReducerManager(rootReducers);

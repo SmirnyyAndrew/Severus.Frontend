@@ -6,6 +6,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddNewCommentFormSchema } from "features/AddNewCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
+import { ScrollSaveSchema } from "features/ScrollSave";
 import { To } from "history";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleManagement/ArticleDetailsPage";
 import { ArticlePageSchema } from "pages/ArticleManagement/ArticlePage";
@@ -15,6 +16,7 @@ import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicM
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  pageScroll: ScrollSaveSchema;
 
   // Async reducers
   login?: LoginSchema;

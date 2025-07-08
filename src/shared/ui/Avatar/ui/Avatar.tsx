@@ -1,3 +1,4 @@
+import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Avatar.module.scss";
 
@@ -25,6 +26,7 @@ export const Avatar = (props: AvatarProps) => {
 
   return (
     <img
+      onError={(e) => (e.currentTarget.src = errorUserAvatar)}
       src={img}
       alt={alt ?? ""}
       className={classNames(cls.Avatar, mods, [className, cls[size]])}

@@ -1,3 +1,4 @@
 import { StateSchema } from "app/providers/StoreProvider";
 
-export const getComment = (state: StateSchema) => state.articleDetailsComments;
+export const getComment = (state: StateSchema) =>
+  state.articleDetailsPage?.comments;

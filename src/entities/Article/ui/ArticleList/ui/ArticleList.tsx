@@ -1,10 +1,11 @@
 import { Article } from "entities/Article";
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
-import { useNavigate } from "react-router-dom";
+import { HTMLAttributeAnchorTarget } from "react";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
@@ -19,15 +20,17 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleViewType;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articles, isLoading, view = ArticleViewType.LIST } = props;
-
-  const navigate = useNavigate();
-  const redirectToArticleDetailsPage = (id: string) => {
-    navigate(RoutePath.article_details + id);
-  };
+  const {
+    className,
+    articles,
+    isLoading,
+    view = ArticleViewType.LIST,
+    target = "_self",
+  } = props;
 
   const getArticleTypes = (article: Article) => {
     return (
@@ -76,10 +79,12 @@ export const ArticleList = (props: ArticleListProps) => {
     return (
       <div className={classNames(cls.Grid, {}, [className, cls[view]])}>
         {articles.map((article) => (
-          <div
+          <AppLink
+            target={target}
+            linkTheme={AppLinkTheme.PRIMARY}
             key={`grid_${article.id}`}
             className={cls.GridItem}
-            onClick={() => redirectToArticleDetailsPage(article.id)}
+            to={RoutePath.article_details + article.id}
           >
             <Text
               text={article.createdAt}
@@ -100,7 +105,7 @@ export const ArticleList = (props: ArticleListProps) => {
               size={TextSize.XS}
               className={cls.Titile}
             />
-          </div>
+          </AppLink>
         ))}
         {isLoading && renderGridViewTypeSkeletons(10)}
       </div>
@@ -111,10 +116,12 @@ export const ArticleList = (props: ArticleListProps) => {
     return (
       <div className={classNames(cls.List, {}, [className, cls[view]])}>
         {articles.map((article) => (
-          <div
+          <AppLink
+            target={target}
+            linkTheme={AppLinkTheme.PRIMARY}
+            to={RoutePath.article_details + article.id}
             key={`list_${article.id}`}
             className={cls.ListItem}
-            onClick={() => redirectToArticleDetailsPage(article.id)}
           >
             <div className={cls.Header}>
               <div className={cls.UserInfoAndDateWrapper}>
@@ -151,7 +158,6 @@ export const ArticleList = (props: ArticleListProps) => {
             <div className={cls.Footer}>
               <Button
                 size={ButtonSize.M}
-                onClick={() => redirectToArticleDetailsPage(article.id)}
                 buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
               >
                 Читать далее...
@@ -163,7 +169,7 @@ export const ArticleList = (props: ArticleListProps) => {
                 text={`${article.views}`}
               />
             </div>
-          </div>
+          </AppLink>
         ))}
         {isLoading && renderListViewTypeSkeletons(5)}
       </div>

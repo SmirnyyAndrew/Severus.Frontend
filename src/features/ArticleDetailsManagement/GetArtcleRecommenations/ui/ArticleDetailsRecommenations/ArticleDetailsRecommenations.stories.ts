@@ -1,15 +1,15 @@
 import { Meta, StoryObj } from "@storybook/react/*";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { ArtcleDetailsRecommenations } from "./ArtcleDetailsRecommenations";
+import { ArticleDetailsRecommenations } from "./ArticleDetailsRecommenations";
 
-const meta: Meta<typeof ArtcleDetailsRecommenations> = {
-  title: "entities/ArtcleDetailsRecommenations",
-  component: ArtcleDetailsRecommenations,
+const meta: Meta<typeof ArticleDetailsRecommenations> = {
+  title: "entities/ArticleDetailsRecommenations",
+  component: ArticleDetailsRecommenations,
 };
 
 export default meta;
-type Story = StoryObj<typeof ArtcleDetailsRecommenations>;
+type Story = StoryObj<typeof ArticleDetailsRecommenations>;
 
 export const Light: Story = {
   args: {},

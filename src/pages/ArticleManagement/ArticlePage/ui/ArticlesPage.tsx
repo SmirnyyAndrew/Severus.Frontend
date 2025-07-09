@@ -1,6 +1,7 @@
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
 import { ArticlesPageFilters } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
+import { ScrollSaveReducer } from "features/UIManagement/ScrollSave";
 import { useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
@@ -29,6 +30,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   const reducers: ReducersList = {
     articles: ArticlesPageReducer,
+    pageScroll: ScrollSaveReducer,
   };
 
   const {
@@ -81,6 +83,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page
+        saveScrollPosition
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}
       >

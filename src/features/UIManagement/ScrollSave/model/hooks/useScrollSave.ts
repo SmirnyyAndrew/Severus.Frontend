@@ -5,17 +5,11 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { getScrollPositionByPath, ScrollSaveActions } from "../..";
 
-export const useScrollSave = () => {
+export const useScrollSave = (path: string) => {
   const dispatch = useAppDispatch();
 
-  const getScrollPosition = useCallback(
-    (path: string) => {
-      const position = useSelector((state: StateSchema) =>
-        getScrollPositionByPath(state, path)
-      );
-      return position;
-    },
-    [dispatch]
+  const position = useSelector((state: StateSchema) =>
+    getScrollPositionByPath(state, path)
   );
 
   const setPageScrollPosition = useCallback(
@@ -25,5 +19,5 @@ export const useScrollSave = () => {
     [dispatch]
   );
 
-  return { getScrollPosition, setPageScrollPosition };
+  return { position, setPageScrollPosition };
 };

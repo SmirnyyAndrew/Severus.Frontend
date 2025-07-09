@@ -1,14 +1,7 @@
-import { StateSchema } from "app/providers/StoreProvider";
-
-import {
-  getScrollPositionByPath,
-  ScrollSaveActions,
-} from "features/UIManagement/ScrollSave";
+import { useScrollSave } from "features/UIManagement/ScrollSave";
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from "react";
-import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
@@ -17,19 +10,23 @@ import cls from "./Page.module.scss";
 interface PageProps {
   className?: string;
   children: ReactNode;
+  saveScrollPosition?: boolean;
   onScrollEnd?: () => void;
 }
 
 export const Page = memo((props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className,
+    children,
+    saveScrollPosition = false,
+    onScrollEnd,
+  } = props;
 
-  const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
+  const { position, setPageScrollPosition } = useScrollSave(pathname);
+
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const { pathname } = useLocation();
-  const position = useSelector((state: StateSchema) =>
-    getScrollPositionByPath(state, pathname)
-  );
 
   useInfiniteScroll({
     triggerRef,
@@ -39,13 +36,17 @@ export const Page = memo((props: PageProps) => {
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = position;
+    console.log("set to page position", position);
   });
 
   //Просчёт скролла раз в 500 мс
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    let position = e.currentTarget.scrollTop;
-    let path = pathname;
-    dispatch(ScrollSaveActions.setPageScrollPosition({ path, position }));
+    if (saveScrollPosition) {
+      let position = e.currentTarget.scrollTop;
+      let path = pathname;
+      setPageScrollPosition(path, position);
+      console.log("set to store position", position);
+    }
   }, 500);
 
   return (

@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Article } from "entities/Article";
+import { getArticleRecommendationsThunk } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
 import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema";
 
 const articleRecommendationsAdapter = createEntityAdapter<Article>({
@@ -10,7 +11,7 @@ const articleRecommendationsAdapter = createEntityAdapter<Article>({
 export const getArticleRecommendations =
   articleRecommendationsAdapter.getSelectors<StateSchema>(
     (state) =>
-      state.articleDetailsRecommendations ||
+      state.articleDetailsPage?.recommendations ||
       articleRecommendationsAdapter.getInitialState()
   );
 
@@ -26,7 +27,21 @@ export const articleDetailsRecommendationsSlice = createSlice({
       }
     ),
   reducers: {},
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getArticleRecommendationsThunk.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(getArticleRecommendationsThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        articleRecommendationsAdapter.setAll(state, action.payload);
+      })
+      .addCase(getArticleRecommendationsThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const ArticleDetailsRecommendationsActions =

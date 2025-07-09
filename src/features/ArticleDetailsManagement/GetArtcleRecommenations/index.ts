@@ -1,4 +1,4 @@
 import { getArticleRecommendationsThunk } from "pages/ArticleManagement/ArticleDetailsPage";
-import { ArtcleDetailsRecommenations } from "./ui/ArtcleDetailsRecommenations/ArtcleDetailsRecommenations";
+import { ArticleDetailsRecommenations } from "./ui/ArticleDetailsRecommenations/ArticleDetailsRecommenations";
 
-export { ArtcleDetailsRecommenations, getArticleRecommendationsThunk };
+export { ArticleDetailsRecommenations, getArticleRecommendationsThunk };

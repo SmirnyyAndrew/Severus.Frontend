@@ -8,10 +8,7 @@ import { AddNewCommentFormSchema } from "features/ArticleDetailsManagement/AddNe
 import { LoginSchema } from "features/AuthManagement/AuthByUsername";
 import { ScrollSaveSchema } from "features/UIManagement/ScrollSave";
 import { To } from "history";
-import {
-  ArticleDetailsCommentsSchema,
-  ArticleDetailsRecommendationsSchema,
-} from "pages/ArticleManagement/ArticleDetailsPage";
+import { ArticleDetailsPageSchema } from "pages/ArticleManagement/ArticleDetailsPage";
 import { ArticlePageSchema } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -25,10 +22,13 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleDetailsSchema;
-  articles?: ArticlePageSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
-  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
+
+  articles?: ArticlePageSchema;
+
+  // articleDetailsComments?: ArticleDetailsCommentsSchema;
+  // articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -5,7 +5,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch
 import {
   getArticleRecommendationsError,
   getArticleRecommendationsIsLoading,
-  getCommentsByArticleIdThunk,
+  getArticleRecommendationsThunk,
 } from "../..";
 import { getArticleRecommendations } from "../slice/articleDetailsRecommendationsSlice";
 
@@ -19,7 +19,7 @@ export const useArticleDetailsRecommendations = () => {
   const { id } = useParams();
 
   const getRecommendations = useCallback(() => {
-    dispatch(getCommentsByArticleIdThunk(`${id}`));
+    dispatch(getArticleRecommendationsThunk());
   }, [dispatch]);
 
   return {

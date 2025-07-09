@@ -7,7 +7,13 @@ import { Tabs } from "./Tabs";
 const meta: Meta<typeof Tabs> = {
   title: "shared/Tabs",
   component: Tabs,
-  args: {},
+  args: {
+    value: "Name",
+    tabs: [
+      { content: "Content", value: "value" },
+      { content: "Content", value: "value" },
+    ],
+  },
   argTypes: {},
 };
 

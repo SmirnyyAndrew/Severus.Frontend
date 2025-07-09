@@ -1,14 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react"; 
-import "app/styles/index.scss";
-import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator"; 
-import { Select } from "./Select";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import "app/styles/index.scss";
+import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
+import { Select } from "./Select";
 
 const meta: Meta<typeof Select> = {
-  title: "/Select",
+  title: "shared/Select",
   component: Select,
-  args: {},
-  argTypes:{},
+  args: {
+    label: "Label",
+    value: "Option 1",
+    options: [
+      { content: "option content", value: "option value" },
+      { content: "dim", value: "pakmz" },
+      { content: "lamr", value: "oskz" },
+    ],
+  },
+  argTypes: {},
 };
 
 export default meta;

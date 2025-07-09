@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-  title: "Shared/Button",
+  title: "shared/Button",
   component: Button,
   argTypes: {
     buttonTheme: {

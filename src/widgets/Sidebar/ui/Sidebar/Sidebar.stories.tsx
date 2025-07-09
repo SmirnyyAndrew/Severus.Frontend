@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { Sidebar } from "./Sidebar";
 
 const meta: Meta<typeof Sidebar> = {
-  title: "Widget/Sidebar",
+  title: "widgets/Sidebar",
   component: Sidebar,
 };
 

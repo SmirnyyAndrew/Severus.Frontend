@@ -14,10 +14,10 @@ export const useArticleDetailsComments = () => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsError = useSelector(getArticleCommentsError);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const getCommentsForArticle = useCallback(() => {
-    dispatch(getCommentsByArticleIdThunk(`${id}`));
+    dispatch(getCommentsByArticleIdThunk(id));
   }, [dispatch]);
 
   const sendComment = useCallback(

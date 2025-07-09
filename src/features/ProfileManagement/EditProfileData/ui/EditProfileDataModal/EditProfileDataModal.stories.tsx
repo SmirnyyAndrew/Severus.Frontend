@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { EditProfileDataModal } from "./EditProfileDataModal";
 
 const meta: Meta<typeof EditProfileDataModal> = {
-  title: "Features/EditProfileDataForm/EditProfileDataModal",
+  title: "features/ProfileManagement/EditProfileDataForm/EditProfileDataModal",
   component: EditProfileDataModal,
   args: {
     isOpen: true,

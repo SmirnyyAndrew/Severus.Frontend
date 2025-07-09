@@ -9,7 +9,7 @@ import { LoginSchema } from "features/AuthManagement/AuthByUsername";
 import { ScrollSaveSchema } from "features/UIManagement/ScrollSave";
 import { To } from "history";
 import { ArticleDetailsPageSchema } from "pages/ArticleManagement/ArticleDetailsPage";
-import { ArticlePageSchema } from "pages/ArticleManagement/ArticlePage";
+import { ArticlePageSchema } from "pages/ArticleManagement/ArticlesPage";
 import { NavigateOptions } from "react-router";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 

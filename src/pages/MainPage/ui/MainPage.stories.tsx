@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import MainPage from "./MainPage";
 
 const meta: Meta<typeof MainPage> = {
-  title: "Pages/MainPage",
+  title: "pages/MainPage",
   component: MainPage,
 };
 

@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import AddNewCommentForm from "./AddNewCommentForm";
 
 const meta: Meta<typeof AddNewCommentForm> = {
-  title: "Features/AddNewCommentForm",
+  title: "features/ArticleDetailsManagement/AddNewCommentForm",
   component: AddNewCommentForm,
 };
 

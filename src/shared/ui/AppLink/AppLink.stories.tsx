@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { AppLink, AppLinkTheme } from "./AppLink";
 
 const meta: Meta<typeof AppLink> = {
-  title: "Shared/AppLink",
+  title: "shared/AppLink",
   component: AppLink,
   args: {},
 };

@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { Modal } from "./Modal";
 
 const meta: Meta<typeof Modal> = {
-  title: "Shared/Modal",
+  title: "shared/Modal",
   component: Modal,
   args: {
     children: "Text",

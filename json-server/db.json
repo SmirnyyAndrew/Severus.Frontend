@@ -40,13 +40,9 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
+      "userId": "1",
       "createdAt": "26.02.2022",
-      "type": [
-        "IT",
-        "EDUCATION",
-        "SCIENCE",
-        "ENTERTAINMENT"
-      ],
+      "type": ["IT", "EDUCATION", "SCIENCE", "ENTERTAINMENT"],
       "blocks": [
         {
           "id": "1",
@@ -114,11 +110,9 @@
       "subtitle": "Как ИИ помогает в медицине",
       "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
       "views": 980,
+      "userId": "1",
       "createdAt": "12.03.2024",
-      "type": [
-        "SCIENCE",
-        "EDUCATION"
-      ],
+      "type": ["SCIENCE", "EDUCATION"],
       "blocks": [
         {
           "id": "1",
@@ -137,11 +131,9 @@
       "subtitle": "Основные изменения в React 19",
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
       "views": 2341,
+      "userId": "2",
       "createdAt": "01.02.2025",
-      "type": [
-        "IT",
-        "EDUCATION"
-      ],
+      "type": ["IT", "EDUCATION"],
       "blocks": [
         {
           "id": "1",
@@ -160,10 +152,9 @@
       "subtitle": "Реальность или миф?",
       "img": "https://cdn.serif.com/affinity/img/home/0824/banner-060820241344--md@2x.webp",
       "views": 842,
+      "userId": "1",
       "createdAt": "10.01.2024",
-      "type": [
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -182,11 +173,9 @@
       "subtitle": "Тренды и платформы",
       "img": "https://img.freepik.com/free-photo/vestrahorn-mountains-stokksnes-iceland_335224-667.jpg?semt=ais_hybrid&w=740",
       "views": 1543,
+      "userId": "2",
       "createdAt": "02.05.2025",
-      "type": [
-        "EDUCATION",
-        "SCIENCE"
-      ],
+      "type": ["EDUCATION", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -205,11 +194,9 @@
       "subtitle": "Почему все о ней говорят?",
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
       "views": 4378,
+      "userId": "1",
       "createdAt": "15.12.2024",
-      "type": [
-        "ENTERTAINMENT",
-        "IT"
-      ],
+      "type": ["ENTERTAINMENT", "IT"],
       "blocks": [
         {
           "id": "1",
@@ -228,11 +215,9 @@
       "subtitle": "Какие навыки будут нужны?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpAG2cCLSGI7wmB1x1Hp_Phxlm1KsDFY_M6Q&s",
       "views": 2111,
+      "userId": "2",
       "createdAt": "03.08.2024",
-      "type": [
-        "EDUCATION",
-        "SCIENCE"
-      ],
+      "type": ["EDUCATION", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -251,11 +236,9 @@
       "subtitle": "Простое объяснение сложной технологии",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfoILzKFIj5PFMDF0PwSEZqg4G4AYk_EF5w&s",
       "views": 1320,
+      "userId": "2",
       "createdAt": "28.06.2024",
-      "type": [
-        "IT",
-        "SCIENCE"
-      ],
+      "type": ["IT", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -274,11 +257,9 @@
       "subtitle": "Основные угрозы и тренды",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiPO8T78UgThs92FoJ1emknd7c4bjLQhZtg&s",
       "views": 1995,
+      "userId": "1",
       "createdAt": "10.03.2025",
-      "type": [
-        "IT",
-        "SCIENCE"
-      ],
+      "type": ["IT", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -297,10 +278,9 @@
       "subtitle": "Почему платформа так популярна?",
       "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
       "views": 24046,
+      "userId": "2",
       "createdAt": "11.03.2025",
-      "type": [
-        "ENTERTAINMENT"
-      ],
+      "type": ["ENTERTAINMENT"],
       "blocks": [
         {
           "id": "1",
@@ -320,10 +300,8 @@
       "img": "https://images.unsplash.com/photo-1581092334648-6c2a1e35a6ca?auto=format&fit=crop&w=800&q=80",
       "views": 4520,
       "createdAt": "03.02.2025",
-      "type": [
-        "TECH",
-        "EDUCATION"
-      ]
+      "userId": "1",
+      "type": ["TECH", "EDUCATION"]
     },
     {
       "id": "12",
@@ -332,10 +310,8 @@
       "img": "https://images.unsplash.com/photo-1602810318383-e7b5d3d1ad19?auto=format&fit=crop&w=800&q=80",
       "views": 1987,
       "createdAt": "15.02.2025",
-      "type": [
-        "ECOLOGY",
-        "FASHION"
-      ]
+      "userId": "1",
+      "type": ["ECOLOGY", "FASHION"]
     },
     {
       "id": "13",
@@ -343,11 +319,9 @@
       "subtitle": "Почему игры работают на продуктивность?",
       "img": "https://images.unsplash.com/photo-1616529734494-576c4f04e1b7?auto=format&fit=crop&w=800&q=80",
       "views": 3120,
+      "userId": "2",
       "createdAt": "21.03.2025",
-      "type": [
-        "BUSINESS",
-        "TECH"
-      ]
+      "type": ["BUSINESS", "TECH"]
     },
     {
       "id": "14",
@@ -356,10 +330,8 @@
       "img": "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp",
       "views": 3204,
       "createdAt": "01.01.2025",
-      "type": [
-        "ENTERTAINMENT",
-        "ECOLOGY"
-      ]
+      "userId": "2",
+      "type": ["ENTERTAINMENT", "ECOLOGY"]
     },
     {
       "id": "15",
@@ -367,47 +339,39 @@
       "subtitle": "Что нас ждёт в виртуальной реальности?",
       "img": "https://images.unsplash.com/photo-1614064641938-eb7f2b5e79c8?auto=format&fit=crop&w=800&q=80",
       "views": 4873,
+      "userId": "1",
       "createdAt": "10.04.2025",
-      "type": [
-        "TECH",
-        "ENTERTAINMENT"
-      ]
+      "type": ["TECH", "ENTERTAINMENT"]
     },
     {
       "id": "16",
       "title": "Город без машин",
       "subtitle": "Эксперименты в урбанистике",
+      "userId": "2",
       "img": "https://images.unsplash.com/photo-1505842465776-3d90f6160c54?auto=format&fit=crop&w=800&q=80",
       "views": 2711,
       "createdAt": "22.04.2025",
-      "type": [
-        "ECOLOGY",
-        "URBAN"
-      ]
+      "type": ["ECOLOGY", "URBAN"]
     },
     {
       "id": "17",
       "title": "Как подкасты захватывают мир",
       "subtitle": "Новый формат старых идей",
+      "userId": "1",
       "img": "https://images.unsplash.com/photo-1587723963360-e3f7f1b8be1e?auto=format&fit=crop&w=800&q=80",
       "views": 3490,
       "createdAt": "05.05.2025",
-      "type": [
-        "MEDIA",
-        "CULTURE"
-      ]
+      "type": ["MEDIA", "CULTURE"]
     },
     {
       "id": "18",
       "title": "Архитектура будущего",
       "subtitle": "Как изменится облик городов",
+      "userId": "1",
       "img": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
       "views": 3905,
       "createdAt": "17.05.2025",
-      "type": [
-        "DESIGN",
-        "TECH"
-      ]
+      "type": ["DESIGN", "TECH"]
     },
     {
       "id": "19",
@@ -415,11 +379,9 @@
       "subtitle": "Психология здорового образа жизни",
       "img": "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=800&q=80",
       "views": 2280,
+      "userId": "1",
       "createdAt": "26.05.2025",
-      "type": [
-        "HEALTH",
-        "CULTURE"
-      ]
+      "type": ["HEALTH", "CULTURE"]
     }
   ],
   "comments": [

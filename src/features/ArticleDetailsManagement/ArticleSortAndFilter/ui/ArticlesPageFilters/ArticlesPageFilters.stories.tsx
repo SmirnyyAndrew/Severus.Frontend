@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react"; 
-import "app/styles/index.scss";
-import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator"; 
-import { ArticlesPageFilters } from "./ArticlesPageFilters";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import "app/styles/index.scss";
+import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
+import { ArticlesPageFilters } from "./ArticlesPageFilters";
 
 const meta: Meta<typeof ArticlesPageFilters> = {
-  title: "/ArticlesPageFilters",
+  title: "features/ArticleDetailsManagement/ArticlesPageFilters",
   component: ArticlesPageFilters,
   args: {},
-  argTypes:{},
+  argTypes: {},
 };
 
 export default meta;

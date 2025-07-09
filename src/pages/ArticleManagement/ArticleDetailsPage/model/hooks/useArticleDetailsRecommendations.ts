@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import {
   getArticleRecommendationsError,
@@ -16,7 +15,6 @@ export const useArticleDetailsRecommendations = () => {
   const recommendationsIsLoading = useSelector(
     getArticleRecommendationsIsLoading
   );
-  const { id } = useParams();
 
   const getRecommendations = useCallback(() => {
     dispatch(getArticleRecommendationsThunk());

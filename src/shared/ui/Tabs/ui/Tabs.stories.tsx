@@ -12,6 +12,7 @@ const meta: Meta<typeof Tabs> = {
     tabs: [
       { content: "Content", value: "value" },
       { content: "Content", value: "value" },
+      { content: "Content", value: "value" },
     ],
   },
   argTypes: {},

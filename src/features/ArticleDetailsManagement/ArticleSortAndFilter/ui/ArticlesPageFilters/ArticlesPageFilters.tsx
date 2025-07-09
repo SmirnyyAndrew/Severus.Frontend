@@ -1,5 +1,5 @@
 import { ArticleType } from "entities/Article/model/types/ArticleManagement/ArticleType";
-import { useArticlesPage } from "pages/ArticleManagement/ArticlePage";
+import { useArticlesPage } from "pages/ArticleManagement/ArticlesPage";
 import { useCallback, useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";

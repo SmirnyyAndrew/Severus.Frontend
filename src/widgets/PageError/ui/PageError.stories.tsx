@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { PageError } from "./PageError";
 
 const meta: Meta<typeof PageError> = {
-  title: "Widget/PageError",
+  title: "widgets/PageError",
   component: PageError,
 };
 

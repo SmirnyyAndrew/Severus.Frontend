@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import ProfilePage from "./ProfilePage";
 
 const meta: Meta<typeof ProfilePage> = {
-  title: "Pages/ProfilePage",
+  title: "pages/ProfileManagement/ProfilePage",
   component: ProfilePage,
 };
 

@@ -7,10 +7,7 @@ import { CommentList } from "./CommentList";
 const meta: Meta<typeof CommentList> = {
   title: "entities/Comment/CommentList",
   component: CommentList,
-  args: {
-    // comments: [CommentExample, CommentExample, CommentExample],
-    // isLoading: false,
-  },
+  args: {},
 };
 
 export default meta;

@@ -12,7 +12,7 @@ interface CommentListProps {
 
 export const CommentList = (props: CommentListProps) => {
   const { className } = props;
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const { comments, getCommentsForArticle } = useArticleDetailsComments();
 

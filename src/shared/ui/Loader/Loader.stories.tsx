@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { Loader } from "./Loader";
 
 const meta: Meta<typeof Loader> = {
-  title: "Shared/Loader",
+  title: "shared/Loader",
   component: Loader,
 };
 

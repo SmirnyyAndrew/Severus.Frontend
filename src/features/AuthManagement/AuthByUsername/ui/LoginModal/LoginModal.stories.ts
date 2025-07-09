@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { LoginModal } from "../..";
 
 const meta: Meta<typeof LoginModal> = {
-  title: "Features/AuthByUsername/LoginModal",
+  title: "features/AuthManagement/AuthByUsername/LoginModal",
   component: LoginModal,
   args: {
     isOpen: true,

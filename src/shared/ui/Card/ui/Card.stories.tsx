@@ -1,14 +1,30 @@
-import type { Meta, StoryObj } from "@storybook/react"; 
-import "app/styles/index.scss";
-import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator"; 
-import { Card } from "./Card";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import "app/styles/index.scss";
+import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
+import { errorArticleImg } from "shared/const/plugFiles";
+import { Avatar, AvatarSize } from "shared/ui/Avatar";
+import { Text } from "shared/ui/Text";
+import { Card, CardTheme } from "./Card";
 
 const meta: Meta<typeof Card> = {
-  title: "/Card",
+  title: "shared/Card",
   component: Card,
-  args: {},
-  argTypes:{},
+  args: {
+    theme: CardTheme.NORMAL,
+    children: (
+      <>
+        <Text text="Test" />
+        <Avatar size={AvatarSize.L} img={errorArticleImg} />
+      </>
+    ),
+  },
+  argTypes: {
+    theme: {
+      control: "radio",
+      options: [CardTheme.NORMAL, CardTheme.OUTLINED],
+    },
+  },
 };
 
 export default meta;

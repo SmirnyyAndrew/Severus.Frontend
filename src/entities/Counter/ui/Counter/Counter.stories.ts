@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { Counter } from "./Counter";
 
 const meta: Meta<typeof Counter> = {
-  title: "Entities/Counter",
+  title: "entities/Counter",
   component: Counter,
   args: {},
 };

@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import EditProfileDataForm from "./EditProfileDataForm";
 
 const meta: Meta<typeof EditProfileDataForm> = {
-  title: "Features/EditProfileDataForm/EditProfileDataForm",
+  title: "features/ProfileManagement/EditProfileDataForm/EditProfileDataForm",
   component: EditProfileDataForm,
   args: {},
   argTypes: {},

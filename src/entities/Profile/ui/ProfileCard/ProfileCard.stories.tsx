@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { ProfileCard } from "./ProfileCard";
 
 const meta: Meta<typeof ProfileCard> = {
-  title: "entities/ProfileCard",
+  title: "entities/Profile/ProfileCard",
   component: ProfileCard,
   args: {
     isLoading: false,

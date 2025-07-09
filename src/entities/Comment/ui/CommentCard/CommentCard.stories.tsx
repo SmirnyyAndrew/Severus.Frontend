@@ -6,7 +6,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { CommentCard } from "./CommentCard";
 
 const meta: Meta<typeof CommentCard> = {
-  title: "Entities/Comment/CommentCard",
+  title: "entities/Comment/CommentCard",
   component: CommentCard,
   args: { comment: CommentExample, isLoading: false },
   argTypes: {

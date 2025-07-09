@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { ArticleDetailsRecommenations } from "./ArticleDetailsRecommenations";
 
 const meta: Meta<typeof ArticleDetailsRecommenations> = {
-  title: "entities/ArticleDetailsRecommenations",
+  title: "entities/ArticleDetailsManagement/ArticleDetailsRecommenations",
   component: ArticleDetailsRecommenations,
 };
 

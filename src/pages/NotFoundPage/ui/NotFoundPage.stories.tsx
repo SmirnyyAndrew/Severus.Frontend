@@ -4,7 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorato
 import { NotFoundPage } from "./NotFoundPage";
 
 const meta: Meta<typeof NotFoundPage> = {
-  title: "Pages/NotFoundPage",
+  title: "pages/NotFoundPage",
   component: NotFoundPage,
 };
 

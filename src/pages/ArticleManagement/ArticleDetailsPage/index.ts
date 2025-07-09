@@ -12,7 +12,7 @@ import { getArticleRecommendations } from "./model/slice/articleDetailsRecommend
 import { ArticleDetailsPageSchema } from "./model/types";
 import { ArticleDetailsCommentsSchema } from "./model/types/ArticleDetailsCommentsSchema";
 import { ArticleDetailsRecommendationsSchema } from "./model/types/ArticleDetailsRecommendationsSchema";
-import { ArticleDetailsPageAsync } from "./ui/ArticleDetailsPage.async";
+import { ArticleDetailsPageAsync } from "./ui/ArticleDetailsPage/ArticleDetailsPage.async";
 
 export {
   addNewCommentForArticle,

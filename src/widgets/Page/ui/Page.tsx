@@ -1,8 +1,9 @@
 import { StateSchema } from "app/providers/StoreProvider";
+
 import {
   getScrollPositionByPath,
   ScrollSaveActions,
-} from "features/ScrollSave";
+} from "features/UIManagement/ScrollSave";
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";

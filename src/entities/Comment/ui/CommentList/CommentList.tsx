@@ -1,4 +1,6 @@
-import { Comment } from "entities/Comment/model/types/Comment";
+import { useArticleDetailsComments } from "pages/ArticleManagement/ArticleDetailsPage";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text } from "shared/ui/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
@@ -6,14 +8,18 @@ import cls from "./CommentList.module.scss";
 
 interface CommentListProps {
   className?: string;
-  comments?: Comment[];
-  isLoading?: boolean;
 }
 
 export const CommentList = (props: CommentListProps) => {
-  const { className, comments, isLoading } = props;
+  const { className } = props;
+  const { id } = useParams();
 
-  console.log(comments);
+  const { comments, getCommentsForArticle } = useArticleDetailsComments();
+
+  useEffect(() => {
+    // getCommentsForArticle(`${id}`);
+    getCommentsForArticle();
+  }, []);
 
   return (
     <div className={classNames(cls.CommentItem, {}, [className])}>
@@ -22,7 +28,7 @@ export const CommentList = (props: CommentListProps) => {
           <CommentCard comment={comment} key={comment.id} />
         ))
       ) : (
-        <Text text="Empty" />
+        <Text text="Комментариев нет" />
       )}
     </div>
   );

@@ -4,11 +4,14 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
-import { AddNewCommentFormSchema } from "features/AddNewCommentForm";
-import { LoginSchema } from "features/AuthByUsername";
-import { ScrollSaveSchema } from "features/ScrollSave";
+import { AddNewCommentFormSchema } from "features/ArticleDetailsManagement/AddNewCommentForm";
+import { LoginSchema } from "features/AuthManagement/AuthByUsername";
+import { ScrollSaveSchema } from "features/UIManagement/ScrollSave";
 import { To } from "history";
-import { ArticleDetailsCommentsSchema } from "pages/ArticleManagement/ArticleDetailsPage";
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsRecommendationsSchema,
+} from "pages/ArticleManagement/ArticleDetailsPage";
 import { ArticlePageSchema } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -24,6 +27,7 @@ export interface StateSchema {
   article?: ArticleDetailsSchema;
   articles?: ArticlePageSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
 }
 

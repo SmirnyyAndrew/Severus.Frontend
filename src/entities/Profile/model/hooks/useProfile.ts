@@ -1,6 +1,6 @@
 import { getProfileError, getValidationErrors } from "entities/Profile";
-import { getProfileDataThunk } from "features/GetProfileData";
-import { putProfileDataThunk } from "features/SetProfileData";
+import { getProfileDataThunk } from "features/ProfileManagement/GetProfileData";
+import { putProfileDataThunk } from "features/ProfileManagement/SetProfileData";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";

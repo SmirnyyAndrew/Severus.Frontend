@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleTag } from "entities/Article";
-import { ArticleSortField } from "features/ArticleManagement/ArticleSortAndFilter";
+import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 
 export const getArticlesPageOrder = (state: StateSchema) =>
   state.articles?.order ?? "asc";

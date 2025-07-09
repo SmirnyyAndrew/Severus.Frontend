@@ -1,6 +1,6 @@
 import { ProfileCard, profileReducer, useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
-import { EditProfileDataModal } from "features/EditProfileData";
+import { EditProfileDataModal } from "features/ProfileManagement/EditProfileData";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";

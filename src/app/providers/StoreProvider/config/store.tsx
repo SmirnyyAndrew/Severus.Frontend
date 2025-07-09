@@ -7,7 +7,7 @@ import { ArticleReducer } from "entities/Article";
 import { counterReducer } from "entities/Counter";
 import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";
-import { ScrollSaveReducer } from "features/ScrollSave";
+import { ScrollSaveReducer } from "features/UIManagement/ScrollSave";
 import { To } from "history";
 import { ArticlesPageReducer } from "pages/ArticleManagement/ArticlePage";
 import { NavigateOptions } from "react-router";

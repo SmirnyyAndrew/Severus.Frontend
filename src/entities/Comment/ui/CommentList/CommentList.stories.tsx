@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { CommentExample } from "entities/Comment/model/types/CommentExample";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { CommentList } from "./CommentList";
 
 const meta: Meta<typeof CommentList> = {
-  title: "Entities/Comment/CommentList",
+  title: "entities/Comment/CommentList",
   component: CommentList,
   args: {
-    comments: [CommentExample, CommentExample, CommentExample],
-    isLoading: false,
+    // comments: [CommentExample, CommentExample, CommentExample],
+    // isLoading: false,
   },
 };
 

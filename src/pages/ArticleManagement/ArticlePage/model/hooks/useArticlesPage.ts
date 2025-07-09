@@ -1,5 +1,5 @@
 import { ArticleTag, ArticleViewType } from "entities/Article";
-import { ArticleSortField } from "features/ArticleManagement/ArticleSortAndFilter";
+import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";

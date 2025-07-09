@@ -1,6 +1,6 @@
 import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
 import { ArticleList } from "entities/Article/ui/ArticleList";
-import { ArticlesPageFilters } from "features/ArticleManagement/ArticleSortAndFilter";
+import { ArticlesPageFilters } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";

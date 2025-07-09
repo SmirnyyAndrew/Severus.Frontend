@@ -6,7 +6,7 @@ import {
 import { StateSchema } from "app/providers/StoreProvider";
 import { Article, ArticleViewType } from "entities/Article";
 import { ArticleType } from "entities/Article/model/types/ArticleManagement/ArticleType";
-import { ArticleSortField } from "features/ArticleManagement/ArticleSortAndFilter";
+import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import {
   GRID_ELEMENTS_COUNT,
   LIST_ELEMENTS_COUNT,

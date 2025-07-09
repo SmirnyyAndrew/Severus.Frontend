@@ -1,6 +1,6 @@
 import { useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
-import { LoginModal } from "features/AuthByUsername/ui/LoginModal/LoginModal";
+import { LoginModal } from "features/AuthManagement/AuthByUsername";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";

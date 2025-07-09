@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Comment } from "entities/Comment";
-import { getCommentsByArticleIdThunk } from "../thunks/getCommentsByArticleId/getCommentsByArticleIdThunk";
+import { getCommentsByArticleIdThunk } from "../services/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentsSchema";
 
 const commentsAdapter = createEntityAdapter<Comment>({

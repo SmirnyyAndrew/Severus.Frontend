@@ -5,6 +5,7 @@ import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Skeleton } from "shared/ui/Skeleton";
+import { Column, Row } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import cls from "./CommentCard.module.scss";
 
@@ -46,8 +47,8 @@ export const CommentCard = (props: CommentCardProps) => {
   };
 
   return (
-    <div className={classNames(cls.CommentCard, {}, [className])}>
-      <div className={cls.userData}>
+    <Column gap="20" className={classNames(cls.CommentCard, {}, [className])}>
+      <Row alignItems="center" className={cls.userData}>
         <Avatar
           img={comment.user.avatar ?? errorUserAvatar}
           isRound
@@ -60,18 +61,12 @@ export const CommentCard = (props: CommentCardProps) => {
           text={comment.user?.username ?? "-"}
           onClick={onClickUserName}
         />
-      </div>
+      </Row>
 
-      <Text
-        className={cls.commentText}
-        size={TextSize.XS}
-        text={comment.text}
-      />
-      <Text
-        className={cls.commentDateTime}
-        size={TextSize.XS}
-        text={"10.02.2025 12:33"}
-      />
-    </div>
+      <Row justifyContents="space_between">
+        <Text size={TextSize.XS} text={comment.text} />
+        <Text size={TextSize.XS} text={"10.02.2025 12:33"} />
+      </Row>
+    </Column>
   );
 };

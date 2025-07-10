@@ -3,6 +3,7 @@ import { ArticleList } from "entities/Article/ui/ArticleList";
 import { useArticleDetailsRecommendations } from "pages/ArticleManagement/ArticleDetailsPage";
 import { useEffect } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Column } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/ui/Text";
 import cls from "./ArticleDetailsRecommenations.module.scss";
@@ -33,7 +34,8 @@ export const ArticleDetailsRecommenations = (
     );
 
   return (
-    <div
+    <Column
+      gap="16"
       className={classNames(cls.ArticleDetailsRecommenations, {}, [className])}
     >
       <Text
@@ -48,6 +50,6 @@ export const ArticleDetailsRecommenations = (
         articles={recommendations}
         target="_blank"
       />
-    </div>
+    </Column>
   );
 };

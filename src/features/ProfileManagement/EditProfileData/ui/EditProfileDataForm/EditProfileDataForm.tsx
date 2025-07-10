@@ -9,6 +9,7 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
+import { Column } from "shared/ui/Stack";
 import { Text, TextThemes } from "shared/ui/Text/ui/Text";
 import cls from "./EditProfileDataForm.module.scss";
 
@@ -93,7 +94,12 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.EditProfileDataForm, {}, [className])}>
+      <Column
+        alignItems="start"
+        justifyContents="start"
+        gap="8"
+        className={classNames(cls.EditProfileDataForm, {}, [className])}
+      >
         {validationErrors?.length &&
           validationErrors.map((err) => (
             <Text
@@ -162,7 +168,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         >
           {t("profile_data_editor_btn_to_edit")}
         </Button>
-      </div>
+      </Column>
     </DynamicModuleLoader>
   );
 };

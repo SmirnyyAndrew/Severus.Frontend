@@ -4,7 +4,6 @@ import { AddNewCommentForm } from "features/ArticleDetailsManagement/AddNewComme
 import { ArticleDetailsRecommenations } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -12,7 +11,6 @@ import {
 import { Page } from "widgets/Page";
 import { ArticleDetailsPageReducers } from "../..";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import cls from "./ArticleDetailsPage.module.scss";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,7 +29,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page>
         <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
         <ArticleDetailsRecommenations />

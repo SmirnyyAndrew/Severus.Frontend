@@ -1,10 +1,9 @@
 import { useArticleDetailsComments } from "pages/ArticleManagement/ArticleDetailsPage";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { classNames } from "shared/lib/classNames/classNames";
+import { Column } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
-import cls from "./CommentList.module.scss";
 
 interface CommentListProps {
   className?: string;
@@ -17,12 +16,17 @@ export const CommentList = (props: CommentListProps) => {
   const { comments, getCommentsForArticle } = useArticleDetailsComments();
 
   useEffect(() => {
-    // getCommentsForArticle(`${id}`);
     getCommentsForArticle();
   }, []);
 
   return (
-    <div className={classNames(cls.CommentItem, {}, [className])}>
+    <Column
+      maxHeight
+      maxWidth
+      justifyContents="start"
+      alignItems="start"
+      className={className}
+    >
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard comment={comment} key={comment.id} />
@@ -30,6 +34,6 @@ export const CommentList = (props: CommentListProps) => {
       ) : (
         <Text text="Комментариев нет" />
       )}
-    </div>
+    </Column>
   );
 };

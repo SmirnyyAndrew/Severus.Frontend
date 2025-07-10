@@ -1,6 +1,4 @@
 .EditProfileDataForm {
-  display: flex;
-  flex-direction: column;
   width: 700px;
   min-width: 400px;
   max-width: 90vw;
@@ -18,7 +16,4 @@
 
 .showPassword {
   margin-top: 15px;
-  gap: 5px;
-  display: flex;
-  direction: rtl;
 }

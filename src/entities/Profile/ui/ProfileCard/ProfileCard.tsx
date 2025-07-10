@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
+import { Column } from "shared/ui/Stack";
 import cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
@@ -27,8 +28,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
   }
 
   return (
-    <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={classNames(cls.card)}>
+    <div className={className}>
+      <Column
+        alignItems="center"
+        justifyContents="center"
+        gap="4"
+        className={classNames(cls.card)}
+      >
         <img
           src={profile?.avatar ?? errorPhoto}
           alt="Avatar"
@@ -47,7 +53,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         <p className={cls.gender}>
           {t("profile_card_gender")}: {profile?.gender}
         </p>
-      </div>
+      </Column>
     </div>
   );
 };

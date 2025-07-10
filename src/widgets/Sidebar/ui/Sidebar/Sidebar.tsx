@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Column } from "shared/ui/Stack";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { SidebarItemList } from "../Module/SidebarItemList";
@@ -42,7 +43,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {hidden ? ">" : "<"}
       </Button>
 
-      <div className={cls.items}>{itemsList}</div>
+      <Column gap="8" alignItems="center" className={cls.items}>
+        {itemsList}
+      </Column>
 
       <div className={cls.switchers}>
         <ThemeSwitcher />

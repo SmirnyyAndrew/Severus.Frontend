@@ -15,6 +15,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
+import { Row } from "shared/ui/Stack";
 import { Page } from "widgets/Page";
 import { ArticlesPageReducer } from "..";
 import { useArticlesPage } from "../model/hooks/useArticlesPage";
@@ -85,9 +86,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       <Page
         saveScrollPosition
         onScrollEnd={onLoadNextPart}
-        className={classNames(cls.ArticlesPage, {}, [className])}
+        className={className}
       >
-        <div className={classNames(cls.viewType, {}, [className])}>
+        <Row justifyContents="end" gap="4" className={className}>
           <Button
             isWrapper
             onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
@@ -114,7 +115,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           >
             <Icon Svg={GridIcon} iconSize={IconSize.L} />
           </Button>
-        </div>
+        </Row>
         <ArticlesPageFilters />
 
         <ArticleList

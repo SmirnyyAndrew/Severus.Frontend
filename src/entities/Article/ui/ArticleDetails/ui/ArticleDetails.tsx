@@ -9,6 +9,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Icon, IconSize } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
+import { Column } from "shared/ui/Stack";
 import { Text, TextSize, TextThemes } from "shared/ui/Text/ui/Text";
 import { ArticleCodeBlockComponent } from "../../ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../../ArticleImageBlockComponent";
@@ -46,7 +47,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   if (isLoading)
     return (
-      <div className={cls.skeletons}>
+      <Column gap="20">
         <Skeleton width={400} height={24} />
         <Skeleton width={200} height={200} border="90%" />
         <Skeleton width={600} height={24} />
@@ -55,7 +56,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <Skeleton width={"100%"} height={200} />
         <Skeleton width={"100%"} height={200} />
         <Skeleton width={"100%"} height={200} />
-      </div>
+      </Column>
     );
 
   if (error)
@@ -68,7 +69,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
 
   return (
-    <div className={classNames(cls.ArticleDetails, {}, [className])}>
+    <Column
+      gap="20"
+      className={classNames(cls.ArticleDetails, {}, [className])}
+    >
       <Text
         text={`Article ID: ${articleData?.id}`}
         size={TextSize.XL}
@@ -106,6 +110,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
       />
 
       {articleData?.blocks?.map(getArticleBlock)}
-    </div>
+    </Column>
   );
 });

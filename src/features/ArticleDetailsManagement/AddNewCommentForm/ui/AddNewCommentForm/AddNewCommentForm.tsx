@@ -11,6 +11,7 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
+import { Row } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/ui/Text";
 import cls from "./AddNewCommentForm.module.scss";
@@ -45,7 +46,10 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.AddNewCommentForm, {}, [className])}>
+      <Row
+        justifyContents="space_between"
+        className={classNames(cls.AddNewCommentForm, {}, [className])}
+      >
         <Input
           className={cls.commentInput}
           placeholder={"Введите комментарий"}
@@ -60,7 +64,7 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
         >
           Отправить
         </Button>
-      </div>
+      </Row>
     </DynamicModuleLoader>
   );
 };

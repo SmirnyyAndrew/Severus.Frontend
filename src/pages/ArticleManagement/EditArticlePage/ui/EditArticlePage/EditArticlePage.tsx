@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
+import { Page } from "widgets/Page";
 import cls from "./EditArticlePage.module.scss";
 
 interface EditArticlePageProps {
@@ -14,13 +15,12 @@ const EditArticlePage = (props: EditArticlePageProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.EditArticlePage, {}, [className])}>
+    <Page className={classNames(cls.EditArticlePage, {}, [className])}>
       <Text
-        isCenter
         size={TextSize.L}
         text={`Страница для редактирования статьи №${id}`}
       />
-    </div>
+    </Page>
   );
 };
 

@@ -10,6 +10,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Column } from "shared/ui/Stack";
 import { Page } from "widgets/Page";
 import cls from "./ProfilePage.module.scss";
 
@@ -44,27 +45,29 @@ const ProfilePage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page className={cls.ProfilePage}>
-        <ProfileCard
-          profile={profileData}
-          error={error}
-          isLoading={isLoading}
-        />
-
-        {authData?.id === id && (
-          <Button
-            buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
-            onClick={onEditProfileClick}
-          >
-            {t("profile_data_editor_btn_to_edit")}
-          </Button>
-        )}
-
-        {isShownProfileDataEditModal && (
-          <EditProfileDataModal
-            isOpen={isShownProfileDataEditModal}
-            onClose={onCloseProfileDataEditModal}
+        <Column gap="16">
+          <ProfileCard
+            profile={profileData}
+            error={error}
+            isLoading={isLoading}
           />
-        )}
+
+          {authData?.id === id && (
+            <Button
+              buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
+              onClick={onEditProfileClick}
+            >
+              {t("profile_data_editor_btn_to_edit")}
+            </Button>
+          )}
+
+          {isShownProfileDataEditModal && (
+            <EditProfileDataModal
+              isOpen={isShownProfileDataEditModal}
+              onClose={onCloseProfileDataEditModal}
+            />
+          )}
+        </Column>
       </Page>
     </DynamicModuleLoader>
   );

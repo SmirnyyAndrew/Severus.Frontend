@@ -4,6 +4,7 @@ import { Flex } from "../Flex/Flex";
 
 interface ColumnProps {
   children: ReactNode;
+  className?: string;
   alignItems?: AlignItems;
   justifyContents?: JustifyContents;
   gap?: GapSizes;
@@ -12,8 +13,15 @@ interface ColumnProps {
 }
 
 export const Column = (props: ColumnProps) => {
-  const { children, alignItems, justifyContents, gap, maxWidth, maxHeight } =
-    props;
+  const {
+    children,
+    alignItems,
+    justifyContents,
+    gap,
+    maxWidth,
+    maxHeight,
+    className,
+  } = props;
 
   return (
     <Flex
@@ -23,6 +31,7 @@ export const Column = (props: ColumnProps) => {
       gap={gap}
       maxHeight={maxHeight}
       maxWidth={maxWidth}
+      className={className}
     >
       {children}
     </Flex>

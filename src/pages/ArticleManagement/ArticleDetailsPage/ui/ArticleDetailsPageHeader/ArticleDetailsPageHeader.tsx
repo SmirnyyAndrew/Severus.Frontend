@@ -10,6 +10,7 @@ import {
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Row } from "shared/ui/Stack";
 import cls from "./ArticleDetailsPageHeader.module.scss";
 
 interface ArticleDetailsPageHeaderProps {
@@ -38,7 +39,10 @@ export const ArticleDetailsPageHeader = (
   };
 
   return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+    <Row
+      justifyContents="space_between"
+      className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}
+    >
       <Button onClick={onBackButtonClick}>Назад</Button>
       {articleData?.user?.id === authData?.id && (
         <Button
@@ -48,6 +52,6 @@ export const ArticleDetailsPageHeader = (
           Редактировать
         </Button>
       )}
-    </div>
+    </Row>
   );
 };

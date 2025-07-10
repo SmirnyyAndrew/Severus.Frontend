@@ -8,6 +8,7 @@ const meta: Meta<typeof Flex> = {
   title: "shared/Stack/Flex",
   component: Flex,
   args: {
+    gap: "12",
     alignItems: "center",
     justifyContents: "center",
     children: (
@@ -20,7 +21,7 @@ const meta: Meta<typeof Flex> = {
     ),
     maxHeight: true,
     maxWidth: true,
-    gap: "12",
+    direction: "column",
   },
 };
 

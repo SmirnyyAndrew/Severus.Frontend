@@ -1,6 +1,14 @@
 .Flex {
   display: flex;
 }
+
+.rowDirection {
+  flex-direction: row;
+}
+.columnDirection {
+  flex-direction: column;
+}
+
 .maxWidth {
   width: 100%;
 }
@@ -33,6 +41,10 @@
   justify-content: end;
 }
 
+.justifyContentsSpaceBetween {
+  justify-content: space-between;
+}
+
 .gapSize4 {
   gap: 4px;
 }
@@ -63,4 +75,12 @@
 
 .gapSize32 {
   gap: 32px;
+}
+
+.gapSize64 {
+  gap: 64px;
+}
+
+.gapSize128 {
+  gap: 128px;
 }

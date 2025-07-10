@@ -9,4 +9,6 @@ export const GapStyles: Record<GapSizes, string> = {
   24: "gapSize24",
   28: "gapSize28",
   32: "gapSize32",
+  64: "gapSize64",
+  128: "gapSize128",
 };

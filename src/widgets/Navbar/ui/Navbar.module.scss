@@ -1,5 +1,4 @@
 .navbar {
-  width: 100%;
   height: var(--navbar-height);
   background: var(--bg-inverted-color);
   display: flex;
@@ -7,15 +6,6 @@
   padding: 20px;
   position: relative;
   min-width: 800px;
-}
-
-.links {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
 }
 
 .login {

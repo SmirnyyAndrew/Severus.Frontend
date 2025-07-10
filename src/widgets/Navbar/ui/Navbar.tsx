@@ -9,6 +9,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Row } from "shared/ui/Stack";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -41,7 +42,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.navbar)}>
-        <div className={cls.links}>
+        <Row alignItems="center" maxWidth justifyContents="center" gap="64">
           <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
             {t("nav_main_page")}
           </AppLink>
@@ -54,7 +55,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           <AppLink to={RoutePath.articles} linkTheme={AppLinkTheme.PRIMARY}>
             {t("nav_articles_page")}
           </AppLink>
-        </div>
+        </Row>
         <Button
           className={cls.login}
           onClick={onLogout}

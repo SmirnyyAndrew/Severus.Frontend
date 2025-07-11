@@ -10,7 +10,9 @@ import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Icon, IconSize } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Column } from "shared/ui/Stack";
-import { Text, TextSize, TextThemes } from "shared/ui/Text/ui/Text";
+import { TextSize } from "shared/ui/Text/model/types/TextSize";
+import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
+import { Text } from "shared/ui/Text/ui/Text";
 import { ArticleCodeBlockComponent } from "../../ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../../ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../../ArticleTextBlockComponent/ui/ArticleTextBlockComponent";
@@ -60,29 +62,18 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
 
   if (error)
-    return (
-      <Text
-        text=" Article doesn't exist"
-        textTheme={TextThemes.ERROR}
-        isCenter
-      />
-    );
+    return <Text text=" Article doesn't exist" textTheme={TextThemes.ERROR} />;
 
   return (
     <Column
       gap="20"
       className={classNames(cls.ArticleDetails, {}, [className])}
     >
-      <Text
-        text={`Article ID: ${articleData?.id}`}
-        size={TextSize.XL}
-        isCenter
-      />
+      <Text text={`Article ID: ${articleData?.id}`} size={TextSize.XL} />
       <Text
         title={articleData?.title}
         text={articleData?.subtitle ?? ""}
         size={TextSize.XL}
-        isCenter
       />
       <Avatar
         img={articleData?.img || errorArticleImg}
@@ -98,15 +89,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         textSize={TextSize.S}
         Svg={EyeIcon}
       />
-      <Text
-        text={`Created at: ${articleData?.createdAt}`}
-        size={TextSize.XS}
-        isCenter
-      />
+      <Text text={`Created at: ${articleData?.createdAt}`} size={TextSize.XS} />
       <Text
         text={`Tags: ${articleData?.type.join(" | ")}`}
         size={TextSize.XS}
-        isCenter
       />
 
       {articleData?.blocks?.map(getArticleBlock)}

@@ -13,7 +13,7 @@ import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
 import { Row } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
-import { TextThemes } from "shared/ui/Text/ui/Text";
+import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
 import cls from "./AddNewCommentForm.module.scss";
 
 export interface AddNewCommentFormProps {
@@ -42,7 +42,7 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
     }
   }, [text]);
 
-  if (error) return <Text isCenter textTheme={TextThemes.ERROR} text={error} />;
+  if (error) return <Text textTheme={TextThemes.ERROR} text={error} />;
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

@@ -8,7 +8,10 @@ import {
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
-import { Text, TextThemes } from "shared/ui/Text/ui/Text";
+import { Column, Row } from "shared/ui/Stack";
+import { TextSize } from "shared/ui/Text/model/types/TextSize";
+import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
+import { Text } from "shared/ui/Text/ui/Text";
 import { loginReducer, useLogin } from "../..";
 import cls from "./LoginForm.module.scss";
 
@@ -59,13 +62,12 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
+      <Column
+        alignItems="start"
+        className={classNames(cls.LoginForm, {}, [className])}
+      >
         {error && (
-          <Text
-            text={t("check_auth_data")}
-            isCenter
-            textTheme={TextThemes.ERROR}
-          />
+          <Text text={t("check_auth_data")} textTheme={TextThemes.ERROR} />
         )}
         <Input
           autofocus
@@ -82,15 +84,20 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
           type={passwordType}
           className={cls.input}
         />
-        <label className={cls.showPassword}>
-          {t("show_password")}
-          <input
+        <Row alignItems="center" justifyContents="end">
+          <Input
             type="checkbox"
             id="is_show_password"
             checked={isShowPassword}
             onChange={onToggleShowPassword}
           />
-        </label>
+          <Text
+            onClick={onToggleShowPassword}
+            size={TextSize.XS}
+            position="end"
+            text={t("show_password")}
+          />
+        </Row>
         <Button
           buttonTheme={ButtonTheme.OUTLINE}
           onClick={onLoginClick}
@@ -99,7 +106,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         >
           {t("login")}
         </Button>
-      </div>
+      </Column>
     </DynamicModuleLoader>
   );
 });

@@ -10,6 +10,7 @@ interface RowProps {
   gap?: GapSizes;
   maxWidth?: boolean;
   maxHeight?: boolean;
+  onClick?: () => void;
 }
 
 export const Row = (props: RowProps) => {
@@ -21,6 +22,7 @@ export const Row = (props: RowProps) => {
     maxWidth,
     maxHeight,
     className,
+    onClick,
   } = props;
 
   return (
@@ -32,6 +34,7 @@ export const Row = (props: RowProps) => {
       maxHeight={maxHeight}
       maxWidth={maxWidth}
       className={className}
+      onClick={onClick}
     >
       {children}
     </Flex>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Column } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
-import { TextThemes } from "shared/ui/Text/ui/Text";
+import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
 import cls from "./ArticleDetailsRecommenations.module.scss";
 
 interface ArticleDetailsRecommenationsProps {
@@ -25,12 +25,7 @@ export const ArticleDetailsRecommenations = (
 
   if (recommendationsError)
     return (
-      <Text
-        isCenter
-        size={TextSize.L}
-        textTheme={TextThemes.ERROR}
-        text={"Ошибка"}
-      />
+      <Text size={TextSize.L} textTheme={TextThemes.ERROR} text={"Ошибка"} />
     );
 
   return (
@@ -38,12 +33,7 @@ export const ArticleDetailsRecommenations = (
       gap="16"
       className={classNames(cls.ArticleDetailsRecommenations, {}, [className])}
     >
-      <Text
-        className={cls.title}
-        isCenter
-        size={TextSize.L}
-        text={"Рекомендуем"}
-      />
+      <Text className={cls.title} size={TextSize.L} text={"Рекомендуем"} />
       <ArticleList
         className={cls.list}
         view={ArticleViewType.GRID}

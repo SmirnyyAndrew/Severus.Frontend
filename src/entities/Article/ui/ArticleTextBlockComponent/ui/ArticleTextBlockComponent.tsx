@@ -23,14 +23,14 @@ export const ArticleTextBlockComponent = (
       />
 
       <div className={classNames(cls.paragraphs, {}, [className])}>
-        <Text text="Paragraphs:" size={TextSize.XS} isCenter />
+        <Text text="Paragraphs:" size={TextSize.XS} />
         {article.paragraphs.map((paragraph, index) => (
           <Fragment key={index}>
             <Text
               text={paragraph}
               size={TextSize.XS}
               key={index}
-              isCenter={false}
+              position="start"
             />
           </Fragment>
         ))}

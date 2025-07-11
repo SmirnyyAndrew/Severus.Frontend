@@ -16,6 +16,7 @@ interface FlexProps {
   gap?: GapSizes;
   maxWidth?: boolean;
   maxHeight?: boolean;
+  onClick?: () => void;
 }
 export const Flex = (props: FlexProps) => {
   const {
@@ -27,6 +28,7 @@ export const Flex = (props: FlexProps) => {
     gap = "8",
     maxWidth = true,
     maxHeight = false,
+    onClick,
   } = props;
 
   const mods: Mods = {
@@ -36,6 +38,7 @@ export const Flex = (props: FlexProps) => {
 
   return (
     <div
+      onClick={onClick}
       className={classNames(cls.Flex, mods, [
         className,
         cls[JustifyContentsStyles[justifyContents]],

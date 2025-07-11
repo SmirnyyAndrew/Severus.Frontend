@@ -27,7 +27,7 @@ export const Icon = (props: IconProps) => {
 
   return (
     <div className={cls.IconWrapper}>
-      {text && <Text text={text} size={textSize} isCenter />}
+      {text && <Text text={text} size={textSize} />}
       <Svg className={classNames(cls.Icon, {}, [className, cls[iconSize]])} />
     </div>
   );

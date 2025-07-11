@@ -13,7 +13,7 @@ const CreateArticlePage = (props: CreateArticlePageProps) => {
 
   return (
     <div className={classNames(cls.CreateArticlePage, {}, [className])}>
-      <Text isCenter size={TextSize.L} text={"Страница для создания статьи"} />
+      <Text size={TextSize.L} text={"Страница для создания статьи"} />
     </div>
   );
 };

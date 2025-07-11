@@ -10,6 +10,7 @@ interface ColumnProps {
   gap?: GapSizes;
   maxWidth?: boolean;
   maxHeight?: boolean;
+  onClick?: () => void;
 }
 
 export const Column = (props: ColumnProps) => {
@@ -21,6 +22,7 @@ export const Column = (props: ColumnProps) => {
     maxWidth,
     maxHeight,
     className,
+    onClick,
   } = props;
 
   return (
@@ -32,6 +34,7 @@ export const Column = (props: ColumnProps) => {
       maxHeight={maxHeight}
       maxWidth={maxWidth}
       className={className}
+      onClick={onClick}
     >
       {children}
     </Flex>

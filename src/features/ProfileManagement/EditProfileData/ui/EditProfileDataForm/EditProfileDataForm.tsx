@@ -10,7 +10,8 @@ import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
 import { Column } from "shared/ui/Stack";
-import { Text, TextThemes } from "shared/ui/Text/ui/Text";
+import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
+import { Text } from "shared/ui/Text/ui/Text";
 import cls from "./EditProfileDataForm.module.scss";
 
 export interface EditProfileDataFormProps {
@@ -103,7 +104,6 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         {validationErrors?.length &&
           validationErrors.map((err) => (
             <Text
-              isCenter
               text={t(tranlsations[err])}
               key={err}
               textTheme={TextThemes.ERROR}

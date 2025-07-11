@@ -1,56 +1,53 @@
 import { memo } from "react";
-import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
+import { AlignItems, Column, GapSizes } from "shared/ui/Stack";
+import { HeaderTags } from "../model/types/headerTags/HeaderTags";
+import { MapSizeToHeaderTag } from "../model/types/headerTags/MapSizeToHeaderTag";
+import { TextSize } from "../model/types/TextSize";
+import { TextThemes } from "../model/types/TextThemes";
 import cls from "./Text.module.scss";
-
-export enum TextThemes {
-  "INFO" = "info",
-  "WARNING" = "warning",
-  "ERROR" = "error",
-}
-
-export enum TextSize {
-  XS = "size_xs",
-  S = "size_s",
-  L = "size_l",
-  XL = "size_xl",
-}
 
 interface TextProps {
   className?: string;
   textTheme?: TextThemes;
   title?: string;
   text: string;
-  isCenter?: boolean;
   size?: TextSize;
+  gap?: GapSizes;
+  position?: AlignItems;
   onClick?: () => void;
 }
-
 export const Text = memo((props: TextProps) => {
   const {
     className,
     text,
     title,
+    gap,
+    position = "center",
     textTheme = TextThemes.INFO,
-    isCenter,
     size = TextSize.L,
     onClick,
   } = props;
 
-  const mods: Mods = {
-    [cls.center]: isCenter,
-  };
+  const HeaderTag: HeaderTags = MapSizeToHeaderTag[size];
 
   return (
-    <div
-      className={classNames(cls.Text, mods, [
-        className,
-        cls[textTheme],
-        cls[size],
-      ])}
-      onClick={onClick}
-    >
-      {title && <p className={classNames(cls.title)}> {title}</p>}
-      <p className={classNames(cls.text)}> {text}</p>
+    <div>
+      <Column
+        alignItems={position}
+        gap={gap}
+        className={classNames(cls.Text, {}, [
+          className,
+          cls[textTheme],
+          cls[size],
+        ])}
+        onClick={onClick}
+      >
+        {title && (
+          <HeaderTag className={classNames(cls.title)}> {title}</HeaderTag>
+        )}
+        <p className={classNames(cls.text)}> {text}</p>
+      </Column>
     </div>
   );
 });

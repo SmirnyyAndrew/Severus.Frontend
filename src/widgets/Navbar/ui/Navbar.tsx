@@ -69,14 +69,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar)}>
-      <div className={cls.links}>
+      <Row alignItems="center" maxWidth justifyContents="center" gap="64">
         <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
           {t("nav_main_page")}
         </AppLink>
         <AppLink to={RoutePath.about} linkTheme={AppLinkTheme.PRIMARY}>
           {t("nav_about_page")}
         </AppLink>
-      </div>
+      </Row>
 
       <Button
         className={cls.login}

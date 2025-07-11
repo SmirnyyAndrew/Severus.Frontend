@@ -71,7 +71,7 @@ export const ArticleList = (props: ArticleListProps) => {
   if (articles.length === 0 && isLoading === false)
     return (
       <div className={cls.notFoundText}>
-        <Text text="Статьи не найдены" isCenter size={TextSize.L}></Text>
+        <Text text="Статьи не найдены" size={TextSize.L}></Text>
       </div>
     );
 
@@ -139,7 +139,7 @@ export const ArticleList = (props: ArticleListProps) => {
                   />
                 </div>
 
-                <Text text={article.title} isCenter size={TextSize.L} />
+                <Text text={article.title} size={TextSize.L} />
 
                 <div className={cls.TypesViews}>{getArticleTypes(article)}</div>
               </div>

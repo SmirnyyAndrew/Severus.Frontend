@@ -15,9 +15,7 @@ export const Image = (props: ImageProps) => {
   return (
     <div className={classNames(cls.Image, {}, [className])}>
       <img src={src} onError={(e) => (e.currentTarget.src = errorArticleImg)} />
-      {title && (
-        <Text text={title} isCenter size={TextSize.XS} className={cls.title} />
-      )}
+      {title && <Text text={title} size={TextSize.XS} className={cls.title} />}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const AboutPage = memo(() => {
 
   return (
     <Page>
-      <Text size={TextSize.L} text={t("about_page")} />
+      <Text position="start" size={TextSize.L} text={t("about_page")} />
     </Page>
   );
 });

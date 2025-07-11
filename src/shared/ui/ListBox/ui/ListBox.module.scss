@@ -1,0 +1,45 @@
+.ListBox {
+  position: relative;
+  width: max-content;
+}
+
+.item {
+  padding: 10px 20px;
+  display: block;
+  white-space: nowrap;
+}
+
+.selected {
+  background-color: var(--bg-color);
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.options {
+  position: absolute;
+  background-color: var(--list-box-options);
+  border-radius: 5px;
+  padding: 0;
+  z-index: 1000;
+}
+.top-left {
+  bottom: 100%;
+  right: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottom-left {
+  top: 100%;
+  right: 0;
+}
+
+.bottom-right {
+  top: 100%;
+  left: 0;
+}

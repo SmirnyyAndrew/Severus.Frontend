@@ -5,12 +5,9 @@ import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { Button } from "shared/ui/Button";
-import { ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Row } from "shared/ui/Stack";
+import { AuthNavbar } from "./authNavbar/AuthNavbar";
 import cls from "./Navbar.module.scss";
+import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
 
 interface NavbarProps {
   className?: string;
@@ -40,55 +37,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   };
 
   if (authData) {
-    return (
-      <header className={classNames(cls.navbar)}>
-        <Row alignItems="center" maxWidth justifyContents="center" gap="64">
-          <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
-            {t("nav_main_page")}
-          </AppLink>
-          <AppLink
-            to={`${RoutePath.profile}${authData?.id ?? ""}`}
-            linkTheme={AppLinkTheme.PRIMARY}
-          >
-            {t("nav_profile_page")}
-          </AppLink>
-          <AppLink to={RoutePath.articles} linkTheme={AppLinkTheme.PRIMARY}>
-            {t("nav_articles_page")}
-          </AppLink>
-        </Row>
-        <Button
-          className={cls.login}
-          onClick={onLogout}
-          buttonTheme={ButtonTheme.OUTLINE_INVERTED}
-        >
-          {t("logout")}
-        </Button>
-      </header>
-    );
+    return <AuthNavbar className={cls.navbar} onLogout={onLogout} />;
   }
 
   return (
-    <header className={classNames(cls.navbar)}>
-      <Row alignItems="center" maxWidth justifyContents="center" gap="64">
-        <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
-          {t("nav_main_page")}
-        </AppLink>
-        <AppLink to={RoutePath.about} linkTheme={AppLinkTheme.PRIMARY}>
-          {t("nav_about_page")}
-        </AppLink>
-      </Row>
-
-      <Button
-        className={cls.login}
-        onClick={onShowModal}
-        buttonTheme={ButtonTheme.OUTLINE_INVERTED}
-      >
-        {t("login")}
-      </Button>
-
+    <div>
+      <UnAuthNavbar onShowModal={onShowModal} className={cls.navbar} />
       {isShownAuthModal && (
         <LoginModal isOpen={isShownAuthModal} onClose={onCloseModal} />
       )}
-    </header>
+    </div>
   );
 });

@@ -11,7 +11,7 @@ export enum AvatarSize {
 
 interface AvatarProps {
   className?: string;
-  img: string;
+  img?: string;
   alt?: string;
   size?: AvatarSize;
   isRound?: boolean;

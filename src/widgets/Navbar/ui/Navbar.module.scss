@@ -3,12 +3,9 @@
   background: var(--bg-inverted-color);
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   position: relative;
   min-width: 800px;
-}
-
-.login {
-  right: 20px;
-  position: absolute;
+  z-index: 10;
 }

@@ -21,7 +21,7 @@ const ProfilePage = () => {
   const { authData } = useUserAuth();
 
   useEffect(() => {
-    getProfileDataFromDB(id);
+    getProfileDataFromDB(authData?.id);
   }, []);
 
   const reducers: ReducersList = {

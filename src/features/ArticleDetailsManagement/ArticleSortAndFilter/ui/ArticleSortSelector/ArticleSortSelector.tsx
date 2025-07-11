@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import { SortOrder } from "shared/types";
+import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { Select } from "shared/ui/Select";
 import { SelectOption } from "shared/ui/Select/ui/Select";
 import { ArticleSortField } from "../../model/types/ArticleSortField";

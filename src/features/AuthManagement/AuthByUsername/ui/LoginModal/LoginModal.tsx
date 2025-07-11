@@ -1,6 +1,8 @@
+import { useProfile } from "entities/Profile";
 import { userReducer } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { memo, Suspense } from "react";
+import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import {
@@ -20,8 +22,9 @@ interface LoginModalProps {
 export const LoginModal = memo((props: LoginModalProps) => {
   const { isOpen, onClose } = props;
   const navigate = useNavigate();
+  const { getProfileDataFromDB } = useProfile();
   const { authData } = useUserAuth();
-  const id = authData?.id;
+  const store = useStore();
 
   const reducers: ReducersList = {
     user: userReducer,
@@ -32,7 +35,12 @@ export const LoginModal = memo((props: LoginModalProps) => {
       <Modal onClose={onClose} isOpen={isOpen} lazy>
         <Suspense fallback={<Loader />}>
           <LoginForm
-            onSuccess={() => {
+            onSuccess={async () => {
+              const state = store.getState();
+              const id = state.user?.authData?.id;
+
+              await getProfileDataFromDB(id);
+
               if (location.pathname !== RoutePath.profile && id) {
                 navigate(`${RoutePath.profile}${id}`);
               } else {

@@ -12,7 +12,7 @@ import {
   LIST_ELEMENTS_COUNT,
 } from "shared/const/elementsCount";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
-import { SortOrder } from "shared/types";
+import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { getArticlesListThunk } from "../..";
 import { ArticlePageSchema as ArticlesPageSchema } from "../types/ArticlesPageSchema";
 

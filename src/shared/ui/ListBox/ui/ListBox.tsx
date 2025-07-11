@@ -1,13 +1,13 @@
 import { Listbox as HListBox } from "@headlessui/react";
 import { Fragment } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { DropdownDirections } from "../../../types/dropDownDirections/DropdownDirections";
+import { MapDropdownDirection } from "../../../types/dropDownDirections/MapDropdownDirection";
 import { Button } from "../../Button";
 import { ButtonSize, ButtonTheme } from "../../Button/ui/Button";
 import { Row } from "../../Stack";
 import { Text, TextSize } from "../../Text";
 import { ListBoxItem } from "../model/types/ListBoxItem";
-import { DropdownDirections } from "../model/types/dropDownDirections/DropdownDirections";
-import { MapDropdownDirection } from "../model/types/dropDownDirections/MapDropdownDirection";
 import cls from "./ListBox.module.scss";
 
 interface ListBoxProps {

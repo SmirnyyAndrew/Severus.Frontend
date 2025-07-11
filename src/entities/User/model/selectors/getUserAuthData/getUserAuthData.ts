@@ -1,8 +1,3 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { getUser } from "entities/User";
-import { UserSchema } from "../../types/UserSchema";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getUserAuthData = createSelector(
-  getUser,
-  (schema: UserSchema) => schema.authData
-);
+export const getUserAuthData = (state: StateSchema) => state.user?.authData;

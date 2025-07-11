@@ -3,7 +3,7 @@ import { useArticlesPage } from "pages/ArticleManagement/ArticlesPage";
 import { useCallback, useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
-import { SortOrder } from "shared/types";
+import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { Card } from "shared/ui/Card";
 import { Input } from "shared/ui/Input/Input";
 import { Tabs } from "shared/ui/Tabs";

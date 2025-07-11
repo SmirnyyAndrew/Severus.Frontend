@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
-import { SortOrder } from "shared/types";
+import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import {
   ArticlesPageActions,
   getArticlesPageOrder,

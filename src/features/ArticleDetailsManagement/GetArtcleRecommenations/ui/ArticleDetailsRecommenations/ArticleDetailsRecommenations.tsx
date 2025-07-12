@@ -1,11 +1,10 @@
 import { ArticleViewType } from "entities/Article";
 import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
-import { useArticleDetailsRecommendations } from "pages/ArticleManagement/ArticleDetailsPage";
-import { useEffect } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Column } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
+import { useGetArticleRecommendationsQuery } from "../../model/api/recommendationsApi";
 import cls from "./ArticleDetailsRecommenations.module.scss";
 
 interface ArticleDetailsRecommenationsProps {
@@ -16,14 +15,14 @@ export const ArticleDetailsRecommenations = (
   props: ArticleDetailsRecommenationsProps
 ) => {
   const { className } = props;
-  const { getRecommendations, recommendations, recommendationsError } =
-    useArticleDetailsRecommendations();
 
-  useEffect(() => {
-    getRecommendations();
-  }, []);
+  const {
+    isError,
+    isLoading,
+    data: recommendations = [],
+  } = useGetArticleRecommendationsQuery(3);
 
-  if (recommendationsError)
+  if (isError)
     return (
       <Text size={TextSize.L} textTheme={TextThemes.ERROR} text={"Ошибка"} />
     );
@@ -38,6 +37,7 @@ export const ArticleDetailsRecommenations = (
         className={cls.list}
         view={ArticleViewType.GRID}
         articles={recommendations}
+        isLoading={isLoading}
         target="_blank"
       />
     </Column>

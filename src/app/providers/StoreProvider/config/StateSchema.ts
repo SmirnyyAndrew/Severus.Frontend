@@ -11,23 +11,21 @@ import { To } from "history";
 import { ArticleDetailsPageSchema } from "pages/ArticleManagement/ArticleDetailsPage";
 import { ArticlePageSchema } from "pages/ArticleManagement/ArticlesPage";
 import { NavigateOptions } from "react-router";
+import { rtkApi } from "shared/api/rtkApi";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   pageScroll: ScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async reducers
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleDetailsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
-
   articles?: ArticlePageSchema;
-
-  // articleDetailsComments?: ArticleDetailsCommentsSchema;
-  // articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
 }
 

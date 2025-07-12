@@ -12,6 +12,7 @@ import { To } from "history";
 import { ArticlesPageReducer } from "pages/ArticleManagement/ArticlesPage";
 import { NavigateOptions } from "react-router";
 import { $api } from "shared/api/api";
+import { rtkApi } from "shared/api/rtkApi";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { CreateReducerManager } from "./ReducerManager";
 import { StateSchema, ThunkExtraArgs } from "./StateSchema";
@@ -29,6 +30,7 @@ export const CreateReduxStore = (
     article: ArticleReducer,
     articles: ArticlesPageReducer,
     pageScroll: ScrollSaveReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = CreateReducerManager(rootReducers);
@@ -48,7 +50,7 @@ export const CreateReduxStore = (
         thunk: {
           extraArgument: extraArgs,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore

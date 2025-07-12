@@ -9,7 +9,7 @@ import cls from "./ArticleList.module.scss";
 interface ArticleListProps {
   className?: string;
   articles: Article[];
-  isLoading?: boolean;
+  isLoading: boolean;
   view?: ArticleViewType;
   target?: HTMLAttributeAnchorTarget;
 }
@@ -23,7 +23,7 @@ export const ArticleList = (props: ArticleListProps) => {
     target = "_self",
   } = props;
 
-  if (articles.length === 0 && isLoading === false)
+  if (articles?.length === 0 && isLoading === false)
     return (
       <div className={cls.notFoundText}>
         <Text text="Статьи не найдены" size={TextSize.L}></Text>

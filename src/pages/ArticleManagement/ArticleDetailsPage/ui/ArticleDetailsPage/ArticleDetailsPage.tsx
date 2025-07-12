@@ -22,7 +22,7 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const { t } = useTranslation();
 
   if (!id) return <h1>Неверный номер статьи</h1>;

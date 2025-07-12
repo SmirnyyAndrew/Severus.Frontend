@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { ArticleExample } from "entities/Article/model/types/ArticleManagement/ArticleExample";
-import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
+import { ArticleExample } from "entities/Article";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { ArticleList } from "./ArticleList";
+import { GridArticlesList } from "./GridArticlesList";
 
-const meta: Meta<typeof ArticleList> = {
-  title: "entities/Article/ArticleList",
-  component: ArticleList,
+const meta: Meta<typeof GridArticlesList> = {
+  title: "entities/Article/ArticleList/GridArticlesList",
+  component: GridArticlesList,
   args: {
+    isLoading: false,
     articles: [
       ArticleExample,
       ArticleExample,
@@ -19,23 +19,14 @@ const meta: Meta<typeof ArticleList> = {
       ArticleExample,
       ArticleExample,
       ArticleExample,
+      ArticleExample,
     ],
-    isLoading: true,
-    view: ArticleViewType.GRID,
   },
-  argTypes: {
-    isLoading: {
-      control: "boolean",
-    },
-    view: {
-      control: "radio",
-      options: [ArticleViewType.GRID, ArticleViewType.LIST],
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleList>;
+type Story = StoryObj<typeof GridArticlesList>;
 
 export const Light: Story = {};
 

@@ -1,5 +1,5 @@
 import { ArticleViewType } from "entities/Article";
-import { ArticleList } from "entities/Article/ui/ArticleList";
+import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
 import { useArticleDetailsRecommendations } from "pages/ArticleManagement/ArticleDetailsPage";
 import { useEffect } from "react";
 import { classNames } from "shared/lib/classNames/classNames";

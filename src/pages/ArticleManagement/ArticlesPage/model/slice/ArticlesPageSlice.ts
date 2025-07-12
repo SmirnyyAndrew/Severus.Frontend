@@ -93,19 +93,20 @@ export const ArticlesPageSlice = createSlice({
         state.error = undefined;
 
         if (action.meta.arg.replace) {
+          console.log("replaced");
           articlesAdapter.removeAll(state);
         }
       })
       .addCase(getArticlesListThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
-
         if (state.limit) {
           if (action.meta.arg.replace) {
             articlesAdapter.setAll(state, action.payload);
           } else {
             articlesAdapter.addMany(state, action.payload);
-            state.hasMore = action.payload.length > state.limit;
           }
+          state.hasMore = action.payload.length >= state.limit;
+          state._inited = true;
+          state.isLoading = false;
         }
       })
       .addCase(getArticlesListThunk.rejected, (state, action) => {

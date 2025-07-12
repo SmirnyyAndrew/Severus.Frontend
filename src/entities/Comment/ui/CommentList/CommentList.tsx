@@ -21,7 +21,6 @@ export const CommentList = (props: CommentListProps) => {
 
   return (
     <Column
-      maxHeight
       maxWidth
       justifyContents="start"
       alignItems="start"

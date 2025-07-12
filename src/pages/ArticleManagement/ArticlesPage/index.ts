@@ -13,7 +13,7 @@ import {
 
 import { getArticlesListThunk } from "./model/thunks/getArticlesListThunk";
 import type { ArticlePageSchema } from "./model/types/ArticlesPageSchema";
-import { ArticlesPageAsync } from "./ui/ArticlesPage.async";
+import { ArticlesPageAsync } from "./ui/ArticlesPage/ArticlesPage.async";
 
 export {
   ArticlePageSchema,

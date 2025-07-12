@@ -1,6 +1,7 @@
 import { useScrollSave } from "features/UIManagement/ScrollSave";
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { ThrottleScrollDelay } from "shared/const/delays";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
@@ -39,7 +40,7 @@ export const Page = memo((props: PageProps) => {
     console.log("set to page position", position);
   });
 
-  //Просчёт скролла раз в 500 мс
+  //Просчёт скролла раз в ThrottleScrollDelay мс
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
     if (saveScrollPosition) {
       let position = e.currentTarget.scrollTop;
@@ -47,7 +48,7 @@ export const Page = memo((props: PageProps) => {
       setPageScrollPosition(path, position);
       console.log("set to store position", position);
     }
-  }, 500);
+  }, ThrottleScrollDelay);
 
   return (
     <section
@@ -56,9 +57,7 @@ export const Page = memo((props: PageProps) => {
       className={classNames(cls.Page, {}, [className])}
     >
       {children}
-      {onScrollEnd && (
-        <div ref={triggerRef} style={{ height: 100, background: "grey" }} />
-      )}
+      {onScrollEnd && <div ref={triggerRef} style={{ height: 10 }} />}
     </section>
   );
 });

@@ -5,4 +5,7 @@
 }
 
 .tab {
+  &:hover {
+    opacity: 0.5;
+  }
 }

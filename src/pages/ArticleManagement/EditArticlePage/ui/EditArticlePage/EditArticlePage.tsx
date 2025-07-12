@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
 import { Page } from "widgets/Page";
@@ -7,11 +6,11 @@ import cls from "./EditArticlePage.module.scss";
 
 interface EditArticlePageProps {
   className?: string;
+  id?: string | undefined;
 }
 
 const EditArticlePage = (props: EditArticlePageProps) => {
-  const { className } = props;
-  const { id } = useParams();
+  const { className, id } = props;
   const { t } = useTranslation();
 
   return (

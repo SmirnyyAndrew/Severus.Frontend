@@ -1,24 +1,19 @@
-import { ArticleViewType } from "entities/Article/model/types/ArticleManagement/ArticleViewType";
-import { ArticleList } from "entities/Article/ui/ArticleList";
+import { StateSchema } from "app/providers/StoreProvider";
+import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
 import { ArticlesPageFilters } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { ScrollSaveReducer } from "features/UIManagement/ScrollSave";
 import { useCallback, useEffect } from "react";
+import { useStore } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import GridIcon from "shared/assets/icons/article/grid-icon.svg";
-import ListIcon from "shared/assets/icons/article/list-icon.svg";
-import { classNames, Mods } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Button } from "shared/ui/Button";
-import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Icon, IconSize } from "shared/ui/Icon";
-import { Row } from "shared/ui/Stack";
 import { Page } from "widgets/Page";
-import { ArticlesPageReducer } from "..";
-import { useArticlesPage } from "../model/hooks/useArticlesPage";
+import { ArticlesPageReducer } from "../..";
+import { useArticlesPage } from "../../model/hooks/useArticlesPage";
+import { ArticlesPageTypeSwitcher } from "../ArticlesPageTypeSwitcher/ArticlesPageTypeSwitcher";
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
@@ -48,6 +43,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     setPage,
   } = useArticlesPage();
 
+  const store = useStore();
+
   // один useEffect — для инициализации
   useInitialEffect(() => {
     initArticles(searchParams);
@@ -60,26 +57,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
   }, [page]);
 
-  const onArticleTypeClick = (viewType: ArticleViewType) => {
-    setArticlesViewType(viewType);
-  };
-
   const onLoadNextPart = useCallback(() => {
+    const state: StateSchema = store.getState();
+    const isLoading = state.articles?.isLoading;
+
     if (!hasMore || isLoading) return;
 
     const newPage = page + 1;
     setPage(newPage);
     getArticlesWithLimit();
   }, [page]);
-
-  const getIconTypeMods = (type: ArticleViewType): Mods => {
-    const isSelected = type === view;
-    const mods: Mods = {
-      [cls.isSelected]: isSelected,
-    };
-
-    return mods;
-  };
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -88,36 +75,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         onScrollEnd={onLoadNextPart}
         className={className}
       >
-        <Row justifyContents="end" gap="4" className={className}>
-          <Button
-            isWrapper
-            onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
-            buttonTheme={ButtonTheme.CLEAR}
-            className={classNames(
-              cls.ListIcon,
-              getIconTypeMods(ArticleViewType.LIST),
-              []
-            )}
-          >
-            <Icon Svg={ListIcon} iconSize={IconSize.L} />
-          </Button>
-
-          <Button
-            isWrapper
-            onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
-            size={ButtonSize.M}
-            buttonTheme={ButtonTheme.CLEAR}
-            className={classNames(
-              cls.GridIcon,
-              getIconTypeMods(ArticleViewType.GRID),
-              []
-            )}
-          >
-            <Icon Svg={GridIcon} iconSize={IconSize.L} />
-          </Button>
-        </Row>
+        <ArticlesPageTypeSwitcher />
         <ArticlesPageFilters />
-
         <ArticleList
           articles={articles}
           view={view}

@@ -21,6 +21,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     view,
     sort,
     order,
+    page,
     search,
     type,
     getArticlesWithLimit,
@@ -29,6 +30,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     setSearch,
     setSort,
     setType,
+    setHasMore,
   } = useArticlesPage();
 
   const getData = useCallback(() => {
@@ -67,6 +69,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   const onChangeType = useCallback(
     (tab: TabItem) => {
       let type: ArticleType = tab.value as ArticleType;
+      setHasMore(true);
       setType(type);
       setPage(1);
       getData();

@@ -1,4 +1,6 @@
-import { Profile } from "entities/Profile/model/types/Profile";
+import { useProfile } from "entities/Profile";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -8,16 +10,25 @@ import cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
   className?: string;
-  profile?: Profile;
-  isLoading?: boolean;
-  error?: string;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-  const { error, isLoading, profile, className } = props;
+  const { className } = props;
 
   const { t } = useTranslation("profile");
-  const errorPhoto = errorUserAvatar;
+
+  const {
+    profileData: profile,
+    isLoading,
+    error,
+    getProfileDataFromDB,
+  } = useProfile();
+
+  const { authData } = useUserAuth();
+
+  useEffect(() => {
+    if (!profile) getProfileDataFromDB(authData?.id);
+  }, []);
 
   if (isLoading) {
     return <Loader />;
@@ -36,7 +47,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={classNames(cls.card)}
       >
         <img
-          src={profile?.avatar ?? errorPhoto}
+          src={profile?.avatar ?? errorUserAvatar}
           alt="Avatar"
           className={cls.avatar}
         />

@@ -22,7 +22,12 @@ export const getArticlesListThunk = createAsyncThunk<
 >("articlePage/getArticlesList", async (props, thunkApi) => {
   if (__IS_STORYBOOK__) return [ArticleExample, ArticleExample, ArticleExample];
 
+  const { replace } = props;
   const { extra, getState, rejectWithValue } = thunkApi;
+
+  if (replace) {
+    // articlesAdapter.removeAll();
+  }
 
   const page = getArticlesPagePage(getState());
   const limit = getArticlesPageLimit(getState());
@@ -47,6 +52,7 @@ export const getArticlesListThunk = createAsyncThunk<
     });
 
     if (!response.data) throw new Error();
+
     return response.data;
   } catch (e) {
     console.log(e);

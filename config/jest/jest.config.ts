@@ -47,6 +47,22 @@ export default {
   // Игнорирование axios при jest тестировании
   transformIgnorePatterns: ["node_modules/(?!axios)/"],
 
+  reporters: [
+    "default",
+    [
+      // какой reporter использовать
+      "jest-html-reporters",
+      {
+        //где и как сохранять
+        publicPath: "<rootDir>/reports/unit",
+        filename: "report.html",
+        openReport: true,
+        //Генерировать 1 файл
+        inlineSource: true,
+      },
+    ],
+  ],
+
   //Было расскоментировано
   // The glob patterns Jest uses to detect test files
   // testMatch: "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",

@@ -26,7 +26,13 @@
   --hidden-sidebar-width: 100px;
 
   //z - Индексы
-  --modal-z-index: 10;
+  --modal-z-index: 100;
+  --z-index-navbar: 10;
+  --z-index-navbar-user-avatar: 15;
+  --z-index-sidebar: 9;
+  --z-index-copy-icon: 1;
+  --z-index-dropdown: 20;
+  --z-index-dropdown-menu: 25;
 
   --overlay-color: rgba(0 0 0 / 60%);
 }

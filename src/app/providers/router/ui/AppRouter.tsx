@@ -16,7 +16,13 @@ export const AppRouter = () => {
         key={route.path}
         path={route.path}
         element={
-          route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
+          route.authOnly || route.roles ? (
+            <RequireAuth roles={route.roles} key={route.path}>
+              {element}
+            </RequireAuth>
+          ) : (
+            element
+          )
         }
       />
     );

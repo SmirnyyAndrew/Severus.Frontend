@@ -1,10 +1,15 @@
-import { useProfile } from "entities/Profile";
+import { profileReducer, useProfile } from "entities/Profile";
+import { userReducer } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthManagement/AuthByUsername";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { AuthNavbar } from "./authNavbar/AuthNavbar";
 import cls from "./Navbar.module.scss";
 import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
@@ -36,8 +41,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     onCloseModal();
   };
 
+  const reducers: ReducersList = {
+    user: userReducer,
+    profile: profileReducer,
+  };
+
   if (authData) {
-    return <AuthNavbar className={cls.navbar} onLogout={onLogout} />;
+    return (
+      <DynamicModuleLoader reducers={reducers}>
+        <AuthNavbar className={cls.navbar} onLogout={onLogout} />
+      </DynamicModuleLoader>
+    );
   }
 
   return (

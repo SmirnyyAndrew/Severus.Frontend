@@ -9,8 +9,7 @@ import { Page } from "widgets/Page";
 import cls from "./[FTName].module.scss";
 
 const [FTName] = () => {
-  const { t } = useTranslation();
-  const { id } = useParams();
+  const { t } = useTranslation(); 
 
   const reducers: ReducersList = {
 

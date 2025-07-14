@@ -4,13 +4,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "roles": ["ADMIN", "MANAGER"]
     },
     {
       "id": "2",
-      "username": "kazls22035",
+      "username": "user",
       "password": "123",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["USER"]
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["MANAGER"]
     }
   ],
   "profile": [
@@ -27,6 +36,15 @@
       "id": "2",
       "username": "kazls22035",
       "name": "Kirill",
+      "location": "Germany",
+      "age": "25",
+      "gender": "male",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu91U1pA6XCQh3M65eynACLt22hooZei1M5w&s"
+    },
+    {
+      "id": "3",
+      "username": "Manager",
+      "name": "Msnffv",
       "location": "Germany",
       "age": "25",
       "gender": "male",

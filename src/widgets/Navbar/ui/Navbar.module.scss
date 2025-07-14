@@ -7,5 +7,5 @@
   padding: 20px;
   position: relative;
   min-width: 800px;
-  z-index: 10;
+  z-index: var(--z-index-navbar);
 }

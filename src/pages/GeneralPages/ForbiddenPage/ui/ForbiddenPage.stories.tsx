@@ -1,26 +1,22 @@
 import { Meta, StoryObj } from "@storybook/react/*";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { NotFoundPage } from "./NotFoundPage";
+import { ForbiddenPage } from "..";
 
-const meta: Meta<typeof NotFoundPage> = {
-  title: "pages/NotFoundPage",
-  component: NotFoundPage,
+const meta: Meta<typeof ForbiddenPage> = {
+  title: "pages/GeneralPages/ForbiddenPage",
+  component: ForbiddenPage,
 };
 
 export default meta;
-type Story = StoryObj<typeof NotFoundPage>;
+type Story = StoryObj<typeof ForbiddenPage>;
 
-export const Light: Story = {
-  args: {},
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-  args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Cute: Story = {
-  args: {},
   decorators: [ThemeDecorator(Theme.CUTE)],
 };

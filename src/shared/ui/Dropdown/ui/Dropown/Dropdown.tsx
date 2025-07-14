@@ -51,6 +51,7 @@ export const Dropdown = (props: DropdownProps) => {
               <button
                 type={"button"}
                 onClick={() => onClickHandler(item)}
+                key={item.href}
                 className={classNames(
                   cls.item,
                   { [cls.active]: active, [cls.disabled]: item.isDisabled },

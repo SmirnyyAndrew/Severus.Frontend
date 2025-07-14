@@ -17,8 +17,17 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
   const { className, onLogout } = props;
   const { profileData } = useProfile();
   const { authData } = useUserAuth();
+  const { isAdminOrManager } = useUserAuth();
 
   const dropdownItems: DropdownItem[] = [
+    ...(isAdminOrManager
+      ? [
+          {
+            content: "Admin panel",
+            href: `${RoutePath.admin_panel}`,
+          },
+        ]
+      : []),
     {
       content: "Профиль",
       href: `${RoutePath.profile}${authData?.id}`,

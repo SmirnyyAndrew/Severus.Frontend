@@ -22,7 +22,13 @@
     "strict": true,
     //Теперь все import'ы будут идти из папки src
     "paths": {
-      "*": ["./src/*"]
+      "app/*": ["src/app/*"],
+      "shared/*": ["src/shared/*"],
+      "entities/*": ["src/entities/*"],
+      "features/*": ["src/features/*"],
+      "widgets/*": ["src/widgets/*"],
+      "pages/*": ["src/pages/*"],
+      "src/*": ["src/*"]
     }
   },
   "ts-node": {
@@ -30,10 +36,5 @@
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/jest/setupTests.js",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "src/entities/User/model/selectors/getUserAuthData/getUserUserNamets"
-  ]
+  "include": ["config/storybook/**/*", "src/**/*"]
 }

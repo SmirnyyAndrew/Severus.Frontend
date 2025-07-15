@@ -1,6 +1,7 @@
+import { Store } from "@reduxjs/toolkit";
+import { StateSchema } from "app/providers/StoreProvider";
 import { useProfile } from "entities/Profile";
 import { userReducer } from "entities/User";
-import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { memo, Suspense } from "react";
 import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +24,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
   const { isOpen, onClose } = props;
   const navigate = useNavigate();
   const { getProfileDataFromDB } = useProfile();
-  const { authData } = useUserAuth();
-  const store = useStore();
+  const store = useStore() as Store<StateSchema>;
 
   const reducers: ReducersList = {
     user: userReducer,

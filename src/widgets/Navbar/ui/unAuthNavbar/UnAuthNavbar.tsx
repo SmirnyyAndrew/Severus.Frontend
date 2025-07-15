@@ -17,15 +17,15 @@ export const UnAuthNavbar = (props: UnAuthNavbarProps) => {
     <header className={className}>
       <Row alignItems="center" maxWidth justifyContents="center" gap="64">
         <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
-          {t("nav_main_page")}
+          <>{t("nav_main_page")}</>
         </AppLink>
         <AppLink to={RoutePath.about} linkTheme={AppLinkTheme.PRIMARY}>
-          {t("nav_about_page")}
+          <>{t("nav_about_page")}</>
         </AppLink>
       </Row>
 
       <Button onClick={onShowModal} buttonTheme={ButtonTheme.OUTLINE_INVERTED}>
-        {t("login")}
+        <>{t("login")}</>
       </Button>
     </header>
   );

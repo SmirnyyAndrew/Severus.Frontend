@@ -2,14 +2,15 @@ import { getProfileError, getValidationErrors } from "entities/Profile";
 import { getProfileDataThunk } from "features/ProfileManagement/GetProfileData";
 import { putProfileDataThunk } from "features/ProfileManagement/SetProfileData";
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";
 import { getProfileIsLoading } from "../selectors/getProfileIsLoading/getProfileIsLoading";
 import { profileActions } from "../slice/profileSlice";
 import { Profile } from "../types/Profile";
 
 export const useProfile = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);

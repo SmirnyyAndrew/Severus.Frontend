@@ -1,3 +1,4 @@
+import { Store } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
 import { ArticlesPageFilters } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
@@ -43,7 +44,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     setPage,
   } = useArticlesPage();
 
-  const store = useStore();
+  const store = useStore() as Store<StateSchema>;
 
   // один useEffect — для инициализации
   useInitialEffect(() => {

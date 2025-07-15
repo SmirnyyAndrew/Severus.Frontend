@@ -1,4 +1,4 @@
-import { ArticleTag, ArticleViewType } from "entities/Article";
+import { ArticleType, ArticleViewType } from "entities/Article";
 import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
@@ -45,7 +45,7 @@ export const useArticlesPage = () => {
   );
 
   const initArticles = useCallback(
-    (searchParams) => {
+    (searchParams: URLSearchParams) => {
       const keyFromLocalStorage = localStorage.getItem(
         ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY
       );
@@ -59,7 +59,7 @@ export const useArticlesPage = () => {
       const orderFromUrl = searchParams.get("order") as SortOrder;
       const sortFromUrl = searchParams.get("sort") as ArticleSortField;
       const searchFromUrl = searchParams.get("search");
-      const typeFromUrl = searchParams.get("type");
+      const typeFromUrl = searchParams.get("type") as ArticleType;
 
       if (orderFromUrl) dispatch(ArticlesPageActions.setOrder(orderFromUrl));
 
@@ -116,8 +116,8 @@ export const useArticlesPage = () => {
   );
 
   const setType = useCallback(
-    (tag: ArticleTag) => {
-      dispatch(ArticlesPageActions.setType(tag));
+    (type: ArticleType) => {
+      dispatch(ArticlesPageActions.setType(type));
     },
     [dispatch]
   );

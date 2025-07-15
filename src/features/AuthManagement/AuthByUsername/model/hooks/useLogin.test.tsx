@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 import { StoreProviderWrapper } from "shared/config/tests/storeProviderWrapper/StoreProviderWrapper";
 import { WrapperReducerType } from "shared/config/tests/storeProviderWrapper/types/WrapperReducerType";
 import { WrapperType } from "shared/config/tests/storeProviderWrapper/types/WrapperType";

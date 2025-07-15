@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { ArticleTag } from "entities/Article";
+import { ArticleType } from "entities/Article";
 import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 
 export const getArticlesPageOrder = (state: StateSchema) =>
@@ -12,4 +12,4 @@ export const getArticlesPageSearch = (state: StateSchema) =>
   state.articles?.search ?? "";
 
 export const getArticlesPageType = (state: StateSchema) =>
-  state.articles?.type ?? ArticleTag.ALL;
+  state.articles?.type ?? ArticleType.ALL;

@@ -4,4 +4,4 @@ import "app/styles/reset.scss";
 import "app/styles/themes/dark.scss";
 import "app/styles/themes/light.scss";
 
-export const StyleDecorator = (story: () => StoryFn) => story();
+export const StyleDecorator = (Story: StoryFn) => <Story />;

@@ -22,7 +22,7 @@ export {
   ArticleDetailsSchema,
   ArticleReducer,
   ArticleSlice,
-  ArticleType as ArticleTag,
+  ArticleType,
   ArticleViewType,
   getArticle,
   getArticleByIdThunk,

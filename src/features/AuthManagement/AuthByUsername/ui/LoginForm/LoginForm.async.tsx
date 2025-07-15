@@ -1,7 +1,4 @@
-import { FC, lazy } from "react";
-import { LoginFormProps } from "./LoginForm";
+import { lazy } from "react";
 
-export const LoginFormAsync = lazy<FC<LoginFormProps>>(
-  () => import("./LoginForm")
-);
+export const LoginFormAsync = lazy(() => import("./LoginForm"));
 // Чтобы работал resolve(import("./LoginForm"), нужно LoginForm.tsx делать export default

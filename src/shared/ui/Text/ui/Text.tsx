@@ -5,7 +5,7 @@ import { HeaderTags } from "../model/types/headerTags/HeaderTags";
 import { MapSizeToHeaderTag } from "../model/types/headerTags/MapSizeToHeaderTag";
 import { TextSize } from "../model/types/TextSize";
 import { TextThemes } from "../model/types/TextThemes";
-import cls from "./Text.module.scss";
+import * as cls from "./Text.module.scss";
 
 interface TextProps {
   className?: string;
@@ -36,11 +36,7 @@ export const Text = memo((props: TextProps) => {
       <Column
         alignItems={position}
         gap={gap}
-        className={classNames(cls.Text, {}, [
-          className,
-          cls[textTheme],
-          cls[size],
-        ])}
+        className={classNames("", {}, [className, cls[textTheme], cls[size]])}
         onClick={onClick}
       >
         {title && (

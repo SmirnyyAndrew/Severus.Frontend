@@ -2,7 +2,7 @@ import { memo, Suspense } from "react";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Modal } from "shared/ui/Modal/Modal";
 import { EditProfileDataForm } from "../..";
-import cls from "./EditProfileDataModal.module.scss";
+import * as cls from "./EditProfileDataModal.module.scss";
 
 interface EditProfileDataModalProps {
   className?: string;

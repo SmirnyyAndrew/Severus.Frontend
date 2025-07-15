@@ -1,8 +1,8 @@
-@import "variables/global";
-@import "themes/dark";
-@import "themes/light";
-@import "themes/cute";
-@import "reset";
+@use "variables/global";
+@use "themes/dark";
+@use "themes/light";
+@use "themes/cute";
+@use "reset";
 
 .app {
   font: var(--font-m);
@@ -18,15 +18,3 @@
 .content-page {
   display: flex;
 }
-
-// .page-wrapper {
-//   flex-grow: 1;
-
-//   //Для корректной работы navbar
-//   width: 100%;
-
-//   //Внутренний scrollbar
-//   padding: 20px 20px 20px 45px;
-//   height: calc(100vh - var(--navbar-height));
-//   overflow-y: auto;
-// }

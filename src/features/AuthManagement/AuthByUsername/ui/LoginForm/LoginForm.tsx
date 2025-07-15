@@ -13,7 +13,7 @@ import { TextSize } from "shared/ui/Text/model/types/TextSize";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
 import { Text } from "shared/ui/Text/ui/Text";
 import { loginReducer, useLogin } from "../..";
-import cls from "./LoginForm.module.scss";
+import * as cls from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
   className?: string;

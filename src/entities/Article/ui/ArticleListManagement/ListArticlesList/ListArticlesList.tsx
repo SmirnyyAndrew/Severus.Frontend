@@ -13,7 +13,7 @@ import { Image } from "shared/ui/Image";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Text, TextSize } from "shared/ui/Text";
 import { getArticleTypes } from "../helpers/getArticleTypes/getArticleTypes";
-import cls from "./ListArticlesList.module.scss";
+import * as cls from "./ListArticlesList.module.scss";
 
 interface ListArticlesListProps {
   className?: string;
@@ -68,7 +68,7 @@ export const ListArticlesList = (props: ListArticlesListProps) => {
 
               <Text text={article.title} size={TextSize.L} />
 
-              <div className={cls.TypesViews}>{getArticleTypes(article)}</div>
+              <div>{getArticleTypes(article)}</div>
             </div>
 
             <div className={cls.Image}>

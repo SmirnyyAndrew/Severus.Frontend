@@ -11,7 +11,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Row } from "shared/ui/Stack";
-import cls from "./ArticleDetailsPageHeader.module.scss";
+import * as cls from "./ArticleDetailsPageHeader.module.scss";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;

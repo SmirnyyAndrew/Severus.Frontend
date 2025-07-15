@@ -7,7 +7,7 @@ import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Icon, IconSize } from "shared/ui/Icon";
 import { Row } from "shared/ui/Stack";
 import { useArticlesPage } from "../..";
-import cls from "./ArticlesPageTypeSwitcher.module.scss";
+import * as cls from "./ArticlesPageTypeSwitcher.module.scss";
 
 interface ArticlesPageTypeSwitcherProps {
   className?: string;

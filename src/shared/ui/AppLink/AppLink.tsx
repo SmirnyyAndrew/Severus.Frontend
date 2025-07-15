@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
+import { classNames } from "shared/lib/classNames/classNames";
+import * as cls from "./AppLink.module.scss";
 
 export enum AppLinkTheme {
   PRIMARY = "primary",
@@ -25,7 +27,7 @@ export const AppLink = (props: AppLinkProps) => {
   return (
     <Link
       to={to}
-      // className={classNames(cls.navbar, {}, [className, cls[linkTheme]])}
+      className={classNames("", {}, [className, cls[linkTheme]])}
       {...otherProps}
     >
       {children}

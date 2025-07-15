@@ -36,5 +36,10 @@
       "module": "CommonJS"
     }
   },
-  "include": ["config/storybook/**/*", "src/**/*"]
+  "include": [
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
 }

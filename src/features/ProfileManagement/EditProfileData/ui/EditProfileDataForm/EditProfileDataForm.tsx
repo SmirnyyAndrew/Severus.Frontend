@@ -12,7 +12,7 @@ import { Input } from "shared/ui/Input/Input";
 import { Column } from "shared/ui/Stack";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
 import { Text } from "shared/ui/Text/ui/Text";
-import cls from "./EditProfileDataForm.module.scss";
+import * as cls from "./EditProfileDataForm.module.scss";
 
 export interface EditProfileDataFormProps {
   className?: string;

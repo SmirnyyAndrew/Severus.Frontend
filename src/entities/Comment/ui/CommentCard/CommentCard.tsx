@@ -7,7 +7,7 @@ import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Column, Row } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./CommentCard.module.scss";
+import * as cls from "./CommentCard.module.scss";
 
 interface CommentCardProps {
   className?: string;
@@ -21,14 +21,8 @@ export const CommentCard = (props: CommentCardProps) => {
 
   if (isLoading)
     return (
-      <div
-        className={classNames(
-          cls.LoadingCommentCard,
-          { isLoadging: isLoading },
-          [className]
-        )}
-      >
-        <div className={cls.userData}>
+      <div className={classNames("", { isLoadging: isLoading }, [className])}>
+        <div>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton width={100} height={16} className={cls.userNickname} />
         </div>
@@ -48,7 +42,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
   return (
     <Column gap="20" className={classNames(cls.CommentCard, {}, [className])}>
-      <Row alignItems="center" className={cls.userData}>
+      <Row alignItems="center">
         <Avatar
           img={comment.user.avatar ?? errorUserAvatar}
           isRound

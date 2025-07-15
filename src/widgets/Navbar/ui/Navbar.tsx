@@ -11,7 +11,7 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { AuthNavbar } from "./authNavbar/AuthNavbar";
-import cls from "./Navbar.module.scss";
+import * as cls from "./Navbar.module.scss";
 import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
 
 interface NavbarProps {

@@ -5,7 +5,7 @@ import { AlignItemsStyles } from "../../model/types/alignItems/AlignItemsStyles"
 import { FlexDirectionsStyles } from "../../model/types/flexDirections/FlexDirectionsStyles";
 import { GapStyles } from "../../model/types/gapSizes/GapStyles";
 import { JustifyContentsStyles } from "../../model/types/justifyContents/JustifyContentsStyles";
-import cls from "./Flex.module.scss";
+import * as cls from "./Flex.module.scss";
 
 interface FlexProps {
   children: ReactNode;

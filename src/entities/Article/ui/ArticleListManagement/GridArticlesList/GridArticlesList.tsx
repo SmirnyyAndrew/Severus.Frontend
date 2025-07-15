@@ -9,7 +9,7 @@ import { Image } from "shared/ui/Image";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Text, TextSize } from "shared/ui/Text";
 import { getArticleTypes } from "../helpers/getArticleTypes/getArticleTypes";
-import cls from "./GridArticlesList.module.scss";
+import * as cls from "./GridArticlesList.module.scss";
 
 interface GridArticlesListProps {
   className?: string;

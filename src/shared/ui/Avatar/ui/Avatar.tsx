@@ -1,6 +1,6 @@
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
-import cls from "./Avatar.module.scss";
+import * as cls from "./Avatar.module.scss";
 
 export enum AvatarSize {
   XS = "size_xs",

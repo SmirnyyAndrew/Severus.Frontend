@@ -1,7 +1,7 @@
 import { errorArticleImg } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./Image.module.scss";
+import * as cls from "./Image.module.scss";
 
 interface ImageProps {
   className?: string;

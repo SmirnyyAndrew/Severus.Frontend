@@ -16,7 +16,7 @@ import { Text } from "shared/ui/Text/ui/Text";
 import { ArticleCodeBlockComponent } from "../../ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../../ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../../ArticleTextBlockComponent/ui/ArticleTextBlockComponent";
-import cls from "./ArticleDetails.module.scss";
+import * as cls from "./ArticleDetails.module.scss";
 
 interface ArticleDetailsProps {
   articleId: string;

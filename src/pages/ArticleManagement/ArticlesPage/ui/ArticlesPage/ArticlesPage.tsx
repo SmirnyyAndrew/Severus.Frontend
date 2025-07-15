@@ -15,7 +15,7 @@ import { Page } from "widgets/Page";
 import { ArticlesPageReducer } from "../..";
 import { useArticlesPage } from "../../model/hooks/useArticlesPage";
 import { ArticlesPageTypeSwitcher } from "../ArticlesPageTypeSwitcher/ArticlesPageTypeSwitcher";
-import cls from "./ArticlesPage.module.scss";
+import * as cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
   className?: string;

@@ -6,7 +6,7 @@ import { errorUserAvatar } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Column } from "shared/ui/Stack";
-import cls from "./ProfileCard.module.scss";
+import * as cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
   className?: string;

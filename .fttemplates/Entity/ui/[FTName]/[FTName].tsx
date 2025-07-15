@@ -1,7 +1,7 @@
 import { use[FTName] } from "entities/Counter/model/hooks/use[FTName]";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
-import cls from "./[FTName].module.scss";
+import * as cls from "./[FTName].module.scss";
 import { useTranslation } from "react-i18next";
 
 interface [FTName]Props {

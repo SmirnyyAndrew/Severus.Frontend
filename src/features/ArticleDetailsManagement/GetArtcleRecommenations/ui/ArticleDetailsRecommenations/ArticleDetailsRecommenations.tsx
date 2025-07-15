@@ -5,7 +5,7 @@ import { Column } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
 import { useGetArticleRecommendationsQuery } from "../../model/api/recommendationsApi";
-import cls from "./ArticleDetailsRecommenations.module.scss";
+import * as cls from "./ArticleDetailsRecommenations.module.scss";
 
 interface ArticleDetailsRecommenationsProps {
   className?: string;
@@ -32,7 +32,7 @@ export const ArticleDetailsRecommenations = (
       gap="16"
       className={classNames(cls.ArticleDetailsRecommenations, {}, [className])}
     >
-      <Text className={cls.title} size={TextSize.L} text={"Рекомендуем"} />
+      <Text size={TextSize.L} text={"Рекомендуем"} />
       <ArticleList
         className={cls.list}
         view={ArticleViewType.GRID}

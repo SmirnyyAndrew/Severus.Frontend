@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./Icon.module.scss";
+import * as cls from "./Icon.module.scss";
 
 export enum IconSize {
   S = "size_s",

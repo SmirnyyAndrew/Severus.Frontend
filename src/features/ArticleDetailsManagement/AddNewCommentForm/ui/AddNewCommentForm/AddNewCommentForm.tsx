@@ -14,7 +14,7 @@ import { Input } from "shared/ui/Input/Input";
 import { Row } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
-import cls from "./AddNewCommentForm.module.scss";
+import * as cls from "./AddNewCommentForm.module.scss";
 
 export interface AddNewCommentFormProps {
   className?: string;
@@ -59,7 +59,6 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
         <Button
           buttonTheme={ButtonTheme.OUTLINE}
           size={ButtonSize.L}
-          className={cls.sendButton}
           onClick={onSendCommentHandler}
         >
           Отправить

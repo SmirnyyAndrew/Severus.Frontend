@@ -4,7 +4,7 @@ import { HTMLAttributeAnchorTarget } from "react";
 import { Text, TextSize } from "shared/ui/Text";
 import { GridArticlesList } from "../../GridArticlesList/GridArticlesList";
 import { ListArticlesList } from "../../ListArticlesList/ListArticlesList";
-import cls from "./ArticleList.module.scss";
+import * as cls from "./ArticleList.module.scss";
 
 interface ArticleListProps {
   className?: string;

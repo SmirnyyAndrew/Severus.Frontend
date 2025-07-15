@@ -6,7 +6,7 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Page } from "widgets/Page";
-import cls from "./[FTName].module.scss";
+import * as cls from "./[FTName].module.scss";
 
 const [FTName] = () => {
   const { t } = useTranslation(); 

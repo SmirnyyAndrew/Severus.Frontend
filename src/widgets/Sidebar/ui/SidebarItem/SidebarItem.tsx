@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SidebarItemType } from "../Module/SidebarItemType";
-import cls from "./SidebarItem.module.scss";
+import * as cls from "./SidebarItem.module.scss";
 
 interface SidebarItemProps {
   item: SidebarItemType;

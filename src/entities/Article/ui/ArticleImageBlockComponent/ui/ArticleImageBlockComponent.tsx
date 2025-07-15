@@ -2,7 +2,7 @@ import { ArticleImageBlock } from "entities/Article/model/types/BlockManagement/
 import { classNames } from "shared/lib/classNames/classNames";
 import { Image } from "shared/ui/Image";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./ArticleImageBlockComponent.module.scss";
+import * as cls from "./ArticleImageBlockComponent.module.scss";
 
 interface ArticleImageBlockComponentProps {
   className?: string;

@@ -9,7 +9,7 @@ import { Input } from "shared/ui/Input/Input";
 import { Tabs } from "shared/ui/Tabs";
 import { TabItem } from "shared/ui/Tabs/ui/Tabs";
 import { ArticleSortField, ArticleSortSelector } from "../..";
-import cls from "./ArticlesPageFilters.module.scss";
+import * as cls from "./ArticlesPageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {
   className?: string;

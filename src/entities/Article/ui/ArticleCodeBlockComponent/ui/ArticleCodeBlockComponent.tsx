@@ -2,7 +2,7 @@ import { ArticleCodeBlock } from "entities/Article/model/types/BlockManagement/A
 import { classNames } from "shared/lib/classNames/classNames";
 import { Code } from "shared/ui/Code";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./ArticleCodeBlockComponent.module.scss";
+import * as cls from "./ArticleCodeBlockComponent.module.scss";
 
 interface ArticleCodeBlockComponentProps {
   className?: string;

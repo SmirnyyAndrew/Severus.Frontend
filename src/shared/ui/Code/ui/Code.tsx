@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import CopyIcon from "shared/assets/icons/theme/copy-icon.svg";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Icon, IconSize } from "shared/ui/Icon";
-import cls from "./Code.module.scss";
+import * as cls from "./Code.module.scss";
 
 interface CodeProps {
   className?: string;

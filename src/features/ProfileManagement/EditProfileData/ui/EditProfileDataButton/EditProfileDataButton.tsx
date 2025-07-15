@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
-import cls from "./EditProfileDataButton.module.scss";
 
 interface EditProfileDataButtonProps {
   className?: string;
@@ -17,7 +16,7 @@ export const EditProfileDataButton = (props: EditProfileDataButtonProps) => {
   const { t } = useTranslation("profile");
 
   return (
-    <div className={classNames(cls.EditProfileDataButton, {}, [className])}>
+    <div className={classNames("", {}, [className])}>
       {authData?.id === id && (
         <Button
           buttonTheme={ButtonTheme.BACKGROUND_INVERTED}

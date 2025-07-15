@@ -4,7 +4,7 @@ import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { Select } from "shared/ui/Select";
 import { SelectOption } from "shared/ui/Select/ui/Select";
 import { ArticleSortField } from "../../model/types/ArticleSortField";
-import cls from "./ArticleSortSelector.module.scss";
+import * as cls from "./ArticleSortSelector.module.scss";
 
 interface ArticleSortSelectorProps {
   className?: string;

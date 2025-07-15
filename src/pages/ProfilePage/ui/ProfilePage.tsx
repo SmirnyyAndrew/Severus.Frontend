@@ -9,7 +9,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { Column } from "shared/ui/Stack";
 import { Page } from "widgets/Page";
-import cls from "./ProfilePage.module.scss";
+import * as cls from "./ProfilePage.module.scss";
 
 const ProfilePage = () => {
   const { id } = useParams();

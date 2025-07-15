@@ -2,7 +2,7 @@ import { ArticleTextBlock } from "entities/Article/model/types/BlockManagement/A
 import { Fragment } from "react/jsx-runtime";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
-import cls from "./ArticleTextBlockComponent.module.scss";
+import * as cls from "./ArticleTextBlockComponent.module.scss";
 
 interface ArticleTextBlockComponentProps {
   className?: string;

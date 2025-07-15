@@ -8,7 +8,7 @@ import { ButtonSize, ButtonTheme } from "../../Button/ui/Button";
 import { Row } from "../../Stack";
 import { Text, TextSize } from "../../Text";
 import { ListBoxItem } from "../model/types/ListBoxItem";
-import cls from "./ListBox.module.scss";
+import * as cls from "./ListBox.module.scss";
 
 interface ListBoxProps {
   items: ListBoxItem[];

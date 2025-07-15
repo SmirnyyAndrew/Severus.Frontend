@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import cls from "../Navbar.module.scss";
+import * as cls from "../Navbar.module.scss";
 import { UnAuthNavbar } from "./UnAuthNavbar";
 
 const meta: Meta<typeof UnAuthNavbar> = {

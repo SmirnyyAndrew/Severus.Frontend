@@ -5,7 +5,7 @@ import { Fragment } from "react/jsx-runtime";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DropdownDirections } from "shared/types/dropDownDirections/DropdownDirections";
 import { MapDropdownDirection } from "shared/types/dropDownDirections/MapDropdownDirection";
-import cls from "./Dropdown.module.scss";
+import * as cls from "./Dropdown.module.scss";
 
 export type DropdownItem = {
   isDisabled?: boolean;

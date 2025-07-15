@@ -15,9 +15,9 @@ import {
 export {
   getPageScroll,
   getScrollPositionByPath,
-  PageScrollPositionSchema,
   ScrollSaveActions,
   ScrollSaveReducer,
-  ScrollSaveSchema,
   useScrollSave,
 };
+
+export type { PageScrollPositionSchema, ScrollSaveSchema };

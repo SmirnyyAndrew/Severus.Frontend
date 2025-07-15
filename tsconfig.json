@@ -33,13 +33,10 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      //Компилировать каждый файл отдельно
+      "isolatedModules": true
     }
   },
-  "include": [
-    "./config/**/*.ts",
-    "./config/**/*.tsx",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ]
+  "include": ["src/**/*", "config/**/*"]
 }

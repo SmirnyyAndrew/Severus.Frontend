@@ -17,13 +17,13 @@ export {
   getProfileError,
   getProfileIsLoading,
   getValidationErrors,
-  Profile,
   profileActions,
   ProfileCard,
   ProfileDataExample,
   ProfileExample,
   profileReducer,
-  ProfileSchema,
   useProfile,
   ValidateProfileError,
 };
+
+export type { Profile, ProfileSchema };

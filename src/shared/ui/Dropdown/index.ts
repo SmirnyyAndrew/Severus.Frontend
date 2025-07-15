@@ -1,3 +1,4 @@
 import { Dropdown, DropdownItem } from "./ui/Dropown/Dropdown";
 
-export { Dropdown, DropdownItem };
+export { Dropdown };
+export type { DropdownItem };

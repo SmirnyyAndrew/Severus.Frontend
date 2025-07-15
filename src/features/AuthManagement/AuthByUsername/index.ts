@@ -15,12 +15,11 @@ export {
   getLoginState,
   loginActions,
   loginByUsernameThunk,
+  LoginFormAsync as LoginForm,
   LoginModal,
   loginReducer,
-  LoginSchema,
   loginSlice,
-  ThunkExtraArgs,
   useLogin,
 };
 
-export { LoginFormAsync as LoginForm };
+export type { LoginSchema, ThunkExtraArgs };

@@ -3,8 +3,6 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
-
 export default {
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
@@ -32,9 +30,8 @@ export default {
 
   //Добавить работу с scss
   moduleNameMapper: {
+    "\\.module\\.(css|scss)$": "identity-obj-proxy",
     "\\.s?css$": "identity-obj-proxy",
-    //Мок для импортов svg
-    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
   },
 
   // A set of global variables that need to be available in all test environments

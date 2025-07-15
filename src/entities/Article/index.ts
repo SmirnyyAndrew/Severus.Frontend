@@ -15,11 +15,10 @@ import { ArticleBlock } from "./model/types/BlockManagement/ArticleBlock";
 import { ArticleDetails } from "./ui/ArticleDetails";
 
 export {
-  Article,
   ArticleActions,
-  ArticleBlock,
   ArticleDetails,
   ArticleDetailsSchema,
+  ArticleExample,
   ArticleReducer,
   ArticleSlice,
   ArticleType,
@@ -29,4 +28,4 @@ export {
   useArticle,
 };
 
-export { ArticleExample };
+export type { Article, ArticleBlock };

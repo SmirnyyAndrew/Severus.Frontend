@@ -18,10 +18,10 @@ export {
   getUserRoles,
   isUserAdmin,
   isUserManager,
-  User,
   userActions,
   userReducer,
   UserRole,
-  UserSchema,
   userSlice,
 };
+
+export type { User, UserSchema };

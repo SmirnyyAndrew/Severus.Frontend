@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, memo } from "react";
+import { ButtonHTMLAttributes, memo } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import * as cls from "./Button.module.scss";
 
@@ -26,7 +26,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isWrapper?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo((props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     disabled = false,

@@ -16,11 +16,8 @@ import { ArticleDetailsPageAsync } from "./ui/ArticleDetailsPage/ArticleDetailsP
 
 export {
   addNewCommentForArticle,
-  ArticleDetailsCommentsSchema,
   ArticleDetailsPageAsync as ArticleDetailsPage,
   ArticleDetailsPageReducers,
-  ArticleDetailsPageSchema,
-  ArticleDetailsRecommendationsSchema,
   getArticleRecommendations,
   getArticleRecommendationsError,
   getArticleRecommendationsIsLoading,
@@ -28,4 +25,10 @@ export {
   getCommentsByArticleIdThunk,
   useArticleDetailsComments,
   useArticleDetailsRecommendations,
+};
+
+export type {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsPageSchema,
+  ArticleDetailsRecommendationsSchema,
 };

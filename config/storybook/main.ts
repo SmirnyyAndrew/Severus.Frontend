@@ -18,21 +18,22 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config) => {
     if (config.resolve) {
-      config.resolve.alias = {
-        ...(config.resolve.alias || {}),
-        app: path.resolve(__dirname, "../src/app"),
-        shared: path.resolve(__dirname, "../src/shared"),
-        entities: path.resolve(__dirname, "../src/entities"),
-        features: path.resolve(__dirname, "../src/features"),
-        widgets: path.resolve(__dirname, "../src/widgets"),
-        pages: path.resolve(__dirname, "../src/pages"),
-        src: path.resolve(__dirname, "../src"),
-      };
       config.resolve.modules = [
         ...(config.resolve.modules || []),
-        path.resolve(__dirname, "../src"),
+        path.resolve(__dirname, "../../src"),
         "node_modules",
       ];
+
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        app: path.resolve(__dirname, "../../src/app"),
+        shared: path.resolve(__dirname, "../../src/shared"),
+        entities: path.resolve(__dirname, "../../src/entities"),
+        features: path.resolve(__dirname, "../../src/features"),
+        widgets: path.resolve(__dirname, "../../src/widgets"),
+        pages: path.resolve(__dirname, "../../src/pages"),
+        src: path.resolve(__dirname, "../../src"),
+      };
     }
 
     return config;

@@ -5,4 +5,5 @@ import { JustifyContents } from "./model/types/justifyContents/JustifyContents";
 import { Column } from "./ui/Column/Column";
 import { Row } from "./ui/Row/Row";
 
-export { AlignItems, Column, FlexDirections, GapSizes, JustifyContents, Row };
+export { Column, Row };
+export type { AlignItems, FlexDirections, GapSizes, JustifyContents };

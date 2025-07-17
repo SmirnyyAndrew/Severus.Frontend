@@ -3,8 +3,11 @@ import { buildBabelLoader } from "./loaders/buildBabelLoader";
 import { buildCSSLoader } from "./loaders/buildCSSLoader";
 import { BuildOptions } from "./types/config";
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-  const babelLoader = buildBabelLoader(isDev);
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const { isDev } = options;
+
+  const codeBabelLoadr = buildBabelLoader({ ...options, isTsx: true });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -25,11 +28,11 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   //Если бы не использовали typescript - нужен был бы babel-loader - перегоняет новый js в старый,
   // чтобы все браузеры его поддерживали
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: "ts-loader",
+  //   exclude: /node_modules/,
+  // };
 
-  return [babelLoader, typescriptLoader, cssLoader, svgLoader, fileLoader];
+  return [codeBabelLoadr, tsxCodeBabelLoader, cssLoader, svgLoader, fileLoader];
 }

@@ -20,6 +20,8 @@
     "baseUrl": ".",
     // strict mode
     "strict": true,
+    //Компилировать каждый файл отдельно
+    "isolatedModules": true,
     //Теперь все import'ы будут идти из папки src
     "paths": {
       "app/*": ["src/app/*"],
@@ -33,9 +35,7 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-      //Компилировать каждый файл отдельно
-      "isolatedModules": true
+      "module": "CommonJS"
     }
   },
   "include": ["src/**/*", "config/**/*"]

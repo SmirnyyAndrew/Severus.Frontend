@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CircularDependencyPlugin from "circular-dependency-plugin";
 import HTMLWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
@@ -25,6 +26,18 @@ export function buildPlugins({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __IS_STORYBOOK__: JSON.stringify(false),
+    }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/,
+      include: /dir/,
+      failOnError: true,
+      onDetected({ paths, compilation }) {
+        compilation.warnings.push(
+          new Error(`🌀 Цикл найден:\n${paths.join(" -> ")}`)
+        );
+      },
+      allowAsyncCycles: false,
+      cwd: process.cwd(),
     }),
   ];
 

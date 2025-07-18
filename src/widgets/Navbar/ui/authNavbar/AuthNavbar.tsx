@@ -3,7 +3,7 @@ import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { NotificationButton } from "features/NavbarManagement/NotificationButton";
 import { t } from "i18next";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { errorUserAvatar } from "shared/const/plugFiles";
+import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Dropdown, DropdownItem } from "shared/ui/Popups";
@@ -43,7 +43,7 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
     <Avatar
       isRound
       size={AvatarSize.S}
-      img={profileData?.avatar ?? errorUserAvatar}
+      img={profileData?.avatar ?? USER_AVATAR_ERROR}
     />
   );
 

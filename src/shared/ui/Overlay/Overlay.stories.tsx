@@ -2,19 +2,17 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { PYTHON_EXAMPLE_CODE } from "shared/const/plugMessages";
-import { Code } from "./Code";
+import { Overlay } from "./Overlay";
 
-const meta: Meta<typeof Code> = {
-  title: "shared/Code",
-  component: Code,
-  args: {
-    code: PYTHON_EXAMPLE_CODE,
-  },
+const meta: Meta<typeof Overlay> = {
+  title: "shared/Overlay",
+  component: Overlay,
+  args: {},
+  argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof Code>;
+type Story = StoryObj<typeof Overlay>;
 
 export const Light: Story = {};
 

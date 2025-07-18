@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { Avatar, AvatarSize } from "./Avatar";
 
 const meta: Meta<typeof Avatar> = {
   title: "shared/Avatar",
   component: Avatar,
   args: {
-    img: errorArticleImg,
+    img: ARTICLE_IMAGE_ERROR,
     alt: "This is avatar",
     size: AvatarSize.L,
     isRound: false,

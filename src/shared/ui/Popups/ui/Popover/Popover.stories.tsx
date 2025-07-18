@@ -2,11 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Popover } from "./Popover";
 
-const avatarNode = <Avatar isRound size={AvatarSize.S} img={errorArticleImg} />;
+const avatarNode = (
+  <Avatar isRound size={AvatarSize.S} img={ARTICLE_IMAGE_ERROR} />
+);
 
 const meta: Meta<typeof Popover> = {
   title: "shared/Popups/Popover",

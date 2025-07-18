@@ -1,1 +1,1 @@
-export const natitificationPoolingInterval: number = 10000;
+export const NOTIFICATION_POOLING_INTERVAL: number = 10000;

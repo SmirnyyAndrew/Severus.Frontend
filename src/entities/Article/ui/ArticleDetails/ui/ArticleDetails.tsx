@@ -4,7 +4,7 @@ import { ArticleBlockType } from "entities/Article/model/types/BlockManagement/A
 import { memo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Icon, IconSize } from "shared/ui/Icon";
@@ -76,7 +76,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         size={TextSize.XL}
       />
       <Avatar
-        img={articleData?.img || errorArticleImg}
+        img={articleData?.img || ARTICLE_IMAGE_ERROR}
         isRound={false}
         alt={articleData?.title}
         key={articleData?.id}

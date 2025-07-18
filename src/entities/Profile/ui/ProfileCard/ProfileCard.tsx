@@ -2,7 +2,7 @@ import { useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { errorUserAvatar } from "shared/const/plugFiles";
+import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Column } from "shared/ui/Stack";
@@ -47,7 +47,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={classNames(cls.card)}
       >
         <img
-          src={profile?.avatar ?? errorUserAvatar}
+          src={profile?.avatar ?? USER_AVATAR_ERROR}
           alt="Avatar"
           className={cls.avatar}
         />

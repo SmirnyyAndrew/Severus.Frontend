@@ -1,5 +1,5 @@
 import { useNotifications } from "entities/Notification/api/notificationApi";
-import { natitificationPoolingInterval } from "shared/const/poolings";
+import { NOTIFICATION_POOLING_INTERVAL } from "shared/const/poolings";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Column } from "shared/ui/Stack";
@@ -18,7 +18,7 @@ export const NotificationList = (props: NotificationListProps) => {
     isError,
     error,
   } = useNotifications(null, {
-    pollingInterval: natitificationPoolingInterval,
+    pollingInterval: NOTIFICATION_POOLING_INTERVAL,
   });
 
   if (isLoading)

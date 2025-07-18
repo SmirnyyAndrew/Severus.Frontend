@@ -1,14 +1,20 @@
-import type { Meta, StoryObj } from "@storybook/react"; 
-import "app/styles/index.scss";
-import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator"; 
-import { NotificationItem } from "./NotificationItem";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import "app/styles/index.scss";
+import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
+import { NotificationItem } from "./NotificationItem";
 
 const meta: Meta<typeof NotificationItem> = {
-  title: "/NotificationItem",
+  title: "entities/Notification/NotificationItem",
   component: NotificationItem,
-  args: {},
-  argTypes:{},
+  args: {
+    item: {
+      description: "desc",
+      id: "123",
+      title: "title",
+      userId: "1283",
+    },
+  },
 };
 
 export default meta;

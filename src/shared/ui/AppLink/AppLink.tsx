@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HTMLAttributeAnchorTarget, ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cls from "./AppLink.module.scss";
@@ -11,8 +11,9 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
   className?: string;
-  linkTheme: AppLinkTheme;
-  children: ReactNode;
+  linkTheme?: AppLinkTheme;
+  children?: ReactNode;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const AppLink = (props: AppLinkProps) => {
@@ -21,6 +22,7 @@ export const AppLink = (props: AppLinkProps) => {
     linkTheme = AppLinkTheme.PRIMARY,
     children,
     to,
+    target = "_top",
     ...otherProps
   } = props;
 
@@ -28,6 +30,7 @@ export const AppLink = (props: AppLinkProps) => {
     <Link
       to={to}
       className={classNames("", {}, [className, cls[linkTheme]])}
+      target={target}
       {...otherProps}
     >
       {children}

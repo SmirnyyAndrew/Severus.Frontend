@@ -1,7 +1,7 @@
 import { Comment } from "entities/Comment/model/types/Comment";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { errorUserAvatar } from "shared/const/plugFiles";
+import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Skeleton } from "shared/ui/Skeleton";
@@ -44,7 +44,7 @@ export const CommentCard = (props: CommentCardProps) => {
     <Column gap="20" className={classNames(cls.CommentCard, {}, [className])}>
       <Row alignItems="center">
         <Avatar
-          img={comment.user.avatar ?? errorUserAvatar}
+          img={comment.user.avatar ?? USER_AVATAR_ERROR}
           isRound
           size={AvatarSize.S}
         />

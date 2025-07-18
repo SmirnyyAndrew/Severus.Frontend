@@ -1,5 +1,6 @@
 import { Notification } from "entities/Notification/model/types/Notification";
 import { classNames } from "shared/lib/classNames/classNames";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Card } from "shared/ui/Card";
 import { CardTheme } from "shared/ui/Card/ui/Card";
 import { Text, TextSize } from "shared/ui/Text";
@@ -24,9 +25,12 @@ export const NotificationItem = (props: NotificationItemProps) => {
 
   if (item.href)
     return (
-      <a className={cls.link} target="_blank" href={item.href}>
-        {content}
-      </a>
+      <AppLink
+        target="_blank"
+        className={cls.link}
+        to={item.href}
+        children={content}
+      />
     );
 
   return content;

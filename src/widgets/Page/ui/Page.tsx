@@ -1,7 +1,7 @@
 import { useScrollSave } from "features/UIManagement/ScrollSave";
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { ThrottleScrollDelay } from "shared/const/delays";
+import { THROTTLE_SCROLL_DELAY } from "shared/const/delays";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
@@ -48,7 +48,7 @@ export const Page = memo((props: PageProps) => {
       setPageScrollPosition(path, position);
       console.log("set to store position", position);
     }
-  }, ThrottleScrollDelay);
+  }, THROTTLE_SCROLL_DELAY);
 
   return (
     <section

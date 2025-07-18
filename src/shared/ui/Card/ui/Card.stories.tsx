@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Text } from "shared/ui/Text";
 import { Card, CardTheme } from "./Card";
@@ -15,7 +15,7 @@ const meta: Meta<typeof Card> = {
     children: (
       <>
         <Text text="Test" />
-        <Avatar size={AvatarSize.L} img={errorArticleImg} />
+        <Avatar size={AvatarSize.L} img={ARTICLE_IMAGE_ERROR} />
       </>
     ),
   },

@@ -4,17 +4,20 @@
 @use "themes/cute";
 @use "reset";
 
-.app {
+.app,
+.app_modal,
+.app_drawer {
   font: var(--font-m);
-
   user-select: none;
-
-  background: var(--bg-color);
-  color: var(--primary-color);
 
   min-height: 100vh;
 }
 
 .content-page {
   display: flex;
+}
+
+.app {
+  background: var(--bg-color);
+  color: var(--primary-color);
 }

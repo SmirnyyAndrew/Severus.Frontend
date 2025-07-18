@@ -1,4 +1,4 @@
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { ArticleCodeBlock } from "../BlockManagement/ArticleBlocks/ArticleCodeBlock";
 import { ArticleImageBlock } from "../BlockManagement/ArticleBlocks/ArticleImageBlock";
 import { ArticleTextBlock } from "../BlockManagement/ArticleBlocks/ArticleTextBlock";
@@ -19,7 +19,7 @@ export const ArticleTextBlockExample: ArticleTextBlock = {
 export const ArticleImageBlockExample: ArticleImageBlock = {
   id: "2",
   type: ArticleBlockType.IMAGE,
-  src: errorArticleImg,
+  src: ARTICLE_IMAGE_ERROR,
   title: "TypeScript Logo",
 };
 
@@ -37,7 +37,7 @@ export const ArticleExample: Article = {
   id: "1",
   title: "Getting Started with TypeScript",
   subtitle: "Why TypeScript is the future of JavaScript",
-  img: errorArticleImg,
+  img: ARTICLE_IMAGE_ERROR,
   views: 1234,
   createdAt: "2025-05-31",
   type: [

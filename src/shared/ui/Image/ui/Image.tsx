@@ -1,4 +1,4 @@
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextSize } from "shared/ui/Text";
 import * as cls from "./Image.module.scss";
@@ -14,7 +14,10 @@ export const Image = (props: ImageProps) => {
 
   return (
     <div className={classNames(cls.Image, {}, [className])}>
-      <img src={src} onError={(e) => (e.currentTarget.src = errorArticleImg)} />
+      <img
+        src={src}
+        onError={(e) => (e.currentTarget.src = ARTICLE_IMAGE_ERROR)}
+      />
       {title && <Text text={title} size={TextSize.XS} className={cls.title} />}
     </div>
   );

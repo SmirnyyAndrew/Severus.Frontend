@@ -2,14 +2,14 @@ import { Meta, StoryObj } from "@storybook/react/*";
 import { Theme } from "app/providers/ThemeProvider";
 import { ReactNode } from "react";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Dropdown, DropdownProps } from "./Dropdown";
 
 const avatarNode = (
-  <Avatar isRound size={AvatarSize.XS} img={errorArticleImg} />
+  <Avatar isRound size={AvatarSize.XS} img={ARTICLE_IMAGE_ERROR} />
 );
 
 const buttonNode = (

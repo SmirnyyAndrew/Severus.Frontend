@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { errorArticleImg } from "shared/const/plugFiles";
+import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { Image } from "./Image";
 
 const meta: Meta<typeof Image> = {
   title: "shared/Image",
   component: Image,
   args: {
-    src: errorArticleImg,
+    src: ARTICLE_IMAGE_ERROR,
     title: "This is article title",
   },
 };

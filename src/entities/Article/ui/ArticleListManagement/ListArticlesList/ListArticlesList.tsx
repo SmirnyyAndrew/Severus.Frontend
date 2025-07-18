@@ -2,7 +2,7 @@ import { Article } from "entities/Article";
 import { HTMLAttributeAnchorTarget } from "react";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { errorUserAvatar } from "shared/const/plugFiles";
+import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
@@ -51,7 +51,7 @@ export const ListArticlesList = (props: ListArticlesListProps) => {
             <div className={cls.Header}>
               <div className={cls.UserInfoAndDateWrapper}>
                 <div className={cls.UserInfo}>
-                  <Avatar isRound size={AvatarSize.S} img={errorUserAvatar} />
+                  <Avatar isRound size={AvatarSize.S} img={USER_AVATAR_ERROR} />
 
                   <Text
                     text={article.user?.username || "username"}

@@ -7,7 +7,9 @@ import {
   useRef,
   useState,
 } from "react";
+import { MODAL_ANIMATION_DURABILITY } from "shared/const/delays";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import * as cls from "./Modal.module.scss";
 
@@ -18,8 +20,6 @@ interface ModalProps {
   onClose?: () => void;
   lazy?: boolean;
 }
-
-const ANIMATION_DURABILITY = 100;
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
@@ -41,13 +41,9 @@ export const Modal = (props: ModalProps) => {
       timerRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
-      }, ANIMATION_DURABILITY);
+      }, MODAL_ANIMATION_DURABILITY);
     }
   }, [onClose]);
-
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -77,12 +73,11 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className, theme])}>
-        <div onClick={closeHandler} className={cls.overlay}>
-          <div onClick={onContentClick} className={cls.content}>
-            {children}
-          </div>
-        </div>
+      <div
+        className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
+      >
+        <Overlay onClick={closeHandler} />
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   );

@@ -9,18 +9,26 @@
 
   border: 1px solid var(--primary-color);
 }
+.doneIcon,
+.copyIcon {
+  margin-top: 20px;
+  right: 10px;
+  position: absolute;
+  z-index: var(--z-index-copy-icon);
+}
 
 .copyIcon {
   stroke: var(--bg-color);
-  right: 20px;
-  position: absolute;
-
   overflow: visible;
 
   cursor: pointer;
-  z-index: var(--z-index-copy-icon);
 
   &:hover {
     opacity: 0.8;
   }
+}
+
+.doneIcon {
+  cursor: default;
+  fill: var(--bg-color);
 }

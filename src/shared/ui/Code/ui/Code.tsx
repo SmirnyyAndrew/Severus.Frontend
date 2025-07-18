@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import DoneIcon from "shared/assets/icons/shared/done-icon.svg";
 import CopyIcon from "shared/assets/icons/theme/copy-icon.svg";
 import { classNames } from "shared/lib/classNames/classNames";
-import { Icon, IconSize } from "shared/ui/Icon";
+import { Icon, IconFills, IconSize } from "shared/ui/Icon";
 import * as cls from "./Code.module.scss";
 
 interface CodeProps {
@@ -19,19 +19,27 @@ export const Code = (props: CodeProps) => {
     setIsCopied(true);
   }, [code]);
 
-  const copyIcon = isCopied ? DoneIcon : CopyIcon;
+  const ToCopyIcon = (
+    <Icon
+      Svg={CopyIcon}
+      iconSize={IconSize.L}
+      iconFill={IconFills.NONE}
+      className={classNames(cls.copyIcon, {}, [className])}
+    />
+  );
+
+  const CopiedIcon = (
+    <Icon
+      Svg={DoneIcon}
+      iconSize={IconSize.L}
+      iconFill={IconFills.BACKGROUND}
+      className={classNames(cls.doneIcon, {}, [className])}
+    />
+  );
 
   return (
     <pre className={classNames(cls.Code, {}, [className])}>
-      <div onClick={onClickCopyIcon}>
-        <Icon
-          Svg={copyIcon}
-          iconSize={IconSize.L}
-          className={classNames(isCopied ? cls.doneIcon : cls.copyIcon, {}, [
-            className,
-          ])}
-        />
-      </div>
+      <div onClick={onClickCopyIcon}>{isCopied ? CopiedIcon : ToCopyIcon}</div>
       <code>{code}</code>
     </pre>
   );

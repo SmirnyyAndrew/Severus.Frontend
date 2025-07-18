@@ -1,0 +1,36 @@
+.popup {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.top-left {
+  bottom: 100%;
+  right: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottom-left {
+  top: 100%;
+  right: 2%;
+}
+
+.bottom-right {
+  top: 100%;
+  left: 0;
+}

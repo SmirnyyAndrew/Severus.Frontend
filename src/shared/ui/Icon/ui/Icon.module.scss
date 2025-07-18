@@ -1,5 +1,17 @@
-.Icon {
+.backgroundFill {
+  fill: var(--bg-color);
+}
+
+.invertedBackgroundFill {
   fill: var(--bg-inverted-color);
+}
+
+.mainFill {
+  fill: var(--main-color);
+}
+
+.noneFill {
+  fill: none;
 }
 
 .IconWrapper {

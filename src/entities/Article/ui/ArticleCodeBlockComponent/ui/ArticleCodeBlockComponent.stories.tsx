@@ -16,7 +16,11 @@ const meta: Meta<typeof ArticleCodeBlockComponent> = {
 export default meta;
 type Story = StoryObj<typeof ArticleCodeBlockComponent>;
 
-export const Light: Story = {};
+export const Light: Story = {
+  args: {
+    className: ""
+  }
+};
 
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],

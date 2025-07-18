@@ -8,12 +8,20 @@ export enum IconSize {
   XL = "size_xl",
 }
 
+export enum IconFills {
+  BACKGROUND = "background",
+  INVERTED_BACKGROUND = "inverted_background",
+  MAIN = "main",
+  NONE = "none",
+}
+
 interface IconProps {
   className?: string;
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
   iconSize?: IconSize;
   textSize?: TextSize;
   text?: string;
+  iconFill?: IconFills;
 }
 
 export const Icon = (props: IconProps) => {
@@ -23,12 +31,25 @@ export const Icon = (props: IconProps) => {
     text,
     textSize = TextSize.S,
     iconSize = IconSize.S,
+    iconFill = IconFills.NONE,
   } = props;
+
+  const fillStyles: Record<IconFills, string> = {
+    [IconFills.BACKGROUND]: "backgroundFill",
+    [IconFills.INVERTED_BACKGROUND]: "invertedBackgroundFill",
+    [IconFills.MAIN]: "mainFill",
+    [IconFills.NONE]: "noneFill",
+  };
 
   return (
     <div className={cls.IconWrapper}>
       {text && <Text text={text} size={textSize} />}
-      <Svg className={classNames(cls.Icon, {}, [className, cls[iconSize]])} />
+      <Svg
+        className={classNames(cls[fillStyles[iconFill]], {}, [
+          className,
+          cls[iconSize],
+        ])}
+      />
     </div>
   );
 };

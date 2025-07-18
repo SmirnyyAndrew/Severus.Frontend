@@ -1,0 +1,31 @@
+.Dropdown {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0px;
+  z-index: var(--z-index-dropdown);
+  display: flex;
+}
+
+.menu {
+  background: var(--dropddown-menu);
+  position: absolute;
+  z-index: var(--z-index-dropdown-menu);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.item {
+  padding: 10px 20px 10px 20px;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  color: var(--primary-color);
+}
+
+.active {
+  background-color: var(--dropddown-active-item);
+}

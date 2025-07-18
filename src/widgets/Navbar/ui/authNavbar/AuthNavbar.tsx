@@ -1,11 +1,12 @@
 import { useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
+import { NotificationButton } from "features/NavbarManagement/NotificationButton";
 import { t } from "i18next";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { errorUserAvatar } from "shared/const/plugFiles";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
-import { Dropdown, DropdownItem } from "shared/ui/Dropdown";
+import { Dropdown, DropdownItem } from "shared/ui/Popups";
 import { Row } from "shared/ui/Stack";
 
 interface AuthNavbarProps {
@@ -62,6 +63,8 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
           <>{t("nav_articles_page")}</>
         </AppLink>
       </Row>
+
+      <NotificationButton />
 
       <Dropdown
         direction="bottom left"

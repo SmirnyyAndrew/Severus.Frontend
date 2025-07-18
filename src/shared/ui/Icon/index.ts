@@ -1,4 +1,4 @@
-import { IconSize } from "./ui/Icon";
+import { IconFills, IconSize } from "./ui/Icon";
 
 export { Icon } from "./ui/Icon";
-export { IconSize };
+export { IconFills, IconSize };

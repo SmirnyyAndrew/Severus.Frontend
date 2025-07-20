@@ -22,6 +22,7 @@ interface IconProps {
   textSize?: TextSize;
   text?: string;
   iconFill?: IconFills;
+  onClick?: () => void;
 }
 
 export const Icon = (props: IconProps) => {
@@ -29,6 +30,7 @@ export const Icon = (props: IconProps) => {
     className,
     Svg,
     text,
+    onClick,
     textSize = TextSize.S,
     iconSize = IconSize.S,
     iconFill = IconFills.NONE,
@@ -42,7 +44,7 @@ export const Icon = (props: IconProps) => {
   };
 
   return (
-    <div className={cls.IconWrapper}>
+    <div className={cls.IconWrapper} onClick={onClick}>
       {text && <Text text={text} size={textSize} />}
       <Svg
         className={classNames(cls[fillStyles[iconFill]], {}, [

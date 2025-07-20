@@ -2,7 +2,10 @@ import { useTheme } from "app/providers/ThemeProvider";
 import { memo, ReactNode, useCallback, useEffect } from "react";
 import { DRAWER_ANIMATION_DURABILITY } from "shared/const/delays";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
-import { useAnimationLibs } from "shared/lib/components/AnimationProvider";
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from "shared/lib/components/AnimationProvider";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
@@ -107,10 +110,18 @@ const DrawerContent = memo((props: DrawerProps) => {
   );
 });
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = memo((props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) return null;
 
   return <DrawerContent {...props} />;
+});
+
+export const Drawer = memo((props: DrawerProps) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
 });

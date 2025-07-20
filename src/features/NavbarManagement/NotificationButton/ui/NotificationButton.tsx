@@ -4,11 +4,10 @@ import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "shared/assets/icons/menu/notification-icon.svg";
 import { AnimationProvider } from "shared/lib/components/AnimationProvider";
 import { DropdownDirections } from "shared/types/dropDownDirections/DropdownDirections";
-import { Button } from "shared/ui/Button";
-import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Drawer } from "shared/ui/Drawer/Drawer";
 import { Icon, IconFills } from "shared/ui/Icon";
 import { Popover } from "shared/ui/Popups";
+import * as cls from "./NotificationButton.module.scss";
 
 interface NotificationButtonProps {
   className?: string;
@@ -28,9 +27,12 @@ export const NotificationButton = (props: NotificationButtonProps) => {
   };
 
   const trigger = (
-    <Button onClick={notificationClickHandler} buttonTheme={ButtonTheme.CLEAR}>
-      <Icon Svg={NotificationIcon} iconFill={IconFills.BACKGROUND} />
-    </Button>
+    <Icon
+      Svg={NotificationIcon}
+      onClick={notificationClickHandler}
+      iconFill={IconFills.BACKGROUND}
+      className={cls.notificationIcon}
+    />
   );
 
   return (

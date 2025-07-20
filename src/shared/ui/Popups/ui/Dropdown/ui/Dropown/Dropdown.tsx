@@ -47,7 +47,11 @@ export const Dropdown = (props: DropdownProps) => {
         className={classNames(cls.menu, {}, [popupCls[dropdownDirection]])}
       >
         {items.map((item) => (
-          <Menu.Item as={Fragment} key={item.href} disabled={item.isDisabled}>
+          <Menu.Item
+            as={Fragment}
+            key={`item_${item.href}`}
+            disabled={item.isDisabled}
+          >
             {({ active }) => (
               <button
                 type={"button"}

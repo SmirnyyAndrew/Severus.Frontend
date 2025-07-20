@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
+    "start:vite": "vite",
+    "start:all:vite": "concurrently --raw \"npm run start:vite\" \"npm run storybook\" \"npm run start:server:dev\"",
     "start:all": "concurrently --raw \"npm run start:dev\" \"npm run storybook\" \"npm run start:server:dev\"",
     "start:dev": "webpack serve --env mode=development --env port=3000 --env apiUrl=http://localhost:28532",
     "start:docker": "webpack serve --env port=44445",
@@ -60,6 +62,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
+    "@vitejs/plugin-react": "^4.7.0",
     "axios": "^1.9.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
@@ -88,6 +91,8 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "vite-plugin-sass": "^0.1.0",
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.10.0",
@@ -109,7 +114,8 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.3",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "vite-plugin-svgr": "^4.3.0"
   },
   "loki": {
     "configurations": {

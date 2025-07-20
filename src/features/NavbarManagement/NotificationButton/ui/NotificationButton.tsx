@@ -2,6 +2,7 @@ import { NotificationList } from "entities/Notification/ui/NotificationList/Noti
 import { useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "shared/assets/icons/menu/notification-icon.svg";
+import { AnimationProvider } from "shared/lib/components/AnimationProvider";
 import { DropdownDirections } from "shared/types/dropDownDirections/DropdownDirections";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
@@ -42,9 +43,11 @@ export const NotificationButton = (props: NotificationButtonProps) => {
 
       <MobileView>
         {trigger}
-        <Drawer isOpen={isOpenDrawer} onClose={onCloseDrawer}>
-          <NotificationList />
-        </Drawer>
+        <AnimationProvider>
+          <Drawer isOpen={isOpenDrawer} onClose={onCloseDrawer}>
+            <NotificationList />
+          </Drawer>
+        </AnimationProvider>
       </MobileView>
     </div>
   );

@@ -15,7 +15,7 @@ export enum IconFills {
   NONE = "none",
 }
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
   iconSize?: IconSize;
@@ -34,6 +34,7 @@ export const Icon = (props: IconProps) => {
     textSize = TextSize.S,
     iconSize = IconSize.S,
     iconFill = IconFills.NONE,
+    ...otherProps
   } = props;
 
   const fillStyles: Record<IconFills, string> = {
@@ -51,6 +52,7 @@ export const Icon = (props: IconProps) => {
           className,
           cls[iconSize],
         ])}
+        {...otherProps}
       />
     </div>
   );

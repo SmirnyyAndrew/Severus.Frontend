@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { AlignItems } from "../../model/types/alignItems/AlignItems";
 import { GapSizes } from "../../model/types/gapSizes/GapSizes";
 import { JustifyContents } from "../../model/types/justifyContents/JustifyContents";
 import { Flex } from "../Flex/Flex";
 
-interface RowProps {
+interface RowProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   alignItems?: AlignItems;
@@ -25,6 +25,7 @@ export const Row = (props: RowProps) => {
     maxHeight,
     className,
     onClick,
+    ...otherProps
   } = props;
 
   return (
@@ -37,6 +38,7 @@ export const Row = (props: RowProps) => {
       maxWidth={maxWidth}
       className={className}
       onClick={onClick}
+      {...otherProps}
     >
       {children}
     </Flex>

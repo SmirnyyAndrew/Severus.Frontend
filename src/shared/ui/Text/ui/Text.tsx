@@ -11,7 +11,7 @@ interface TextProps {
   className?: string;
   textTheme?: TextThemes;
   title?: string;
-  text: string;
+  text?: string;
   size?: TextSize;
   gap?: GapSizes;
   position?: AlignItems;
@@ -42,7 +42,7 @@ export const Text = memo((props: TextProps) => {
         {title && (
           <HeaderTag className={classNames(cls.title)}> {title}</HeaderTag>
         )}
-        <p className={classNames(cls.text)}> {text}</p>
+        {text && <p className={classNames(cls.text)}> {text}</p>}
       </Column>
     </div>
   );

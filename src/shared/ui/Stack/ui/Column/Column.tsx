@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { AlignItems, GapSizes, JustifyContents } from "../..";
 import { Flex } from "../Flex/Flex";
 
-interface ColumnProps {
+interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   alignItems?: AlignItems;
@@ -23,6 +23,7 @@ export const Column = (props: ColumnProps) => {
     maxHeight,
     className,
     onClick,
+    ...otherProps
   } = props;
 
   return (
@@ -35,6 +36,7 @@ export const Column = (props: ColumnProps) => {
       maxWidth={maxWidth}
       className={className}
       onClick={onClick}
+      {...otherProps}
     >
       {children}
     </Flex>

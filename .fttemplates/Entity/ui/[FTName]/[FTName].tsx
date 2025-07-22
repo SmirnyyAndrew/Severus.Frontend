@@ -1,4 +1,4 @@
-import { use[FTName] } from "entities/Counter/model/hooks/use[FTName]";
+import { use[FTName] } from "entities/[FTName]/model/hooks/use[FTName]";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import * as cls from "./[FTName].module.scss";

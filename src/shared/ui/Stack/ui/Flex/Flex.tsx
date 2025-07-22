@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import { AlignItems, FlexDirections, GapSizes, JustifyContents } from "../..";
 import { AlignItemsStyles } from "../../model/types/alignItems/AlignItemsStyles";
@@ -7,7 +7,7 @@ import { GapStyles } from "../../model/types/gapSizes/GapStyles";
 import { JustifyContentsStyles } from "../../model/types/justifyContents/JustifyContentsStyles";
 import * as cls from "./Flex.module.scss";
 
-interface FlexProps {
+interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   direction: FlexDirections;
   className?: string;
@@ -29,6 +29,7 @@ export const Flex = (props: FlexProps) => {
     maxWidth = true,
     maxHeight = false,
     onClick,
+    ...otherProps
   } = props;
 
   const mods: Mods = {
@@ -46,6 +47,7 @@ export const Flex = (props: FlexProps) => {
         cls[GapStyles[gap]],
         cls[FlexDirectionsStyles[direction]],
       ])}
+      {...otherProps}
     >
       {children}
     </div>

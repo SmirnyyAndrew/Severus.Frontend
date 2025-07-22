@@ -7,8 +7,8 @@ import * as cls from "./StarRating.module.scss";
 
 export type StarRate = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-interface StarRatingProps {
-  starRate: StarRate;
+export interface StarRatingProps {
+  starRate: StarRate | undefined;
   starsCount?: StarRate;
   forbiddenChange?: boolean;
   className?: string;
@@ -20,20 +20,24 @@ export const StarRating = (props: StarRatingProps) => {
     starRate,
     className,
     forbiddenChange = false,
-    starsCount = 5,
+    starsCount,
     onSelect,
   } = props;
-  const [selectedStar, setSelectedStar] = useState(starRate);
+  const [selectedStar, setSelectedStar] = useState<StarRate | undefined>(
+    starRate
+  );
+
   const [enterStar, setEnterStar] = useState<StarRate | undefined>(undefined);
 
   const onStarClick = (index: number) => {
     if (forbiddenChange) return;
 
     const indexToStarRate = (index + 1) as StarRate;
+
     if (indexToStarRate !== selectedStar) setSelectedStar(indexToStarRate);
 
     setEnterStar(undefined);
-    onSelect && onSelect(selectedStar);
+    onSelect && onSelect(indexToStarRate);
   };
 
   const onStarEnter = (index: number) => {
@@ -50,12 +54,14 @@ export const StarRating = (props: StarRatingProps) => {
   };
 
   const baseStarStyles = (index: number) => {
-    if (enterStar) return index < enterStar ? cls.enter : "";
+    if (enterStar) return index < enterStar ? cls.enter : cls.star;
 
-    return "";
+    return cls.star;
   };
 
   const mods = (index: number): Mods => {
+    if (!selectedStar) return {};
+
     return {
       [cls.selected]: index < selectedStar && !enterStar,
     };
@@ -63,7 +69,7 @@ export const StarRating = (props: StarRatingProps) => {
 
   const PrintStars = () => (
     <Row onMouseLeave={onStarsLeave} justifyContents="center">
-      {Array.from({ length: starsCount }).map((_, i) => (
+      {Array.from({ length: starsCount ?? 5 }).map((_, i) => (
         <Icon
           key={i}
           Svg={DoneIcon}

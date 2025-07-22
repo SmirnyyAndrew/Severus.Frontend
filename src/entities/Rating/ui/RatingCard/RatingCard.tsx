@@ -1,6 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
-import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Card } from "shared/ui/Card";
@@ -8,26 +7,43 @@ import { Drawer } from "shared/ui/Drawer/Drawer";
 import { Input } from "shared/ui/Input/Input";
 import { Modal } from "shared/ui/Modal/Modal";
 import { Column, Row } from "shared/ui/Stack";
-import { StarRate, StarRating } from "shared/ui/StarRating/StarRating";
+import {
+  StarRate,
+  StarRating,
+  StarRatingProps,
+} from "shared/ui/StarRating/StarRating";
 import { Text, TextSize } from "shared/ui/Text";
-import * as cls from "./RatingCard.module.scss";
 
-interface RatingCardProps {
+interface RatingCardProps extends StarRatingProps {
   className?: string;
   title?: string;
   feedbackTitle?: string;
   hasFeedBack?: boolean;
-  onCancel?: (starsCount: StarRate) => void;
+  onCancel?: () => void;
   onAccept?: (starsCount: StarRate, feedback?: string) => void;
 }
 
 export const RatingCard = (props: RatingCardProps) => {
-  const { className, title, feedbackTitle, hasFeedBack, onCancel, onAccept } =
-    props;
+  const {
+    className,
+    title,
+    feedbackTitle,
+    forbiddenChange = false,
+    hasFeedBack,
+    starRate,
+    onCancel,
+    onAccept,
+  } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(starRate);
   const [feedBack, setFeedBack] = useState("");
+
+  useEffect(() => {
+    if (starRate !== undefined) {
+      setStarsCount(starRate);
+    }
+  }, [starRate]);
 
   const onSelect = useCallback(
     (selectedStarsCount: StarRate) => {
@@ -35,7 +51,6 @@ export const RatingCard = (props: RatingCardProps) => {
       if (hasFeedBack) {
         setIsModalOpen(true);
       } else {
-        onAccept?.(selectedStarsCount);
       }
       setIsModalOpen(true);
     },
@@ -49,7 +64,8 @@ export const RatingCard = (props: RatingCardProps) => {
 
   const cancelHandler = useCallback(() => {
     setIsModalOpen(false);
-    onCancel?.(starsCount as StarRate);
+    onCancel?.();
+    setStarsCount(undefined);
   }, [onCancel, starsCount]);
 
   const modalContent = (
@@ -69,10 +85,14 @@ export const RatingCard = (props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card className={className}>
       <Column alignItems="center" gap="8">
         <Text title={title} text="" />
-        <StarRating starRate={5} onSelect={onSelect} />
+        <StarRating
+          forbiddenChange={forbiddenChange}
+          starRate={starsCount}
+          onSelect={onSelect}
+        />
       </Column>
 
       <BrowserView>

@@ -1,6 +1,7 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
 import { AddNewCommentForm } from "features/ArticleDetailsManagement/AddNewCommentForm";
+import { ArticleRatings } from "features/ArticleDetailsManagement/ArticleRating";
 import { ArticleDetailsRecommenations } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -33,6 +34,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
         <ArticleDetailsRecommenations />
+        <ArticleRatings articleId={id} />
         <AddNewCommentForm />
         <CommentList />
       </Page>

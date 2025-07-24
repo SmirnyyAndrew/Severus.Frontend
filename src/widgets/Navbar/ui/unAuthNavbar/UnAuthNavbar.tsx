@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";

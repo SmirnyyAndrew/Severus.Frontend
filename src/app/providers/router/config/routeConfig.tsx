@@ -2,52 +2,15 @@ import { UserRole } from "entities/User";
 import { AboutPage } from "pages/AboutPage";
 import { AdminPanelPage } from "pages/AdminManagement/AdminPanelPage";
 import { ArticleDetailsPage } from "pages/ArticleManagement/ArticleDetailsPage";
-import ArticlesPage from "pages/ArticleManagement/ArticlesPage/ui/ArticlesPage/ArticlesPage";
+import { ArticlesPage } from "pages/ArticleManagement/ArticlesPage";
 import { CreateArticlePage } from "pages/ArticleManagement/CreateArticlePage";
 import { EditArticlePage } from "pages/ArticleManagement/EditArticlePage";
 import { ForbiddenPage } from "pages/GeneralPages/ForbiddenPage";
 import { NotFoundPage } from "pages/GeneralPages/NotFoundPage";
 import { MainPage } from "pages/MainPage";
 import { ProfilePage } from "pages/ProfilePage";
-import { RouteProps } from "react-router-dom";
-
-// Расширяет RouterProps
-export type AppRouteProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRole[];
-};
-
-export enum AppRoutes {
-  //rest
-  NOT_FOUND = "not_found",
-  FORBIDDEN = "forbidden",
-
-  //general
-  MAIN = "main",
-  ABOUT = "about",
-  PROFILE = "profile",
-  ARTICLES = "articles",
-  ARTICLE_DETAILS = "article_details",
-  ARTICLE_EDIT = "article_edit",
-  ARTICLE_CREATE = "article_create",
-  ADMIN_PANEL = "admin_panel",
-}
-
-export const RoutePath: Record<AppRoutes, string> = {
-  //rest
-  [AppRoutes.NOT_FOUND]: "/*",
-  [AppRoutes.FORBIDDEN]: "/forbidden",
-
-  //general
-  [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.PROFILE]: "/profile/", // + :id
-  [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.ARTICLE_DETAILS]: "/articles/", // + :id
-  [AppRoutes.ARTICLE_EDIT]: "/articles/:id/edit", // + :id
-  [AppRoutes.ARTICLE_CREATE]: "/articles/new", // + :id
-  [AppRoutes.ADMIN_PANEL]: "/admin",
-};
+import { AppRoutes, RoutePath } from "shared/const/router";
+import { AppRouteProps } from "shared/types/router/router";
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   //rest
@@ -102,12 +65,4 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.MANAGER],
   },
-};
-
-export const getRoutePathWithId = (
-  route: AppRoutes,
-  id: string | undefined
-) => {
-  if (id) return RoutePath[route].replace(":id", id);
-  else return RoutePath.not_found;
 };

@@ -1,7 +1,7 @@
 import AboutIcon from "shared/assets/icons/menu/about_page.svg";
 import CreateArticleIcon from "shared/assets/icons/menu/create-article-icon.svg";
 import MainIcon from "shared/assets/icons/menu/main_page.svg";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import { SidebarItemType } from "./SidebarItemType";
 
 export const SidebarItemList: SidebarItemType[] = [

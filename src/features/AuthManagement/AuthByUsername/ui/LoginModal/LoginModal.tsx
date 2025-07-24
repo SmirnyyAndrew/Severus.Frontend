@@ -5,7 +5,7 @@ import { userReducer } from "entities/User";
 import { memo, Suspense } from "react";
 import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import {
   DynamicModuleLoader,
   ReducersList,

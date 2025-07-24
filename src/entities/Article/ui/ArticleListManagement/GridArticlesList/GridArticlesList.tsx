@@ -1,7 +1,7 @@
 import { Article } from "entities/Article/model/types/ArticleManagement/Article";
 import { HTMLAttributeAnchorTarget } from "react";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Icon } from "shared/ui/Icon";

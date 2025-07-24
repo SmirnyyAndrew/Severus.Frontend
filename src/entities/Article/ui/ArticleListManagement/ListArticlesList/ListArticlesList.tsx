@@ -1,8 +1,8 @@
 import { Article } from "entities/Article";
 import { HTMLAttributeAnchorTarget } from "react";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
+import { RoutePath } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";

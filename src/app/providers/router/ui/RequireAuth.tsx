@@ -2,7 +2,7 @@ import { UserRole } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useMemo } from "react";
 import { Navigate } from "react-router-dom";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import { Loader } from "shared/ui/Loader/Loader";
 
 interface RequireAuthProps {

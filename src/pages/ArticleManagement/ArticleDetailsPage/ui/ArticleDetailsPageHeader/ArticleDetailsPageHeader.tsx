@@ -1,12 +1,9 @@
+import { getRoutePathWithId } from "app/providers/router/config/routeHelper";
 import { useArticle } from "entities/Article";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  AppRoutes,
-  getRoutePathWithId,
-  RoutePath,
-} from "shared/config/routerConfig/routerConfig";
+import { AppRoutes, RoutePath } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";

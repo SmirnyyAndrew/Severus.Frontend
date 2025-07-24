@@ -5,7 +5,7 @@ import { LoginModal } from "features/AuthManagement/AuthByUsername";
 import { memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { RoutePath } from "shared/const/router";
 import {
   DynamicModuleLoader,
   ReducersList,

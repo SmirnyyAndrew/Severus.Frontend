@@ -1,6 +1,8 @@
 import { useCounter } from "entities/Counter/model/hooks/useCounter";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
+import { Column, Row } from "shared/ui/Stack";
+import { Text } from "shared/ui/Text";
 import * as cls from "./Counter.module.scss";
 
 interface CounterProps {
@@ -8,19 +10,23 @@ interface CounterProps {
 }
 
 export const Counter = ({ className }: CounterProps) => {
-  const { decrement, value, increment } = useCounter();
+  const { value, decrement, increment } = useCounter();
 
   return (
-    <div className={classNames(cls.Counter, {}, [className])}>
-      <h1 data-testid="value-title">Value: {value}</h1>
-      <div className={cls.buttons}>
+    <Column
+      alignItems="center"
+      justifyContents="end"
+      className={classNames(cls.Counter, {}, [className])}
+    >
+      <Text data-testid="value-title" text={`Value: ${value}`} />
+      <Row className={cls.buttons}>
         <Button data-testid="decrement-btn" onClick={decrement}>
           Decrement
         </Button>
         <Button data-testid="increment-btn" onClick={increment}>
           Increment
         </Button>
-      </div>
-    </div>
+      </Row>
+    </Column>
   );
 };

@@ -26,7 +26,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "server:db": "npx json-server --watch ./json-server/db.json --port 28532",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "node scripts/clear-node-cache.js"
   },
   "keywords": [],
   "author": "",
@@ -68,6 +69,7 @@
     "babel-plugin-i18next-extract": "^0.8.3",
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^9.1.2",
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^7.1.2",
     "eslint-plugin-i18next": "^5.1.2",
     "fork-ts-checker-webpack-plugin": "^9.1.0",

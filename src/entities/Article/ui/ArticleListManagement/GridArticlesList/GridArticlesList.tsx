@@ -1,7 +1,7 @@
 import { Article } from "entities/Article/model/types/ArticleManagement/Article";
 import { HTMLAttributeAnchorTarget } from "react";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Icon } from "shared/ui/Icon";
@@ -43,7 +43,7 @@ export const GridArticlesList = (props: GridArticlesListProps) => {
           linkTheme={AppLinkTheme.PRIMARY}
           key={`grid_${article.id}`}
           className={cls.GridItem}
-          to={RoutePath.article_details + article.id}
+          to={Routes.Article.Details(article.id)}
         >
           <Text
             text={article.createdAt}

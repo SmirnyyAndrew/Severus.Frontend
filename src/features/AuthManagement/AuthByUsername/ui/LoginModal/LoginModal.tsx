@@ -5,7 +5,7 @@ import { userReducer } from "entities/User";
 import { memo, Suspense } from "react";
 import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -41,8 +41,8 @@ export const LoginModal = memo((props: LoginModalProps) => {
 
               await getProfileDataFromDB(id);
 
-              if (location.pathname !== RoutePath.profile && id) {
-                navigate(`${RoutePath.profile}${id}`);
+              if (id && location.pathname !== Routes.Profile.Info(id)) {
+                navigate(Routes.Profile.Info(id));
               } else {
                 onClose?.();
               }

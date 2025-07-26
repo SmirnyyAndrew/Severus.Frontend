@@ -2,7 +2,7 @@ import { UserRole } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useMemo } from "react";
 import { Navigate } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import { Loader } from "shared/ui/Loader/Loader";
 
 interface RequireAuthProps {
@@ -38,11 +38,12 @@ export function RequireAuth(props: RequireAuthProps) {
     return <Loader />;
   }
 
-  if (!hasRequiredRoles) return <Navigate to={RoutePath.forbidden} replace />;
+  if (!hasRequiredRoles)
+    return <Navigate to={Routes.General.Forbidden()} replace />;
 
   // при replace нельзя вернуться назад нажатием кнопки назад в браузере
   if (!authData) {
-    return <Navigate to={RoutePath.main} replace />;
+    return <Navigate to={Routes.MainPages.Main()} replace />;
   }
 
   return children;

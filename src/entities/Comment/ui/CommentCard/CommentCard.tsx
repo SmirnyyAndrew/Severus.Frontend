@@ -1,7 +1,7 @@
 import { Comment } from "entities/Comment/model/types/Comment";
 import { useNavigate } from "react-router-dom";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Skeleton } from "shared/ui/Skeleton";
@@ -34,7 +34,7 @@ export const CommentCard = (props: CommentCardProps) => {
     console.log("click");
     const id = comment.user?.id;
     if (id) {
-      navigate(`${RoutePath.profile}${id}`);
+      navigate(Routes.Profile.Info(id));
     } else {
       console.log("no id");
     }

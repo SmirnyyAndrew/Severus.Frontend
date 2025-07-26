@@ -1,9 +1,8 @@
-import { getRoutePathWithId } from "app/providers/router/config/routeHelper";
 import { useArticle } from "entities/Article";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AppRoutes, RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
@@ -18,7 +17,7 @@ export const ArticleDetailsPageHeader = (
   props: ArticleDetailsPageHeaderProps
 ) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const { authData } = useUserAuth();
   const { articleData, getArticleById } = useArticle();
 
@@ -28,11 +27,12 @@ export const ArticleDetailsPageHeader = (
 
   const navigate = useNavigate();
   const onBackButtonClick = () => {
-    navigate(RoutePath.articles);
+    navigate(Routes.Article.All());
   };
 
   const onEditButtonClick = () => {
-    navigate(getRoutePathWithId(AppRoutes.ARTICLE_EDIT, id));
+    console.log("edit id", id);
+    navigate(Routes.Article.Edit(id));
   };
 
   return (

@@ -14,18 +14,28 @@ export enum AppRoutes {
   ADMIN_PANEL = "admin_panel",
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-  //rest
-  [AppRoutes.NOT_FOUND]: "/*",
-  [AppRoutes.FORBIDDEN]: "/forbidden",
-
-  //general
-  [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.PROFILE]: "/profile/", // + :id
-  [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.ARTICLE_DETAILS]: "/articles/", // + :id
-  [AppRoutes.ARTICLE_EDIT]: "/articles/:id/edit", // + :id
-  [AppRoutes.ARTICLE_CREATE]: "/articles/new", // + :id
-  [AppRoutes.ADMIN_PANEL]: "/admin",
+export const Routes = {
+  General: {
+    NotFound: () => "/*",
+    Forbidden: () => "/forbidden",
+  },
+  Admin: {
+    Panel: () => `/admin`,
+  },
+  Article: {
+    Create: () => `/articles/new`,
+    Edit: (id: string | undefined) =>
+      id ? `/articles/${id}/edit` : Routes.General.NotFound(),
+    Details: (id: string | undefined) =>
+      id ? `/articles/${id}` : Routes.General.NotFound(),
+    All: () => `/articles`,
+  },
+  Profile: {
+    Info: (id: string | undefined) =>
+      id ? `/profile/${id}` : Routes.General.NotFound(),
+  },
+  MainPages: {
+    Main: () => "/",
+    About: () => "/about",
+  },
 };

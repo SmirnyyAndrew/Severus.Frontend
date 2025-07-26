@@ -9,58 +9,59 @@ import { ForbiddenPage } from "pages/GeneralPages/ForbiddenPage";
 import { NotFoundPage } from "pages/GeneralPages/NotFoundPage";
 import { MainPage } from "pages/MainPage";
 import { ProfilePage } from "pages/ProfilePage";
-import { AppRoutes, RoutePath } from "shared/const/router";
+import { AppRoutes, Routes } from "shared/const/router";
 import { AppRouteProps } from "shared/types/router/router";
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   //rest
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.not_found,
+    path: Routes.General.NotFound(),
     element: <NotFoundPage />,
   },
   [AppRoutes.FORBIDDEN]: {
-    path: RoutePath.forbidden,
+    path: Routes.General.Forbidden(),
     element: <ForbiddenPage />,
   },
 
   //general
   [AppRoutes.MAIN]: {
-    path: RoutePath.main,
+    path: Routes.MainPages.Main(),
     element: <MainPage />,
   },
 
   [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
+    path: Routes.MainPages.About(),
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
+    path: Routes.Profile.Info(":id"),
     element: <ProfilePage />,
     authOnly: true,
   },
 
   [AppRoutes.ARTICLES]: {
-    path: RoutePath.articles,
+    path: Routes.Article.All(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_DETAILS]: {
-    path: `${RoutePath.article_details}:id`,
+    // path: `${RoutePath.article_details}:id`,
+    path: Routes.Article.Details(":id"),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_EDIT]: {
-    path: `${RoutePath.article_edit}`,
+    path: Routes.Article.Edit(":id"),
     element: <EditArticlePage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {
-    path: `${RoutePath.article_create}`,
+    path: Routes.Article.Create(),
     element: <CreateArticlePage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: `${RoutePath.admin_panel}`,
+    path: Routes.Admin.Panel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.MANAGER],

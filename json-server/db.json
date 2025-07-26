@@ -586,5 +586,24 @@
       "id": 12
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "122121212",
+      "id": 1
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "asadsdasadsadsdsads",
+      "id": 2
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "xcxcxc",
+      "id": 3
+    }
+  ]
 }

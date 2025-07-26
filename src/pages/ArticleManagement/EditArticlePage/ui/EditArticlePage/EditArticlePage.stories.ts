@@ -6,8 +6,8 @@ import EditArticlePage from "./EditArticlePage";
 const meta: Meta<typeof EditArticlePage> = {
   title: "pages/ArticleManagement/EditArticlePage",
   component: EditArticlePage,
-  args: {
-    id: "85732",
+  parameters: {
+    id: "123",
   },
 };
 

@@ -4,7 +4,7 @@ import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
 import { ReactNode } from "react";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import i18nForTest from "../../../config/i18n/i18nForTest";
 
 export interface componentRenderOptions {
@@ -15,7 +15,7 @@ export function ComponentRender(
   component: ReactNode,
   options: componentRenderOptions = {}
 ) {
-  const { route = RoutePath.main, initialState } = options;
+  const { route = Routes.MainPages.Main(), initialState } = options;
 
   return render(
     <MemoryRouter initialEntries={[route]}>

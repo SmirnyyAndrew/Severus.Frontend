@@ -5,7 +5,7 @@ import { LoginModal } from "features/AuthManagement/AuthByUsername";
 import { memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -29,7 +29,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const onCloseModal = useCallback(() => {
     setIsShownAuthModal(false);
-    navigate(RoutePath.main);
+    navigate(Routes.MainPages.Main());
   }, []);
 
   const onShowModal = useCallback(() => {

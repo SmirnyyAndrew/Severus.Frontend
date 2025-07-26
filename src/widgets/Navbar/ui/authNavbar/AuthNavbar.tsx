@@ -3,7 +3,7 @@ import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { NotificationButton } from "features/NavbarManagement/NotificationButton";
 import { t } from "i18next";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
-import { RoutePath } from "shared/const/router";
+import { Routes } from "shared/const/router";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Dropdown, DropdownItem } from "shared/ui/Popups";
@@ -25,13 +25,13 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
       ? [
           {
             content: "Admin panel",
-            href: `${RoutePath.admin_panel}`,
+            href: Routes.Admin.Panel(),
           },
         ]
       : []),
     {
       content: "Профиль",
-      href: `${RoutePath.profile}${authData?.id}`,
+      href: Routes.Profile.Info(authData?.id),
     },
     {
       content: "Выйти",
@@ -50,16 +50,16 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
   return (
     <header className={className}>
       <Row alignItems="center" maxWidth justifyContents="center" gap="64">
-        <AppLink to={RoutePath.main} linkTheme={AppLinkTheme.PRIMARY}>
+        <AppLink to={Routes.MainPages.Main()} linkTheme={AppLinkTheme.PRIMARY}>
           <>{t("nav_main_page")}</>
         </AppLink>
         <AppLink
-          to={`${RoutePath.profile}${authData?.id ?? ""}`}
+          to={Routes.Profile.Info(authData?.id)}
           linkTheme={AppLinkTheme.PRIMARY}
         >
           <>{t("nav_profile_page")}</>
         </AppLink>
-        <AppLink to={RoutePath.articles} linkTheme={AppLinkTheme.PRIMARY}>
+        <AppLink to={Routes.Article.All()} linkTheme={AppLinkTheme.PRIMARY}>
           <>{t("nav_articles_page")}</>
         </AppLink>
       </Row>

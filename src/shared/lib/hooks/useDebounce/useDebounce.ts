@@ -1,6 +1,11 @@
 import { MutableRefObject, useCallback, useRef } from "react";
 
-//Результат не сохраняется, пока не пройдёт n мс
+/**
+ * Фукнция не вызывается, пока не пройдёт n мс бездействия
+ * @param callback Функция, которая вызывается через delay мс бездействия
+ * @param delay Интервал бездействия в мс
+ * @returns
+ */
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
   const timer = useRef() as MutableRefObject<any>;
 
@@ -14,6 +19,7 @@ export function useDebounce(callback: (...args: any[]) => void, delay: number) {
         callback(...args);
       }, delay);
     },
+
     [callback, delay]
   );
 }

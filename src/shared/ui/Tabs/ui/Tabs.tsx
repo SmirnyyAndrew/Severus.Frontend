@@ -4,23 +4,23 @@ import { Card } from "shared/ui/Card";
 import { CardTheme } from "shared/ui/Card/ui/Card";
 import * as cls from "./Tabs.module.scss";
 
-export interface TabItem {
-  value: string;
+export interface TabItem<T extends string> {
+  value: T;
   content: ReactNode;
 }
 
-interface TabsProps {
-  tabs: TabItem[];
-  value: string;
-  onTabClick: (newTab: TabItem) => void;
+interface TabsProps<T extends string> {
+  tabs: TabItem<T>[];
+  value: T;
+  onTabClick: (newTab: TabItem<T>) => void;
   className?: string;
 }
 
-export const Tabs = (props: TabsProps) => {
+export const Tabs = <T extends string>(props: TabsProps<T>) => {
   const { className, tabs, value, onTabClick } = props;
 
   const clickHandle = useCallback(
-    (tab: TabItem) => () => {
+    (tab: TabItem<T>) => () => {
       onTabClick(tab);
     },
     [onTabClick]

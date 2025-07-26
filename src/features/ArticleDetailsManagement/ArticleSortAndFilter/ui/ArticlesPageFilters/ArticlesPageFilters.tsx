@@ -18,10 +18,8 @@ interface ArticlesPageFiltersProps {
 export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   const { className } = props;
   const {
-    view,
     sort,
     order,
-    page,
     search,
     type,
     getArticlesWithLimit,
@@ -67,8 +65,8 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   );
 
   const onChangeType = useCallback(
-    (tab: TabItem) => {
-      let type: ArticleType = tab.value as ArticleType;
+    (tab: TabItem<ArticleType>) => {
+      let type: ArticleType = tab.value;
       setHasMore(true);
       setType(type);
       setPage(1);
@@ -77,7 +75,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     [debouncedFetchData, getData]
   );
 
-  const tagTabs = useMemo<TabItem[]>(
+  const tagTabs = useMemo<TabItem<ArticleType>[]>(
     () =>
       Object.values(ArticleType).map((type) => ({
         value: type as ArticleType,

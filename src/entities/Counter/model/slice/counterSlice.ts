@@ -1,11 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { CounterSchema } from "entities/Counter";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 
 const initialState: CounterSchema = {
   value: 0,
 };
 
-export const counterSlice = createSlice({
+export const counterSlice = buildSlice({
   name: "counter.slice",
   initialState,
   reducers: {
@@ -15,8 +16,17 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    add: (state, { payload }: PayloadAction<number>) => {
+      state.value += payload;
+    },
   },
 });
 
-export const counterActions = counterSlice.actions;
-export const counterReducer = counterSlice.reducer;
+// export const counterActions = counterSlice.actions;
+// export const counterReducer = counterSlice.reducer;
+
+export const {
+  useActions: useCounterActions,
+  actions: counterActions,
+  reducer: counterReducer,
+} = counterSlice;

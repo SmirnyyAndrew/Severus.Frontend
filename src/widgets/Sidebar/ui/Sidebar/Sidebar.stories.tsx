@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react/*";
+import { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { Sidebar } from "./Sidebar";
@@ -6,6 +6,21 @@ import { Sidebar } from "./Sidebar";
 const meta: Meta<typeof Sidebar> = {
   title: "widgets/Sidebar",
   component: Sidebar,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <h1>Sidebar</h1>
+          <p>
+            Компонент боковой панели для отображения навигации, смены темы и
+            языка
+          </p>
+          <p>Для переключения вида отображения языка нажмите ПКМ</p>
+        </>
+      ),
+    },
+  },
 };
 
 export default meta;

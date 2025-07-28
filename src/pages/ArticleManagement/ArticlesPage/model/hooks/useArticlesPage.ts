@@ -5,19 +5,21 @@ import { useSelector } from "react-redux";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
+
 import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-} from "../..";
-import { getArticlesPageType } from "../selectors/articlesPageSelectors/articlesPageSelectors";
-import { getArticlesPageError } from "../selectors/getArticlesPageError/getArticlesPageError";
-import { getArticlesPageHasMore } from "../selectors/getArticlesPageHasMore/getArticlesPageHasMore";
-import { getArticlesPageInited } from "../selectors/getArticlesPageInited/getArticlesPageInited";
-import { getArticlesPageIsLoading } from "../selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
-import { getArticlesPageLimit } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
-import { getArticlesPagePage } from "../selectors/getArticlesPagePage/getArticlesPagePage";
-import { getArticlesPageView } from "../selectors/getArticlesPageView/getArticlesPageView";
+  useGetArticlesPageOrder,
+  useGetArticlesPageSearch,
+  useGetArticlesPageSort,
+  useGetArticlesPageType,
+} from "../selectors/articlesPageSelectors/articlesPageSelectors";
+
+import { useGetArticlesPageError } from "../selectors/getArticlesPageError/getArticlesPageError";
+import { useGetArticlesPageHasMore } from "../selectors/getArticlesPageHasMore/getArticlesPageHasMore";
+import { useGetArticlesPageInited } from "../selectors/getArticlesPageInited/getArticlesPageInited";
+import { useGetArticlesPageIsLoading } from "../selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
+import { useGetArticlesPageLimit } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
+import { useGetArticlesPagePage } from "../selectors/getArticlesPagePage/getArticlesPagePage";
+import { useGetArticlesPageView } from "../selectors/getArticlesPageView/getArticlesPageView";
 import {
   getArticles,
   useArticlesPageActions,
@@ -26,18 +28,18 @@ import { getArticlesListThunk } from "../thunks/getArticlesListThunk";
 
 export const useArticlesPage = () => {
   const dispatch = useAppDispatch();
-  const page = useSelector(getArticlesPagePage);
-  const limit = useSelector(getArticlesPageLimit);
-  const error = useSelector(getArticlesPageError);
-  const hasMore = useSelector(getArticlesPageHasMore);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const view = useSelector(getArticlesPageView);
+  const page = useGetArticlesPagePage();
+  const limit = useGetArticlesPageLimit();
+  const error = useGetArticlesPageError();
+  const hasMore = useGetArticlesPageHasMore();
+  const isLoading = useGetArticlesPageIsLoading();
+  const view = useGetArticlesPageView();
   const articles = useSelector(getArticles.selectAll);
-  const inited = useSelector(getArticlesPageInited);
-  const sort = useSelector(getArticlesPageSort);
-  const order = useSelector(getArticlesPageOrder);
-  const search = useSelector(getArticlesPageSearch);
-  const type = useSelector(getArticlesPageType);
+  const inited = useGetArticlesPageInited();
+  const sort = useGetArticlesPageSort();
+  const order = useGetArticlesPageOrder();
+  const search = useGetArticlesPageSearch();
+  const type = useGetArticlesPageType();
 
   const {
     initState: initStateDispatch,

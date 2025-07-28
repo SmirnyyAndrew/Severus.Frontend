@@ -1,4 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
+import { buildSelector } from "shared/lib/srote/buildSelector";
 
-export const getArticlesPageLimit = (state: StateSchema) =>
-  state.articles?.limit || 9;
+export const [useGetArticlesPageLimit, getArticlesPageLimitSelector] =
+  buildSelector((state: StateSchema) => state.articles?.limit || 9);

@@ -1,6 +1,9 @@
 import { ThunkExtraArgs } from "app/providers/StoreProvider/config/StateSchema";
 import { useLogin } from "./model/hooks/useLogin";
-import { getLoginState } from "./model/selectors/getLoginState/getLoginState";
+import {
+  getLoginStateSelector,
+  useGetLoginState,
+} from "./model/selectors/getLoginState/getLoginState";
 import {
   loginActions,
   loginReducer,
@@ -12,13 +15,14 @@ import { LoginFormAsync } from "./ui/LoginForm/LoginForm.async";
 import { LoginModal } from "./ui/LoginModal/LoginModal";
 
 export {
-  getLoginState,
+  getLoginStateSelector,
   loginActions,
   loginByUsernameThunk,
   LoginFormAsync as LoginForm,
   LoginModal,
   loginReducer,
   loginSlice,
+  useGetLoginState,
   useLogin,
 };
 

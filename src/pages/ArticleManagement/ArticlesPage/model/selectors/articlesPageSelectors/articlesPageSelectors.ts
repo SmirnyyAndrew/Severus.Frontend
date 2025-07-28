@@ -1,15 +1,20 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleType } from "entities/Article";
 import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
+import { buildSelector } from "shared/lib/srote/buildSelector";
 
-export const getArticlesPageOrder = (state: StateSchema) =>
-  state.articles?.order ?? "asc";
+export const [useGetArticlesPageOrder, getArticlesPageOrderSelector] =
+  buildSelector((state: StateSchema) => state.articles?.order ?? "asc");
 
-export const getArticlesPageSort = (state: StateSchema) =>
-  state.articles?.sort ?? ArticleSortField.CREATED;
+export const [useGetArticlesPageSort, getArticlesPageSortSelector] =
+  buildSelector(
+    (state: StateSchema) => state.articles?.sort ?? ArticleSortField.CREATED
+  );
 
-export const getArticlesPageSearch = (state: StateSchema) =>
-  state.articles?.search ?? "";
+export const [useGetArticlesPageSearch, getArticlesPageSearchSelector] =
+  buildSelector((state: StateSchema) => state.articles?.search ?? "");
 
-export const getArticlesPageType = (state: StateSchema) =>
-  state.articles?.type ?? ArticleType.ALL;
+export const [useGetArticlesPageType, getArticlesPageTypeSelector] =
+  buildSelector(
+    (state: StateSchema) => state.articles?.type ?? ArticleType.ALL
+  );

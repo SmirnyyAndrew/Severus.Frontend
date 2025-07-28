@@ -1,12 +1,11 @@
 import { useCallback } from "react";
-import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
-import { getLoginState } from "../selectors/getLoginState/getLoginState";
+import { useGetLoginState } from "../selectors/getLoginState/getLoginState";
 import { useLoginActions } from "../slice/loginSlice";
 import { loginByUsernameThunk } from "../thunks/loginByUsernameThunk/loginByUsernameThunk";
 
 export const useLogin = () => {
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const { username, password, isLoading, error } = useGetLoginState();
   const dispatch = useAppDispatch();
   const { setPassword: setPasswordDispatch, setUsername: setUsernameDispatch } =
     useLoginActions();

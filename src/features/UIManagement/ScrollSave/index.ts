@@ -1,7 +1,8 @@
 import { useScrollSave } from "./model/hooks/useScrollSave";
 import {
-  getPageScroll,
+  getPageScrollSelector,
   getScrollPositionByPath,
+  useGetPageScroll,
 } from "./model/selectors/scrollSaveSelectors";
 import {
   ScrollSaveActions,
@@ -13,10 +14,11 @@ import {
 } from "./model/types/ScrollSaveSchema";
 
 export {
-  getPageScroll,
+  getPageScrollSelector,
   getScrollPositionByPath,
   ScrollSaveActions,
   ScrollSaveReducer,
+  useGetPageScroll,
   useScrollSave,
 };
 

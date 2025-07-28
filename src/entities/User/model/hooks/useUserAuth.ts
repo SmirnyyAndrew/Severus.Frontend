@@ -1,18 +1,18 @@
 import {
-  getUserAuthData,
-  getUserInited,
-  getUserRoles,
   isUserAdmin,
   isUserManager,
+  useGetUserAuthData,
+  useGetUserInited,
+  useGetUserRoles,
 } from "entities/User";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useUserActions } from "../slice/userSlice";
 
 export const useUserAuth = () => {
-  const authData = useSelector(getUserAuthData);
-  const inited = useSelector(getUserInited);
-  const roles = useSelector(getUserRoles);
+  const authData = useGetUserAuthData();
+  const inited = useGetUserInited();
+  const roles = useGetUserRoles();
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
   const isAdminOrManager = isAdmin || isManager;

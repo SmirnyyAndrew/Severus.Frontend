@@ -2,14 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { Article, ArticleExample, ArticleType } from "entities/Article";
 import { addQueryParams } from "shared/lib/url/addQueryParams/addQueryParams";
+
 import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
+  getArticlesPageOrderSelector,
+  getArticlesPageSearchSelector,
+  getArticlesPageSortSelector,
+  getArticlesPageTypeSelector,
 } from "../selectors/articlesPageSelectors/articlesPageSelectors";
-import { getArticlesPageLimit } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
-import { getArticlesPagePage } from "../selectors/getArticlesPagePage/getArticlesPagePage";
+import { getArticlesPageLimitSelector } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
+import { getArticlesPagePageSelector } from "../selectors/getArticlesPagePage/getArticlesPagePage";
 
 interface getArticlesListThunkProps {
   replace?: boolean;
@@ -25,12 +26,12 @@ export const getArticlesListThunk = createAsyncThunk<
   const { replace } = props;
   const { extra, getState, rejectWithValue } = thunkApi;
 
-  const page = getArticlesPagePage(getState());
-  const limit = getArticlesPageLimit(getState());
-  const sort = getArticlesPageSort(getState());
-  const order = getArticlesPageOrder(getState());
-  const search = getArticlesPageSearch(getState());
-  const type = getArticlesPageType(getState());
+  const page = getArticlesPagePageSelector(getState());
+  const limit = getArticlesPageLimitSelector(getState());
+  const sort = getArticlesPageSortSelector(getState());
+  const order = getArticlesPageOrderSelector(getState());
+  const search = getArticlesPageSearchSelector(getState());
+  const type = getArticlesPageTypeSelector(getState());
 
   try {
     addQueryParams({ sort, order, search, type });

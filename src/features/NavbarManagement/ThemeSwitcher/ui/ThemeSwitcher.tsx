@@ -1,6 +1,6 @@
-import { useTheme } from "app/providers/ThemeProvider";
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { getNextTheme } from "./getNextTheme";

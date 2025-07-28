@@ -18,7 +18,7 @@ export const SidebarItemList: SidebarItemType[] = [
   {
     Icon: CreateArticleIcon,
     path: Routes.Article.Create(),
-    translationKey: "Создать статью",
+    translationKey: "nav_craeate_article_page",
     authOnly: true,
   },
 ];

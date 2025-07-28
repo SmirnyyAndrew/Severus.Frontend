@@ -1,4 +1,3 @@
-import { useTheme } from "app/providers/ThemeProvider";
 import { memo, ReactNode, useCallback, useEffect } from "react";
 import { DRAWER_ANIMATION_DURABILITY } from "shared/const/delays";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
@@ -7,6 +6,7 @@ import {
   useAnimationLibs,
 } from "shared/lib/components/AnimationProvider";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
+import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import * as cls from "./Drawer.module.scss";

@@ -1,10 +1,10 @@
+import { LangSwitcher } from "features/NavbarManagement/LangSwitcher";
+import { ThemeSwitcher } from "features/NavbarManagement/ThemeSwitcher";
 import { useMemo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Column } from "shared/ui/Stack";
-import { LangSwitcher } from "widgets/LangSwitcher";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { SidebarItemList } from "../Module/SidebarItemList";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import * as cls from "./Sidebar.module.scss";
@@ -49,7 +49,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={!hidden} />
+        <LangSwitcher isShort={!hidden} />
       </div>
     </aside>
   );

@@ -2,11 +2,12 @@ import { StateSchema } from "app/providers/StoreProvider";
 
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
-import { getScrollPositionByPath, ScrollSaveActions } from "../..";
+import { getScrollPositionByPath } from "../..";
+import { useScrollSaveActions } from "../slices/ScrollSaveSlice";
 
 export const useScrollSave = (path: string) => {
-  const dispatch = useAppDispatch();
+  const { setPageScrollPosition: setPageScrollPositionDispatch } =
+    useScrollSaveActions();
 
   const position = useSelector((state: StateSchema) =>
     getScrollPositionByPath(state, path)
@@ -14,9 +15,9 @@ export const useScrollSave = (path: string) => {
 
   const setPageScrollPosition = useCallback(
     (path: string, position: number) => {
-      dispatch(ScrollSaveActions.setPageScrollPosition({ path, position }));
+      setPageScrollPositionDispatch({ path, position });
     },
-    [dispatch]
+    []
   );
 
   return { position, setPageScrollPosition };

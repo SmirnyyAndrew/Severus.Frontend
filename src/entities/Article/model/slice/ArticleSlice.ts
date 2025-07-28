@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { getArticleByIdThunk } from "../thunks/getArticleByIdThunk/getArticleByIdThunk";
 import { Article } from "../types/ArticleManagement/Article";
 import { ArticleDetailsSchema } from "../types/ArticleManagement/ArticleDetailsSchema";
@@ -9,7 +10,7 @@ const initialState: ArticleDetailsSchema = {
   data: undefined,
 };
 
-export const ArticleSlice = createSlice({
+export const ArticleSlice = buildSlice({
   name: "article.slice",
   initialState,
   reducers: {},
@@ -34,5 +35,8 @@ export const ArticleSlice = createSlice({
   },
 });
 
-export const ArticleActions = ArticleSlice.actions;
-export const ArticleReducer = ArticleSlice.reducer;
+export const {
+  actions: ArticleActions,
+  reducer: ArticleReducer,
+  useActions: useArticleActions,
+} = ArticleSlice;

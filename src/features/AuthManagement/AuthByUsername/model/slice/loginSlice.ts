@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { loginByUsernameThunk } from "../thunks/loginByUsernameThunk/loginByUsernameThunk";
 import { LoginSchema } from "../types/LoginSchema";
 
@@ -8,7 +9,7 @@ const initialState: LoginSchema = {
   username: "",
 };
 
-export const loginSlice = createSlice({
+export const loginSlice = buildSlice({
   name: "login.slice",
   initialState,
   reducers: {
@@ -36,5 +37,8 @@ export const loginSlice = createSlice({
   },
 });
 
-export const loginActions = loginSlice.actions;
-export const loginReducer = loginSlice.reducer;
+export const {
+  actions: loginActions,
+  reducer: loginReducer,
+  useActions: useLoginActions,
+} = loginSlice;

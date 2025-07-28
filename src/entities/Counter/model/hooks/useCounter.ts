@@ -1,28 +1,26 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
 import { useCounterValue } from "../selectors/getCounterValue/getCounterValue";
 import { useCounterActions } from "../slice/counterSlice";
 
 export const useCounter = () => {
-  const dispatch = useDispatch();
   const value = useCounterValue();
   const {
-    add: counterAdd,
-    decrement: counterDecrement,
-    increment: counterIncrement,
+    add: addDispatch,
+    decrement: decrementDispatch,
+    increment: incrementDispatch,
   } = useCounterActions();
 
   const increment = useCallback(() => {
-    counterIncrement();
-  }, [dispatch]);
+    incrementDispatch();
+  }, []);
 
   const decrement = useCallback(() => {
-    counterDecrement();
-  }, [dispatch]);
+    decrementDispatch();
+  }, []);
 
   const addFive = useCallback(() => {
-    counterAdd(5);
-  }, [dispatch]);
+    addDispatch(5);
+  }, []);
 
   return { value, increment, decrement, addFive };
 };

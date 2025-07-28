@@ -1,7 +1,8 @@
-import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Article } from "entities/Article";
 import { getArticleRecommendationsThunk } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema";
 
 const articleRecommendationsAdapter = createEntityAdapter<Article>({
@@ -15,7 +16,7 @@ export const getArticleRecommendations =
       articleRecommendationsAdapter.getInitialState()
   );
 
-export const articleDetailsRecommendationsSlice = createSlice({
+export const articleDetailsRecommendationsSlice = buildSlice({
   name: "article.details.recommendations.slice",
   initialState:
     articleRecommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>(
@@ -44,7 +45,8 @@ export const articleDetailsRecommendationsSlice = createSlice({
   },
 });
 
-export const ArticleDetailsRecommendationsActions =
-  articleDetailsRecommendationsSlice.actions;
-export const ArticleDetailsRecommendationsReducer =
-  articleDetailsRecommendationsSlice.reducer;
+export const {
+  actions: ArticleDetailsRecommendationsActions,
+  reducer: ArticleDetailsRecommendationsReducer,
+  useActions: useArticleDetailsRecommendationsActions,
+} = articleDetailsRecommendationsSlice;

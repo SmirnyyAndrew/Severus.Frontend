@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { AddNewCommentFormSchema } from "../types/AddNewCommentFormSchema";
 
 const initialState: AddNewCommentFormSchema = {
@@ -6,7 +7,7 @@ const initialState: AddNewCommentFormSchema = {
   text: "",
 };
 
-export const AddNewCommentFormSlice = createSlice({
+export const AddNewCommentFormSlice = buildSlice({
   name: "add.new.comment.form.slice",
   initialState,
   reducers: {
@@ -16,5 +17,8 @@ export const AddNewCommentFormSlice = createSlice({
   },
 });
 
-export const AddNewCommentFormActions = AddNewCommentFormSlice.actions;
-export const AddNewCommentFormReducer = AddNewCommentFormSlice.reducer;
+export const {
+  actions: AddNewCommentFormActions,
+  reducer: AddNewCommentFormReducer,
+  useActions: useAddNewCommentFormActions,
+} = AddNewCommentFormSlice;

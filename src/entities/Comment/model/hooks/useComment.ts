@@ -1,15 +1,13 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux"; 
-import { CommentActions } from "../slice/CommentSlice";
+import { useCommentActions } from "../slice/CommentSlice";
 
 export const useComment = () => {
-  const dispatch = useDispatch();
   // const value = useSelector(getCommentValue);
+  const { action: actionDispatch } = useCommentActions();
 
   const action = useCallback(() => {
-    dispatch(CommentActions.action());
-  }, [dispatch]);
- 
+    actionDispatch();
+  }, []);
 
   return { action };
 };

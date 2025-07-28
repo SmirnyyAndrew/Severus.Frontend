@@ -2,26 +2,22 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { getLoginState } from "../selectors/getLoginState/getLoginState";
-import { loginActions } from "../slice/loginSlice";
+import { useLoginActions } from "../slice/loginSlice";
 import { loginByUsernameThunk } from "../thunks/loginByUsernameThunk/loginByUsernameThunk";
 
 export const useLogin = () => {
-  const dispatch = useAppDispatch();
   const { username, password, isLoading, error } = useSelector(getLoginState);
+  const dispatch = useAppDispatch();
+  const { setPassword: setPasswordDispatch, setUsername: setUsernameDispatch } =
+    useLoginActions();
 
-  const setUsername = useCallback(
-    (username: string) => {
-      dispatch(loginActions.setUsername(username));
-    },
-    [dispatch]
-  );
+  const setUsername = useCallback((username: string) => {
+    setUsernameDispatch(username);
+  }, []);
 
-  const setPassword = useCallback(
-    (password: string) => {
-      dispatch(loginActions.setPassword(password));
-    },
-    [dispatch]
-  );
+  const setPassword = useCallback((password: string) => {
+    setPasswordDispatch(password);
+  }, []);
 
   const loginByUsername = useCallback(async () => {
     return await dispatch(loginByUsernameThunk({ username, password }));

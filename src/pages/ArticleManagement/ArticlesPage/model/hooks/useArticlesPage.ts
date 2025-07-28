@@ -6,7 +6,6 @@ import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import {
-  ArticlesPageActions,
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
@@ -19,7 +18,10 @@ import { getArticlesPageIsLoading } from "../selectors/getArticlesPageIsLoading/
 import { getArticlesPageLimit } from "../selectors/getArticlesPageLimit/getArticlesPageLimit";
 import { getArticlesPagePage } from "../selectors/getArticlesPagePage/getArticlesPagePage";
 import { getArticlesPageView } from "../selectors/getArticlesPageView/getArticlesPageView";
-import { getArticles } from "../slice/ArticlesPageSlice";
+import {
+  getArticles,
+  useArticlesPageActions,
+} from "../slice/ArticlesPageSlice";
 import { getArticlesListThunk } from "../thunks/getArticlesListThunk";
 
 export const useArticlesPage = () => {
@@ -37,6 +39,17 @@ export const useArticlesPage = () => {
   const search = useSelector(getArticlesPageSearch);
   const type = useSelector(getArticlesPageType);
 
+  const {
+    initState: initStateDispatch,
+    setView: setViewDispatch,
+    setPage: setPageDispatch,
+    setOrder: setOrderDispatch,
+    setSearch: setSearchDispatch,
+    setSort: setSortDispatch,
+    setType: setTypeDispatch,
+    setHasMore: setHasMoreDispatch,
+  } = useArticlesPageActions();
+
   const getArticlesWithLimit = useCallback(
     async (replace?: boolean) => {
       await dispatch(getArticlesListThunk({ replace }));
@@ -53,7 +66,7 @@ export const useArticlesPage = () => {
         (keyFromLocalStorage as ArticleViewType) || ArticleViewType.GRID;
 
       if (keyFromLocalStorage) {
-        dispatch(ArticlesPageActions.setView(view));
+        setViewDispatch(view);
       }
 
       const orderFromUrl = searchParams.get("order") as SortOrder;
@@ -61,66 +74,45 @@ export const useArticlesPage = () => {
       const searchFromUrl = searchParams.get("search");
       const typeFromUrl = searchParams.get("type") as ArticleType;
 
-      if (orderFromUrl) dispatch(ArticlesPageActions.setOrder(orderFromUrl));
+      if (orderFromUrl) setOrderDispatch(orderFromUrl);
 
-      if (sortFromUrl) dispatch(ArticlesPageActions.setSort(sortFromUrl));
+      if (sortFromUrl) setSortDispatch(sortFromUrl);
 
-      if (searchFromUrl) dispatch(ArticlesPageActions.setSearch(searchFromUrl));
+      if (searchFromUrl) setSearchDispatch(searchFromUrl);
 
-      if (typeFromUrl) dispatch(ArticlesPageActions.setType(typeFromUrl));
+      if (typeFromUrl) setTypeDispatch(typeFromUrl);
     },
-    [dispatch, view]
+    [, view]
   );
 
-  const setArticlesViewType = useCallback(
-    (viewType: ArticleViewType) => {
-      localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
-      dispatch(ArticlesPageActions.setView(viewType));
-    },
-    [dispatch]
-  );
+  const setArticlesViewType = useCallback((viewType: ArticleViewType) => {
+    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
+    setViewDispatch(viewType);
+  }, []);
 
-  const setHasMore = useCallback(
-    (hasMore: boolean) => {
-      dispatch(ArticlesPageActions.setHasMore(hasMore));
-    },
-    [dispatch]
-  );
+  const setHasMore = useCallback((hasMore: boolean) => {
+    setHasMoreDispatch(hasMore);
+  }, []);
 
-  const setPage = useCallback(
-    (pageNum: number) => {
-      dispatch(ArticlesPageActions.setPage(pageNum));
-    },
-    [dispatch]
-  );
+  const setPage = useCallback((pageNum: number) => {
+    setPageDispatch(pageNum);
+  }, []);
 
-  const setSearch = useCallback(
-    (search: string) => {
-      dispatch(ArticlesPageActions.setSearch(search));
-    },
-    [dispatch]
-  );
+  const setSearch = useCallback((search: string) => {
+    setSearchDispatch(search);
+  }, []);
 
-  const setOrder = useCallback(
-    (order: SortOrder) => {
-      dispatch(ArticlesPageActions.setOrder(order));
-    },
-    [dispatch]
-  );
+  const setOrder = useCallback((order: SortOrder) => {
+    setOrderDispatch(order);
+  }, []);
 
-  const setSort = useCallback(
-    (sort: ArticleSortField) => {
-      dispatch(ArticlesPageActions.setSort(sort));
-    },
-    [dispatch]
-  );
+  const setSort = useCallback((sort: ArticleSortField) => {
+    setSortDispatch(sort);
+  }, []);
 
-  const setType = useCallback(
-    (type: ArticleType) => {
-      dispatch(ArticlesPageActions.setType(type));
-    },
-    [dispatch]
-  );
+  const setType = useCallback((type: ArticleType) => {
+    setTypeDispatch(type);
+  }, []);
 
   return {
     page,

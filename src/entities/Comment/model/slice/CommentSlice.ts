@@ -1,19 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { CommentSchema } from "../types/CommentSchema";
 
 const initialState: CommentSchema = {
   value: 0,
 };
 
-export const CommentSlice = createSlice({
+export const CommentSlice = buildSlice({
   name: "Comment.slice",
   initialState,
   reducers: {
     action: (state) => {
       state.value += 1;
-    }, 
+    },
   },
 });
 
-export const CommentActions = CommentSlice.actions;
-export const CommentReducer = CommentSlice.reducer;
+export const {
+  actions: CommentActions,
+  reducer: CommentReducer,
+  useActions: useCommentActions,
+} = CommentSlice;

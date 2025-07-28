@@ -1,11 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { ScrollSaveSchema } from "../types/ScrollSaveSchema";
 
 const initialState: ScrollSaveSchema = {
   scroll: {},
 };
 
-export const ScrollSaveSlice = createSlice({
+export const ScrollSaveSlice = buildSlice({
   name: "scroll.save.slice",
   initialState,
   reducers: {
@@ -18,5 +19,8 @@ export const ScrollSaveSlice = createSlice({
   },
 });
 
-export const ScrollSaveActions = ScrollSaveSlice.actions;
-export const ScrollSaveReducer = ScrollSaveSlice.reducer;
+export const {
+  actions: ScrollSaveActions,
+  reducer: ScrollSaveReducer,
+  useActions: useScrollSaveActions,
+} = ScrollSaveSlice;

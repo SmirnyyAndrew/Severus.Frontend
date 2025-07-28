@@ -14,7 +14,7 @@ export const useArticleDetailsComments = () => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsError = useSelector(getArticleCommentsError);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
 
   const getCommentsForArticle = useCallback(() => {
     dispatch(getCommentsByArticleIdThunk(id));

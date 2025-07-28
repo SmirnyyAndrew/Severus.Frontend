@@ -1,8 +1,4 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createEntityAdapter, PayloadAction } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Article, ArticleViewType } from "entities/Article";
 import { ArticleType } from "entities/Article/model/types/ArticleManagement/ArticleType";
@@ -12,6 +8,7 @@ import {
   LIST_ELEMENTS_COUNT,
 } from "shared/const/elementsCount";
 import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { getArticlesListThunk } from "../..";
 import { ArticlePageSchema as ArticlesPageSchema } from "../types/ArticlesPageSchema";
@@ -39,7 +36,7 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
   (state) => state.articles || articlesAdapter.getInitialState()
 );
 
-export const ArticlesPageSlice = createSlice({
+export const ArticlesPageSlice = buildSlice({
   name: "articles.page.slice",
   initialState:
     articlesAdapter.getInitialState<ArticlesPageSchema>(initialState),
@@ -116,5 +113,8 @@ export const ArticlesPageSlice = createSlice({
   },
 });
 
-export const ArticlesPageActions = ArticlesPageSlice.actions;
-export const ArticlesPageReducer = ArticlesPageSlice.reducer;
+export const {
+  actions: ArticlesPageActions,
+  reducer: ArticlesPageReducer,
+  useActions: useArticlesPageActions,
+} = ArticlesPageSlice;

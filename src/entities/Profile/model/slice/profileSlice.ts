@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { Profile, ProfileSchema } from "entities/Profile";
 import { getProfileDataThunk } from "features/ProfileManagement/GetProfileData";
 import { putProfileDataThunk } from "features/ProfileManagement/SetProfileData";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 
 const initialState: ProfileSchema = {
   profileData: undefined,
@@ -10,7 +11,7 @@ const initialState: ProfileSchema = {
   validateErrors: undefined,
 };
 
-export const profileSlice = createSlice({
+export const profileSlice = buildSlice({
   name: "profile.slice",
   initialState,
   reducers: {
@@ -88,5 +89,8 @@ export const profileSlice = createSlice({
   },
 });
 
-export const profileActions = profileSlice.actions;
-export const profileReducer = profileSlice.reducer;
+export const {
+  actions: profileActions,
+  reducer: profileReducer,
+  useActions: useProfileActions,
+} = profileSlice;

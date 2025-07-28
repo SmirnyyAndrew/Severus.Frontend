@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { getProfileData } from "../selectors/getProfileData/getProfileData";
 import { getProfileIsLoading } from "../selectors/getProfileIsLoading/getProfileIsLoading";
-import { profileActions } from "../slice/profileSlice";
+import { useProfileActions } from "../slice/profileSlice";
 import { Profile } from "../types/Profile";
 
 export const useProfile = () => {
@@ -16,6 +16,17 @@ export const useProfile = () => {
   const error = useSelector(getProfileError);
   const validationErrors = useSelector(getValidationErrors);
 
+  const {
+    setAge: setAgeDispatch,
+    setAvatar: setAvatarDispatch,
+    setGender: setGenderDispatch,
+    setLocation: setLocationDispatch,
+    setName: setNameDispatch,
+    setUsername: setUsernameDispatch,
+    setProfileData: setProfileDataDispatch,
+    setProfileDataUndefined: setProfileDataUndefinedDispatch,
+  } = useProfileActions();
+
   const getProfileDataFromDB = useCallback(
     (profileId: string | undefined) => {
       dispatch(getProfileDataThunk(profileId));
@@ -23,16 +34,13 @@ export const useProfile = () => {
     [dispatch]
   );
 
-  const setProfileData = useCallback(
-    (profile: Profile) => {
-      dispatch(profileActions.setProfileData(profile));
-    },
-    [dispatch]
-  );
+  const setProfileData = useCallback((profile: Profile) => {
+    setProfileDataDispatch(profile);
+  }, []);
 
   const setProfileDataUndefined = useCallback(() => {
-    dispatch(profileActions.setProfileDataUndefined());
-  }, [dispatch]);
+    setProfileDataUndefinedDispatch();
+  }, []);
 
   const putProfileDataIntoDB = useCallback(
     (profile: Profile) => {
@@ -42,47 +50,29 @@ export const useProfile = () => {
     },
     [dispatch]
   );
-  const setUsername = useCallback(
-    (username: string) => {
-      dispatch(profileActions.setUsername(username));
-    },
-    [dispatch]
-  );
+  const setUsername = useCallback((username: string) => {
+    setUsernameDispatch(username);
+  }, []);
 
-  const setName = useCallback(
-    (name: string) => {
-      dispatch(profileActions.setName(name));
-    },
-    [dispatch]
-  );
+  const setName = useCallback((name: string) => {
+    setNameDispatch(name);
+  }, []);
 
-  const setLocation = useCallback(
-    (location: string) => {
-      dispatch(profileActions.setLocation(location));
-    },
-    [dispatch]
-  );
+  const setLocation = useCallback((location: string) => {
+    setLocationDispatch(location);
+  }, []);
 
-  const setAge = useCallback(
-    (age: string) => {
-      dispatch(profileActions.setAge(age));
-    },
-    [dispatch]
-  );
+  const setAge = useCallback((age: string) => {
+    setAgeDispatch(age);
+  }, []);
 
-  const setGender = useCallback(
-    (gender: string) => {
-      dispatch(profileActions.setGender(gender));
-    },
-    [dispatch]
-  );
+  const setGender = useCallback((gender: string) => {
+    setGenderDispatch(gender);
+  }, []);
 
-  const setAvatar = useCallback(
-    (avatar: string) => {
-      dispatch(profileActions.setAvatar(avatar));
-    },
-    [dispatch]
-  );
+  const setAvatar = useCallback((avatar: string) => {
+    setAvatarDispatch(avatar);
+  }, []);
 
   return {
     profileData,

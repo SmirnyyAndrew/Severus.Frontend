@@ -1,13 +1,14 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { User, UserSchema } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 
 const initialState: UserSchema = {
   _inited: false,
   authData: undefined,
 };
 
-export const userSlice = createSlice({
+export const userSlice = buildSlice({
   name: "user.slice",
   initialState,
   reducers: {
@@ -30,5 +31,8 @@ export const userSlice = createSlice({
   },
 });
 
-export const userActions = userSlice.actions;
-export const userReducer = userSlice.reducer;
+export const {
+  actions: userActions,
+  reducer: userReducer,
+  useActions: useUserActions,
+} = userSlice;

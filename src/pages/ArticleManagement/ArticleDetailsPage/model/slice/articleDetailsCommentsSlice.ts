@@ -1,10 +1,7 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createEntityAdapter, PayloadAction } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Comment } from "entities/Comment";
+import { buildSlice } from "shared/lib/srote/buildSlice";
 import { getCommentsByArticleIdThunk } from "../services/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentsSchema";
 
@@ -17,7 +14,7 @@ export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
     state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 );
 
-export const articleDetailsCommentsSlice = createSlice({
+export const articleDetailsCommentsSlice = buildSlice({
   name: "article.details.comments.slice",
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
@@ -47,7 +44,8 @@ export const articleDetailsCommentsSlice = createSlice({
   },
 });
 
-export const articleDetailsCommentsActions =
-  articleDetailsCommentsSlice.actions;
-export const articleDetailsCommentsReducer =
-  articleDetailsCommentsSlice.reducer;
+export const {
+  actions: articleDetailsCommentsActions,
+  reducer: articleDetailsCommentsReducer,
+  useActions: useArticleDetailsCommentsActions,
+} = articleDetailsCommentsSlice;

@@ -7,7 +7,7 @@ export const addNewCommentForArticle = createAsyncThunk<
   string,
   ThunkConfig<string>
 >("articleDetails/AddNewCommentForArticle", async (text, thunkApi) => {
-  if (__IS_STORYBOOK__) return CommentExample;
+  if (__IS_STORYBOOK__) return CommentExample();
 
   const { extra, rejectWithValue, getState } = thunkApi;
   const articleId = getState().article?.data?.id;

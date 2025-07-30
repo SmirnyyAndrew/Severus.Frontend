@@ -10,18 +10,20 @@ describe("putProfileDataThunk", () => {
 
     const state: DeepPartial<StateSchema> = {
       profile: {
-        profileData: ProfileExample,
+        profileData: ProfileExample(),
       },
     };
 
     thunk.getState.mockReturnValue(state as StateSchema);
 
-    const data = ProfileExample;
+    const data = ProfileExample();
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
+    const profileExample = ProfileExample();
+
     const result = await thunk.callThunk({
-      profile: ProfileExample,
-      profileId: ProfileExample.id,
+      profile: profileExample,
+      profileId: profileExample.id,
     });
 
     expect(thunk.api.put).toHaveBeenCalled();

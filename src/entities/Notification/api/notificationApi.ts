@@ -18,6 +18,10 @@ const notificationApi = rtkApi.injectEndpoints({
 const useGetNotificationsQuery = notificationApi.useGetNotificationsQuery;
 
 export const useNotifications = buildMockRtkQuery(
-  [NotificationExample(), NotificationExample(), NotificationExample()],
+  [
+    NotificationExample(true),
+    NotificationExample(true),
+    NotificationExample(true),
+  ],
   useGetNotificationsQuery
 );

@@ -1,5 +1,8 @@
 import { useArticle } from "./model/hooks/useArticle";
-import { getArticle } from "./model/selectors/getArticle/getArticle";
+import {
+  getArticleSelector,
+  useGetArticle,
+} from "./model/selectors/getArticle/getArticle";
 import {
   ArticleActions,
   ArticleReducer,
@@ -23,9 +26,10 @@ export {
   ArticleSlice,
   ArticleType,
   ArticleViewType,
-  getArticle,
   getArticleByIdThunk,
+  getArticleSelector,
   useArticle,
+  useGetArticle,
 };
 
 export type { Article, ArticleBlock };

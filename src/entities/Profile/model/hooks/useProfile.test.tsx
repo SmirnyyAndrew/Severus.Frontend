@@ -21,7 +21,7 @@ describe("useProfile", () => {
           profile: {
             isLoading: false,
             error: undefined,
-            profileData: ProfileExample,
+            profileData: ProfileExample(),
           },
         },
       });
@@ -29,7 +29,7 @@ describe("useProfile", () => {
 
   test("setProfileData", () => {
     const { result } = renderHook(() => useProfile(), { wrapper });
-    const testProfile = ProfileExample;
+    const testProfile = ProfileExample();
 
     act(() => {
       result.current.setProfileData(testProfile);

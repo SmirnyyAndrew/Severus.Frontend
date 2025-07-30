@@ -7,7 +7,8 @@ export const getCommentsByArticleIdThunk = createAsyncThunk<
   string | undefined,
   ThunkConfig<string>
 >("article/getCommentsByArticleIdThunk", async (articleId, thunkApi) => {
-  if (__IS_STORYBOOK__) return [CommentExample, CommentExample, CommentExample];
+  if (__IS_STORYBOOK__)
+    return [CommentExample(), CommentExample(), CommentExample()];
 
   const { extra, rejectWithValue } = thunkApi;
 

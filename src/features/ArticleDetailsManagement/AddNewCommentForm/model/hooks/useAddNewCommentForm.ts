@@ -1,14 +1,14 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import {
-  getAddNewCommentFormError,
   getAddNewCommentFormText,
+  useGetAddNewCommentFormError,
 } from "../selectors/addNewCommentFormSelectors/addNewCommentFormSelectors";
 import { useAddNewCommentFormActions } from "../slice/AddNewCommentFormSlice";
 
 export const useAddNewCommentForm = () => {
   const text = useSelector(getAddNewCommentFormText);
-  const error = useSelector(getAddNewCommentFormError);
+  const error = useGetAddNewCommentFormError();
   const { setText: setTextDispatch } = useAddNewCommentFormActions();
 
   const setText = useCallback((text: string) => {

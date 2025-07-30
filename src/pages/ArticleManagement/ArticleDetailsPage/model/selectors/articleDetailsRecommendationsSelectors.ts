@@ -1,7 +1,16 @@
 import { StateSchema } from "app/providers/StoreProvider";
+import { buildSelector } from "shared/lib/srote/buildSelector";
 
-export const getArticleRecommendationsError = (state: StateSchema) =>
-  state.articleDetailsPage?.comments?.error;
+export const [
+  useGetArticleRecommendationsError,
+  getArticleRecommendationsErrorSelector,
+] = buildSelector(
+  (state: StateSchema) => state.articleDetailsPage?.comments?.error
+);
 
-export const getArticleRecommendationsIsLoading = (state: StateSchema) =>
-  state.articleDetailsPage?.comments?.isLoading ?? false;
+export const [
+  useGetArticleRecommendationsIsLoading,
+  getArticleRecommendationsIsLoadingSelector,
+] = buildSelector(
+  (state: StateSchema) => state.articleDetailsPage?.comments?.isLoading ?? false
+);

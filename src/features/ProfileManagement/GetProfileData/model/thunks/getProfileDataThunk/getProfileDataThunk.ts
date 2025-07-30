@@ -7,7 +7,7 @@ export const getProfileDataThunk = createAsyncThunk<
   string | undefined,
   ThunkConfig<string>
 >("profile/getProfileDataThunk", async (profileId, thunkApi) => {
-  if (__IS_STORYBOOK__) return ProfileExample;
+  if (__IS_STORYBOOK__) return ProfileExample();
 
   const { extra, rejectWithValue } = thunkApi;
 

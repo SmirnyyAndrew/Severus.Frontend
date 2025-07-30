@@ -1,20 +1,19 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
+
+import { getArticleRecommendationsThunk } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
 import {
-  getArticleRecommendationsError,
-  getArticleRecommendationsIsLoading,
-  getArticleRecommendationsThunk,
-} from "../..";
+  useGetArticleRecommendationsError,
+  useGetArticleRecommendationsIsLoading,
+} from "../selectors/articleDetailsRecommendationsSelectors";
 import { getArticleRecommendations } from "../slice/articleDetailsRecommendationsSlice";
 
 export const useArticleDetailsRecommendations = () => {
   const dispatch = useAppDispatch();
   const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsError = useSelector(getArticleRecommendationsError);
-  const recommendationsIsLoading = useSelector(
-    getArticleRecommendationsIsLoading
-  );
+  const recommendationsError = useGetArticleRecommendationsError();
+  const recommendationsIsLoading = useGetArticleRecommendationsIsLoading();
 
   const getRecommendations = useCallback(() => {
     dispatch(getArticleRecommendationsThunk());

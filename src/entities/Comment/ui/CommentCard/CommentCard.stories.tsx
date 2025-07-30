@@ -8,7 +8,7 @@ import { CommentCard } from "./CommentCard";
 const meta: Meta<typeof CommentCard> = {
   title: "entities/Comment/CommentCard",
   component: CommentCard,
-  args: { comment: CommentExample, isLoading: false },
+  args: { comment: CommentExample(), isLoading: false },
   argTypes: {
     isLoading: {
       control: "boolean",

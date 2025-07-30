@@ -2,9 +2,18 @@ import { getArticleRecommendationsThunk } from "../../../features/ArticleDetails
 import { useArticleDetailsComments } from "./model/hooks/useArticleDetailsComments";
 import { useArticleDetailsRecommendations } from "./model/hooks/useArticleDetailsRecommendations";
 import {
-  getArticleRecommendationsError,
-  getArticleRecommendationsIsLoading,
+  getArticleRecommendationsErrorSelector,
+  getArticleRecommendationsIsLoadingSelector,
+  useGetArticleRecommendationsError,
+  useGetArticleRecommendationsIsLoading,
 } from "./model/selectors/articleDetailsRecommendationsSelectors";
+import {
+  getArticleCommentsErrorSelector,
+  getArticleCommentsIsLoadingSelector,
+  useGetArticleCommentsError,
+  useGetArticleCommentsIsLoading,
+} from "./model/selectors/articleDetailsSelectors";
+
 import { addNewCommentForArticle } from "./model/services/addNewCommentForArticle/addNewCommentForArticle";
 import { getCommentsByArticleIdThunk } from "./model/services/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import { ArticleDetailsPageReducers } from "./model/slice";
@@ -18,13 +27,19 @@ export {
   addNewCommentForArticle,
   ArticleDetailsPageAsync as ArticleDetailsPage,
   ArticleDetailsPageReducers,
+  getArticleCommentsErrorSelector,
+  getArticleCommentsIsLoadingSelector,
   getArticleRecommendations,
-  getArticleRecommendationsError,
-  getArticleRecommendationsIsLoading,
+  getArticleRecommendationsErrorSelector,
+  getArticleRecommendationsIsLoadingSelector,
   getArticleRecommendationsThunk,
   getCommentsByArticleIdThunk,
   useArticleDetailsComments,
   useArticleDetailsRecommendations,
+  useGetArticleCommentsError,
+  useGetArticleCommentsIsLoading,
+  useGetArticleRecommendationsError,
+  useGetArticleRecommendationsIsLoading,
 };
 
 export type {

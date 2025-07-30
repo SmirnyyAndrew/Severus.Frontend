@@ -4,7 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Column } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import { TextThemes } from "shared/ui/Text/model/types/TextThemes";
-import { useGetArticleRecommendationsQuery } from "../../model/api/recommendationsApi";
+import { useGetArticleRecommendations } from "../../model/api/recommendationsApi";
 import * as cls from "./ArticleDetailsRecommenations.module.scss";
 
 interface ArticleDetailsRecommenationsProps {
@@ -20,7 +20,7 @@ export const ArticleDetailsRecommenations = (
     isError,
     isLoading,
     data: recommendations = [],
-  } = useGetArticleRecommendationsQuery(3);
+  } = useGetArticleRecommendations(3);
 
   if (isError)
     return (

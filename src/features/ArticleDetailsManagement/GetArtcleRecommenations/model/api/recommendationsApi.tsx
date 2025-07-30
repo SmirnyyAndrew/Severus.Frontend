@@ -1,5 +1,6 @@
-import { Article } from "entities/Article";
+import { Article, ArticleExample } from "entities/Article";
 import { rtkApi } from "shared/api/rtkApi";
+import { buildMockRtkQuery } from "shared/lib/mockRtkQuery/mockRtkQuery";
 
 const recommendationsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -16,4 +17,10 @@ const recommendationsApi = rtkApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetArticleRecommendationsQuery } = recommendationsApi;
+const useGetArticleRecommendationsQuery =
+  recommendationsApi.useGetArticleRecommendationsQuery;
+
+export const useGetArticleRecommendations = buildMockRtkQuery(
+  [ArticleExample, ArticleExample, ArticleExample],
+  useGetArticleRecommendationsQuery
+);

@@ -5,7 +5,7 @@ import { getProfileDataThunk } from "./getProfileDataThunk";
 describe("getProfileDataThunk", () => {
   test("get request", async () => {
     const thunk = new TestAsyncThunk(getProfileDataThunk);
-    const data = ProfileExample;
+    const data = ProfileExample();
 
     // ProfileDataExample - что возвращает moc-get запрос
     thunk.api.get.mockReturnValue(Promise.resolve({ data: [data] }));

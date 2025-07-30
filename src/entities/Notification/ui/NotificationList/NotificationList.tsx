@@ -1,4 +1,5 @@
 import { useNotifications } from "entities/Notification/api/notificationApi";
+import { Notification } from "entities/Notification/model/types/Notification";
 import { NOTIFICATION_POOLING_INTERVAL } from "shared/const/poolings";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Skeleton } from "shared/ui/Skeleton";
@@ -41,7 +42,7 @@ export const NotificationList = (props: NotificationListProps) => {
       maxWidth
       className={classNames(cls.NotificationList, {}, [className])}
     >
-      {notifications?.map((notification) => (
+      {notifications?.map((notification: Notification) => (
         <NotificationItem key={notification.id} item={notification} />
       ))}
     </Column>

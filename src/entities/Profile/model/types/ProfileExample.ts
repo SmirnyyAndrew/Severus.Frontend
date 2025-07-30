@@ -1,12 +1,15 @@
+import { faker } from "@faker-js/faker";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { Profile } from "./Profile";
 
-export const ProfileExample: Profile = {
-  id: "1",
-  username: "username",
-  name: "name",
-  location: "location",
-  age: "22",
-  gender: "gender",
-  avatar: USER_AVATAR_ERROR,
-};
+export function ProfileExample(): Profile {
+  return {
+    id: faker.string.uuid(),
+    username: faker.word.noun(),
+    name: faker.word.noun(),
+    location: faker.word.words(),
+    age: faker.number.int({ min: 18, max: 36 }).toString(),
+    gender: "male",
+    avatar: USER_AVATAR_ERROR,
+  };
+}

@@ -6,7 +6,6 @@ import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 import { getValidationErrors } from "./model/selectors/getValidationErrors/getValidationErrors";
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
 import { Profile, ValidateProfileError } from "./model/types/Profile";
-import { ProfileDataExample } from "./model/types/ProfileDataExample";
 import { ProfileExample } from "./model/types/ProfileExample";
 import { ProfileSchema } from "./model/types/ProfileSchema";
 import { ProfileCard } from "./ui/ProfileCard/ProfileCard";
@@ -19,7 +18,6 @@ export {
   getValidationErrors,
   profileActions,
   ProfileCard,
-  ProfileDataExample,
   ProfileExample,
   profileReducer,
   useProfile,

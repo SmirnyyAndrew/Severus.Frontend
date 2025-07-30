@@ -1,6 +1,8 @@
 import { rtkApi } from "shared/api/rtkApi";
+import { buildMockRtkQuery } from "shared/lib/mockRtkQuery/mockRtkQuery";
 import { StarRate } from "shared/ui/StarRating/StarRating";
 import { ArticleRating } from "../model/types/ArticleRating";
+import { ArticleRatingExample } from "../model/types/ArticleRatingExample";
 
 interface GetArticleRatingArg {
   userId: string;
@@ -36,5 +38,10 @@ const articleRatingApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const GetArticleRating = articleRatingApi.useGetRatingQuery;
+const GetArticleRatingQuery = articleRatingApi.useGetRatingQuery;
 export const PostArticleRating = articleRatingApi.useRateArticleMutation;
+
+export const GetArticleRating = buildMockRtkQuery(
+  [ArticleRatingExample(), ArticleRatingExample(), ArticleRatingExample()],
+  GetArticleRatingQuery
+);

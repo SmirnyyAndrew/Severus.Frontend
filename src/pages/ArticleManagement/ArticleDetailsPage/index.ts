@@ -17,7 +17,10 @@ import {
 import { addNewCommentForArticle } from "./model/services/addNewCommentForArticle/addNewCommentForArticle";
 import { getCommentsByArticleIdThunk } from "./model/services/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import { ArticleDetailsPageReducers } from "./model/slice";
-import { getArticleRecommendations } from "./model/slice/articleDetailsRecommendationsSlice";
+import {
+  articleRecommendationsAdapter,
+  getArticleRecommendations,
+} from "./model/slice/articleDetailsRecommendationsSlice";
 import { ArticleDetailsPageSchema } from "./model/types";
 import { ArticleDetailsCommentsSchema } from "./model/types/ArticleDetailsCommentsSchema";
 import { ArticleDetailsRecommendationsSchema } from "./model/types/ArticleDetailsRecommendationsSchema";
@@ -27,6 +30,7 @@ export {
   addNewCommentForArticle,
   ArticleDetailsPageAsync as ArticleDetailsPage,
   ArticleDetailsPageReducers,
+  articleRecommendationsAdapter,
   getArticleCommentsErrorSelector,
   getArticleCommentsIsLoadingSelector,
   getArticleRecommendations,

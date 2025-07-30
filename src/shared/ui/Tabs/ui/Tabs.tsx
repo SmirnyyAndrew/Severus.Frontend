@@ -14,10 +14,17 @@ interface TabsProps<T extends string> {
   value: T;
   onTabClick: (newTab: TabItem<T>) => void;
   className?: string;
+  "data-testid"?: string;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-  const { className, tabs, value, onTabClick } = props;
+  const {
+    className,
+    tabs,
+    value,
+    onTabClick,
+    "data-testid": testId = Tabs.name,
+  } = props;
 
   const clickHandle = useCallback(
     (tab: TabItem<T>) => () => {
@@ -27,7 +34,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
   );
 
   return (
-    <div className={classNames(cls.Tabs, {}, [className])}>
+    <div data-testid={testId} className={classNames(cls.Tabs, {}, [className])}>
       {tabs.map((tab) => (
         <Card
           className={cls.tab}

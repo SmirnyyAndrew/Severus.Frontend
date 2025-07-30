@@ -4,11 +4,16 @@ import * as cls from "./PageLoader.module.scss";
 
 interface PageLoaderProps {
   className?: string;
+  "data-testid"?: string;
 }
 
-export const PageLoader = ({ className }: PageLoaderProps) => {
+export const PageLoader = (props: PageLoaderProps) => {
+  const { className, "data-testid": testId = PageLoader.name } = props;
   return (
-    <div className={classNames(cls.PageLoader, {}, [className])}>
+    <div
+      data-testid={testId}
+      className={classNames(cls.PageLoader, {}, [className])}
+    >
       <Loader />
     </div>
   );

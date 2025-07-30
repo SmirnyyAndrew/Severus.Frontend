@@ -13,6 +13,7 @@ interface PageProps {
   children: ReactNode;
   saveScrollPosition?: boolean;
   onScrollEnd?: () => void;
+  "data-testid"?: string;
 }
 
 export const Page = memo((props: PageProps) => {
@@ -21,6 +22,7 @@ export const Page = memo((props: PageProps) => {
     children,
     saveScrollPosition = false,
     onScrollEnd,
+    "data-testid": testId = Page.name,
   } = props;
 
   const { pathname } = useLocation();
@@ -52,6 +54,7 @@ export const Page = memo((props: PageProps) => {
 
   return (
     <section
+      data-testid={testId}
       ref={wrapperRef}
       onScroll={onScroll}
       className={classNames(cls.Page, {}, [className])}

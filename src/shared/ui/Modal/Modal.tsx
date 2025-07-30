@@ -13,10 +13,18 @@ interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
+  "data-testid"?: string;
 }
 
 export const Modal = (props: ModalProps) => {
-  const { className, children, isOpen, onClose, lazy } = props;
+  const {
+    className,
+    children,
+    isOpen,
+    onClose,
+    lazy,
+    "data-testid": testId = Modal.name,
+  } = props;
   const { isClosing, isMounted, close } = useModal({
     animationDelay: MODAL_ANIMATION_DURABILITY,
     isOpen,
@@ -32,7 +40,7 @@ export const Modal = (props: ModalProps) => {
   if (lazy && !isMounted) return null;
 
   return (
-    <Portal>
+    <Portal data-testid={testId}>
       <div
         className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
       >

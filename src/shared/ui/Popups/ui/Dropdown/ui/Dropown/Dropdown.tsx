@@ -20,10 +20,17 @@ export interface DropdownProps {
   items: DropdownItem[];
   trigger?: ReactNode;
   direction?: DropdownDirections;
+  "data-testid"?: string;
 }
 
 export const Dropdown = (props: DropdownProps) => {
-  const { className, items, trigger, direction = "bottom right" } = props;
+  const {
+    className,
+    items,
+    trigger,
+    direction = "bottom right",
+    "data-testid": testId = Dropdown.name,
+  } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];
 
@@ -41,7 +48,11 @@ export const Dropdown = (props: DropdownProps) => {
   };
 
   return (
-    <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
+    <Menu
+      data-testid={testId}
+      as="div"
+      className={classNames(cls.Dropdown, {}, [className])}
+    >
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items
         className={classNames(cls.menu, {}, [popupCls[dropdownDirection]])}

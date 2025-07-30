@@ -8,13 +8,18 @@ import { Row } from "shared/ui/Stack";
 interface UnAuthNavbarProps {
   className?: string;
   onShowModal: () => void;
+  "data-testid"?: string;
 }
 
 export const UnAuthNavbar = (props: UnAuthNavbarProps) => {
-  const { className, onShowModal } = props;
+  const {
+    className,
+    onShowModal,
+    "data-testid": testId = UnAuthNavbar.name,
+  } = props;
 
   return (
-    <header className={className}>
+    <header data-testid={testId} className={className}>
       <Row alignItems="center" maxWidth justifyContents="center" gap="64">
         <AppLink to={Routes.MainPages.Main()} linkTheme={AppLinkTheme.PRIMARY}>
           <>{t("nav_main_page")}</>

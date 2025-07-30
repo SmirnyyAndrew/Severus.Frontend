@@ -17,6 +17,7 @@ interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 export const Flex = (props: FlexProps) => {
   const {
@@ -29,6 +30,7 @@ export const Flex = (props: FlexProps) => {
     maxWidth = true,
     maxHeight = false,
     onClick,
+    "data-testid": testId = Flex.name,
     ...otherProps
   } = props;
 
@@ -39,6 +41,7 @@ export const Flex = (props: FlexProps) => {
 
   return (
     <div
+      data-testid={testId}
       onClick={onClick}
       className={classNames(cls.Flex, mods, [
         className,

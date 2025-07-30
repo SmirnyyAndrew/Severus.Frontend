@@ -11,15 +11,22 @@ interface PopoverProps {
   trigger?: ReactNode;
   direction?: DropdownDirections;
   children: ReactNode;
+  "data-testid"?: string;
 }
 
 export const Popover = (props: PopoverProps) => {
-  const { className, trigger, children, direction = "bottom right" } = props;
+  const {
+    className,
+    trigger,
+    children,
+    direction = "bottom right",
+    "data-testid": testId = Popover.name,
+  } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];
 
   return (
-    <HPopover className={classNames(cls.Popover, {})}>
+    <HPopover data-testid={testId} className={classNames(cls.Popover, {})}>
       <HPopover.Button
         className={classNames(popupCls.trigger, {}, [
           popupCls[dropdownDirection],

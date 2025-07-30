@@ -14,20 +14,23 @@ interface AppLinkProps extends LinkProps {
   linkTheme?: AppLinkTheme;
   children?: ReactNode;
   target?: HTMLAttributeAnchorTarget;
+  "data-testid"?: string;
 }
 
 export const AppLink = (props: AppLinkProps) => {
   const {
     className,
-    linkTheme = AppLinkTheme.PRIMARY,
     children,
     to,
+    "data-testid": testId = AppLink.name,
+    linkTheme = AppLinkTheme.PRIMARY,
     target = "_top",
     ...otherProps
   } = props;
 
   return (
     <Link
+      data-testid={testId}
       to={to}
       className={classNames("", {}, [className, cls[linkTheme]])}
       target={target}

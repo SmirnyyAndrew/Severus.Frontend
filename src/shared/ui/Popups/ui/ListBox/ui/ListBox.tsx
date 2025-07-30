@@ -20,6 +20,7 @@ interface ListBoxProps {
   readonly?: boolean;
   direction?: DropdownDirections;
   label?: string;
+  "data-testid"?: string;
 }
 
 export const ListBox = (props: ListBoxProps) => {
@@ -32,12 +33,13 @@ export const ListBox = (props: ListBoxProps) => {
     readonly = false,
     defaultValue = "Выберите значение",
     direction = "bottom right",
+    "data-testid": testId = ListBox.name,
   } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];
 
   return (
-    <Row gap="8">
+    <Row data-testid={testId} gap="8">
       {label && <Text size={TextSize.XS} text={label} />}
 
       <HListBox

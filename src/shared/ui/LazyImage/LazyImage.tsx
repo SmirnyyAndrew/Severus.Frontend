@@ -11,6 +11,7 @@ interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
   errorFallback?: ReactElement;
+  "data-testid"?: string;
 }
 
 export const LazyImage = memo((props: LazyImageProps) => {
@@ -20,6 +21,7 @@ export const LazyImage = memo((props: LazyImageProps) => {
     fallback,
     errorFallback,
     alt = "image",
+    "data-testid": testId = LazyImage.name,
     ...otherProps
   } = props;
   const [isLoading, setIsLoading] = useState(true);
@@ -45,5 +47,13 @@ export const LazyImage = memo((props: LazyImageProps) => {
     return errorFallback;
   }
 
-  return <img className={className} alt={alt} src={src} {...otherProps} />;
+  return (
+    <img
+      data-testid={testId}
+      className={className}
+      alt={alt}
+      src={src}
+      {...otherProps}
+    />
+  );
 });

@@ -6,9 +6,11 @@ import * as cls from "./PageError.module.scss";
 
 interface PageErrorProps {
   className?: string;
+  "data-testid"?: string;
 }
 
-export const PageError = memo(({ className }: PageErrorProps) => {
+export const PageError = memo((props: PageErrorProps) => {
+  const { className, "data-testid": testId = PageError.name } = props;
   const { t } = useTranslation();
 
   const reloadPage = () => {
@@ -16,7 +18,10 @@ export const PageError = memo(({ className }: PageErrorProps) => {
   };
 
   return (
-    <div className={classNames(cls.PageError, {}, [className])}>
+    <div
+      data-testid={testId}
+      className={classNames(cls.PageError, {}, [className])}
+    >
       <h1>{t("page_error")}</h1>
       <Button onClick={reloadPage}>{t("update_page")}</Button>
     </div>

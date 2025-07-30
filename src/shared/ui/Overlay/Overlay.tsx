@@ -4,13 +4,15 @@ import * as cls from "./Overlay.module.scss";
 interface OverlayProps {
   className?: string;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 
 export const Overlay = (props: OverlayProps) => {
-  const { className, onClick } = props;
+  const { className, onClick, "data-testid": testId = Overlay.name } = props;
 
   return (
     <div
+      data-testid={testId}
       onClick={onClick}
       className={classNames(cls.Overlay, {}, [className])}
     />

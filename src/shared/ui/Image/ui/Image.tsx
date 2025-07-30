@@ -7,13 +7,17 @@ interface ImageProps {
   className?: string;
   src: string;
   title?: string;
+  "data-testid"?: string;
 }
 
 export const Image = (props: ImageProps) => {
-  const { className, src, title } = props;
+  const { className, src, title, "data-testid": testId = Image.name } = props;
 
   return (
-    <div className={classNames(cls.Image, {}, [className])}>
+    <div
+      data-testid={testId}
+      className={classNames(cls.Image, {}, [className])}
+    >
       <img
         src={src}
         onError={(e) => (e.currentTarget.src = ARTICLE_IMAGE_ERROR)}

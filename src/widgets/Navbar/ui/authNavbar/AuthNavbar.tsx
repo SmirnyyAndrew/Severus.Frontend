@@ -12,10 +12,15 @@ import { Row } from "shared/ui/Stack";
 interface AuthNavbarProps {
   className?: string;
   onLogout: () => void;
+  "data-testid"?: string;
 }
 
 export const AuthNavbar = (props: AuthNavbarProps) => {
-  const { className, onLogout } = props;
+  const {
+    className,
+    onLogout,
+    "data-testid": testId = AuthNavbar.name,
+  } = props;
   const { profileData } = useProfile();
   const { authData } = useUserAuth();
   const { isAdminOrManager } = useUserAuth();
@@ -48,7 +53,7 @@ export const AuthNavbar = (props: AuthNavbarProps) => {
   );
 
   return (
-    <header className={className}>
+    <header data-testid={testId} className={className}>
       <Row alignItems="center" maxWidth justifyContents="center" gap="64">
         <AppLink to={Routes.MainPages.Main()} linkTheme={AppLinkTheme.PRIMARY}>
           <>{t("nav_main_page")}</>

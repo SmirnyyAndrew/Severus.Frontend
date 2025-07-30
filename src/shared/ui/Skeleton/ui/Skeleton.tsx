@@ -7,10 +7,17 @@ interface SkeletonProps {
   height?: string | number;
   width?: string | number;
   border?: string;
+  "data-testid"?: string;
 }
 
 export const Skeleton = (props: SkeletonProps) => {
-  const { className, height, width, border } = props;
+  const {
+    className,
+    height,
+    width,
+    border,
+    "data-testid": testId = Skeleton.name,
+  } = props;
 
   const styles: CSSProperties = {
     width,
@@ -20,6 +27,7 @@ export const Skeleton = (props: SkeletonProps) => {
 
   return (
     <div
+      data-testid={testId}
       style={styles}
       className={classNames(cls.Skeleton, {}, [className])}
     ></div>

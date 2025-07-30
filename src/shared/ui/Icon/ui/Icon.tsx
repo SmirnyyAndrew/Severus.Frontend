@@ -23,6 +23,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   text?: string;
   iconFill?: IconFills;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 
 export const Icon = (props: IconProps) => {
@@ -34,6 +35,7 @@ export const Icon = (props: IconProps) => {
     textSize = TextSize.S,
     iconSize = IconSize.S,
     iconFill = IconFills.NONE,
+    "data-testid": testId = Icon.name,
     ...otherProps
   } = props;
 
@@ -45,7 +47,7 @@ export const Icon = (props: IconProps) => {
   };
 
   return (
-    <div className={cls.IconWrapper} onClick={onClick}>
+    <div data-testid={testId} className={cls.IconWrapper} onClick={onClick}>
       {text && <Text text={text} size={textSize} />}
       <Svg
         className={classNames(cls[fillStyles[iconFill]], {}, [

@@ -12,6 +12,7 @@ interface InputProps extends HTMLInputProps {
   value?: string;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+  "data-testid"?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -22,6 +23,7 @@ export const Input = memo((props: InputProps) => {
     onChange,
     placeholder,
     autofocus,
+    "data-testid": testId = Input.name,
     ...otherProps
   } = props;
 
@@ -29,7 +31,10 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div
+      data-testid={testId}
+      className={classNames(cls.InputWrapper, {}, [className])}
+    >
       {placeholder && (
         <div className={cls.placeholder}>{`${placeholder}>`}</div>
       )}

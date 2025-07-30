@@ -16,9 +16,11 @@ import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
 
 interface NavbarProps {
   className?: string;
+  "data-testid"?: string;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
+export const Navbar = memo((props: NavbarProps) => {
+  const { className, "data-testid": testId = Navbar.name } = props;
   const { authData, logout } = useUserAuth();
   const { profileData: profile, getProfileDataFromDB } = useProfile();
   const { setProfileDataUndefined } = useProfile();
@@ -54,14 +56,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <DynamicModuleLoader reducers={reducers}>
-        <AuthNavbar className={cls.navbar} onLogout={onLogout} />
+        <AuthNavbar
+          data-testid={testId}
+          className={cls.navbar}
+          onLogout={onLogout}
+        />
       </DynamicModuleLoader>
     );
   }
 
   return (
     <div>
-      <UnAuthNavbar onShowModal={onShowModal} className={cls.navbar} />
+      <UnAuthNavbar
+        data-testid={testId}
+        onShowModal={onShowModal}
+        className={cls.navbar}
+      />
       {isShownAuthModal && (
         <LoginModal isOpen={isShownAuthModal} onClose={onCloseModal} />
       )}

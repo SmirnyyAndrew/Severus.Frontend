@@ -8,10 +8,11 @@ import * as cls from "./Code.module.scss";
 interface CodeProps {
   className?: string;
   code: string;
+  "data-testid"?: string;
 }
 
 export const Code = (props: CodeProps) => {
-  const { className, code } = props;
+  const { className, code, "data-testid": testid = Code.name } = props;
   const [isCopied, setIsCopied] = useState(false);
 
   const onClickCopyIcon = useCallback(() => {
@@ -38,7 +39,7 @@ export const Code = (props: CodeProps) => {
   );
 
   return (
-    <pre className={classNames(cls.Code, {}, [className])}>
+    <pre data-testid={testid} className={classNames(cls.Code, {}, [className])}>
       <div onClick={onClickCopyIcon}>{isCopied ? CopiedIcon : ToCopyIcon}</div>
       <code>{code}</code>
     </pre>

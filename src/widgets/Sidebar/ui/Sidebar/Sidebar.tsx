@@ -11,9 +11,11 @@ import * as cls from "./Sidebar.module.scss";
 
 interface SidebarProps {
   className?: string;
+  "data-testid"?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = (props: SidebarProps) => {
+  const { className, "data-testid": testId = Sidebar.name } = props;
   const [hidden, setHidden] = useState<boolean>(true);
   const onToggle = () => {
     setHidden((hidden) => !hidden);

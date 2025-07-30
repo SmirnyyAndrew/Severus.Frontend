@@ -13,6 +13,7 @@ export interface StarRatingProps {
   forbiddenChange?: boolean;
   className?: string;
   onSelect?: (selectedStarsCount: StarRate) => void;
+  "data-testid"?: string;
 }
 
 export const StarRating = (props: StarRatingProps) => {
@@ -22,6 +23,7 @@ export const StarRating = (props: StarRatingProps) => {
     forbiddenChange = false,
     starsCount,
     onSelect,
+    "data-testid": testId = StarRating.name,
   } = props;
   const [selectedStar, setSelectedStar] = useState<StarRate | undefined>(
     starRate
@@ -82,5 +84,9 @@ export const StarRating = (props: StarRatingProps) => {
     </Row>
   );
 
-  return <div className={className}>{PrintStars()}</div>;
+  return (
+    <div data-testid={testId} className={className}>
+      {PrintStars()}
+    </div>
+  );
 };

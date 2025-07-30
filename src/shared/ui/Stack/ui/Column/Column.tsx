@@ -11,6 +11,7 @@ interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 
 export const Column = (props: ColumnProps) => {
@@ -23,11 +24,13 @@ export const Column = (props: ColumnProps) => {
     maxHeight,
     className,
     onClick,
+    "data-testid": testId = Column.name,
     ...otherProps
   } = props;
 
   return (
     <Flex
+      data-testid={testId}
       direction="column"
       alignItems={alignItems}
       justifyContents={justifyContents}

@@ -13,6 +13,7 @@ interface RowProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 
 export const Row = (props: RowProps) => {
@@ -25,11 +26,13 @@ export const Row = (props: RowProps) => {
     maxHeight,
     className,
     onClick,
+    "data-testid": testId = Row.name,
     ...otherProps
   } = props;
 
   return (
     <Flex
+      data-testid={testId}
       direction="row"
       alignItems={alignItems}
       justifyContents={justifyContents}

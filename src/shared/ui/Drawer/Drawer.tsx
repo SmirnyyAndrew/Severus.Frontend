@@ -17,10 +17,18 @@ interface DrawerProps {
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
+  "data-testid"?: string;
 }
 
 const DrawerContent = memo((props: DrawerProps) => {
-  const { className, children, isOpen, onClose, lazy = false } = props;
+  const {
+    className,
+    children,
+    isOpen,
+    onClose,
+    lazy = false,
+    "data-testid": testid = Drawer.name,
+  } = props;
   const { Gesture, Spring } = useAnimationLibs();
 
   const {
@@ -89,7 +97,7 @@ const DrawerContent = memo((props: DrawerProps) => {
   if (lazy && !isMounted) return null;
 
   return (
-    <Portal>
+    <Portal data-testid={testid}>
       <div
         className={classNames(cls.Drawer, mods, [
           className,

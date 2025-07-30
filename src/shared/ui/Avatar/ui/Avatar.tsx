@@ -15,10 +15,18 @@ interface AvatarProps {
   alt?: string;
   size?: AvatarSize;
   isRound?: boolean;
+  "data-testid"?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, img, alt, isRound = false, size = AvatarSize.S } = props;
+  const {
+    className,
+    img,
+    alt,
+    isRound = false,
+    size = AvatarSize.S,
+    "data-testid": testid = Avatar.name,
+  } = props;
 
   const mods: Mods = {
     [cls.isRound]: isRound,
@@ -28,6 +36,7 @@ export const Avatar = (props: AvatarProps) => {
     <img
       onError={(e) => (e.currentTarget.src = USER_AVATAR_ERROR)}
       src={img}
+      data-testid={testid}
       alt={alt ?? ""}
       className={classNames(cls.Avatar, mods, [className, cls[size]])}
     />

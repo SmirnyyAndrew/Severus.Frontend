@@ -16,6 +16,7 @@ interface TextProps {
   gap?: GapSizes;
   position?: AlignItems;
   onClick?: () => void;
+  "data-testid"?: string;
 }
 export const Text = memo((props: TextProps) => {
   const {
@@ -23,6 +24,7 @@ export const Text = memo((props: TextProps) => {
     text,
     title,
     gap,
+    "data-testid": testId,
     position = "center",
     textTheme = TextThemes.INFO,
     size = TextSize.L,
@@ -32,7 +34,7 @@ export const Text = memo((props: TextProps) => {
   const HeaderTag: HeaderTags = MapSizeToHeaderTag[size];
 
   return (
-    <div>
+    <div data-testid={testId}>
       <Column
         alignItems={position}
         gap={gap}

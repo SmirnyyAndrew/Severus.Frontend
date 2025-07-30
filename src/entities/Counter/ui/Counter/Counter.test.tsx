@@ -11,7 +11,8 @@ describe("Counter", () => {
         },
       },
     });
-    expect(screen.getByTestId("value-title")).toHaveTextContent("5");
+    expect(screen.getByTestId("value-title")).toBeInTheDocument();
+    expect(screen.getByText(/Value: 5/i)).toBeInTheDocument();
   });
 
   test("increment", () => {

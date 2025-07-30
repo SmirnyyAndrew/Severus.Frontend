@@ -30,8 +30,10 @@ export default {
 
   //Добавить работу с scss
   moduleNameMapper: {
-    "\\.module\\.(css|scss)$": "identity-obj-proxy",
-    "\\.s?css$": "identity-obj-proxy",
+    "\\.module\\.(css|scss)$": "<rootDir>/config/jest/__mocks__/styleMock.js",
+    "\\.(css|scss)$": "<rootDir>/config/jest/__mocks__/styleMock.js",
+    "\\.(jpg|jpeg|png|gif|webp|svg)$":
+      "<rootDir>/config/jest/__mocks__/fileMock.js",
   },
 
   // A set of global variables that need to be available in all test environments

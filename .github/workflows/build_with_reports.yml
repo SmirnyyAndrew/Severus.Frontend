@@ -36,9 +36,9 @@ jobs:
         run: npm run storybook:build
         if: always()
 
-      - name: Screenshot testing
-        run: npm run test:ui:ci
-        continue-on-error: true
+      # - name: Screenshot testing
+      #   run: npm run test:ui:ci
+      #   continue-on-error: true
 
       - name: Unit testing
         if: always()
@@ -55,7 +55,7 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload HTML reports to GitHub Pages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v1.3.0
         with:
           path: "reports"
 

@@ -55,7 +55,7 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload HTML reports to GitHub Pages
-        uses: actions/upload-pages-artifact@v1.3.0
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "reports"
 

@@ -35,28 +35,31 @@ jobs:
       - name: Build storybook
         run: npm run storybook:build
         if: always()
+
       - name: Screenshot testing
         run: npm run test:ui:ci
-        if: always()
+
       - name: Unit testing
         if: always()
         run: npm run test:unit
+
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
+
       - name: Move loki to reports folder
         run: mv .loki reports/
-        if: always()
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
-        if: always()
+
       - name: Upload HTML reports to GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
           path: "reports"
+
       - name: Deploy to GitHub Pages
         id: deployment
-        if: always()
         uses: actions/deploy-pages@v1
 #   checks:
 #     runs-on: ubuntu-latest

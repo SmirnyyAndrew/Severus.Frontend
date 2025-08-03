@@ -18,7 +18,7 @@ export function ProfileExample(randomValues?: boolean): Profile {
         username: "username",
         name: "name",
         location: "location",
-        age: "age",
+        age: "21",
         gender: "male",
         avatar: USER_AVATAR_ERROR,
       };

@@ -3,7 +3,6 @@ import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useMemo } from "react";
 import { Navigate } from "react-router-dom";
 import { Routes } from "shared/const/router";
-import { Loader } from "shared/ui/Loader/Loader";
 
 interface RequireAuthProps {
   children: JSX.Element;
@@ -20,23 +19,14 @@ export function RequireAuth(props: RequireAuthProps) {
   } = useUserAuth();
 
   const hasRequiredRoles: boolean = useMemo(() => {
-    console.log("roles", roles);
-    console.log("userRoles", userRoles);
-
     if (!roles) return true;
-    if (!roles.length) return true;
+    if (!userRoles) return false;
 
     return roles.some((reqRole) => {
       const hasRole = userRoles.includes(reqRole);
       return hasRole;
     });
   }, [roles, userRoles]);
-
-  console.log("hasRequiredRoles", hasRequiredRoles);
-
-  if (!inited) {
-    return <Loader />;
-  }
 
   if (!hasRequiredRoles)
     return <Navigate to={Routes.General.Forbidden()} replace />;

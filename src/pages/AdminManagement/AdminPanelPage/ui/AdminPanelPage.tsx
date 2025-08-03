@@ -7,7 +7,7 @@ const AdminPanelPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Page className={cls.AdminPanelPage}>
+    <Page data-testid="AdminPanelPage" className={cls.AdminPanelPage}>
       <Text size={TextSize.L} text={"Панель админа"} />
     </Page>
   );

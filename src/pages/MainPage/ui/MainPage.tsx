@@ -9,7 +9,7 @@ const MainPage = memo(() => {
   const { t } = useTranslation("main");
 
   return (
-    <Page>
+    <Page data-testid="MainPage">
       <Column gap="20" alignItems="start">
         <Text position="start" text={t("main_page")} />
         <BugButton />

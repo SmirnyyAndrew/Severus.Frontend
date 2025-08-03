@@ -31,7 +31,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page className={cls.ProfilePage}>
+      <Page data-testid="ProfilePage" className={cls.ProfilePage}>
         <Column gap="16">
           <ProfileCard />
           <EditProfileDataButton id={id} onEditClick={onEditProfileClick} />

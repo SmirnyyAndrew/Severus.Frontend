@@ -72,6 +72,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page
+        data-testid="ArticlesPage"
         saveScrollPosition
         onScrollEnd={onLoadNextPart}
         className={className}

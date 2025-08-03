@@ -2,13 +2,13 @@ import { useCallback, useState } from "react";
 import DoneIcon from "shared/assets/icons/shared/done-icon.svg";
 import CopyIcon from "shared/assets/icons/theme/copy-icon.svg";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Icon, IconFills, IconSize } from "shared/ui/Icon";
 import * as cls from "./Code.module.scss";
 
-interface CodeProps {
+interface CodeProps extends TestProps {
   className?: string;
   code: string;
-  "data-testid"?: string;
 }
 
 export const Code = (props: CodeProps) => {

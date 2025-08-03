@@ -1,5 +1,6 @@
 import { ChangeEvent, useMemo } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Select.module.scss";
 
 export interface SelectOption<T extends string> {
@@ -7,14 +8,13 @@ export interface SelectOption<T extends string> {
   content: string;
 }
 
-interface SelectProps<T extends string> {
+interface SelectProps<T extends string> extends TestProps {
   className?: string;
   label?: string;
   options?: SelectOption<T>[];
   value?: T;
   onChange?: (value: T) => void;
   readonly?: boolean;
-  "data-testid"?: string;
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {

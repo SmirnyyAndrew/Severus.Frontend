@@ -1,10 +1,10 @@
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Loader } from "shared/ui/Loader/Loader";
 import * as cls from "./PageLoader.module.scss";
 
-interface PageLoaderProps {
+interface PageLoaderProps extends TestProps {
   className?: string;
-  "data-testid"?: string;
 }
 
 export const PageLoader = (props: PageLoaderProps) => {

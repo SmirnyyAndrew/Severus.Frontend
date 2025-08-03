@@ -3,15 +3,15 @@ import { ReactNode } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DropdownDirections } from "shared/types/dropDownDirections/DropdownDirections";
 import { MapDropdownDirection } from "shared/types/dropDownDirections/MapDropdownDirection";
+import { TestProps } from "shared/types/tests/testProps";
 import * as popupCls from "./../../styles/popum.module.scss";
 import * as cls from "./Popover.module.scss";
 
-interface PopoverProps {
+interface PopoverProps extends TestProps {
   className?: string;
   trigger?: ReactNode;
   direction?: DropdownDirections;
   children: ReactNode;
-  "data-testid"?: string;
 }
 
 export const Popover = (props: PopoverProps) => {

@@ -1,6 +1,7 @@
 import { HTMLAttributeAnchorTarget, ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./AppLink.module.scss";
 
 export enum AppLinkTheme {
@@ -9,12 +10,11 @@ export enum AppLinkTheme {
   MAIN = "main",
 }
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends LinkProps, TestProps {
   className?: string;
   linkTheme?: AppLinkTheme;
   children?: ReactNode;
   target?: HTMLAttributeAnchorTarget;
-  "data-testid"?: string;
 }
 
 export const AppLink = (props: AppLinkProps) => {

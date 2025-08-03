@@ -1,10 +1,11 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { TestProps } from "shared/types/tests/testProps";
 import { AlignItems } from "../../model/types/alignItems/AlignItems";
 import { GapSizes } from "../../model/types/gapSizes/GapSizes";
 import { JustifyContents } from "../../model/types/justifyContents/JustifyContents";
 import { Flex } from "../Flex/Flex";
 
-interface RowProps extends HTMLAttributes<HTMLDivElement> {
+interface RowProps extends HTMLAttributes<HTMLDivElement>, TestProps {
   children: ReactNode;
   className?: string;
   alignItems?: AlignItems;
@@ -13,7 +14,6 @@ interface RowProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
-  "data-testid"?: string;
 }
 
 export const Row = (props: RowProps) => {

@@ -1,13 +1,13 @@
 import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Text, TextSize } from "shared/ui/Text";
 import * as cls from "./Image.module.scss";
 
-interface ImageProps {
+interface ImageProps extends TestProps {
   className?: string;
   src: string;
   title?: string;
-  "data-testid"?: string;
 }
 
 export const Image = (props: ImageProps) => {

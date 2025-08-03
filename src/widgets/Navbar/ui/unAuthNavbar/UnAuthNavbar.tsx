@@ -1,14 +1,14 @@
 import { t } from "i18next";
 import { Routes } from "shared/const/router";
+import { TestProps } from "shared/types/tests/testProps";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Row } from "shared/ui/Stack";
 
-interface UnAuthNavbarProps {
+interface UnAuthNavbarProps extends TestProps {
   className?: string;
   onShowModal: () => void;
-  "data-testid"?: string;
 }
 
 export const UnAuthNavbar = (props: UnAuthNavbarProps) => {

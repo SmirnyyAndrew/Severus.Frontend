@@ -6,12 +6,14 @@ import {
   useState,
 } from "react";
 import { GENERAL_IMAGE_ERROR } from "shared/const/plugFiles";
+import { TestProps } from "shared/types/tests/testProps";
 
-interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface LazyImageProps
+  extends ImgHTMLAttributes<HTMLImageElement>,
+    TestProps {
   className?: string;
   fallback?: ReactElement;
   errorFallback?: ReactElement;
-  "data-testid"?: string;
 }
 
 export const LazyImage = memo((props: LazyImageProps) => {

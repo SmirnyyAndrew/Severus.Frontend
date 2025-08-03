@@ -5,6 +5,7 @@ import { Fragment } from "react/jsx-runtime";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DropdownDirections } from "shared/types/dropDownDirections/DropdownDirections";
 import { MapDropdownDirection } from "shared/types/dropDownDirections/MapDropdownDirection";
+import { TestProps } from "shared/types/tests/testProps";
 import * as popupCls from "./../../../../styles/popum.module.scss";
 import * as cls from "./Dropdown.module.scss";
 
@@ -15,12 +16,11 @@ export type DropdownItem = {
   href?: string;
 };
 
-export interface DropdownProps {
+export interface DropdownProps extends TestProps {
   className?: string;
   items: DropdownItem[];
   trigger?: ReactNode;
   direction?: DropdownDirections;
-  "data-testid"?: string;
 }
 
 export const Dropdown = (props: DropdownProps) => {

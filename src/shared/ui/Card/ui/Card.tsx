@@ -1,5 +1,6 @@
 import { HTMLAttributes, memo, ReactNode } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Card.module.scss";
 
 export enum CardTheme {
@@ -7,11 +8,10 @@ export enum CardTheme {
   OUTLINED = "outlined",
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<HTMLDivElement>, TestProps {
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
-  "data-testid"?: string;
 }
 
 export const Card = memo((props: CardProps) => {

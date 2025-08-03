@@ -1,5 +1,6 @@
 import { ReactNode, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Card } from "shared/ui/Card";
 import { CardTheme } from "shared/ui/Card/ui/Card";
 import * as cls from "./Tabs.module.scss";
@@ -9,12 +10,11 @@ export interface TabItem<T extends string> {
   content: ReactNode;
 }
 
-interface TabsProps<T extends string> {
+interface TabsProps<T extends string> extends TestProps {
   tabs: TabItem<T>[];
   value: T;
   onTabClick: (newTab: TabItem<T>) => void;
   className?: string;
-  "data-testid"?: string;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {

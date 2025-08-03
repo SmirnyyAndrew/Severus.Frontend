@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { AlignItems, FlexDirections, GapSizes, JustifyContents } from "../..";
 import { AlignItemsStyles } from "../../model/types/alignItems/AlignItemsStyles";
 import { FlexDirectionsStyles } from "../../model/types/flexDirections/FlexDirectionsStyles";
@@ -7,7 +8,7 @@ import { GapStyles } from "../../model/types/gapSizes/GapStyles";
 import { JustifyContentsStyles } from "../../model/types/justifyContents/JustifyContentsStyles";
 import * as cls from "./Flex.module.scss";
 
-interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+interface FlexProps extends HTMLAttributes<HTMLDivElement>, TestProps {
   children: ReactNode;
   direction: FlexDirections;
   className?: string;
@@ -17,7 +18,6 @@ interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
-  "data-testid"?: string;
 }
 export const Flex = (props: FlexProps) => {
   const {

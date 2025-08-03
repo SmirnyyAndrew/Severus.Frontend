@@ -3,17 +3,17 @@ import { MODAL_ANIMATION_DURABILITY } from "shared/const/delays";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
+import { TestProps } from "shared/types/tests/testProps";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import * as cls from "./Modal.module.scss";
 
-interface ModalProps {
+interface ModalProps extends TestProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
-  "data-testid"?: string;
 }
 
 export const Modal = (props: ModalProps) => {

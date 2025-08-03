@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, memo } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Button.module.scss";
 
 export enum ButtonTheme {
@@ -17,14 +18,15 @@ export enum ButtonSize {
   XL = "size_xl",
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    TestProps {
   className?: string;
   buttonTheme?: ButtonTheme;
   size?: ButtonSize;
   square?: boolean;
   disabled?: boolean;
   isWrapper?: boolean;
-  "data-testid"?: string;
 }
 
 export const Button = memo((props: ButtonProps) => {

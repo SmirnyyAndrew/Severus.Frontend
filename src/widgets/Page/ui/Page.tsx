@@ -6,14 +6,14 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Page.module.scss";
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   saveScrollPosition?: boolean;
   onScrollEnd?: () => void;
-  "data-testid"?: string;
 }
 
 export const Page = memo((props: PageProps) => {

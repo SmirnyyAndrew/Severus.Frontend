@@ -4,15 +4,15 @@ import { NotificationButton } from "features/NavbarManagement/NotificationButton
 import { t } from "i18next";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { Routes } from "shared/const/router";
+import { TestProps } from "shared/types/tests/testProps";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar, AvatarSize } from "shared/ui/Avatar";
 import { Dropdown, DropdownItem } from "shared/ui/Popups";
 import { Row } from "shared/ui/Stack";
 
-interface AuthNavbarProps {
+interface AuthNavbarProps extends TestProps {
   className?: string;
   onLogout: () => void;
-  "data-testid"?: string;
 }
 
 export const AuthNavbar = (props: AuthNavbarProps) => {

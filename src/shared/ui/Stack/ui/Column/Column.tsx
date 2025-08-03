@@ -1,8 +1,9 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { TestProps } from "shared/types/tests/testProps";
 import { AlignItems, GapSizes, JustifyContents } from "../..";
 import { Flex } from "../Flex/Flex";
 
-interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
+interface ColumnProps extends HTMLAttributes<HTMLDivElement>, TestProps {
   children: ReactNode;
   className?: string;
   alignItems?: AlignItems;
@@ -11,7 +12,6 @@ interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: boolean;
   maxHeight?: boolean;
   onClick?: () => void;
-  "data-testid"?: string;
 }
 
 export const Column = (props: ColumnProps) => {

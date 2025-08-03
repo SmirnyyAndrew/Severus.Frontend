@@ -7,17 +7,17 @@ import {
 } from "shared/lib/components/AnimationProvider";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
+import { TestProps } from "shared/types/tests/testProps";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import * as cls from "./Drawer.module.scss";
 
-interface DrawerProps {
+interface DrawerProps extends TestProps {
   className?: string;
   children: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
-  "data-testid"?: string;
 }
 
 const DrawerContent = memo((props: DrawerProps) => {

@@ -1,13 +1,13 @@
 import { CSSProperties } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Skeleton.module.scss";
 
-interface SkeletonProps {
+interface SkeletonProps extends TestProps {
   className?: string;
   height?: string | number;
   width?: string | number;
   border?: string;
-  "data-testid"?: string;
 }
 
 export const Skeleton = (props: SkeletonProps) => {

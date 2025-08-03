@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Button } from "shared/ui/Button";
 import * as cls from "./PageError.module.scss";
 
-interface PageErrorProps {
+interface PageErrorProps extends TestProps {
   className?: string;
-  "data-testid"?: string;
 }
 
 export const PageError = memo((props: PageErrorProps) => {

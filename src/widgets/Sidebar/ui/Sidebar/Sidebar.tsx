@@ -2,6 +2,7 @@ import { LangSwitcher } from "features/NavbarManagement/LangSwitcher";
 import { ThemeSwitcher } from "features/NavbarManagement/ThemeSwitcher";
 import { useMemo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Column } from "shared/ui/Stack";
@@ -9,9 +10,8 @@ import { SidebarItemList } from "../Module/SidebarItemList";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import * as cls from "./Sidebar.module.scss";
 
-interface SidebarProps {
+interface SidebarProps extends TestProps {
   className?: string;
-  "data-testid"?: string;
 }
 
 export const Sidebar = (props: SidebarProps) => {

@@ -1,4 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Text, TextSize } from "shared/ui/Text";
 import * as cls from "./Icon.module.scss";
 
@@ -15,7 +16,7 @@ export enum IconFills {
   NONE = "none",
 }
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {
+interface IconProps extends React.SVGProps<SVGSVGElement>, TestProps {
   className?: string;
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
   iconSize?: IconSize;
@@ -23,7 +24,6 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   text?: string;
   iconFill?: IconFills;
   onClick?: () => void;
-  "data-testid"?: string;
 }
 
 export const Icon = (props: IconProps) => {

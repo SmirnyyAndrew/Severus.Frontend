@@ -1,5 +1,6 @@
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Avatar.module.scss";
 
 export enum AvatarSize {
@@ -9,13 +10,12 @@ export enum AvatarSize {
   XL = "size_xl",
 }
 
-interface AvatarProps {
+interface AvatarProps extends TestProps {
   className?: string;
   img?: string;
   alt?: string;
   size?: AvatarSize;
   isRound?: boolean;
-  "data-testid"?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {

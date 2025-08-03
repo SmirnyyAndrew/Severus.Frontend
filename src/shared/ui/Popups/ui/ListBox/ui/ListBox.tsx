@@ -1,6 +1,7 @@
 import { Listbox as HListBox } from "@headlessui/react";
 import { Fragment } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { DropdownDirections } from "../../../../../types/dropDownDirections/DropdownDirections";
 import { MapDropdownDirection } from "../../../../../types/dropDownDirections/MapDropdownDirection";
 import { Button } from "../../../../Button";
@@ -11,7 +12,7 @@ import { ListBoxItem } from "../model/types/ListBoxItem";
 import * as popupCls from "./../../../styles/popum.module.scss";
 import * as cls from "./ListBox.module.scss";
 
-interface ListBoxProps {
+interface ListBoxProps extends TestProps {
   items: ListBoxItem[];
   value: string;
   defaultValue?: string;
@@ -20,7 +21,6 @@ interface ListBoxProps {
   readonly?: boolean;
   direction?: DropdownDirections;
   label?: string;
-  "data-testid"?: string;
 }
 
 export const ListBox = (props: ListBoxProps) => {

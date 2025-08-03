@@ -10,13 +10,13 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { TestProps } from "shared/types/tests/testProps";
 import { AuthNavbar } from "./authNavbar/AuthNavbar";
 import * as cls from "./Navbar.module.scss";
 import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
 
-interface NavbarProps {
+interface NavbarProps extends TestProps {
   className?: string;
-  "data-testid"?: string;
 }
 
 export const Navbar = memo((props: NavbarProps) => {

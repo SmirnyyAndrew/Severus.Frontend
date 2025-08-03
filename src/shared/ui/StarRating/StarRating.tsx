@@ -1,19 +1,19 @@
 import { useState } from "react";
 import DoneIcon from "shared/assets/icons/shared/star-icon.svg";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { Icon, IconSize } from "../Icon";
 import { Row } from "../Stack";
 import * as cls from "./StarRating.module.scss";
 
 export type StarRate = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-export interface StarRatingProps {
+export interface StarRatingProps extends TestProps {
   starRate: StarRate | undefined;
   starsCount?: StarRate;
   forbiddenChange?: boolean;
   className?: string;
   onSelect?: (selectedStarsCount: StarRate) => void;
-  "data-testid"?: string;
 }
 
 export const StarRating = (props: StarRatingProps) => {

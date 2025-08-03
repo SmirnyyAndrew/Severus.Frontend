@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
@@ -7,12 +8,11 @@ type HTMLInputProps = Omit<
   "value" | "onChange"
 >;
 
-interface InputProps extends HTMLInputProps {
+interface InputProps extends HTMLInputProps, TestProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
   autofocus?: boolean;
-  "data-testid"?: string;
 }
 
 export const Input = memo((props: InputProps) => {

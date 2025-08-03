@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { TestProps } from "shared/types/tests/testProps";
 import { AlignItems, Column, GapSizes } from "shared/ui/Stack";
 import { HeaderTags } from "../model/types/headerTags/HeaderTags";
 import { MapSizeToHeaderTag } from "../model/types/headerTags/MapSizeToHeaderTag";
@@ -7,7 +8,7 @@ import { TextSize } from "../model/types/TextSize";
 import { TextThemes } from "../model/types/TextThemes";
 import * as cls from "./Text.module.scss";
 
-interface TextProps {
+interface TextProps extends TestProps {
   className?: string;
   textTheme?: TextThemes;
   title?: string;
@@ -16,7 +17,6 @@ interface TextProps {
   gap?: GapSizes;
   position?: AlignItems;
   onClick?: () => void;
-  "data-testid"?: string;
 }
 export const Text = memo((props: TextProps) => {
   const {

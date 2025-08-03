@@ -1,8 +1,8 @@
+import { TestProps } from "shared/types/tests/testProps";
 import * as cls from "./Loader.module.scss";
 
-interface LoaderProps {
+interface LoaderProps extends TestProps {
   className?: string;
-  "data-testid"?: string;
 }
 
 export const Loader = (props: LoaderProps) => {

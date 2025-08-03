@@ -14,9 +14,9 @@ export function CommentExample(randomValues?: boolean): Comment {
         text: faker.lorem.sentence(),
       }
     : {
-        id: "3123",
+        id: faker.string.uuid(),
         user: {
-          id: "3123",
+          id: faker.string.uuid(),
           username: "username",
           avatar: USER_AVATAR_ERROR,
         },

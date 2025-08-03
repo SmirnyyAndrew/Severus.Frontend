@@ -21,6 +21,7 @@ jobs:
     concurrency: ci-${{ github.ref }}
     environment:
       name: github-pages
+
     strategy:
       matrix:
         node-version: [18.x]
@@ -44,28 +45,36 @@ jobs:
         run: npm run storybook:build
         if: always()
 
-      # Если захочешь включить UI тесты - раскомментируй
-      # - name: Screenshot testing
-      #   run: npm run test:ui:ci
-      #   continue-on-error: true
+      - name: Run screenshot tests (Loki)
+        run: npm run test:ui:ci
+        continue-on-error: false
 
       - name: Run unit tests
         run: npm run test:unit
         if: always()
 
-      - name: Generate HTML report for UI tests
-        run: npm run test:ui:report
+      - name: Generate HTML report (only if visual diffs exist)
+        run: |
+          if [ -d ".loki/difference" ]; then
+            echo "Visual diffs found. Generating report..."
+            npm run test:ui:report
+          else
+            echo "No visual diffs found. Skipping HTML report."
+          fi
         if: always()
 
-      - name: Move Loki reports to reports folder
+      - name: Move reports to deployable folder
         run: |
           mkdir -p reports
-          mv .loki/* reports/
+          if [ -d ".loki" ]; then
+            mv .loki/* reports/ || true
+          fi
+        if: always()
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v2
 
-      - name: Upload reports artifact for Pages
+      - name: Upload reports artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: reports

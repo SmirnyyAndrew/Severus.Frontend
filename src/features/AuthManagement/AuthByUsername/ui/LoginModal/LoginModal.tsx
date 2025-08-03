@@ -30,24 +30,24 @@ export const LoginModal = memo((props: LoginModalProps) => {
     user: userReducer,
   };
 
+  const onSuccess = async () => {
+    const state = store.getState();
+    const id = state.user?.authData?.id;
+
+    await getProfileDataFromDB(id);
+
+    if (id && location.pathname !== Routes.Profile.Info(id)) {
+      navigate(Routes.Profile.Info(id));
+    } else {
+      onClose?.();
+    }
+  };
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Modal onClose={onClose} isOpen={isOpen} lazy>
         <Suspense fallback={<Loader />}>
-          <LoginForm
-            onSuccess={async () => {
-              const state = store.getState();
-              const id = state.user?.authData?.id;
-
-              await getProfileDataFromDB(id);
-
-              if (id && location.pathname !== Routes.Profile.Info(id)) {
-                navigate(Routes.Profile.Info(id));
-              } else {
-                onClose?.();
-              }
-            }}
-          />
+          <LoginForm onSuccess={onSuccess} />
         </Suspense>
       </Modal>
     </DynamicModuleLoader>

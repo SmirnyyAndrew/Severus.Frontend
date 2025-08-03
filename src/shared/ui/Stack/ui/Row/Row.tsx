@@ -26,7 +26,7 @@ export const Row = (props: RowProps) => {
     maxHeight,
     className,
     onClick,
-    "data-testid": testId = Row.name,
+    "data-testid": testId = "Row",
     ...otherProps
   } = props;
 

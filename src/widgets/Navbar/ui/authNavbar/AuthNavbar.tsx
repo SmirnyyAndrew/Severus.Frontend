@@ -16,11 +16,7 @@ interface AuthNavbarProps {
 }
 
 export const AuthNavbar = (props: AuthNavbarProps) => {
-  const {
-    className,
-    onLogout,
-    "data-testid": testId = AuthNavbar.name,
-  } = props;
+  const { className, onLogout, "data-testid": testId = "AuthNavbar" } = props;
   const { profileData } = useProfile();
   const { authData } = useUserAuth();
   const { isAdminOrManager } = useUserAuth();

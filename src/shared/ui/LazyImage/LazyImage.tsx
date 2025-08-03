@@ -21,7 +21,7 @@ export const LazyImage = memo((props: LazyImageProps) => {
     fallback,
     errorFallback,
     alt = "image",
-    "data-testid": testId = LazyImage.name,
+    "data-testid": testId = "LazyImage",
     ...otherProps
   } = props;
   const [isLoading, setIsLoading] = useState(true);

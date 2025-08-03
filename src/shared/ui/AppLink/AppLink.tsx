@@ -22,7 +22,7 @@ export const AppLink = (props: AppLinkProps) => {
     className,
     children,
     to,
-    "data-testid": testId = AppLink.name,
+    "data-testid": testId = "AppLink",
     linkTheme = AppLinkTheme.PRIMARY,
     target = "_top",
     ...otherProps

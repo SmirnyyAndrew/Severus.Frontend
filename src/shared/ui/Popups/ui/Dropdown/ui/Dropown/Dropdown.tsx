@@ -29,7 +29,7 @@ export const Dropdown = (props: DropdownProps) => {
     items,
     trigger,
     direction = "bottom right",
-    "data-testid": testId = Dropdown.name,
+    "data-testid": testId = "Dropdown",
   } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];

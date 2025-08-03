@@ -35,7 +35,7 @@ export const Button = memo((props: ButtonProps) => {
     square,
     isWrapper = false,
     size = ButtonSize.M,
-    "data-testid": testid = Button.name,
+    "data-testid": testid = "Button",
     children,
     ...otherProps
   } = props;

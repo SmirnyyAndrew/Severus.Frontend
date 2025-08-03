@@ -15,7 +15,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: SidebarProps) => {
-  const { className, "data-testid": testId = Sidebar.name } = props;
+  const { className, "data-testid": testId = "Sidebar" } = props;
   const [hidden, setHidden] = useState<boolean>(true);
   const onToggle = () => {
     setHidden((hidden) => !hidden);

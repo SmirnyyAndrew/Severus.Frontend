@@ -30,7 +30,7 @@ export const Flex = (props: FlexProps) => {
     maxWidth = true,
     maxHeight = false,
     onClick,
-    "data-testid": testId = Flex.name,
+    "data-testid": testId = "Flex",
     ...otherProps
   } = props;
 

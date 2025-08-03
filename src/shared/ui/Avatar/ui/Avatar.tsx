@@ -25,7 +25,7 @@ export const Avatar = (props: AvatarProps) => {
     alt,
     isRound = false,
     size = AvatarSize.S,
-    "data-testid": testid = Avatar.name,
+    "data-testid": testid = "Avatar",
   } = props;
 
   const mods: Mods = {

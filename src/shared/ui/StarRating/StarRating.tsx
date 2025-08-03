@@ -23,7 +23,7 @@ export const StarRating = (props: StarRatingProps) => {
     forbiddenChange = false,
     starsCount,
     onSelect,
-    "data-testid": testId = StarRating.name,
+    "data-testid": testId = "StarRating",
   } = props;
   const [selectedStar, setSelectedStar] = useState<StarRate | undefined>(
     starRate

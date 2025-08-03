@@ -35,7 +35,7 @@ export const Icon = (props: IconProps) => {
     textSize = TextSize.S,
     iconSize = IconSize.S,
     iconFill = IconFills.NONE,
-    "data-testid": testId = Icon.name,
+    "data-testid": testId = "Icon",
     ...otherProps
   } = props;
 

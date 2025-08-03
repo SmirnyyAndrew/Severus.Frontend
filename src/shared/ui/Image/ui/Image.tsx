@@ -11,7 +11,7 @@ interface ImageProps {
 }
 
 export const Image = (props: ImageProps) => {
-  const { className, src, title, "data-testid": testId = Image.name } = props;
+  const { className, src, title, "data-testid": testId = "Image" } = props;
 
   return (
     <div

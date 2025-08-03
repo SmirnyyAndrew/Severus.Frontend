@@ -25,7 +25,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     onChange,
     value,
     readonly,
-    "data-testid": testId = Select.name,
+    "data-testid": testId = "Select",
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {

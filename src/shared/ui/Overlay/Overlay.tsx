@@ -8,7 +8,7 @@ interface OverlayProps {
 }
 
 export const Overlay = (props: OverlayProps) => {
-  const { className, onClick, "data-testid": testId = Overlay.name } = props;
+  const { className, onClick, "data-testid": testId = "Overlay" } = props;
 
   return (
     <div

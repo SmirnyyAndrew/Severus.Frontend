@@ -10,7 +10,7 @@ interface PageErrorProps {
 }
 
 export const PageError = memo((props: PageErrorProps) => {
-  const { className, "data-testid": testId = PageError.name } = props;
+  const { className, "data-testid": testId = "PageError" } = props;
   const { t } = useTranslation();
 
   const reloadPage = () => {

@@ -23,7 +23,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
     tabs,
     value,
     onTabClick,
-    "data-testid": testId = Tabs.name,
+    "data-testid": testId = "Tabs",
   } = props;
 
   const clickHandle = useCallback(

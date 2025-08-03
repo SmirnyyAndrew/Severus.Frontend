@@ -22,7 +22,7 @@ export const Page = memo((props: PageProps) => {
     children,
     saveScrollPosition = false,
     onScrollEnd,
-    "data-testid": testId = Page.name,
+    "data-testid": testId = "Page",
   } = props;
 
   const { pathname } = useLocation();

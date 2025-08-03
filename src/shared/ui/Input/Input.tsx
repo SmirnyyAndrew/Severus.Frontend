@@ -23,7 +23,7 @@ export const Input = memo((props: InputProps) => {
     onChange,
     placeholder,
     autofocus,
-    "data-testid": testId = Input.name,
+    "data-testid": testId = "Input",
     ...otherProps
   } = props;
 

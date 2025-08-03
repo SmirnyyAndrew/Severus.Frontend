@@ -16,7 +16,7 @@ export const Skeleton = (props: SkeletonProps) => {
     height,
     width,
     border,
-    "data-testid": testId = Skeleton.name,
+    "data-testid": testId = "Skeleton",
   } = props;
 
   const styles: CSSProperties = {

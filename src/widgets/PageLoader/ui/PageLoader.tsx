@@ -8,7 +8,7 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = (props: PageLoaderProps) => {
-  const { className, "data-testid": testId = PageLoader.name } = props;
+  const { className, "data-testid": testId = "PageLoader" } = props;
   return (
     <div
       data-testid={testId}

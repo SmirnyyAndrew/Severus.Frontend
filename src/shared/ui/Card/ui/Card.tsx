@@ -19,7 +19,7 @@ export const Card = memo((props: CardProps) => {
     className,
     children,
     theme = CardTheme.NORMAL,
-    "data-testid": testid = Card.name,
+    "data-testid": testid = "Card",
     ...otherProps
   } = props;
 

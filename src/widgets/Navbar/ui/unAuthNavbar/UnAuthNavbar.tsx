@@ -15,7 +15,7 @@ export const UnAuthNavbar = (props: UnAuthNavbarProps) => {
   const {
     className,
     onShowModal,
-    "data-testid": testId = UnAuthNavbar.name,
+    "data-testid": testId = "UnAuthNavbar",
   } = props;
 
   return (

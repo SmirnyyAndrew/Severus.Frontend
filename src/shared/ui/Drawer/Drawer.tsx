@@ -27,7 +27,7 @@ const DrawerContent = memo((props: DrawerProps) => {
     isOpen,
     onClose,
     lazy = false,
-    "data-testid": testid = Drawer.name,
+    "data-testid": testid = "Drawer",
   } = props;
   const { Gesture, Spring } = useAnimationLibs();
 

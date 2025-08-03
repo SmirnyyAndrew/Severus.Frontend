@@ -12,7 +12,7 @@ interface CodeProps {
 }
 
 export const Code = (props: CodeProps) => {
-  const { className, code, "data-testid": testid = Code.name } = props;
+  const { className, code, "data-testid": testid = "Code" } = props;
   const [isCopied, setIsCopied] = useState(false);
 
   const onClickCopyIcon = useCallback(() => {

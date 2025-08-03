@@ -20,7 +20,7 @@ export const Popover = (props: PopoverProps) => {
     trigger,
     children,
     direction = "bottom right",
-    "data-testid": testId = Popover.name,
+    "data-testid": testId = "Popover",
   } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];

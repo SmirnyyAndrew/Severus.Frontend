@@ -23,7 +23,7 @@ export const Modal = (props: ModalProps) => {
     isOpen,
     onClose,
     lazy,
-    "data-testid": testId = Modal.name,
+    "data-testid": testId = "Modal",
   } = props;
   const { isClosing, isMounted, close } = useModal({
     animationDelay: MODAL_ANIMATION_DURABILITY,

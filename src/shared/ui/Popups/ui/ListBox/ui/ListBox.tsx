@@ -33,7 +33,7 @@ export const ListBox = (props: ListBoxProps) => {
     readonly = false,
     defaultValue = "Выберите значение",
     direction = "bottom right",
-    "data-testid": testId = ListBox.name,
+    "data-testid": testId = "ListBox",
   } = props;
 
   const dropdownDirection = MapDropdownDirection[direction];

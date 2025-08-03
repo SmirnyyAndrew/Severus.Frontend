@@ -24,7 +24,7 @@ export const Column = (props: ColumnProps) => {
     maxHeight,
     className,
     onClick,
-    "data-testid": testId = Column.name,
+    "data-testid": testId = "Column",
     ...otherProps
   } = props;
 

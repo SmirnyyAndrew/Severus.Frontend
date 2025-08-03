@@ -20,7 +20,7 @@ interface NavbarProps {
 }
 
 export const Navbar = memo((props: NavbarProps) => {
-  const { className, "data-testid": testId = Navbar.name } = props;
+  const { className, "data-testid": testId = "Navbar" } = props;
   const { authData, logout } = useUserAuth();
   const { profileData: profile, getProfileDataFromDB } = useProfile();
   const { setProfileDataUndefined } = useProfile();

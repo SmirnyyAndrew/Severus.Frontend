@@ -36,7 +36,10 @@ export const GridArticlesList = (props: GridArticlesListProps) => {
   const { className, articles, isLoading = true, target = "_blank" } = props;
 
   return (
-    <div className={classNames(cls.Grid, {}, [className])}>
+    <div
+      data-testid={"GridArticlesList"}
+      className={classNames(cls.Grid, {}, [className])}
+    >
       {articles.map((article) => (
         <AppLink
           target={target}

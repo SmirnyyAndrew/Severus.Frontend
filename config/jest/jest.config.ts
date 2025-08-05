@@ -1,3 +1,5 @@
+import { BACKEND_URL } from "shared/const/connectionStrings";
+
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
@@ -39,7 +41,7 @@ export default {
   // A set of global variables that need to be available in all test environments
   globals: {
     __IS_DEV__: true,
-    __API__: "http://localhost:28532",
+    __API__: BACKEND_URL,
     __IS_STORYBOOK__: false,
   },
 

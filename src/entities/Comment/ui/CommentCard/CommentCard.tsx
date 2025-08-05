@@ -41,7 +41,11 @@ export const CommentCard = (props: CommentCardProps) => {
   };
 
   return (
-    <Column gap="20" className={classNames(cls.CommentCard, {}, [className])}>
+    <Column
+      data-testid="CommentCard"
+      gap="20"
+      className={classNames(cls.CommentCard, {}, [className])}
+    >
       <Row alignItems="center">
         <Avatar
           img={comment.user.avatar ?? USER_AVATAR_ERROR}

@@ -4,7 +4,7 @@ import ListIcon from "shared/assets/icons/article/list-icon.svg";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Icon, IconSize } from "shared/ui/Icon";
+import { Icon, IconFills, IconSize } from "shared/ui/Icon";
 import { Row } from "shared/ui/Stack";
 import { useArticlesPage } from "../..";
 import * as cls from "./ArticlesPageTypeSwitcher.module.scss";
@@ -37,6 +37,7 @@ export const ArticlesPageTypeSwitcher = (
     <div className={classNames("", {}, [className])}>
       <Row justifyContents="end" gap="4" className={className}>
         <Button
+          data-testid="ListButtonSwitcher"
           isWrapper
           onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
           buttonTheme={ButtonTheme.CLEAR}
@@ -46,10 +47,15 @@ export const ArticlesPageTypeSwitcher = (
             []
           )}
         >
-          <Icon Svg={ListIcon} iconSize={IconSize.L} />
+          <Icon
+            Svg={ListIcon}
+            iconFill={IconFills.INVERTED_BACKGROUND}
+            iconSize={IconSize.L}
+          />
         </Button>
 
         <Button
+          data-testid="GridButtonSwitcher"
           isWrapper
           onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
           size={ButtonSize.M}
@@ -60,7 +66,11 @@ export const ArticlesPageTypeSwitcher = (
             []
           )}
         >
-          <Icon Svg={GridIcon} iconSize={IconSize.L} />
+          <Icon
+            Svg={GridIcon}
+            iconFill={IconFills.INVERTED_BACKGROUND}
+            iconSize={IconSize.L}
+          />
         </Button>
       </Row>
     </div>

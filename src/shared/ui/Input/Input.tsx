@@ -31,16 +31,14 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
   return (
-    <div
-      data-testid={testId}
-      className={classNames(cls.InputWrapper, {}, [className])}
-    >
+    <div className={classNames(cls.InputWrapper, {}, [className])}>
       {placeholder && (
         <div className={cls.placeholder}>{`${placeholder}>`}</div>
       )}
       <input
         {...otherProps}
         value={value}
+        data-testid={testId}
         type={type}
         autoFocus={autofocus}
         onChange={onChangeHandler}

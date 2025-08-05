@@ -29,6 +29,7 @@ export const ArticleDetailsRecommenations = (
 
   return (
     <Column
+      data-testid="ArticleDetailsRecommenations"
       gap="16"
       className={classNames(cls.ArticleDetailsRecommenations, {}, [className])}
     >

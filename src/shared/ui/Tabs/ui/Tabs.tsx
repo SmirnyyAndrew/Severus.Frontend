@@ -37,6 +37,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
     <div data-testid={testId} className={classNames(cls.Tabs, {}, [className])}>
       {tabs.map((tab) => (
         <Card
+          data-testid={`Tab_${tab.value}`}
           className={cls.tab}
           theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
           onClick={clickHandle(tab)}

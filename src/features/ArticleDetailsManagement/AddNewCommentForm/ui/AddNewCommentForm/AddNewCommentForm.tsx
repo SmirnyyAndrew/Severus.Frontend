@@ -47,17 +47,20 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Row
+        data-testid="AddNewCommentForm"
         justifyContents="space_between"
         className={classNames(cls.AddNewCommentForm, {}, [className])}
       >
         <Input
           className={cls.commentInput}
+          data-testid="AddNewCommentForm.CommentInput"
           placeholder={"Введите комментарий"}
           value={text}
           onChange={onCommentTextChange}
         />
         <Button
           buttonTheme={ButtonTheme.OUTLINE}
+          data-testid="AddNewCommentForm.SendCommentButton"
           size={ButtonSize.L}
           onClick={onSendCommentHandler}
         >

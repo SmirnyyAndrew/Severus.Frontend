@@ -40,7 +40,10 @@ export const ListArticlesList = (props: ListArticlesListProps) => {
   const { className, articles, target = "_blank", isLoading = true } = props;
 
   return (
-    <div className={classNames(cls.List, {}, [className])}>
+    <div
+      data-testid={"ListArticlesList"}
+      className={classNames(cls.List, {}, [className])}
+    >
       {articles.map((article) => (
         <div key={`list_${article.id}`} className={cls.ListItem}>
           <AppLink

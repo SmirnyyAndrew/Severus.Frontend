@@ -95,10 +95,16 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
         />
       </div>
       <Card>
-        <Input placeholder="Поиск" value={search} onChange={onChangeSearch} />
+        <Input
+          data-testid="SearchInput"
+          placeholder="Поиск"
+          value={search}
+          onChange={onChangeSearch}
+        />
       </Card>
 
       <Tabs
+        data-testid={`Tabs`}
         tabs={tagTabs}
         value={type}
         className={cls.tabs}

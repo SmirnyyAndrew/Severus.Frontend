@@ -34,7 +34,11 @@ const ProfilePage = () => {
       <Page data-testid="ProfilePage" className={cls.ProfilePage}>
         <Column gap="16">
           <ProfileCard />
-          <EditProfileDataButton id={id} onEditClick={onEditProfileClick} />
+          <EditProfileDataButton
+            data-testid={"ProfilePageEditProfileButton"}
+            id={id}
+            onEditClick={onEditProfileClick}
+          />
 
           {isShownProfileDataEditModal && (
             <EditProfileDataModal

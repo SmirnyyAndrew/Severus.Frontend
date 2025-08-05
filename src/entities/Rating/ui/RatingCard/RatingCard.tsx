@@ -71,10 +71,15 @@ export const RatingCard = (props: RatingCardProps) => {
   const modalContent = (
     <Column maxWidth gap="16">
       <Text size={TextSize.XS} title={title} />
-      <Input placeholder="Ваш отзыв" onChange={setFeedBack} />
+      <Input
+        data-testid="RatingCard.FeedbackInput"
+        placeholder="Ваш отзыв"
+        onChange={setFeedBack}
+      />
       <Row justifyContents="space_between">
         <Button onClick={cancelHandler}>Отменить</Button>
         <Button
+          data-testid="RatingCard.SendFeedback"
           onClick={acceptHandler}
           buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
         >

@@ -41,11 +41,13 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
         value={order}
         onChange={onChangeOrder}
         label="Сортировать по"
+        data-testid="SortSelector"
       />
       <Select
         options={sortFieldOptions}
         value={sort}
         onChange={onChangeSort}
+        data-testid="OrderSelector"
         label="Сортировать по"
       />
     </div>

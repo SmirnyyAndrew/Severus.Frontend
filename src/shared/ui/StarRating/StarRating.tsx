@@ -74,6 +74,7 @@ export const StarRating = (props: StarRatingProps) => {
       {Array.from({ length: starsCount ?? 5 }).map((_, i) => (
         <Icon
           key={i}
+          data-testid={`StarRating_${i + 1}`}
           Svg={DoneIcon}
           onClick={() => onStarClick(i)}
           iconSize={IconSize.L}

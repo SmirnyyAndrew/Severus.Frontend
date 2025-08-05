@@ -22,6 +22,7 @@ export const CommentList = (props: CommentListProps) => {
   return (
     <Column
       maxWidth
+      data-testid="CommentList"
       justifyContents="start"
       alignItems="start"
       className={className}

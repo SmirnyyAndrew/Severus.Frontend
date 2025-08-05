@@ -96,6 +96,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <Column
+        data-testid="EditProfileDataForm"
         alignItems="start"
         justifyContents="start"
         gap="8"
@@ -114,6 +115,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
           autofocus
           placeholder={t("profile_data_editor_new_username")}
           value={profileData?.username}
+          data-testid="EditModalUsernameInput"
           onChange={onChangeUsername}
           type="text"
           className={cls.input}
@@ -122,6 +124,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         <Input
           placeholder={t("profile_data_editor_new_name")}
           value={profileData?.name}
+          data-testid="EditModalNameInput"
           onChange={onChangeName}
           type="text"
           className={cls.input}
@@ -130,6 +133,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         <Input
           placeholder={t("profile_data_editor_new_location")}
           value={profileData?.location}
+          data-testid="EditModalLocationInput"
           onChange={onChangeLocation}
           type="text"
           className={cls.input}
@@ -138,6 +142,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         <Input
           placeholder={t("profile_data_editor_new_age")}
           value={profileData?.age}
+          data-testid="EditModalAgeInput"
           onChange={onChangeAge}
           type="text"
           className={cls.input}
@@ -146,6 +151,7 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         <Input
           placeholder={t("profile_data_editor_gender")}
           value={profileData?.gender}
+          data-testid="EditModalGenderInput"
           onChange={onChangeGender}
           type="text"
           className={cls.input}
@@ -154,12 +160,14 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
         <Input
           placeholder={t("profile_data_editor_avatar_url")}
           value={profileData?.avatar}
+          data-testid="EditModalAvatarInput"
           onChange={onChangeAvatar}
           type="text"
           className={cls.input}
         />
 
         <Button
+          data-testid="ModalEditProfileButton"
           buttonTheme={ButtonTheme.OUTLINE}
           onClick={onEditClick}
           className={cls.loginBtn}

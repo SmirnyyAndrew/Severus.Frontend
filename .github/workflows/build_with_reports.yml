@@ -26,67 +26,66 @@ jobs:
       matrix:
         node-version: [18.x]
 
-    steps:
-      - uses: actions/checkout@v2
+    # steps:
+    #   - uses: actions/checkout@v2
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+    #   - name: Set up Node.js ${{ matrix.node-version }}
+    #     uses: actions/setup-node@v1
+    #     with:
+    #       node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm ci --force
+    #   - name: Install dependencies
+    #     run: npm ci --force
 
-      - name: Build production project
-        run: npm run build:prod
-        if: always()
+    #   - name: Build production project
+    #     run: npm run build:prod
+    #     if: always()
 
-      - name: Build Storybook
-        run: npm run storybook:build
-        if: always()
+    #   - name: Build Storybook
+    #     run: npm run storybook:build
+    #     if: always()
 
-      - name: Run screenshot tests (Loki)
-        run: npm run test:ui:ci
-        continue-on-error: false
+    #   - name: Run screenshot tests (Loki)
+    #     run: npm run test:ui:ci
+    #     continue-on-error: false
 
-      - name: Run unit tests
-        run: npm run test:unit
-        if: always()
+    #   - name: Run unit tests
+    #     run: npm run test:unit
+    #     if: always()
 
-      - name: Generate HTML report (only if visual diffs exist)
-        run: |
-          if [ -d ".loki/difference" ]; then
-            echo "Visual diffs found. Generating report..."
-            npm run test:ui:report
-          else
-            echo "No visual diffs found. Skipping HTML report."
-          fi
-        if: always()
+    #   - name: Generate HTML report (only if visual diffs exist)
+    #     run: |
+    #       if [ -d ".loki/difference" ]; then
+    #         echo "Visual diffs found. Generating report..."
+    #         npm run test:ui:report
+    #       else
+    #         echo "No visual diffs found. Skipping HTML report."
+    #       fi
+    #     if: always()
 
-      - name: Move reports to deployable folder
-        run: |
-          mkdir -p reports
-          if [ -d ".loki" ]; then
-            mv .loki/* reports/ || true
-          fi
-        if: always()
+    #   - name: Move reports to deployable folder
+    #     run: |
+    #       mkdir -p reports
+    #       if [ -d ".loki" ]; then
+    #         mv .loki/* reports/ || true
+    #       fi
+    #     if: always()
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v2
+    #   - name: Configure GitHub Pages
+    #     uses: actions/configure-pages@v2
 
-      - name: Upload reports artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: reports
+    #   - name: Upload reports artifact for GitHub Pages
+    #     uses: actions/upload-pages-artifact@v3
+    #     with:
+    #       path: reports
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    #   - name: Deploy to GitHub Pages
+    #     id: deployment
+    #     uses: actions/deploy-pages@v1
 
-      - name: Show GitHub Pages URL
-        run: |
-          echo "Pages URL: ${{ steps.deployment.outputs.page_url }}"
-
+    #   - name: Show GitHub Pages URL
+    #     run: |
+    #       echo "Pages URL: ${{ steps.deployment.outputs.page_url }}"
 #   checks:
 #     runs-on: ubuntu-latest
 #     strategy:

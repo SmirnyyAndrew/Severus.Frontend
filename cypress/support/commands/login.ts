@@ -1,7 +1,7 @@
-import { DataTestIdFormatter } from "cypress/helpers/DataTestIdFormatter";
 import { User } from "entities/User";
 import { BACKEND_URL } from "shared/const/connectionStrings";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { DataTestIdFormatter } from "../../../cypress/helpers/DataTestIdFormatter";
 
 export const login = (
   username: string = "testuser",

@@ -12,10 +12,10 @@ export default (env: BuildEnv) => {
     src: path.resolve(__dirname, "src"),
   };
 
-  const PORT = env.port || 3000;
-  const mode = env.mode || "development";
-  const isDev = env.mode === "development";
-  const apiUrl = env.apiUrl || BACKEND_URL;
+  const PORT = env?.port || 3000;
+  const mode = env?.mode || "development";
+  const isDev = env?.mode === "development";
+  const apiUrl = env?.apiUrl || BACKEND_URL;
 
   logEnvValues(env);
   logCurrentValues(PORT, mode, apiUrl);
@@ -34,9 +34,9 @@ export default (env: BuildEnv) => {
 
 const logEnvValues = (env: BuildEnv) => {
   console.log("===========> env:start <=========");
-  console.log("api url: " + env.apiUrl);
-  console.log("port: " + env.port);
-  console.log("mode: " + env.mode);
+  console.log("api url: " + env?.apiUrl);
+  console.log("port: " + env?.port);
+  console.log("mode: " + env?.mode);
   console.log("===========> env:end <=========");
   console.log("");
 };

@@ -15,7 +15,7 @@ export function ProfileExample(randomValues?: boolean): Profile {
       }
     : {
         id: "241",
-        username: "username",
+        username: "example_username",
         name: "name",
         location: "location",
         age: "21",

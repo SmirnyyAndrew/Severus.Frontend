@@ -39,32 +39,31 @@ export const ProfileCard = (props: ProfileCardProps) => {
   }
 
   return (
-    <div className={className}>
-      <Column
-        alignItems="center"
-        justifyContents="center"
-        gap="4"
-        className={classNames(cls.card)}
-      >
-        <img
-          src={profile?.avatar ?? USER_AVATAR_ERROR}
-          alt="Avatar"
-          className={cls.avatar}
-        />
-        <h2 className={cls.name}>{profile?.name}</h2>
-        <p className={cls.username}>
-          {t("profile_card_username")}: {profile?.username}
-        </p>
-        <p className={cls.location}>
-          {t("profile_card_country")}: {profile?.location}
-        </p>
-        <p className={cls.age}>
-          {t("profile_card_age")}: {profile?.age}
-        </p>
-        <p className={cls.gender}>
-          {t("profile_card_gender")}: {profile?.gender}
-        </p>
-      </Column>
-    </div>
+    <Column
+      data-testid="ProfileCard"
+      alignItems="center"
+      justifyContents="center"
+      gap="4"
+      className={classNames(cls.card)}
+    >
+      <img
+        src={profile?.avatar ?? USER_AVATAR_ERROR}
+        alt="Avatar"
+        className={cls.avatar}
+      />
+      <h2 className={cls.name}>{profile?.name}</h2>
+      <p className={cls.username}>
+        {t("profile_card_username")}: {profile?.username}
+      </p>
+      <p className={cls.location}>
+        {t("profile_card_country")}: {profile?.location}
+      </p>
+      <p className={cls.age}>
+        {t("profile_card_age")}: {profile?.age}
+      </p>
+      <p className={cls.gender}>
+        {t("profile_card_gender")}: {profile?.gender}
+      </p>
+    </Column>
   );
 };

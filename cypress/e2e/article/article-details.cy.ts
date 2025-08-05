@@ -1,10 +1,14 @@
-import { mockArticleId } from "cypress/fixtures/defaultMockArticle";
+import { mockArticleId } from "cypress/mocs/defaultMockArticle";
 
 describe("Страница со списком статьёй", () => {
   beforeEach(() => {
     cy.login();
     cy.createArticle();
-    cy.intercept("GET", "/comments*").as("getComments");
+
+    cy.intercept("GET", "**/comments*", {
+      fixture: "/general/comments.json",
+    }).as("getComments");
+
     cy.visit(`/articles/${mockArticleId}`);
   });
 

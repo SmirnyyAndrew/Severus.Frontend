@@ -1,0 +1,106 @@
+[
+  {
+    "articleId": "1",
+    "userId": "1",
+    "text": "eblan",
+    "id": 4,
+    "user": {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "roles": ["ADMIN", "MANAGER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "1",
+    "text": "comment",
+    "id": 5,
+    "user": {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "roles": ["ADMIN", "MANAGER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "1",
+    "text": "hello everyone",
+    "id": 6,
+    "user": {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "roles": ["ADMIN", "MANAGER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "1",
+    "text": "how are u?",
+    "id": 7,
+    "user": {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "roles": ["ADMIN", "MANAGER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "4",
+    "text": "set to page position 0",
+    "id": 8,
+    "user": {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["USER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "4",
+    "text": "i18next::backendConnector: loaded",
+    "id": 9,
+    "user": {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["USER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "4",
+    "text": "[webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.",
+    "id": 10,
+    "user": {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["USER"]
+    }
+  },
+  {
+    "articleId": "1",
+    "userId": "4",
+    "text": "http://localhost:3000/articles/1",
+    "id": 11,
+    "user": {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
+      "roles": ["USER"]
+    }
+  }
+]

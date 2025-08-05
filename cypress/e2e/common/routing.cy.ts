@@ -1,18 +1,16 @@
-import { DataTestIdFormatter } from "cypress/helpers/DataTestIdFormatter";
-
 describe("template spec", () => {
   describe("Пользователь НЕ авторизован", () => {
     it("Переход на главную страницу", () => {
       cy.visit("/");
-      cy.get(DataTestIdFormatter("MainPage")).should("exist");
+      cy.getByTestId("MainPage").should("exist");
     });
-    it("Попытка перехода на страцицу пользователя (редирект на главную страницу)", () => {
+    it("Попытка перехода на страницу пользователя (редирект на главную страницу)", () => {
       cy.visit("/profile/1");
-      cy.get(DataTestIdFormatter("MainPage")).should("exist");
+      cy.getByTestId("MainPage").should("exist");
     });
     it("Переход на несуществующую страницу", () => {
       cy.visit("/kldfgkdie34983kdsd/sdsd2120q9sq/12saclvo");
-      cy.get(DataTestIdFormatter("NotFoundPage")).should("exist");
+      cy.getByTestId("NotFoundPage").should("exist");
     });
   });
 
@@ -22,12 +20,12 @@ describe("template spec", () => {
     });
     it("Переход на страницу пользователя", () => {
       cy.visit("/profile/1");
-      cy.get(DataTestIdFormatter("ProfilePage")).should("exist");
+      cy.getByTestId("ProfilePage").should("exist");
     });
 
     it("Переход на страницу со списком статей", () => {
       cy.visit("/articles");
-      cy.get(DataTestIdFormatter("ArticlesPage")).should("exist");
+      cy.getByTestId("ArticlesPage").should("exist");
     });
   });
 });

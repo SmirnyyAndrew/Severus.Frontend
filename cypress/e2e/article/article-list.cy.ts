@@ -1,6 +1,11 @@
 describe("Страница со списком статей", () => {
   beforeEach(() => {
     cy.login();
+
+    cy.intercept("GET", "/articles?*", {
+      fixture: "/article/article-list.json",
+    });
+
     cy.visit("/articles");
   });
 

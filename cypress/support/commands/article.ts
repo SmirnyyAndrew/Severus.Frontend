@@ -3,7 +3,7 @@ import { BACKEND_URL } from "shared/const/connectionStrings";
 import {
   defaultMockArticle,
   mockArticleId,
-} from "../../fixtures/defaultMockArticle";
+} from "../../mocs/defaultMockArticle";
 
 export const createArticle = (article?: Article) => {
   return cy

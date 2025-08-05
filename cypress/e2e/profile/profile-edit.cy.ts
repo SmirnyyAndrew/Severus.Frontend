@@ -6,6 +6,11 @@ let user: User = {};
 describe("Страница профиля", () => {
   beforeEach(() => {
     cy.visit("/");
+
+    cy.intercept("GET", "**/profile*", {
+      fixture: "/profile/profile.json",
+    }).as("getProfile");
+
     cy.login().then((data) => {
       cy.visit(`/profile/${data.id}`);
       user = data;
@@ -18,6 +23,8 @@ describe("Страница профиля", () => {
 
   it("Редактирование профиля", () => {
     cy.getByTestId("ProfilePageEditProfileButton").should("exist").click();
+
+    cy.wait("@getProfile");
 
     cy.updateProfile(faker.number.int({ min: 20, max: 45 }));
 

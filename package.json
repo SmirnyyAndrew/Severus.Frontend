@@ -28,7 +28,8 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "server:db": "npx json-server --watch ./json-server/db.json --port 28532",
     "prepare": "husky",
-    "postinstall": "node scripts/clear-node-cache.js"
+    "postinstall": "node scripts/clear-node-cache.js",
+    "remove-feature": "npx ts-node ./scripts/remove-feature.ts"
   },
   "keywords": [],
   "author": "",
@@ -94,6 +95,7 @@
     "storybook": "8.6.14",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
+    "ts-morph": "^26.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.8.3",

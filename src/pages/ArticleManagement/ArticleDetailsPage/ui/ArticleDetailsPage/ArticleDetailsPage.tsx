@@ -9,6 +9,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { toggleFeatures } from "shared/lib/features";
 import { getFeatureFlags } from "shared/lib/features/setGetFeatures";
 import { Page } from "widgets/Page";
 import { ArticleDetailsPageReducers } from "../..";
@@ -32,6 +33,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   );
   const isArticleRatingsEnabled = getFeatureFlags("isArticleRatingsEnabled");
 
+  const Element = toggleFeatures({
+    name: "isArticleRatingsEnabled",
+    on: () => <ArticleDetailsRecommenations />,
+    off: () => <div>Wait, it's be soon</div>,
+  });
+
   if (!id) return <h1>Неверный номер статьи</h1>;
 
   return (
@@ -41,6 +48,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <ArticleDetails articleId={id} />
         {isArticleRecommendationsEnabled && <ArticleDetailsRecommenations />}
         {isArticleRatingsEnabled && <ArticleRatings articleId={id} />}
+        {Element}
         <AddNewCommentForm />
         <CommentList />
       </Page>

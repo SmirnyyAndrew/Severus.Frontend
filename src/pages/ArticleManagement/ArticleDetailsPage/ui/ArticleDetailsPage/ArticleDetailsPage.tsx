@@ -9,6 +9,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { getFeatureFlags } from "shared/lib/features/setGetFeatures";
 import { Page } from "widgets/Page";
 import { ArticleDetailsPageReducers } from "../..";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
@@ -23,18 +24,23 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
-  const { id } = useParams();
   const { t } = useTranslation();
+  const { id } = useParams();
+
+  const isArticleRecommendationsEnabled = getFeatureFlags(
+    "isArticleRecommendationsEnabled"
+  );
+  const isArticleRatingsEnabled = getFeatureFlags("isArticleRatingsEnabled");
 
   if (!id) return <h1>Неверный номер статьи</h1>;
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page data-testid="ArticleDetailsPage">
+      <Page data-testid="ArticleDetailsPage" className={className}>
         <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
-        <ArticleDetailsRecommenations />
-        <ArticleRatings articleId={id} />
+        {isArticleRecommendationsEnabled && <ArticleDetailsRecommenations />}
+        {isArticleRatingsEnabled && <ArticleRatings articleId={id} />}
         <AddNewCommentForm />
         <CommentList />
       </Page>

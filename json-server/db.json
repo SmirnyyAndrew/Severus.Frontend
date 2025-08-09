@@ -39,37 +39,44 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "roles": [
-        "ADMIN",
-        "MANAGER"
-      ]
+      "roles": ["ADMIN", "MANAGER"],
+      "features": {
+        "isArticleRatingsEnabled": true,
+        "isArticleRecommendationsEnabled": true
+      }
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
-      "roles": [
-        "USER"
-      ]
+      "roles": ["USER"],
+      "features": {
+        "isArticleRatingsEnabled": false,
+        "isArticleRecommendationsEnabled": true
+      }
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
-      "roles": [
-        "MANAGER"
-      ]
+      "roles": ["MANAGER"],
+      "features": {
+        "isArticleRatingsEnabled": false,
+        "isArticleRecommendationsEnabled": false
+      }
     },
     {
       "id": "4",
       "username": "testuser",
       "password": "123",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAhBdjd5Dc183RfLQZmtTfkKt34zxUU5iEw&s",
-      "roles": [
-        "USER"
-      ]
+      "roles": ["USER"],
+      "features": {
+        "isArticleRatingsEnabled": true,
+        "isArticleRecommendationsEnabled": false
+      }
     }
   ],
   "profile": [
@@ -119,12 +126,7 @@
       "views": 1022,
       "userId": "1",
       "createdAt": "26.02.2022",
-      "type": [
-        "IT",
-        "EDUCATION",
-        "SCIENCE",
-        "ENTERTAINMENT"
-      ],
+      "type": ["IT", "EDUCATION", "SCIENCE", "ENTERTAINMENT"],
       "blocks": [
         {
           "id": "1",
@@ -194,10 +196,7 @@
       "views": 980,
       "userId": "1",
       "createdAt": "12.03.2024",
-      "type": [
-        "SCIENCE",
-        "EDUCATION"
-      ],
+      "type": ["SCIENCE", "EDUCATION"],
       "blocks": [
         {
           "id": "1",
@@ -218,10 +217,7 @@
       "views": 2341,
       "userId": "2",
       "createdAt": "01.02.2025",
-      "type": [
-        "IT",
-        "EDUCATION"
-      ],
+      "type": ["IT", "EDUCATION"],
       "blocks": [
         {
           "id": "1",
@@ -242,9 +238,7 @@
       "views": 842,
       "userId": "1",
       "createdAt": "10.01.2024",
-      "type": [
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -265,10 +259,7 @@
       "views": 1543,
       "userId": "2",
       "createdAt": "02.05.2025",
-      "type": [
-        "EDUCATION",
-        "SCIENCE"
-      ],
+      "type": ["EDUCATION", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -289,10 +280,7 @@
       "views": 4378,
       "userId": "1",
       "createdAt": "15.12.2024",
-      "type": [
-        "ENTERTAINMENT",
-        "IT"
-      ],
+      "type": ["ENTERTAINMENT", "IT"],
       "blocks": [
         {
           "id": "1",
@@ -313,10 +301,7 @@
       "views": 2111,
       "userId": "2",
       "createdAt": "03.08.2024",
-      "type": [
-        "EDUCATION",
-        "SCIENCE"
-      ],
+      "type": ["EDUCATION", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -337,10 +322,7 @@
       "views": 1320,
       "userId": "2",
       "createdAt": "28.06.2024",
-      "type": [
-        "IT",
-        "SCIENCE"
-      ],
+      "type": ["IT", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -361,10 +343,7 @@
       "views": 1995,
       "userId": "1",
       "createdAt": "10.03.2025",
-      "type": [
-        "IT",
-        "SCIENCE"
-      ],
+      "type": ["IT", "SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -385,9 +364,7 @@
       "views": 24046,
       "userId": "2",
       "createdAt": "11.03.2025",
-      "type": [
-        "ENTERTAINMENT"
-      ],
+      "type": ["ENTERTAINMENT"],
       "blocks": [
         {
           "id": "1",
@@ -408,10 +385,7 @@
       "views": 4520,
       "createdAt": "03.02.2025",
       "userId": "1",
-      "type": [
-        "TECH",
-        "EDUCATION"
-      ]
+      "type": ["TECH", "EDUCATION"]
     },
     {
       "id": "12",
@@ -421,10 +395,7 @@
       "views": 1987,
       "createdAt": "15.02.2025",
       "userId": "1",
-      "type": [
-        "ECOLOGY",
-        "FASHION"
-      ]
+      "type": ["ECOLOGY", "FASHION"]
     },
     {
       "id": "13",
@@ -434,10 +405,7 @@
       "views": 3120,
       "userId": "2",
       "createdAt": "21.03.2025",
-      "type": [
-        "BUSINESS",
-        "TECH"
-      ]
+      "type": ["BUSINESS", "TECH"]
     },
     {
       "id": "14",
@@ -447,10 +415,7 @@
       "views": 3204,
       "createdAt": "01.01.2025",
       "userId": "2",
-      "type": [
-        "ENTERTAINMENT",
-        "ECOLOGY"
-      ]
+      "type": ["ENTERTAINMENT", "ECOLOGY"]
     },
     {
       "id": "15",
@@ -460,10 +425,7 @@
       "views": 4873,
       "userId": "1",
       "createdAt": "10.04.2025",
-      "type": [
-        "TECH",
-        "ENTERTAINMENT"
-      ]
+      "type": ["TECH", "ENTERTAINMENT"]
     },
     {
       "id": "16",
@@ -473,10 +435,7 @@
       "img": "https://images.unsplash.com/photo-1505842465776-3d90f6160c54?auto=format&fit=crop&w=800&q=80",
       "views": 2711,
       "createdAt": "22.04.2025",
-      "type": [
-        "ECOLOGY",
-        "URBAN"
-      ]
+      "type": ["ECOLOGY", "URBAN"]
     },
     {
       "id": "17",
@@ -486,10 +445,7 @@
       "img": "https://images.unsplash.com/photo-1587723963360-e3f7f1b8be1e?auto=format&fit=crop&w=800&q=80",
       "views": 3490,
       "createdAt": "05.05.2025",
-      "type": [
-        "MEDIA",
-        "CULTURE"
-      ]
+      "type": ["MEDIA", "CULTURE"]
     },
     {
       "id": "18",
@@ -499,10 +455,7 @@
       "img": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
       "views": 3905,
       "createdAt": "17.05.2025",
-      "type": [
-        "DESIGN",
-        "TECH"
-      ]
+      "type": ["DESIGN", "TECH"]
     },
     {
       "id": "19",
@@ -512,10 +465,7 @@
       "views": 2280,
       "userId": "1",
       "createdAt": "26.05.2025",
-      "type": [
-        "HEALTH",
-        "CULTURE"
-      ]
+      "type": ["HEALTH", "CULTURE"]
     },
     {
       "id": "B6Wd01j"

@@ -1,7 +1,12 @@
-import { memo, useState } from "react";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
+import { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import BritishFlag from "shared/assets/icons/menu/langs/british-flag.svg";
 import RussianFlag from "shared/assets/icons/menu/langs/russian-flag.svg";
+import { SET_LANG_DEBOUNCE } from "shared/const/delays";
+import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
+import { JsonSettings } from "shared/types/JsonSettings";
+import { Langs } from "shared/types/lang/Langs";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/ui/Button";
 
@@ -16,12 +21,28 @@ export const LangSwitcher = memo(
     const { t, i18n } = useTranslation();
     const [isFlagView, setIsFlagView] = useState(isFlag);
 
-    const toggleLang = () => {
-      i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
-      isShort = !isShort;
-    };
+    const jsonSettings = useUserAuth()?.authData?.jsonSettings;
+    const { updateJsonSettings } = useUserAuth();
 
-    const flag = i18n.language === "ru" ? <RussianFlag /> : <BritishFlag />;
+    useEffect(() => {
+      i18n.changeLanguage((jsonSettings?.language as Langs) ?? Langs.ru);
+    }, [jsonSettings]);
+
+    const toggleLang = useDebounce(async () => {
+      const newLang = jsonSettings?.language === Langs.ru ? Langs.en : Langs.ru;
+      i18n.changeLanguage(newLang);
+
+      const newUserJsonSettings: JsonSettings = {
+        ...jsonSettings,
+        language: newLang,
+      };
+
+      await updateJsonSettings(newUserJsonSettings);
+
+      isShort = !isShort;
+    }, SET_LANG_DEBOUNCE);
+
+    const flag = i18n.language === Langs.ru ? <RussianFlag /> : <BritishFlag />;
 
     const printLangView = () => {
       if (isFlagView) return flag;

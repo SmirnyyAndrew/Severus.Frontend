@@ -67,7 +67,7 @@
       },
       "jsonSettings": {
         "theme": "app_light_theme",
-        "language": "ru",
+        "language": "en",
         "articleViewType": "list"
       }
     },
@@ -85,7 +85,7 @@
       },
       "jsonSettings": {
         "theme": "app_cute_theme",
-        "language": "ru",
+        "language": "en",
         "articleViewType": "grid"
       }
     },

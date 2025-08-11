@@ -5,8 +5,11 @@ import {
   useGetUserInited,
   useGetUserRoles,
 } from "entities/User";
+import { setJsonSettingsThunk } from "features/ProfileManagement/SetJsonSettings";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
+import { JsonSettings } from "shared/types/JsonSettings";
 import { useUserActions } from "../slice/userSlice";
 
 export const useUserAuth = () => {
@@ -16,6 +19,7 @@ export const useUserAuth = () => {
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
   const isAdminOrManager = isAdmin || isManager;
+  const dispatch = useAppDispatch();
 
   const {
     initAuthData: initAuthDataDispatch,
@@ -38,6 +42,18 @@ export const useUserAuth = () => {
     logoutDispatch();
   }, []);
 
+  const updateJsonSettings = useCallback(
+    async (newJsonSettings: JsonSettings) => {
+      await dispatch(
+        setJsonSettingsThunk({
+          userId: authData?.id,
+          newJsonSettings,
+        })
+      );
+    },
+    [dispatch, authData?.id]
+  );
+
   return {
     authData,
     roles,
@@ -48,5 +64,6 @@ export const useUserAuth = () => {
     initAuthData,
     setAuthData,
     logout,
+    updateJsonSettings,
   };
 };

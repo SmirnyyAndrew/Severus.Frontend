@@ -1,6 +1,7 @@
 import { ArticleType } from "entities/Article/model/types/ArticleManagement/ArticleType";
 import { useArticlesPage } from "pages/ArticleManagement/ArticlesPage";
 import { useCallback, useMemo } from "react";
+import { PAGE_FILTERS_DEBOUNCE } from "shared/const/delays";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
@@ -35,7 +36,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     getArticlesWithLimit(true);
   }, []);
 
-  const debouncedFetchData = useDebounce(getData, 500);
+  const debouncedFetchData = useDebounce(getData, PAGE_FILTERS_DEBOUNCE);
 
   const onChangeSort = useCallback(
     (newSort: ArticleSortField) => {

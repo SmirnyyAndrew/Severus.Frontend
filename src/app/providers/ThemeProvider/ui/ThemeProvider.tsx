@@ -1,10 +1,7 @@
-import { ReactNode, useMemo, useState } from "react";
-import { LOCAL_STORAGE_THEME_KEY } from "shared/const/localstorage";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { Theme } from "../lib/Theme";
 import { ThemeContext } from "../lib/ThemeContext";
-
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 interface ThemeProviderProps {
   initialTheme?: Theme;
@@ -14,7 +11,15 @@ interface ThemeProviderProps {
 export const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initialTheme } = props;
 
+  const userTheme: Theme = useUserAuth()?.authData?.jsonSettings
+    ?.theme as Theme;
+  const defaultTheme = userTheme || Theme.LIGHT;
+
   const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+
+  useEffect(() => {
+    setTheme(userTheme);
+  }, [userTheme]);
 
   const defaultProps = useMemo(
     () => ({

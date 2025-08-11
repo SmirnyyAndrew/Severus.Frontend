@@ -1,8 +1,10 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { User, UserSchema } from "entities/User";
+import { setJsonSettingsThunk } from "features/ProfileManagement/SetJsonSettings";
 import { USER_LOCAL_STORAGE_KEY } from "shared/const/localstorage";
 import { setFeatureFlags } from "shared/lib/features";
 import { buildSlice } from "shared/lib/srote/buildSlice";
+import { JsonSettings } from "shared/types/JsonSettings";
 
 const initialState: UserSchema = {
   _inited: false,
@@ -32,6 +34,14 @@ export const userSlice = buildSlice({
       state.authData = undefined;
       state._inited = false;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      setJsonSettingsThunk.fulfilled,
+      (state, action: PayloadAction<JsonSettings>) => {
+        state.authData && (state.authData.jsonSettings = action.payload);
+      }
+    );
   },
 });
 

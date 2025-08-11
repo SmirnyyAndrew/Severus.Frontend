@@ -43,6 +43,11 @@
       "features": {
         "isArticleRatingsEnabled": true,
         "isArticleRecommendationsEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "light",
+        "language": "en",
+        "articleViewType": "list"
       }
     },
     {

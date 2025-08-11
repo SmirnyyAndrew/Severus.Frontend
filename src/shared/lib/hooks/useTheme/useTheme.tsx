@@ -1,10 +1,8 @@
 import { getNextTheme } from "features/NavbarManagement/ThemeSwitcher";
 import { useContext } from "react";
+import { LOCAL_STORAGE_THEME_KEY } from "shared/const/localstorage";
 import { Theme } from "../../../../app/providers/ThemeProvider/lib/Theme";
-import {
-  LOCAL_STORAGE_THEME_KEY,
-  ThemeContext,
-} from "../../../../app/providers/ThemeProvider/lib/ThemeContext";
+import { ThemeContext } from "../../../../app/providers/ThemeProvider/lib/ThemeContext";
 
 interface UseThemeResult {
   toggleTheme: () => void;

@@ -3,6 +3,7 @@ import webpack from "webpack";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuidPaths, BuildEnv } from "./config/build/types/config";
 import { BACKEND_URL } from "./src/shared/const/connectionStrings";
+import { Print } from "./src/shared/lib/console/Print";
 
 export default (env: BuildEnv) => {
   const paths: BuidPaths = {
@@ -33,19 +34,17 @@ export default (env: BuildEnv) => {
 };
 
 const logEnvValues = (env: BuildEnv) => {
-  console.log("===========> env:start <=========");
+  Print("env:start");
   console.log("api url: " + env?.apiUrl);
   console.log("port: " + env?.port);
   console.log("mode: " + env?.mode);
-  console.log("===========> env:end <=========");
-  console.log("");
+  Print("env:end");
 };
 
 const logCurrentValues = (port: number, mode: string, apiUrl: string) => {
-  console.log("===========> current:start <=========");
+  Print("current:start");
   console.log("api url: " + apiUrl);
   console.log("port: " + port);
   console.log("mode: " + mode);
-  console.log("===========> current:end <=========");
-  console.log("");
+  Print("current:end");
 };

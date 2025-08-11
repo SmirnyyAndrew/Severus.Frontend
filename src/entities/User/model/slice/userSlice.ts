@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { User, UserSchema } from "entities/User";
-import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { USER_LOCAL_STORAGE_KEY } from "shared/const/localstorage";
 import { setFeatureFlags } from "shared/lib/features";
 import { buildSlice } from "shared/lib/srote/buildSlice";
 
@@ -19,7 +19,7 @@ export const userSlice = buildSlice({
       setFeatureFlags(action.payload.features);
     },
     initAuthData: (state) => {
-      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+      const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
       if (user) {
         const jsonUser = JSON.parse(user) as User;
         state.authData = jsonUser;
@@ -28,7 +28,7 @@ export const userSlice = buildSlice({
       state._inited = true;
     },
     logout: (state) => {
-      localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+      localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
       state.authData = undefined;
       state._inited = false;
     },

@@ -2,7 +2,6 @@ import { ArticleType, ArticleViewType } from "entities/Article";
 import { ArticleSortField } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
 
@@ -13,6 +12,9 @@ import {
   useGetArticlesPageType,
 } from "../selectors/articlesPageSelectors/articlesPageSelectors";
 
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
+import { setJsonSettingsThunk } from "features/ProfileManagement/SetJsonSettings";
+import { JsonSettings } from "shared/types/JsonSettings";
 import { useGetArticlesPageError } from "../selectors/getArticlesPageError/getArticlesPageError";
 import { useGetArticlesPageHasMore } from "../selectors/getArticlesPageHasMore/getArticlesPageHasMore";
 import { useGetArticlesPageInited } from "../selectors/getArticlesPageInited/getArticlesPageInited";
@@ -41,8 +43,9 @@ export const useArticlesPage = () => {
   const search = useGetArticlesPageSearch();
   const type = useGetArticlesPageType();
 
+  const { authData } = useUserAuth();
+
   const {
-    initState: initStateDispatch,
     setView: setViewDispatch,
     setPage: setPageDispatch,
     setOrder: setOrderDispatch,
@@ -59,18 +62,8 @@ export const useArticlesPage = () => {
     [dispatch]
   );
 
-  const initArticles = useCallback(
-    (searchParams: URLSearchParams) => {
-      const keyFromLocalStorage = localStorage.getItem(
-        ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY
-      );
-      const view: ArticleViewType =
-        (keyFromLocalStorage as ArticleViewType) || ArticleViewType.GRID;
-
-      if (keyFromLocalStorage) {
-        setViewDispatch(view);
-      }
-
+  const initArticlesPage = useCallback(
+    async (searchParams: URLSearchParams) => {
       const orderFromUrl = searchParams.get("order") as SortOrder;
       const sortFromUrl = searchParams.get("sort") as ArticleSortField;
       const searchFromUrl = searchParams.get("search");
@@ -83,12 +76,35 @@ export const useArticlesPage = () => {
       if (searchFromUrl) setSearchDispatch(searchFromUrl);
 
       if (typeFromUrl) setTypeDispatch(typeFromUrl);
+
+      // вот это важно:
+      const allowedViews: ArticleViewType[] = ["GRID", "LIST"];
+      const userView = allowedViews.includes(
+        authData?.jsonSettings?.articleViewType as ArticleViewType
+      )
+        ? (authData?.jsonSettings?.articleViewType as ArticleViewType)
+        : "GRID";
+
+      setViewDispatch(userView);
     },
-    [, view]
+    [authData]
   );
 
-  const setArticlesViewType = useCallback((viewType: ArticleViewType) => {
-    localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, viewType);
+  const setArticlesViewType = useCallback(async (viewType: ArticleViewType) => {
+    const newJsonSettings: JsonSettings = {
+      ...authData?.jsonSettings,
+      articleViewType: viewType,
+    };
+    await dispatch(
+      setJsonSettingsThunk({
+        userId: authData?.id,
+        newJsonSettings,
+      })
+    );
+    setViewDispatch(viewType);
+  }, []);
+
+  const initArticlesViewType = useCallback((viewType: ArticleViewType) => {
     setViewDispatch(viewType);
   }, []);
 
@@ -129,8 +145,9 @@ export const useArticlesPage = () => {
     order,
     search,
     type,
+    initArticlesViewType,
     getArticlesWithLimit,
-    initArticles,
+    initArticlesPage,
     setArticlesViewType,
     setPage,
     setHasMore,

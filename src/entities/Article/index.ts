@@ -25,11 +25,10 @@ export {
   ArticleReducer,
   ArticleSlice,
   ArticleType,
-  ArticleViewType,
   getArticleByIdThunk,
   getArticleSelector,
   useArticle,
   useGetArticle,
 };
 
-export type { Article, ArticleBlock };
+export type { Article, ArticleBlock, ArticleViewType };

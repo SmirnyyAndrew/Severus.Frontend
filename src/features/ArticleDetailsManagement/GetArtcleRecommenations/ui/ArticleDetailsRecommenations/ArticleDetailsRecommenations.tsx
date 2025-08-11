@@ -1,4 +1,3 @@
-import { ArticleViewType } from "entities/Article";
 import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Column } from "shared/ui/Stack";
@@ -36,7 +35,7 @@ export const ArticleDetailsRecommenations = (
       <Text size={TextSize.L} text={"Рекомендуем"} />
       <ArticleList
         className={cls.list}
-        view={ArticleViewType.GRID}
+        view={"GRID"}
         articles={recommendations}
         isLoading={isLoading}
         target="_blank"

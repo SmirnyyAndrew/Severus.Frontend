@@ -1,6 +1,7 @@
 import { Store } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { ArticlesPageFilters } from "features/ArticleDetailsManagement/ArticleSortAndFilter";
 import { ScrollSaveReducer } from "features/UIManagement/ScrollSave";
 import { useCallback, useEffect } from "react";
@@ -10,7 +11,6 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Page } from "widgets/Page";
 import { ArticlesPageReducer } from "../..";
 import { useArticlesPage } from "../../model/hooks/useArticlesPage";
@@ -30,26 +30,28 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     pageScroll: ScrollSaveReducer,
   };
 
+  const { authData } = useUserAuth();
+
   const {
     view,
     articles,
     page,
     limit,
     hasMore,
-    inited,
     isLoading,
     getArticlesWithLimit,
-    initArticles,
-    setArticlesViewType,
+    initArticlesPage,
     setPage,
   } = useArticlesPage();
 
   const store = useStore() as Store<StateSchema>;
 
   // один useEffect — для инициализации
-  useInitialEffect(() => {
-    initArticles(searchParams);
-  });
+  useEffect(() => {
+    if (authData) {
+      initArticlesPage(searchParams);
+    }
+  }, [searchParams]);
 
   // другой — для загрузки статьи по текущей странице
   useEffect(() => {

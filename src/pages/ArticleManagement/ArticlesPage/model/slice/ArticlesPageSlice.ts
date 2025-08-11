@@ -7,7 +7,6 @@ import {
   GRID_ELEMENTS_COUNT,
   LIST_ELEMENTS_COUNT,
 } from "shared/const/elementsCount";
-import { ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { buildSlice } from "shared/lib/srote/buildSlice";
 import { SortOrder } from "shared/types/sortOrder/SortOrder";
 import { getArticlesListThunk } from "../..";
@@ -43,32 +42,15 @@ export const ArticlesPageSlice = buildSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewType>) => {
       state.view = action.payload;
-      localStorage.setItem(ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY, action.payload);
 
       state.limit =
-        state.view === ArticleViewType.LIST
-          ? LIST_ELEMENTS_COUNT
-          : GRID_ELEMENTS_COUNT;
+        state.view === "LIST" ? LIST_ELEMENTS_COUNT : GRID_ELEMENTS_COUNT;
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
     setHasMore: (state, action: PayloadAction<boolean>) => {
       state.hasMore = action.payload;
-    },
-    initState: (state) => {
-      const view =
-        (localStorage.getItem(
-          ARTICLE_VIEW_TYPE_LOCALSTORAGE_KEY
-        ) as ArticleViewType) || ArticleViewType.GRID;
-
-      state.view = view;
-      state.limit =
-        view === ArticleViewType.LIST
-          ? LIST_ELEMENTS_COUNT
-          : GRID_ELEMENTS_COUNT;
-
-      state._inited = true;
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;

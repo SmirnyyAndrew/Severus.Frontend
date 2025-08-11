@@ -19,7 +19,7 @@ export const ArticleList = (props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleViewType.LIST,
+    view = "LIST",
     target = "_self",
   } = props;
 
@@ -31,7 +31,7 @@ export const ArticleList = (props: ArticleListProps) => {
     );
 
   switch (view) {
-    case ArticleViewType.LIST: {
+    case "LIST": {
       return (
         <ListArticlesList
           articles={articles}
@@ -40,7 +40,7 @@ export const ArticleList = (props: ArticleListProps) => {
         />
       );
     }
-    case ArticleViewType.GRID: {
+    case "GRID": {
       return (
         <GridArticlesList
           articles={articles}

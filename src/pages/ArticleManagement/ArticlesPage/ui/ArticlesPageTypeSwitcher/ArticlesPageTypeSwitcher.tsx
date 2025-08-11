@@ -1,4 +1,5 @@
 import { ArticleViewType } from "entities/Article";
+import { useEffect } from "react";
 import GridIcon from "shared/assets/icons/article/grid-icon.svg";
 import ListIcon from "shared/assets/icons/article/list-icon.svg";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
@@ -18,7 +19,11 @@ export const ArticlesPageTypeSwitcher = (
 ) => {
   const { className } = props;
 
-  const { view, setArticlesViewType } = useArticlesPage();
+  const { view, setArticlesViewType, initArticlesViewType } = useArticlesPage();
+
+  useEffect(() => {
+    initArticlesViewType(view);
+  }, [view]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
     setArticlesViewType(viewType);
@@ -39,13 +44,9 @@ export const ArticlesPageTypeSwitcher = (
         <Button
           data-testid="ListButtonSwitcher"
           isWrapper
-          onClick={() => onArticleTypeClick(ArticleViewType.LIST)}
+          onClick={() => onArticleTypeClick("LIST")}
           buttonTheme={ButtonTheme.CLEAR}
-          className={classNames(
-            cls.ListIcon,
-            getIconTypeMods(ArticleViewType.LIST),
-            []
-          )}
+          className={classNames(cls.ListIcon, getIconTypeMods("LIST"), [])}
         >
           <Icon
             Svg={ListIcon}
@@ -57,14 +58,10 @@ export const ArticlesPageTypeSwitcher = (
         <Button
           data-testid="GridButtonSwitcher"
           isWrapper
-          onClick={() => onArticleTypeClick(ArticleViewType.GRID)}
+          onClick={() => onArticleTypeClick("GRID")}
           size={ButtonSize.M}
           buttonTheme={ButtonTheme.CLEAR}
-          className={classNames(
-            cls.GridIcon,
-            getIconTypeMods(ArticleViewType.GRID),
-            []
-          )}
+          className={classNames(cls.GridIcon, getIconTypeMods("GRID"), [])}
         >
           <Icon
             Svg={GridIcon}

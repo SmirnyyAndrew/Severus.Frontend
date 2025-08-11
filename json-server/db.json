@@ -49,8 +49,8 @@
       },
       "jsonSettings": {
         "theme": "app_cute_theme",
-        "language": "en",
-        "articleViewType": "list"
+        "language": "ru",
+        "articleViewType": "LIST"
       }
     },
     {
@@ -68,7 +68,7 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "language": "en",
-        "articleViewType": "list"
+        "articleViewType": "grid"
       }
     },
     {
@@ -86,7 +86,7 @@
       "jsonSettings": {
         "theme": "app_cute_theme",
         "language": "en",
-        "articleViewType": "grid"
+        "articleViewType": "LIST"
       }
     },
     {
@@ -104,7 +104,7 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "language": "ru",
-        "articleViewType": "grid"
+        "articleViewType": "LIST"
       }
     }
   ],

@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import { Preview } from "@storybook/react";
 import { Theme } from "../../src/app/providers/ThemeProvider";
 import { I18nextDecorator } from "../../src/shared/config/storybook/Decorators/I18nextDecorator";
 import { ReduxDecorator } from "../../src/shared/config/storybook/Decorators/ReduxDecorator";
@@ -21,8 +21,8 @@ const preview: Preview = {
     RouterDecorator,
     I18nextDecorator,
     StyleDecorator,
-    ReduxDecorator,
     ThemeDecorator(Theme.LIGHT),
+    ReduxDecorator,
   ],
 };
 

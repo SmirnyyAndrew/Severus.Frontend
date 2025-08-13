@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react/*";
+import { StoryFn } from "@storybook/react";
 import { StoreProvider } from "app/providers/StoreProvider";
 import { profileReducer } from "entities/Profile";
 import { userReducer } from "entities/User";

@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "shared/const/connectionStrings";
+import { BACKEND_URL } from "../../src/shared/const/connectionStrings";
 
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:

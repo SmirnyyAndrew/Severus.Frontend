@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
-import { Profile } from "./Profile";
+import { Profile } from "../types/Profile";
 
-export function ProfileExample(randomValues?: boolean): Profile {
+export function ProfileMock(randomValues?: boolean): Profile {
   return randomValues
     ? {
         id: faker.string.uuid(),

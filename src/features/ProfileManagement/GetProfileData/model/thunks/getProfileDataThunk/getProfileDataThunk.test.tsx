@@ -1,11 +1,11 @@
-import { ProfileExample } from "entities/Profile";
+import { ProfileMock } from "entities/Profile";
 import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/TestAsyncThunk";
 import { getProfileDataThunk } from "./getProfileDataThunk";
 
 describe("getProfileDataThunk", () => {
   test("get request", async () => {
     const thunk = new TestAsyncThunk(getProfileDataThunk);
-    const data = ProfileExample();
+    const data = ProfileMock();
 
     // ProfileDataExample - что возвращает moc-get запрос
     thunk.api.get.mockReturnValue(Promise.resolve({ data: [data] }));

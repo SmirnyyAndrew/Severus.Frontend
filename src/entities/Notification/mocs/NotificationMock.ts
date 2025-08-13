@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { Notification } from "./Notification";
+import { Notification } from "../model/types/Notification";
 
-export function NotificationExample(randomValues?: boolean): Notification {
+export function NotificationMock(randomValues?: boolean): Notification {
   return randomValues
     ? {
         id: faker.string.uuid(),

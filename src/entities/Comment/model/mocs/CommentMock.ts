@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 import { USER_AVATAR_ERROR } from "shared/const/plugFiles";
-import { Comment } from "./Comment";
+import { Comment } from "../types/Comment";
 
-export function CommentExample(randomValues?: boolean): Comment {
+export function CommentMock(randomValues?: boolean): Comment {
   return randomValues
     ? {
         id: faker.string.uuid(),

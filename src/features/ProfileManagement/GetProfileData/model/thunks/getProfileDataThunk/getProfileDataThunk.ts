@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
-import { Profile, ProfileExample } from "entities/Profile";
+import { Profile, ProfileMock } from "entities/Profile";
 
 export const getProfileDataThunk = createAsyncThunk<
   Profile,
   string | undefined,
   ThunkConfig<string>
 >("profile/getProfileDataThunk", async (profileId, thunkApi) => {
-  if (__IS_STORYBOOK__) return ProfileExample();
+  if (__IS_STORYBOOK__) return ProfileMock();
 
   const { extra, rejectWithValue } = thunkApi;
 

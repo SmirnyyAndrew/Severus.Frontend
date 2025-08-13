@@ -1,10 +1,10 @@
 import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
-import { ArticleCodeBlock } from "../BlockManagement/ArticleBlocks/ArticleCodeBlock";
-import { ArticleImageBlock } from "../BlockManagement/ArticleBlocks/ArticleImageBlock";
-import { ArticleTextBlock } from "../BlockManagement/ArticleBlocks/ArticleTextBlock";
-import { ArticleBlockType } from "../BlockManagement/ArticleBlockType";
-import { Article } from "./Article";
-import { ArticleType } from "./ArticleType";
+import { Article } from "../types/ArticleManagement/Article";
+import { ArticleType } from "../types/ArticleManagement/ArticleType";
+import { ArticleCodeBlock } from "../types/BlockManagement/ArticleBlocks/ArticleCodeBlock";
+import { ArticleImageBlock } from "../types/BlockManagement/ArticleBlocks/ArticleImageBlock";
+import { ArticleTextBlock } from "../types/BlockManagement/ArticleBlocks/ArticleTextBlock";
+import { ArticleBlockType } from "../types/BlockManagement/ArticleBlockType";
 
 export const ArticleTextBlockExample: ArticleTextBlock = {
   id: "1",

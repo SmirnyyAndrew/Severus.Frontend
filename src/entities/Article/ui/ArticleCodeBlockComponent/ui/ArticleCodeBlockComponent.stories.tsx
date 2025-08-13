@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { ArticleCodeBlockExample } from "entities/Article/model/types/ArticleManagement/ArticleExample";
+import { ArticleCodeBlockExample } from "entities/Article/model/mocs/ArticleExamples";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { ArticleCodeBlockComponent } from "./ArticleCodeBlockComponent";
 
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof ArticleCodeBlockComponent>;
 
 export const Light: Story = {
   args: {
-    className: ""
-  }
+    className: "",
+  },
 };
 
 export const Dark: Story = {

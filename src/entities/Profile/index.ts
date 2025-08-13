@@ -1,4 +1,5 @@
 import { useProfile } from "./model/hooks/useProfile";
+import { ProfileMock } from "./model/mocs/ProfileMock";
 import { getProfile } from "./model/selectors/getProfile/getProfile";
 import { getProfileData } from "./model/selectors/getProfileData/getProfileData";
 import { getProfileError } from "./model/selectors/getProfileError/getProfileError";
@@ -6,7 +7,6 @@ import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 import { getValidationErrors } from "./model/selectors/getValidationErrors/getValidationErrors";
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
 import { Profile, ValidateProfileError } from "./model/types/Profile";
-import { ProfileExample } from "./model/types/ProfileExample";
 import { ProfileSchema } from "./model/types/ProfileSchema";
 import { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 
@@ -18,7 +18,7 @@ export {
   getValidationErrors,
   profileActions,
   ProfileCard,
-  ProfileExample,
+  ProfileMock,
   profileReducer,
   useProfile,
   ValidateProfileError,

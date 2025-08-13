@@ -1,14 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
-import { Comment, CommentExample } from "entities/Comment";
+import { Comment, CommentMock } from "entities/Comment";
 
 export const getCommentsByArticleIdThunk = createAsyncThunk<
   Comment[],
   string | undefined,
   ThunkConfig<string>
 >("article/getCommentsByArticleIdThunk", async (articleId, thunkApi) => {
-  if (__IS_STORYBOOK__)
-    return [CommentExample(), CommentExample(), CommentExample()];
+  if (__IS_STORYBOOK__) return [CommentMock(), CommentMock(), CommentMock()];
 
   const { extra, rejectWithValue } = thunkApi;
 

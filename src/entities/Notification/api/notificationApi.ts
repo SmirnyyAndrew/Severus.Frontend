@@ -1,7 +1,7 @@
 import { rtkApi } from "shared/api/rtkApi";
 import { buildMockRtkQuery } from "shared/lib/mockRtkQuery/mockRtkQuery";
+import { NotificationMock } from "../mocs/NotificationMock";
 import { Notification } from "../model/types/Notification";
-import { NotificationExample } from "../model/types/NotificationExample";
 
 const notificationApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -18,10 +18,6 @@ const notificationApi = rtkApi.injectEndpoints({
 const useGetNotificationsQuery = notificationApi.useGetNotificationsQuery;
 
 export const useNotifications = buildMockRtkQuery(
-  [
-    NotificationExample(true),
-    NotificationExample(true),
-    NotificationExample(true),
-  ],
+  [NotificationMock(true), NotificationMock(true), NotificationMock(true)],
   useGetNotificationsQuery
 );

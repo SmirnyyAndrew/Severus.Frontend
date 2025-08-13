@@ -1,6 +1,6 @@
 import { createEntityAdapter, PayloadAction } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
-import { Comment, CommentExample } from "entities/Comment";
+import { Comment, CommentMock } from "entities/Comment";
 import { buildSlice } from "shared/lib/srote/buildSlice";
 import { getCommentsByArticleIdThunk } from "../services/getCommentsByArticleId/getCommentsByArticleIdThunk";
 import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentsSchema";
@@ -13,13 +13,13 @@ export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
   (state) => {
     if (__IS_STORYBOOK__) {
       let comments: Comment[] = [
-        CommentExample(),
-        CommentExample(),
-        CommentExample(),
-        CommentExample(),
-        CommentExample(),
-        CommentExample(),
-        CommentExample(),
+        CommentMock(),
+        CommentMock(),
+        CommentMock(),
+        CommentMock(),
+        CommentMock(),
+        CommentMock(),
+        CommentMock(),
       ];
 
       console.log("comments slice ", comments);

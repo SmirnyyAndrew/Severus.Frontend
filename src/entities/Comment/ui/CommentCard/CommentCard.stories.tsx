@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { CommentExample } from "entities/Comment/model/types/CommentExample";
+import { CommentMock } from "entities/Comment/model/mocs/CommentMock";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
 import { CommentCard } from "./CommentCard";
 
 const meta: Meta<typeof CommentCard> = {
   title: "entities/Comment/CommentCard",
   component: CommentCard,
-  args: { comment: CommentExample(), isLoading: false },
+  args: { comment: CommentMock(), isLoading: false },
   argTypes: {
     isLoading: {
       control: "boolean",

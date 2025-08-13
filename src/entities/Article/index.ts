@@ -1,4 +1,5 @@
 import { useArticle } from "./model/hooks/useArticle";
+import { ArticleExample } from "./model/mocs/ArticleExamples";
 import {
   getArticleSelector,
   useGetArticle,
@@ -11,7 +12,6 @@ import {
 import { getArticleByIdThunk } from "./model/thunks/getArticleByIdThunk/getArticleByIdThunk";
 import { Article } from "./model/types/ArticleManagement/Article";
 import type { ArticleDetailsSchema } from "./model/types/ArticleManagement/ArticleDetailsSchema";
-import { ArticleExample } from "./model/types/ArticleManagement/ArticleExample";
 import { ArticleType } from "./model/types/ArticleManagement/ArticleType";
 import { ArticleViewType } from "./model/types/ArticleManagement/ArticleViewType";
 import { ArticleBlock } from "./model/types/BlockManagement/ArticleBlock";

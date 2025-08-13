@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
-import { ProfileExample } from "entities/Profile";
+import { ProfileMock } from "entities/Profile";
 import { StoreProviderWrapper } from "shared/config/tests/storeProviderWrapper/StoreProviderWrapper";
 import { WrapperReducerType } from "shared/config/tests/storeProviderWrapper/types/WrapperReducerType";
 import { WrapperType } from "shared/config/tests/storeProviderWrapper/types/WrapperType";
@@ -21,7 +21,7 @@ describe("useProfile", () => {
           profile: {
             isLoading: false,
             error: undefined,
-            profileData: ProfileExample(),
+            profileData: ProfileMock(),
           },
         },
       });
@@ -29,7 +29,7 @@ describe("useProfile", () => {
 
   test("setProfileData", () => {
     const { result } = renderHook(() => useProfile(), { wrapper });
-    const testProfile = ProfileExample();
+    const testProfile = ProfileMock();
 
     act(() => {
       result.current.setProfileData(testProfile);

@@ -22,11 +22,12 @@ export const loginByUsernameThunk = createAsyncThunk<
 
     if (!response.data) throw new Error();
 
-    thunkApi.dispatch(userActions.setAuthData(response.data));
-    localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+    const user: User = response.data;
+    thunkApi.dispatch(userActions.setAuthData(user));
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, user?.id || "");
 
-    thunkApi.extra.navigate?.(Routes.Profile.Info(response.data.id));
-    return response.data;
+    thunkApi.extra.navigate?.(Routes.Profile.Info(user.id));
+    return user;
   } catch (e) {
     console.log(e);
     return thunkApi.rejectWithValue("error");

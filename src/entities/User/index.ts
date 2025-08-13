@@ -10,6 +10,7 @@ import {
   useGetUserInited,
   useGetUserRoles,
 } from "./model/selectors/userSelectors";
+import { getUserByIdThunk } from "./model/services/getUserByIdThunk";
 import { userActions, userReducer, userSlice } from "./model/slice/userSlice";
 import { User } from "./model/types/User";
 import { UserRole } from "./model/types/UserRole";
@@ -17,6 +18,7 @@ import { UserSchema } from "./model/types/UserSchema";
 
 export {
   getUserAuthDataSelector,
+  getUserByIdThunk,
   getUserInitedSelector,
   getUserRolesSelector,
   getUserSelector,

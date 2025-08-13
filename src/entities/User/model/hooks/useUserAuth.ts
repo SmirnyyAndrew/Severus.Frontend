@@ -1,4 +1,5 @@
 import {
+  getUserByIdThunk,
   isUserAdmin,
   isUserManager,
   useGetUserAuthData,
@@ -8,6 +9,7 @@ import {
 import { setJsonSettingsThunk } from "features/ProfileManagement/SetJsonSettings";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
+import { USER_LOCAL_STORAGE_KEY } from "shared/const/localstorage";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispathcer/useAppDispatch";
 import { JsonSettings } from "shared/types/JsonSettings";
 import { useUserActions } from "../slice/userSlice";
@@ -21,14 +23,14 @@ export const useUserAuth = () => {
   const isAdminOrManager = isAdmin || isManager;
   const dispatch = useAppDispatch();
 
-  const {
-    initAuthData: initAuthDataDispatch,
-    logout: logoutDispatch,
-    setAuthData: setAuthDataDispatch,
-  } = useUserActions();
+  const { logout: logoutDispatch, setAuthData: setAuthDataDispatch } =
+    useUserActions();
 
-  const initAuthData = useCallback(() => {
-    initAuthDataDispatch();
+  const initAuthDataFromLocalStore = useCallback(() => {
+    const userId = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
+    if (userId) {
+      dispatch(getUserByIdThunk(userId));
+    }
   }, []);
 
   const setAuthData = useCallback(() => {
@@ -61,7 +63,7 @@ export const useUserAuth = () => {
     isAdmin,
     isAdminOrManager,
     isManager,
-    initAuthData,
+    initAuthDataFromLocalStore,
     setAuthData,
     logout,
     updateJsonSettings,

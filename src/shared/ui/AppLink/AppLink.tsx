@@ -24,7 +24,7 @@ export const AppLink = (props: AppLinkProps) => {
     to,
     "data-testid": testId = "AppLink",
     linkTheme = AppLinkTheme.PRIMARY,
-    target = "_top",
+    target = "_self",
     ...otherProps
   } = props;
 

@@ -1,6 +1,5 @@
-import { userActions } from "entities/User";
+import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { Suspense, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import "shared/config/i18n/i18n";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
@@ -10,12 +9,11 @@ import { AppRouter } from "./providers/router";
 
 const App = () => {
   const { theme } = useTheme();
-
-  const dispatch = useDispatch();
+  const { initAuthDataFromLocalStore } = useUserAuth();
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
-  }, [dispatch]);
+    initAuthDataFromLocalStore();
+  }, [initAuthDataFromLocalStore]);
 
   return (
     <div className={classNames("app", {}, [theme])}>

@@ -1,4 +1,5 @@
-import React, { ErrorInfo, ReactNode, Suspense } from "react";
+import React, { ErrorInfo, ReactNode } from "react";
+import { AppComponent } from "shared/ui/BaseComponents/AppComponent/AppComponent";
 import { PageError } from "widgets/PageError";
 
 interface ErrorBoundaryProps {
@@ -27,16 +28,15 @@ export class ErrorBoundary extends React.Component<
     // You can also log the error to an error reporting service
     console.log(error, errorInfo);
   }
-
   render() {
     const { hasError } = this.state;
     const { children } = this.props;
 
     if (hasError) {
       return (
-        <Suspense fallback={""}>
-          <PageError />;
-        </Suspense>
+        <AppComponent>
+          <PageError />
+        </AppComponent>
       );
     }
 

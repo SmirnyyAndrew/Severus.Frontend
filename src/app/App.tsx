@@ -1,14 +1,14 @@
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import "shared/config/i18n/i18n";
-import { classNames } from "shared/lib/classNames/classNames";
-import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
+import { AppComponent } from "shared/ui/BaseComponents/AppComponent/AppComponent";
+import { ContentPageComponent } from "shared/ui/BaseComponents/ContentComponent/ContentComponent";
+import { EmptySuspense } from "shared/ui/BaseComponents/EmptyFallback/EmptyFallback";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { AppRouter } from "./providers/router";
 
 const App = () => {
-  const { theme } = useTheme();
   const { initAuthDataFromLocalStore } = useUserAuth();
 
   useEffect(() => {
@@ -16,15 +16,15 @@ const App = () => {
   }, [initAuthDataFromLocalStore]);
 
   return (
-    <div className={classNames("app", {}, [theme])}>
-      <Suspense fallback={""}>
+    <AppComponent>
+      <EmptySuspense>
         <Navbar />
-        <div className="content-page">
+        <ContentPageComponent>
           <Sidebar />
           <AppRouter />
-        </div>
-      </Suspense>
-    </div>
+        </ContentPageComponent>
+      </EmptySuspense>
+    </AppComponent>
   );
 };
 

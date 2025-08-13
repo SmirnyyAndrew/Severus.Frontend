@@ -17,11 +17,11 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
+      <ThemeProvider>
+        <ErrorBoundary>
           <App />
-        </ThemeProvider>
-      </ErrorBoundary>
+        </ErrorBoundary>
+      </ThemeProvider>
     </StoreProvider>
   </BrowserRouter>
 );

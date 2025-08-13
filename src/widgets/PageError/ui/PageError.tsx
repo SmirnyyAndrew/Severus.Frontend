@@ -18,10 +18,7 @@ export const PageError = memo((props: PageErrorProps) => {
   };
 
   return (
-    <div
-      data-testid={testId}
-      className={classNames(cls.PageError, {}, [className])}
-    >
+    <div data-testid={testId} className={classNames(cls.PageError)}>
       <h1>{t("page_error")}</h1>
       <Button onClick={reloadPage}>{t("update_page")}</Button>
     </div>

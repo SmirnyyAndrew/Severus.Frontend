@@ -4,10 +4,10 @@
 }
 
 .enter {
-  fill: var(--bg-color);
+  fill: var(--star-fill);
   stroke: var(--bg-inverted-color);
 }
 
 .star {
-  stroke: var(--bg-inverted-color);
+  stroke: var(--star-stroke);
 }

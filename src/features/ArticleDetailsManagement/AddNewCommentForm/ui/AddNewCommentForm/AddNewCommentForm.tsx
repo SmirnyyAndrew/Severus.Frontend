@@ -2,12 +2,12 @@ import { useAddNewCommentForm } from "features/ArticleDetailsManagement/AddNewCo
 import { AddNewCommentFormReducer } from "features/ArticleDetailsManagement/AddNewCommentForm/model/slice/AddNewCommentFormSlice";
 import { useArticleDetailsComments } from "pages/ArticleManagement/ArticleDetailsPage";
 import { memo, useCallback } from "react";
-import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { Print } from "shared/lib/console/Print";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/Input";
@@ -22,7 +22,7 @@ export interface AddNewCommentFormProps {
 
 const AddNewCommentForm = (props: AddNewCommentFormProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { text, error, setText } = useAddNewCommentForm();
 
   const { sendComment } = useArticleDetailsComments();
@@ -31,21 +31,25 @@ const AddNewCommentForm = (props: AddNewCommentFormProps) => {
     addNewCommentForm: AddNewCommentFormReducer,
   };
 
-  const onCommentTextChange = useCallback((value: string) => {
-    setText(value);
-  }, []);
+  const onCommentTextChange = useCallback(
+    (value: string) => {
+      Print(value);
+      setText(value);
+    },
+    [setText]
+  );
 
   const onSendCommentHandler = useCallback(() => {
     if (text) {
       sendComment(text);
       setText("");
     }
-  }, [text]);
+  }, [sendComment, setText, text]);
 
   if (error) return <Text textTheme={TextThemes.ERROR} text={error} />;
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <Row
         data-testid="AddNewCommentForm"
         justifyContents="space_between"

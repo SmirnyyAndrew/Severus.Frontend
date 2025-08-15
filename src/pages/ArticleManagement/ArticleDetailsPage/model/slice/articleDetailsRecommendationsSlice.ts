@@ -30,7 +30,7 @@ export const articleDetailsRecommendationsSlice = buildSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getArticleRecommendationsThunk.pending, (state, action) => {
+      .addCase(getArticleRecommendationsThunk.pending, (state, _) => {
         state.isLoading = true;
         state.error = undefined;
       })

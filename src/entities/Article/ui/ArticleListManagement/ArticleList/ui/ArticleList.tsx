@@ -37,6 +37,7 @@ export const ArticleList = (props: ArticleListProps) => {
           articles={articles}
           target={target}
           isLoading={isLoading}
+          className={className}
         />
       );
     }
@@ -46,6 +47,7 @@ export const ArticleList = (props: ArticleListProps) => {
           articles={articles}
           target={target}
           isLoading={isLoading}
+          className={className}
         />
       );
     }

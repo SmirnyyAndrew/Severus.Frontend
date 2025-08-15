@@ -46,19 +46,25 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     setIsShowPassword((prev) => !prev);
   };
 
-  const onChangeUsername = useCallback((username: string) => {
-    setUsername(username);
-  }, []);
+  const onChangeUsername = useCallback(
+    (username: string) => {
+      setUsername(username);
+    },
+    [setUsername]
+  );
 
-  const onChangePassword = useCallback((password: string) => {
-    setPassword(password);
-  }, []);
+  const onChangePassword = useCallback(
+    (password: string) => {
+      setPassword(password);
+    },
+    [setPassword]
+  );
 
   const onLoginClick = useCallback(async () => {
     const result = await loginByUsername();
 
     if (result.meta.requestStatus === "fulfilled") onSuccess();
-  }, [password, username]);
+  }, [loginByUsername, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>

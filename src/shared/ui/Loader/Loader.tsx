@@ -6,7 +6,7 @@ interface LoaderProps extends TestProps {
 }
 
 export const Loader = (props: LoaderProps) => {
-  const { className, "data-testid": testId = "Loader" } = props;
+  const { "data-testid": testId = "Loader" } = props;
   return (
     <div data-testid={testId} className={cls["lds-ring"]}>
       <div />

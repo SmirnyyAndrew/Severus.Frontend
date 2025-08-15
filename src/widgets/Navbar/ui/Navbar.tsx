@@ -3,7 +3,6 @@ import { userReducer } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthManagement/AuthByUsername";
 import { memo, useCallback, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Routes } from "shared/const/router";
 import {
@@ -20,18 +19,17 @@ interface NavbarProps extends TestProps {
 }
 
 export const Navbar = memo((props: NavbarProps) => {
-  const { className, "data-testid": testId = "Navbar" } = props;
+  const { "data-testid": testId = "Navbar" } = props;
   const { authData, logout } = useUserAuth();
   const { setProfileDataUndefined } = useProfile();
 
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const [isShownAuthModal, setIsShownAuthModal] = useState(false);
 
   const onCloseModal = useCallback(() => {
     setIsShownAuthModal(false);
     navigate(Routes.MainPages.Main());
-  }, []);
+  }, [navigate]);
 
   const onShowModal = useCallback(() => {
     setIsShownAuthModal(true);

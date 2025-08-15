@@ -11,9 +11,12 @@ export const useAddNewCommentForm = () => {
   const error = useGetAddNewCommentFormError();
   const { setText: setTextDispatch } = useAddNewCommentFormActions();
 
-  const setText = useCallback((text: string) => {
-    setTextDispatch(text);
-  }, []);
+  const setText = useCallback(
+    (text: string) => {
+      setTextDispatch(text);
+    },
+    [setTextDispatch]
+  );
 
   return { text, error, setText };
 };

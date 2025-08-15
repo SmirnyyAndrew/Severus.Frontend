@@ -36,7 +36,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
   );
 
   return (
-    <div>
+    <div className={className}>
       <BrowserView>
         <Popover direction={dropDownDirection} trigger={trigger}>
           <NotificationList />

@@ -27,7 +27,6 @@ export const RatingCard = (props: RatingCardProps) => {
   const {
     className,
     title,
-    feedbackTitle,
     forbiddenChange = false,
     hasFeedBack,
     starRate,
@@ -54,7 +53,7 @@ export const RatingCard = (props: RatingCardProps) => {
       }
       setIsModalOpen(true);
     },
-    [feedBack, onAccept]
+    [hasFeedBack]
   );
 
   const acceptHandler = useCallback(() => {
@@ -66,7 +65,7 @@ export const RatingCard = (props: RatingCardProps) => {
     setIsModalOpen(false);
     onCancel?.();
     setStarsCount(undefined);
-  }, [onCancel, starsCount]);
+  }, [onCancel]);
 
   const modalContent = (
     <Column maxWidth gap="16">

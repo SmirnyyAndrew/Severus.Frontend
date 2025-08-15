@@ -7,6 +7,7 @@ import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     const element = <>{route.element}</>;
 
     return (

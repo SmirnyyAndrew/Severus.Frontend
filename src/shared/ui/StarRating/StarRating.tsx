@@ -69,7 +69,7 @@ export const StarRating = (props: StarRatingProps) => {
     };
   };
 
-  const PrintStars = () => (
+  const PrintStars = (
     <Row onMouseLeave={onStarsLeave} justifyContents="center">
       {Array.from({ length: starsCount ?? 5 }).map((_, i) => (
         <Icon
@@ -87,7 +87,7 @@ export const StarRating = (props: StarRatingProps) => {
 
   return (
     <div data-testid={testId} className={className}>
-      {PrintStars()}
+      {PrintStars}
     </div>
   );
 };

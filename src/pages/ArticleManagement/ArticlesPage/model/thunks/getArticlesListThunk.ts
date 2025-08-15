@@ -23,7 +23,6 @@ export const getArticlesListThunk = createAsyncThunk<
 >("articlePage/getArticlesList", async (props, thunkApi) => {
   if (__IS_STORYBOOK__) return [ArticleExample, ArticleExample, ArticleExample];
 
-  const { replace } = props;
   const { extra, getState, rejectWithValue } = thunkApi;
 
   const page = getArticlesPagePageSelector(getState());

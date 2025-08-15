@@ -31,7 +31,7 @@ export const Sidebar = (props: SidebarProps) => {
 
   return (
     <aside
-      data-testid="sidebar"
+      data-testid={testId}
       className={classNames(cls.Sidebar, { [cls.hidden]: hidden }, [className])}
     >
       <Button

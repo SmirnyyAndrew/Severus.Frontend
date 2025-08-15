@@ -20,14 +20,14 @@ export const useArticleDetailsComments = () => {
 
   const getCommentsForArticle = useCallback(() => {
     dispatch(getCommentsByArticleIdThunk(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const sendComment = useCallback(
     (text: string) => {
       dispatch(addNewCommentForArticle(text));
       dispatch(getCommentsByArticleIdThunk(id));
     },
-    [dispatch]
+    [dispatch, id]
   );
 
   return {

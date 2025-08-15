@@ -28,7 +28,7 @@ export function useModal(props: UseModalProps) {
         setIsClosing(false);
       }, animationDelay);
     }
-  }, [onClose]);
+  }, [animationDelay, onClose]);
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {

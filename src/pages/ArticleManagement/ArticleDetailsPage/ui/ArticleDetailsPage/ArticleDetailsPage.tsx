@@ -3,7 +3,6 @@ import { CommentList } from "entities/Comment";
 import { AddNewCommentForm } from "features/ArticleDetailsManagement/AddNewCommentForm";
 import { ArticleRatings } from "features/ArticleDetailsManagement/ArticleRating";
 import { ArticleDetailsRecommenations } from "features/ArticleDetailsManagement/GetArtcleRecommenations";
-import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
@@ -24,7 +23,6 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation();
   const { id } = useParams();
 
   if (!id) return <h1>Неверный номер статьи</h1>;

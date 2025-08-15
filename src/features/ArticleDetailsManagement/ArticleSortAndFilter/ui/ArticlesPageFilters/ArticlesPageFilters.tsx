@@ -34,7 +34,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
 
   const getData = useCallback(() => {
     getArticlesWithLimit(true);
-  }, []);
+  }, [getArticlesWithLimit]);
 
   const debouncedFetchData = useDebounce(getData, PAGE_FILTERS_DEBOUNCE);
 
@@ -44,7 +44,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       setPage(1);
       getData();
     },
-    [debouncedFetchData]
+    [getData, setPage, setSort]
   );
 
   const onChangeOrder = useCallback(
@@ -53,7 +53,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       setPage(1);
       getData();
     },
-    [debouncedFetchData]
+    [getData, setOrder, setPage]
   );
 
   const onChangeSearch = useCallback(
@@ -62,7 +62,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       setPage(1);
       debouncedFetchData();
     },
-    [debouncedFetchData]
+    [debouncedFetchData, setPage, setSearch]
   );
 
   const onChangeType = useCallback(
@@ -73,7 +73,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       setPage(1);
       getData();
     },
-    [debouncedFetchData, getData]
+    [getData, setHasMore, setPage, setType]
   );
 
   const tagTabs = useMemo<TabItem<ArticleType>[]>(

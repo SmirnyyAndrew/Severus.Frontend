@@ -28,7 +28,7 @@ export const ArticleRatings = (props: ArticleRatingProps) => {
     userId: userId ?? "",
   });
 
-  const [RateArticleMuttaion, { data }] = PostArticleRating();
+  const [RateArticleMuttaion] = PostArticleRating();
 
   const handleRateArticle = async (starsCount: number, feedback?: string) => {
     const rate = starsCount as StarRate;
@@ -60,7 +60,7 @@ export const ArticleRatings = (props: ArticleRatingProps) => {
     if (rate) {
       setForbiddenChange(true);
     }
-  }, [rating]);
+  }, [rate, rating]);
 
   const hasRate: boolean = Boolean(rate);
   const title = hasRate ? "Ваша оценка" : "Оцените статью";

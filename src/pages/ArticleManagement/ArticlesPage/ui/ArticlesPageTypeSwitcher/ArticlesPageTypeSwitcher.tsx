@@ -23,7 +23,7 @@ export const ArticlesPageTypeSwitcher = (
 
   useEffect(() => {
     initArticlesViewType(view);
-  }, [view]);
+  }, [initArticlesViewType, view]);
 
   const onArticleTypeClick = (viewType: ArticleViewType) => {
     setArticlesViewType(viewType);

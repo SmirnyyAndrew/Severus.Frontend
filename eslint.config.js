@@ -33,17 +33,14 @@ export default [
       ],
 
       // Строгие проверки типов
-      "@typescript-eslint/no-explicit-any": "warn", // Не использовать `any` без необходимости
-      // "@typescript-eslint/strict-boolean-expressions": "error", // Проверка на булевы выражения
-      // "@typescript-eslint/no-floating-promises": "error", // Не игнорировать промисы
-      // "@typescript-eslint/no-misused-promises": "error", // Проверка промисов в условных конструкциях
+      //"@typescript-eslint/no-explicit-any": "warn", // Не использовать `any` без необходимости
 
       // Безопасные операции с объектами
       "@typescript-eslint/no-non-null-assertion": "warn", // Предупреждение при использовании !
 
       // React hooks
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/exhaustive-deps": "error",
 
       // React
       "react/react-in-jsx-scope": "off",
@@ -58,7 +55,6 @@ export default [
       "no-unreachable": "error", // Код после return, throw и т.д.
       "no-unsafe-optional-chaining": "error", // Ошибки при optional chaining
       "no-useless-catch": "warn", // Лишние catch блоки
-      "no-console": ["warn", { allow: ["warn", "error"] }], // Ограничение console.log
 
       "react/jsx-no-duplicate-props": "error", // Запрет дублирования props
       "react/jsx-no-useless-fragment": "warn", // Не использовать пустые фрагменты

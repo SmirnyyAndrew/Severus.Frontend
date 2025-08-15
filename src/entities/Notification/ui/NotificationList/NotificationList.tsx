@@ -4,6 +4,7 @@ import { NOTIFICATION_POOLING_INTERVAL } from "shared/const/poolings";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Column } from "shared/ui/Stack";
+import { Text, TextThemes } from "shared/ui/Text";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 import * as cls from "./NotificationList.module.scss";
 
@@ -21,6 +22,15 @@ export const NotificationList = (props: NotificationListProps) => {
   } = useNotifications(null, {
     pollingInterval: NOTIFICATION_POOLING_INTERVAL,
   });
+
+  if (isError)
+    return (
+      <Text
+        data-testid="NotificationList.Error"
+        textTheme={TextThemes.ERROR}
+        title={error}
+      />
+    );
 
   if (isLoading)
     return (

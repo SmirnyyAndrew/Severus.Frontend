@@ -12,15 +12,15 @@ export const useCounter = () => {
 
   const increment = useCallback(() => {
     incrementDispatch();
-  }, []);
+  }, [incrementDispatch]);
 
   const decrement = useCallback(() => {
     decrementDispatch();
-  }, []);
+  }, [decrementDispatch]);
 
   const addFive = useCallback(() => {
     addDispatch(5);
-  }, []);
+  }, [addDispatch]);
 
   return { value, increment, decrement, addFive };
 };

@@ -34,13 +34,16 @@ export const useProfile = () => {
     [dispatch]
   );
 
-  const setProfileData = useCallback((profile: Profile) => {
-    setProfileDataDispatch(profile);
-  }, []);
+  const setProfileData = useCallback(
+    (profile: Profile) => {
+      setProfileDataDispatch(profile);
+    },
+    [setProfileDataDispatch]
+  );
 
   const setProfileDataUndefined = useCallback(() => {
     setProfileDataUndefinedDispatch();
-  }, []);
+  }, [setProfileDataUndefinedDispatch]);
 
   const putProfileDataIntoDB = useCallback(
     (profile: Profile) => {
@@ -50,29 +53,47 @@ export const useProfile = () => {
     },
     [dispatch]
   );
-  const setUsername = useCallback((username: string) => {
-    setUsernameDispatch(username);
-  }, []);
+  const setUsername = useCallback(
+    (username: string) => {
+      setUsernameDispatch(username);
+    },
+    [setUsernameDispatch]
+  );
 
-  const setName = useCallback((name: string) => {
-    setNameDispatch(name);
-  }, []);
+  const setName = useCallback(
+    (name: string) => {
+      setNameDispatch(name);
+    },
+    [setNameDispatch]
+  );
 
-  const setLocation = useCallback((location: string) => {
-    setLocationDispatch(location);
-  }, []);
+  const setLocation = useCallback(
+    (location: string) => {
+      setLocationDispatch(location);
+    },
+    [setLocationDispatch]
+  );
 
-  const setAge = useCallback((age: string) => {
-    setAgeDispatch(age);
-  }, []);
+  const setAge = useCallback(
+    (age: string) => {
+      setAgeDispatch(age);
+    },
+    [setAgeDispatch]
+  );
 
-  const setGender = useCallback((gender: string) => {
-    setGenderDispatch(gender);
-  }, []);
+  const setGender = useCallback(
+    (gender: string) => {
+      setGenderDispatch(gender);
+    },
+    [setGenderDispatch]
+  );
 
-  const setAvatar = useCallback((avatar: string) => {
-    setAvatarDispatch(avatar);
-  }, []);
+  const setAvatar = useCallback(
+    (avatar: string) => {
+      setAvatarDispatch(avatar);
+    },
+    [setAvatarDispatch]
+  );
 
   return {
     profileData,

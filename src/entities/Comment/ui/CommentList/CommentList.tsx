@@ -1,6 +1,5 @@
 import { useArticleDetailsComments } from "pages/ArticleManagement/ArticleDetailsPage";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Column } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
@@ -11,13 +10,12 @@ interface CommentListProps {
 
 export const CommentList = (props: CommentListProps) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
 
   const { comments, getCommentsForArticle } = useArticleDetailsComments();
 
   useEffect(() => {
     getCommentsForArticle();
-  }, []);
+  }, [getCommentsForArticle]);
 
   return (
     <Column

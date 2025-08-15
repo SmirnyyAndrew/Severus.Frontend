@@ -39,7 +39,7 @@ export const LazyImage = memo((props: LazyImageProps) => {
       setIsLoading(false);
       setHasError(true);
     };
-  }, []);
+  }, [src]);
 
   if (isLoading && fallback) {
     return fallback;

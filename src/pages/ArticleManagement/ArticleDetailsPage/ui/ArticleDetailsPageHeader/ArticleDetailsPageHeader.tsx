@@ -23,7 +23,7 @@ export const ArticleDetailsPageHeader = (
 
   useEffect(() => {
     if (id) getArticleById(id);
-  }, []);
+  }, [getArticleById, id]);
 
   const navigate = useNavigate();
   const onBackButtonClick = () => {

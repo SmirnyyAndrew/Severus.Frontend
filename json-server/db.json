@@ -50,7 +50,7 @@
       "jsonSettings": {
         "theme": "app_cute_theme",
         "language": "ru",
-        "articleViewType": "LIST"
+        "articleViewType": "GRID"
       }
     },
     {
@@ -114,7 +114,7 @@
       "username": "admin",
       "name": "Andrew",
       "location": "Russia",
-      "age": "43",
+      "age": "22",
       "gender": "male",
       "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?semt=ais_hybrid&w=740"
     },
@@ -634,6 +634,20 @@
       "rate": 5,
       "feedback": "asadsasd",
       "id": 12
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "rate": 4,
+      "feedback": "",
+      "id": 13
+    },
+    {
+      "userId": "1",
+      "articleId": "19",
+      "rate": 2,
+      "feedback": "dfbvdbdcvbd",
+      "id": 14
     }
   ],
   "comments": [
@@ -702,6 +716,12 @@
       "userId": "4",
       "text": "http://localhost:3000/articles/1",
       "id": 11
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "asdasdasdasdasd",
+      "id": 12
     }
   ]
 }

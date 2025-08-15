@@ -16,7 +16,6 @@ interface PopoverProps extends TestProps {
 
 export const Popover = (props: PopoverProps) => {
   const {
-    className,
     trigger,
     children,
     direction = "bottom right",

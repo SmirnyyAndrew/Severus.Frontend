@@ -26,7 +26,7 @@ export const loginSlice = buildSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(loginByUsernameThunk.fulfilled, (state, action) => {
+      .addCase(loginByUsernameThunk.fulfilled, (state, _) => {
         state.isLoading = false;
         state.error = undefined;
       })

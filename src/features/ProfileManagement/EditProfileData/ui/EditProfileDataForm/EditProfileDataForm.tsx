@@ -51,29 +51,47 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
     setAvatar,
   } = useProfile();
 
-  const onChangeUsername = useCallback((username: string) => {
-    setUsername(username);
-  }, []);
+  const onChangeUsername = useCallback(
+    (username: string) => {
+      setUsername(username);
+    },
+    [setUsername]
+  );
 
-  const onChangeName = useCallback((name: string) => {
-    setName(name);
-  }, []);
+  const onChangeName = useCallback(
+    (name: string) => {
+      setName(name);
+    },
+    [setName]
+  );
 
-  const onChangeLocation = useCallback((location: string) => {
-    setLocation(location);
-  }, []);
+  const onChangeLocation = useCallback(
+    (location: string) => {
+      setLocation(location);
+    },
+    [setLocation]
+  );
 
-  const onChangeAge = useCallback((age: string) => {
-    setAge(age);
-  }, []);
+  const onChangeAge = useCallback(
+    (age: string) => {
+      setAge(age);
+    },
+    [setAge]
+  );
 
-  const onChangeGender = useCallback((gender: string) => {
-    setGender(gender);
-  }, []);
+  const onChangeGender = useCallback(
+    (gender: string) => {
+      setGender(gender);
+    },
+    [setGender]
+  );
 
-  const onChangeAvatar = useCallback((avatar: string) => {
-    setAvatar(avatar);
-  }, []);
+  const onChangeAvatar = useCallback(
+    (avatar: string) => {
+      setAvatar(avatar);
+    },
+    [setAvatar]
+  );
 
   const onEditClick = useCallback(async () => {
     if (__IS_STORYBOOK__) return;
@@ -91,7 +109,18 @@ const EditProfileDataForm = (props: EditProfileDataFormProps) => {
     await putProfileDataIntoDB(profile);
 
     if (validationErrors?.length === 0) onSuccess();
-  }, [profileData]);
+  }, [
+    onSuccess,
+    profileData?.age,
+    profileData?.avatar,
+    profileData?.gender,
+    profileData?.id,
+    profileData?.location,
+    profileData?.name,
+    profileData?.username,
+    putProfileDataIntoDB,
+    validationErrors?.length,
+  ]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>

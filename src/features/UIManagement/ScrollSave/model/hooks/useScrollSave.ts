@@ -17,7 +17,7 @@ export const useScrollSave = (path: string) => {
     (path: string, position: number) => {
       setPageScrollPositionDispatch({ path, position });
     },
-    []
+    [setPageScrollPositionDispatch]
   );
 
   return { position, setPageScrollPosition };

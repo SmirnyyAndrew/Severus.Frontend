@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Store } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleList } from "entities/Article/ui/ArticleListManagement/ArticleList";

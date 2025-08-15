@@ -2,7 +2,6 @@ import { useArticle } from "entities/Article/model/hooks/useArticle";
 import { ArticleBlock } from "entities/Article/model/types/BlockManagement/ArticleBlock";
 import { ArticleBlockType } from "entities/Article/model/types/BlockManagement/ArticleBlockType";
 import { memo, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import EyeIcon from "shared/assets/icons/theme/eye.svg";
 import { ARTICLE_IMAGE_ERROR } from "shared/const/plugFiles";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -25,12 +24,11 @@ interface ArticleDetailsProps {
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, articleId } = props;
-  const { t } = useTranslation();
   const { articleData, error, isLoading, getArticleById } = useArticle();
 
   useEffect(() => {
     getArticleById(articleId);
-  }, [articleId]);
+  }, [articleId, getArticleById]);
 
   const getArticleBlock = (article: ArticleBlock) => {
     switch (article.type) {

@@ -87,50 +87,81 @@ export const useArticlesPage = () => {
 
       setViewDispatch(userView);
     },
-    [authData]
+    [
+      authData?.jsonSettings?.articleViewType,
+      setOrderDispatch,
+      setSearchDispatch,
+      setSortDispatch,
+      setTypeDispatch,
+      setViewDispatch,
+    ]
   );
 
-  const setArticlesViewType = useCallback(async (viewType: ArticleViewType) => {
-    const newJsonSettings: JsonSettings = {
-      ...authData?.jsonSettings,
-      articleViewType: viewType,
-    };
-    await dispatch(
-      setJsonSettingsThunk({
-        userId: authData?.id,
-        newJsonSettings,
-      })
-    );
-    setViewDispatch(viewType);
-  }, []);
+  const setArticlesViewType = useCallback(
+    async (viewType: ArticleViewType) => {
+      const newJsonSettings: JsonSettings = {
+        ...authData?.jsonSettings,
+        articleViewType: viewType,
+      };
+      await dispatch(
+        setJsonSettingsThunk({
+          userId: authData?.id,
+          newJsonSettings,
+        })
+      );
+      setViewDispatch(viewType);
+    },
+    [authData?.id, authData?.jsonSettings, dispatch, setViewDispatch]
+  );
 
-  const initArticlesViewType = useCallback((viewType: ArticleViewType) => {
-    setViewDispatch(viewType);
-  }, []);
+  const initArticlesViewType = useCallback(
+    (viewType: ArticleViewType) => {
+      setViewDispatch(viewType);
+    },
+    [setViewDispatch]
+  );
 
-  const setHasMore = useCallback((hasMore: boolean) => {
-    setHasMoreDispatch(hasMore);
-  }, []);
+  const setHasMore = useCallback(
+    (hasMore: boolean) => {
+      setHasMoreDispatch(hasMore);
+    },
+    [setHasMoreDispatch]
+  );
 
-  const setPage = useCallback((pageNum: number) => {
-    setPageDispatch(pageNum);
-  }, []);
+  const setPage = useCallback(
+    (pageNum: number) => {
+      setPageDispatch(pageNum);
+    },
+    [setPageDispatch]
+  );
 
-  const setSearch = useCallback((search: string) => {
-    setSearchDispatch(search);
-  }, []);
+  const setSearch = useCallback(
+    (search: string) => {
+      setSearchDispatch(search);
+    },
+    [setSearchDispatch]
+  );
 
-  const setOrder = useCallback((order: SortOrder) => {
-    setOrderDispatch(order);
-  }, []);
+  const setOrder = useCallback(
+    (order: SortOrder) => {
+      setOrderDispatch(order);
+    },
+    [setOrderDispatch]
+  );
 
-  const setSort = useCallback((sort: ArticleSortField) => {
-    setSortDispatch(sort);
-  }, []);
+  const setSort = useCallback(
+    (sort: ArticleSortField) => {
+      setSortDispatch(sort);
+    },
+    [setSortDispatch]
+  );
 
-  const setType = useCallback((type: ArticleType) => {
-    setTypeDispatch(type);
-  }, []);
+  const setType = useCallback(
+    (type: ArticleType) => {
+      setTypeDispatch(type);
+    },
+    [setTypeDispatch]
+  );
 
   return {
     page,

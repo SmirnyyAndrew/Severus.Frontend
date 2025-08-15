@@ -26,7 +26,7 @@ export const LangSwitcher = memo(
 
     useEffect(() => {
       i18n.changeLanguage((jsonSettings?.language as Langs) ?? Langs.ru);
-    }, [jsonSettings]);
+    }, [i18n, jsonSettings]);
 
     const toggleLang = useDebounce(async () => {
       const newLang = jsonSettings?.language === Langs.ru ? Langs.en : Langs.ru;

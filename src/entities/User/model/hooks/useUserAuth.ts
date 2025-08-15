@@ -31,18 +31,18 @@ export const useUserAuth = () => {
     if (userId) {
       dispatch(getUserByIdThunk(userId));
     }
-  }, []);
+  }, [dispatch]);
 
   const setAuthData = useCallback(() => {
     setAuthDataDispatch({
       id: authData?.id,
       username: authData?.username,
     });
-  }, []);
+  }, [authData?.id, authData?.username, setAuthDataDispatch]);
 
   const logout = useCallback(() => {
     logoutDispatch();
-  }, []);
+  }, [logoutDispatch]);
 
   const updateJsonSettings = useCallback(
     async (newJsonSettings: JsonSettings) => {

@@ -28,7 +28,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   useEffect(() => {
     if (!profile) getProfileDataFromDB(authData?.id);
-  }, []);
+  }, [authData?.id, getProfileDataFromDB, profile]);
 
   if (isLoading) {
     return <Loader />;
@@ -44,7 +44,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
       alignItems="center"
       justifyContents="center"
       gap="4"
-      className={classNames(cls.card)}
+      className={classNames(cls.card, {}, [className])}
     >
       <img
         src={profile?.avatar ?? USER_AVATAR_ERROR}

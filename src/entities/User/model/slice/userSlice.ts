@@ -38,7 +38,7 @@ export const userSlice = buildSlice({
         state._inited = true;
         state.authData = action.payload;
       })
-      .addCase(getUserByIdThunk.rejected, (state, action) => {
+      .addCase(getUserByIdThunk.rejected, (state, _) => {
         state._inited = false;
         state.authData = undefined;
       });

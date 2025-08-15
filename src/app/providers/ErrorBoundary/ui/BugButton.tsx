@@ -20,14 +20,13 @@ export const BugButton = ({ className }: BugButtonProps) => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <Button
-        buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
-        size={ButtonSize.M}
-        onClick={toggleButton}
-      >
-        {t("bug_button")}
-      </Button>
-    </div>
+    <Button
+      buttonTheme={ButtonTheme.BACKGROUND_INVERTED}
+      size={ButtonSize.M}
+      onClick={toggleButton}
+      className={className}
+    >
+      {t("bug_button")}
+    </Button>
   );
 };

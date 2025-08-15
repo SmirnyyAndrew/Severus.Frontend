@@ -12,11 +12,7 @@ interface RequireAuthProps {
 export function RequireAuth(props: RequireAuthProps) {
   const { roles, children } = props;
 
-  const {
-    inited = false,
-    authData = undefined,
-    roles: userRoles,
-  } = useUserAuth();
+  const { authData = undefined, roles: userRoles } = useUserAuth();
 
   const hasRequiredRoles: boolean = useMemo(() => {
     if (!roles) return true;

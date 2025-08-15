@@ -10,13 +10,19 @@ export const useLogin = () => {
   const { setPassword: setPasswordDispatch, setUsername: setUsernameDispatch } =
     useLoginActions();
 
-  const setUsername = useCallback((username: string) => {
-    setUsernameDispatch(username);
-  }, []);
+  const setUsername = useCallback(
+    (username: string) => {
+      setUsernameDispatch(username);
+    },
+    [setUsernameDispatch]
+  );
 
-  const setPassword = useCallback((password: string) => {
-    setPasswordDispatch(password);
-  }, []);
+  const setPassword = useCallback(
+    (password: string) => {
+      setPasswordDispatch(password);
+    },
+    [setPasswordDispatch]
+  );
 
   const loginByUsername = useCallback(async () => {
     return await dispatch(loginByUsernameThunk({ username, password }));

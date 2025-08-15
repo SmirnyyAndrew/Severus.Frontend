@@ -2,7 +2,7 @@ import { profileReducer, useProfile } from "entities/Profile";
 import { userReducer } from "entities/User";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { LoginModal } from "features/AuthManagement/AuthByUsername";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Routes } from "shared/const/router";
@@ -22,7 +22,6 @@ interface NavbarProps extends TestProps {
 export const Navbar = memo((props: NavbarProps) => {
   const { className, "data-testid": testId = "Navbar" } = props;
   const { authData, logout } = useUserAuth();
-  const { profileData: profile, getProfileDataFromDB } = useProfile();
   const { setProfileDataUndefined } = useProfile();
 
   const navigate = useNavigate();
@@ -48,10 +47,6 @@ export const Navbar = memo((props: NavbarProps) => {
     user: userReducer,
     profile: profileReducer,
   };
-
-  useEffect(() => {
-    if (!profile) getProfileDataFromDB(authData?.id);
-  }, []);
 
   if (authData) {
     return (

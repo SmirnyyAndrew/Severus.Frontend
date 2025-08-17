@@ -2,17 +2,18 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import { MainLayout } from "./MainLayout";
+import * as cls from "../NavbarDeprecated.module.scss";
+import { AuthNavbar } from "./AuthNavbar";
 
-const meta: Meta<typeof MainLayout> = {
-  title: "layouts/MainLayout",
-  component: MainLayout,
-  args: {},
+const meta: Meta<typeof AuthNavbar> = {
+  title: "widgets/Navbar/NavbarDeprecated/AuthNavbar",
+  component: AuthNavbar,
+  args: { className: cls.navbar },
   argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof MainLayout>;
+type Story = StoryObj<typeof AuthNavbar>;
 
 export const Light: Story = {};
 

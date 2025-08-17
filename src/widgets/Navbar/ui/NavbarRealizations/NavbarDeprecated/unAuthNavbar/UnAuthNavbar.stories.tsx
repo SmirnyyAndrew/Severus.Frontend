@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/Decorators/ThemeDecorator";
-import * as cls from "../Navbar.module.scss";
+import * as cls from "../NavbarDeprecated.module.scss";
 import { UnAuthNavbar } from "./UnAuthNavbar";
 
 const meta: Meta<typeof UnAuthNavbar> = {
-  title: "widgets/Navbar/UnAuthNavbar",
+  title: "widgets/Navbar/NavbarDeprecated/UnAuthNavbar",
   component: UnAuthNavbar,
   args: {
     className: cls.navbar,

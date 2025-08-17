@@ -6,7 +6,7 @@ import { TestProps } from "shared/types/tests/testProps";
 import { Button } from "shared/ui/Button";
 import { ButtonSize, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Column } from "shared/ui/Stack";
-import { SidebarItemList } from "../../Module/SidebarItemList";
+import { DeprecatedSidebarItemList } from "../../Module/DeprecatedSidebarItemList";
 import { SidebarItem } from "../../SidebarItem/SidebarItem";
 import * as cls from "./SidebarDeprecated.module.scss";
 
@@ -23,7 +23,7 @@ export const SidebarDeprecated = (props: SidebarDeprecatedProps) => {
 
   const itemsList = useMemo(
     () =>
-      SidebarItemList.map((item) => (
+      DeprecatedSidebarItemList.map((item) => (
         <SidebarItem item={item} hidden={hidden} key={item.path} />
       )),
     [hidden]

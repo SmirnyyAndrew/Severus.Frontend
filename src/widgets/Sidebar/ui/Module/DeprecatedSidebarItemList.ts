@@ -4,7 +4,7 @@ import MainIcon from "shared/assets/icons/menu/main_page.svg";
 import { Routes } from "shared/const/router";
 import { SidebarItemType } from "./SidebarItemType";
 
-export const SidebarItemList: SidebarItemType[] = [
+export const DeprecatedSidebarItemList: SidebarItemType[] = [
   {
     Icon: MainIcon,
     path: Routes.MainPages.Main(),

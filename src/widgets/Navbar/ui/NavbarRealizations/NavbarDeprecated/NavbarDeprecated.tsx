@@ -11,14 +11,14 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { TestProps } from "shared/types/tests/testProps";
 import { AuthNavbar } from "./authNavbar/AuthNavbar";
-import * as cls from "./Navbar.module.scss";
+import * as cls from "./NavbarDeprecated.module.scss";
 import { UnAuthNavbar } from "./unAuthNavbar/UnAuthNavbar";
 
-interface NavbarProps extends TestProps {
+interface NavbarDeprecatedProps extends TestProps {
   className?: string;
 }
 
-export const Navbar = memo((props: NavbarProps) => {
+export const NavbarDeprecated = memo((props: NavbarDeprecatedProps) => {
   const { "data-testid": testId = "Navbar" } = props;
   const { authData, logout } = useUserAuth();
   const { setProfileDataUndefined } = useProfile();

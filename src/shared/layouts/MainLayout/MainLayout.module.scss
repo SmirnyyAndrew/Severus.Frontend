@@ -1,0 +1,28 @@
+.MainLayout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "sidebar content rightbar";
+  grid-template-columns: 280px 1fr 175px;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  justify-self: center;
+  padding: 32px;
+}
+
+.content {
+  grid-area: content;
+}
+
+.toolbar {
+  grid-area: toolbar;
+}
+
+.rightbar {
+  grid-area: rightbar;
+}

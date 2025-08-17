@@ -2,9 +2,12 @@ import { useProfile } from "entities/Profile";
 import { useUserAuth } from "entities/User/model/hooks/useUserAuth";
 import { useEffect } from "react";
 import "shared/config/i18n/i18n";
-import { AppComponent } from "shared/ui/BaseComponents/AppComponent/AppComponent";
-import { ContentPageComponent } from "shared/ui/BaseComponents/ContentComponent/ContentComponent";
-import { EmptySuspense } from "shared/ui/BaseComponents/EmptyFallback/EmptyFallback";
+import { MainLayout } from "shared/layouts/MainLayout";
+import { ToggleFeatures } from "shared/lib/features";
+import { AppComponent } from "shared/ui/HelperComponents/AppComponent/AppComponent";
+import { AppRedesignedComponent } from "shared/ui/HelperComponents/AppRedesignedComponent/AppRedesignedComponent";
+import { ContentPageComponent } from "shared/ui/HelperComponents/ContentComponent/ContentComponent";
+import { EmptySuspense } from "shared/ui/HelperComponents/EmptyFallback/EmptyFallback";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { AppRouter } from "./providers/router";
@@ -24,7 +27,7 @@ const App = () => {
     initAuthDataFromLocalStore();
   }, [initAuthDataFromLocalStore]);
 
-  return (
+  const appDeprecated = (
     <AppComponent>
       <EmptySuspense>
         <Navbar />
@@ -34,6 +37,27 @@ const App = () => {
         </ContentPageComponent>
       </EmptySuspense>
     </AppComponent>
+  );
+
+  const appRedesigned = (
+    <AppRedesignedComponent>
+      <EmptySuspense>
+        <MainLayout
+          header={<Navbar />}
+          content={<AppRouter />}
+          sidebar={<Sidebar />}
+          toolbar={<div>toolbar</div>}
+        />
+      </EmptySuspense>
+    </AppRedesignedComponent>
+  );
+
+  return (
+    <ToggleFeatures
+      name={"isAppRedesinged"}
+      on={appRedesigned}
+      off={appDeprecated}
+    />
   );
 };
 

@@ -1,18 +1,32 @@
 .app_dark_theme {
   --bg-color: rgb(43, 43, 43);
   --bg-inverted-color: rgb(255, 255, 255);
-
-  --card-color: rgb(90, 89, 97);
-
-  //star
-  --star-stroke: rgb(221, 221, 221);
-  --star-fill: rgb(221, 221, 221);
-
   --primary-color: rgb(221, 221, 221);
   --secondary-color: rgb(76, 76, 76);
   --primary-inverted-color: rgb(0, 0, 0);
   --secondary-inverted-color: rgb(167, 167, 167);
   --main-color: rgb(192, 0, 0);
+
+  //************
+  //Redesigned
+  //************
+  --dark-bg-redesigned: #090f11;
+  --bg-redesigned: #0c1214;
+  --light-bg-redesigned: #151c1f;
+  --text-redesigned: #dbdbdb;
+  --hint-redesigned: #555555;
+  --cancel-redesigned: #d95757;
+  --save-redesigned: #6cd98b;
+  --icon-redesigned: #74a2b2;
+  --accent-redesigned: #5ed3f3;
+  //************
+
+  //card
+  --card-color: rgb(90, 89, 97);
+
+  //star
+  --star-stroke: rgb(221, 221, 221);
+  --star-fill: rgb(221, 221, 221);
 
   //skeleton
   --skeleton-shadow: rgba(255, 255, 255, 0.13);

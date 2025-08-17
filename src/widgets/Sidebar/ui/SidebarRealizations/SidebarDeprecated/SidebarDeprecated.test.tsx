@@ -1,16 +1,16 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { ComponentRender } from "shared/lib/tests/componentRender/ComponentRender";
-import { Sidebar } from "./Sidebar";
 import * as cls from "./Sidebar.module.scss";
+import { SidebarDeprecated } from "./SidebarDeprecated";
 
-describe("Sidebar", () => {
+describe("SidebarDeprecated.test", () => {
   test("Render", () => {
-    ComponentRender(<Sidebar />);
+    ComponentRender(<SidebarDeprecated />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
 
   test("Hidden", () => {
-    ComponentRender(<Sidebar className={cls.link} />);
+    ComponentRender(<SidebarDeprecated className={cls.link} />);
     const toggleButton = screen.getByTestId("sidebar-toggle");
     fireEvent.click(toggleButton);
     expect(screen.getByTestId("sidebar")).not.toHaveClass("hidden");

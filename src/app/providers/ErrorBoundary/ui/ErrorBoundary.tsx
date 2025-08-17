@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ErrorInfo, ReactNode } from "react";
-import { AppComponent } from "shared/ui/BaseComponents/AppComponent/AppComponent";
+import { AppComponent } from "shared/ui/HelperComponents/AppComponent/AppComponent";
 import { PageError } from "widgets/PageError";
 
 interface ErrorBoundaryProps {

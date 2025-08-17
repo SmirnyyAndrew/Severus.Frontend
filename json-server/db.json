@@ -45,10 +45,11 @@
       ],
       "features": {
         "isArticleRatingsEnabled": true,
-        "isArticleRecommendationsEnabled": true
+        "isArticleRecommendationsEnabled": true,
+        "isAppRedesinged": true
       },
       "jsonSettings": {
-        "theme": "app_cute_theme",
+        "theme": "app_light_theme",
         "language": "ru",
         "articleViewType": "GRID"
       }

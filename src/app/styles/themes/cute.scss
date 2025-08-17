@@ -1,19 +1,31 @@
 .app_cute_theme {
   --bg-color: #ffffff;
   --bg-inverted-color: #7166d9;
+  --primary-color: #000000;
+  --secondary-color: #a07eff;
+  --primary-inverted-color: rgb(255, 255, 255);
+  --secondary-inverted-color: #d6bcff;
+  --main-color: rgba(55, 0, 252, 0.651);
 
+  //************
+  //Redesigned
+  //************
+  --dark-bg-redesigned: #090f11;
+  --bg-redesigned: #0c1214;
+  --light-bg-redesigned: #151c1f;
+  --text-redesigned: #dbdbdb;
+  --hint-redesigned: #a07eff;
+  --cancel-redesigned: #d95757;
+  --save-redesigned: #6cd98b;
+  --icon-redesigned: #74a2b2;
+  --accent-redesigned: #5ed3f3;
+
+  //card
   --card-color: #7166d9;
 
   //star
   --star-stroke: rgb(0, 0, 0);
   --star-fill: rgb(0, 0, 0);
-
-  --primary-color: #000000;
-  --secondary-color: #a07eff;
-  --primary-inverted-color: rgb(255, 255, 255);
-  --secondary-inverted-color: #d6bcff;
-
-  --main-color: rgba(55, 0, 252, 0.651);
 
   //skeleton
   --skeleton-shadow: rgba(0, 0, 0, 0.2);

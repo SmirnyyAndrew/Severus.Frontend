@@ -8,7 +8,6 @@ import { AppComponent } from "shared/ui/HelperComponents/AppComponent/AppCompone
 import { AppRedesignedComponent } from "shared/ui/HelperComponents/AppRedesignedComponent/AppRedesignedComponent";
 import { ContentPageComponent } from "shared/ui/HelperComponents/ContentComponent/ContentComponent";
 import { EmptySuspense } from "shared/ui/HelperComponents/EmptyFallback/EmptyFallback";
-import { Loader } from "shared/ui/Loader/Loader";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { AppRouter } from "./providers/router";
@@ -27,8 +26,6 @@ const App = () => {
   useEffect(() => {
     initAuthDataFromLocalStore();
   }, [initAuthDataFromLocalStore]);
-
-  if (!inited) return <Loader />;
 
   const appDeprecated = (
     <AppComponent>
